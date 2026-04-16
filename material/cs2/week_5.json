@@ -1,0 +1,496 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is Cross-Site Scripting (XSS)?",
+      "back": "An attack that bypasses JavaScript's same-origin policy by spoofing the origin of content, causing malicious scripts to be embedded in a trusted website's origin and executed by the victim's browser."
+    },
+    {
+      "type": "flashcard",
+      "front": "Same-Origin Policy",
+      "back": "A browser security mechanism that restricts how scripts from one origin can interact with resources from another origin. XSS attacks bypass this policy by making malicious content appear to originate from a trusted site."
+    },
+    {
+      "type": "flashcard",
+      "front": "Stored XSS Attack",
+      "back": "An XSS attack where the injected malicious code is permanently stored on the target server (e.g., in a database, message forum, comment field) and later served to victims when they access the affected page."
+    },
+    {
+      "type": "flashcard",
+      "front": "Reflected XSS Attack",
+      "back": "An XSS attack where injected code is reflected off the web server (e.g., in an error message or search result). The attacker tricks the victim into clicking a malicious link that sends the script to the server, which echoes it back to the victim's browser."
+    },
+    {
+      "type": "flashcard",
+      "front": "Universal XSS (UXSS)",
+      "back": "An XSS variant that exploits weaknesses in the browser itself or browser add-ons rather than the target website. It works against any site, requiring no vulnerability in the website."
+    },
+    {
+      "type": "flashcard",
+      "front": "HttpOnly Cookie Flag",
+      "back": "A flag set via the Set-Cookie HTTP header that prevents JavaScript from accessing a cookie, even if the script appears to originate from the same domain. Mitigates some but not all XSS attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secure Cookie Flag",
+      "back": "A flag set on a cookie that causes it to be transmitted only over HTTPS connections, reducing the risk of interception."
+    },
+    {
+      "type": "flashcard",
+      "front": "Content Security Policy (CSP)",
+      "back": "An HTTP response header that instructs the browser to apply restrictions on JavaScript and CSS. By default, it disables inline JS/CSS, dynamic JS evaluation, and dynamic CSS. It allows the site to whitelist specific origins from which scripts may be loaded."
+    },
+    {
+      "type": "flashcard",
+      "front": "Command Injection",
+      "back": "A vulnerability where unsanitised user input is passed to a system shell command (e.g., system()), allowing an attacker to execute arbitrary OS commands on the server."
+    },
+    {
+      "type": "flashcard",
+      "front": "SQL Injection",
+      "back": "An attack where malicious user input is interpreted as SQL commands, allowing an attacker to manipulate database queries to bypass authentication, exfiltrate data, modify or delete records."
+    },
+    {
+      "type": "flashcard",
+      "front": "Parameterized / Prepared SQL Statements",
+      "back": "A method of constructing SQL queries where placeholders are used for user-supplied data, and the database library handles encoding of parameters separately from the query structure, preventing SQL injection."
+    },
+    {
+      "type": "flashcard",
+      "front": "SQL -- (double dash) in injection",
+      "back": "In SQL, -- marks the start of a comment, causing the rest of the query line to be ignored. Attackers use it to neutralise trailing SQL logic (e.g., password checks) when injecting malicious input."
+    },
+    {
+      "type": "flashcard",
+      "front": "OWASP XSS Defence-in-Depth",
+      "back": "OWASP recommends: (1) Validate all inputs rigorously, (2) Do not attempt to filter active content (too many encodings), (3) Adopt a positive security policy specifying what is allowed, (4) Design security mechanisms to be easy for developers to follow."
+    },
+    {
+      "type": "flashcard",
+      "front": "Input Normalisation (XSS prevention)",
+      "back": "The first step of XSS input validation — converting input to a canonical form before checking it, to prevent attackers from using alternative encodings (e.g., long non-standard UTF-8 sequences) to bypass filters."
+    },
+    {
+      "type": "flashcard",
+      "front": "HTML Entity Encoding (XSS prevention)",
+      "back": "Replacing special HTML characters with their entity equivalents to prevent the browser from interpreting them as code. Examples: < becomes &lt;, > becomes &gt;, \" becomes &quot;"
+    },
+    {
+      "type": "flashcard",
+      "front": "document.cookie (XSS exploit technique)",
+      "back": "A JavaScript identifier that exposes the cookies associated with the current page. XSS attackers commonly use it to steal session cookies and hijack user sessions."
+    },
+    {
+      "type": "flashcard",
+      "front": "CSRF (Cross-Site Request Forgery)",
+      "back": "A web attack where a forged request leverages a victim's ongoing authenticated session, causing the victim's browser to send unintended requests to a trusted site on behalf of the attacker."
+    },
+    {
+      "type": "flashcard",
+      "front": "ORM Framework (SQL injection defence)",
+      "back": "Object-Relational Mapping frameworks abstract database interactions through code objects rather than raw SQL strings, reducing the risk of SQL injection by handling query construction and parameter encoding safely."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What security policy does an XSS attack primarily aim to bypass?",
+      "options": [
+        "Content Security Policy",
+        "Same-Origin Policy",
+        "HTTPS Strict Transport Security",
+        "Cross-Origin Resource Sharing"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a reflected XSS attack, how does the malicious script reach the victim's browser?",
+      "options": [
+        "It is stored permanently in the server's database",
+        "It is sent directly from the attacker's server to the victim",
+        "It is reflected off the vulnerable web server in a response to a crafted request",
+        "It is injected via a browser extension"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the reflected XSS attack diagram, what is step 4?",
+      "options": [
+        "The victim visits the attack server",
+        "The victim server echoes user input back to the victim client",
+        "The attacker sends valuable data to the attack server",
+        "The victim clicks the malicious link"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following best describes a stored XSS attack?",
+      "options": [
+        "The attacker tricks the victim into clicking a malicious URL",
+        "The malicious script is injected into and permanently stored on the target server, served to future visitors",
+        "The attacker exploits a vulnerability in the browser itself",
+        "The malicious script is reflected via an error message"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What made the 2006 PayPal XSS attack particularly effective?",
+      "options": [
+        "The attacker had physical access to PayPal servers",
+        "Victims were reassured by seeing the legitimate PayPal URL and certificate",
+        "The attack bypassed HTTPS entirely",
+        "PayPal had no Content Security Policy header"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which browser feature did Universal XSS (UXSS) exploit in the Adobe Acrobat add-on?",
+      "options": [
+        "Failure to enforce the same-origin policy on PDF files",
+        "Lack of input validation in the add-on, permitting malicious JavaScript execution",
+        "Insecure cookie handling",
+        "Absence of HTTPS enforcement"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to OWASP, which approach to input filtering should be AVOIDED?",
+      "options": [
+        "Allowing only what is expected (positive policy)",
+        "Attempting to identify and remove all active content types",
+        "Validating all headers and cookies",
+        "Normalising input before validation"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the HttpOnly cookie flag prevent?",
+      "options": [
+        "Cookies being sent over HTTP instead of HTTPS",
+        "Cookies being accessed by JavaScript",
+        "Cookies being stored on the client",
+        "Cookies being sent in cross-origin requests"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which HTTP header is used to implement Content Security Policy?",
+      "options": [
+        "X-Frame-Options",
+        "Strict-Transport-Security",
+        "Content-Security-Policy",
+        "X-Content-Type-Options"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the CSP directive 'default-src self' enforce?",
+      "options": [
+        "Only HTTPS connections are permitted",
+        "All content must be loaded from the same origin as the web page",
+        "Inline scripts are permitted from the same origin",
+        "External scripts are permitted from any HTTPS source"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the command injection example, what character(s) in a URL parameter allow an attacker to run additional shell commands?",
+      "options": [
+        "A forward slash /",
+        "A semicolon ; or pipe |",
+        "A hash #",
+        "A percent sign %"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the recommended primary defence against command injection?",
+      "options": [
+        "Encode all special characters in user input",
+        "Use well-validated library functions that implement the needed functionality instead of shell commands",
+        "Run the web server as root to detect anomalies",
+        "Apply a deny-list of dangerous characters"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What SQL payload would an attacker use to bypass a login that checks username and password with a WHERE clause?",
+      "options": [
+        "admin AND 1=2",
+        "' OR 1=1 --",
+        "SELECT * FROM Users",
+        "'; INSERT INTO Users --"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the SQL injection login bypass, what does the '--' at the end of the injected input do?",
+      "options": [
+        "Terminates the database connection",
+        "Comments out the rest of the SQL query so the password check is ignored",
+        "Escapes special characters in the query",
+        "Drops the current database table"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which real-world breach involved approximately 134 million credit card accounts compromised via SQL injection?",
+      "options": [
+        "CardSystems (2005)",
+        "Yahoo! (2012)",
+        "HeartLand (2008)",
+        "CyberVor (2014)"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which breach resulted in approximately 1.2 billion accounts stolen from 420,000 websites?",
+      "options": [
+        "HeartLand",
+        "CardSystems",
+        "Yahoo!",
+        "CyberVor"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is building SQL queries through string concatenation dangerous?",
+      "options": [
+        "It is slower than using prepared statements",
+        "Malicious user input can alter the intended query structure",
+        "String concatenation is not supported in all SQL dialects",
+        "It prevents the use of SQL indexes"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the role of the database library when using parameterized SQL statements?",
+      "options": [
+        "It rewrites queries to remove dangerous keywords",
+        "It handles appropriate encoding of parameters, keeping data separate from query structure",
+        "It logs all queries for security auditing",
+        "It encrypts the query before sending it to the database"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is listed in the OWASP Top-10 as covered in the slides?",
+      "options": [
+        "Buffer overflow",
+        "CSRF, XSS, and SQL Injection",
+        "Denial of Service and brute force",
+        "Man-in-the-middle and replay attacks"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "XSS attacks always require the use of JavaScript scripting, despite the name.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a stored XSS attack, the victim must click a malicious link crafted by the attacker to trigger the exploit.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A reflected XSS attack requires the attacker to first store malicious content permanently on the target server.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Universal XSS (UXSS) requires a vulnerability in the target website to work.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The HttpOnly cookie flag completely prevents all forms of XSS attacks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Secure cookie flag causes a cookie to be sent only over HTTPS connections.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Content Security Policy, when set, disables inline JavaScript by default.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "FIDO U2F authentication would have protected users in the 2006 PayPal XSS phishing attack.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "When defending against command injection, using exec() and related functions (instead of system()) avoids shell processing of user input.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Using a deny-list of dangerous characters is more effective than an allow-list when preventing SQL injection.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "SQL injection data stored in a database can later be used to conduct further SQL injection attacks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Parameterized SQL statements keep the structure of a query separate from the user-supplied data.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "If a web application only validates inputs from the web front-end but not inputs coming from the back-end database, it is still fully protected against second-order SQL injection.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a reflected XSS attack, the victim server stores the malicious script permanently before delivering it to the victim.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The XSS Cheat Sheet documents filter evasion techniques such as using malformed quoting or UTF-8 encoding to bypass XSS filters.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Scripts that can cause XSS are only present inside <script> tags in HTML.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between a stored XSS attack and a reflected XSS attack, including how each is delivered to the victim.",
+      "answer": "In a stored XSS attack, the attacker injects malicious code (e.g., JavaScript) into a persistent storage on the server such as a database or comment field. Any victim who later views the affected page automatically downloads and executes the code — no malicious link is required. In a reflected XSS attack, the malicious script is not stored; instead it is embedded in a crafted URL or form submission. The attacker tricks the victim into clicking the link, which sends the script to the vulnerable server, which then reflects it back in the HTTP response. The victim's browser executes it believing it came from a trusted source."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does the same-origin policy fail to protect against XSS attacks?",
+      "answer": "The same-origin policy prevents scripts from one origin accessing resources of another origin. However, XSS exploits this by injecting malicious code into the trusted site's own origin. Since the browser sees the malicious script as originating from the trusted site, it grants it full access to that origin's cookies, session tokens, and DOM content — defeating the purpose of the same-origin policy."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the five steps of a reflected XSS attack as shown in the lecture diagram.",
+      "answer": "1. The victim visits the attack server's website. 2. The attack server sends the victim a malicious link (e.g., a URL containing an injected script). 3. The victim clicks on the link, which points to the vulnerable victim server. 4. The victim server echoes the user input (including the malicious script) back to the victim's browser. 5. The victim's browser executes the script, which sends valuable data (e.g., cookies) back to the attack server."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is Universal XSS (UXSS) and why is it more dangerous than standard XSS?",
+      "answer": "UXSS exploits vulnerabilities in the browser itself or its add-ons (e.g., Adobe Acrobat, Flash, Chrome for Android) rather than in a specific website. Because it does not depend on any vulnerability in the target website, it can be used to attack any site the victim visits. Standard XSS requires a vulnerable site as an intermediary, whereas UXSS has a much broader attack surface."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the key OWASP recommendations for defending against XSS?",
+      "answer": "OWASP recommends a defence-in-depth approach: (1) Validate all inputs rigorously — headers, cookies, query strings, form fields, and hidden fields. (2) Do not attempt to filter out active content, as there are too many types and encodings to reliably block. (3) Adopt a positive security policy specifying what is allowed rather than a deny-list of bad patterns. (4) Design security mechanisms to be easy for developers to use correctly."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does Content Security Policy (CSP) help mitigate XSS, and what does the directive 'Content-Security-Policy: default-src self' mean?",
+      "answer": "CSP is an HTTP response header that tells the browser to restrict where JavaScript and CSS can be loaded from. By default it disables inline scripts, inline styles, and dynamic code evaluation. 'default-src self' means all content (scripts, styles, images, etc.) must originate from the same origin as the web page itself — external scripts from third-party domains would be blocked, preventing an attacker's injected script from loading external payloads."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how an attacker could exploit the PHP mail script vulnerable to command injection shown in the lectures.",
+      "answer": "The script passes user-supplied 'email' and 'subject' GET parameters directly into a system() call: system(\"mail $email -s $subject < /tmp/joinmynetwork\"). An attacker can inject shell metacharacters in the subject parameter, for example setting subject to 'foo; echo \"evil::0:0:root:/:/bin/sh\">>/etc/passwd' — the semicolon terminates the mail command and appends a root-privileged account to /etc/passwd, giving full server access."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why using exec() instead of system() is a recommended mitigation for command injection.",
+      "answer": "system() invokes a full shell to process the command, which interprets shell metacharacters (like ;, |, &&) and allows command chaining. exec() executes the program directly without invoking a shell, so metacharacters in user input are treated as literal arguments rather than shell syntax. This removes the shell as an intermediary and greatly reduces the attacker's ability to inject additional commands."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Walk through how the SQL injection string ' OR 1=1 -- bypasses a login check.",
+      "answer": "The vulnerable query is: SELECT * FROM Users WHERE user='<input>' AND pwd='<input>'. If the username is set to ' OR 1=1 --, the resulting query becomes: SELECT * FROM Users WHERE user='' OR 1=1 -- AND pwd='...'. The condition 1=1 is always true, so the WHERE clause always evaluates to true for every row. The -- comments out the password check entirely. The query returns all users, causing ok.EOF to be false and login to succeed without a valid password."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is second-order SQL injection and why is consistent input validation important to prevent it?",
+      "answer": "Second-order SQL injection occurs when malicious data is stored in a database (passing initial validation), and later retrieved and used in a SQL query without re-validation or escaping. For example, if a user sets their username to admin' --, and the application later builds an UPDATE query using this stored value, it could modify another user's password. This happens when applications only sanitise input from the web front-end but trust data coming from their own database. All data sources must be treated as untrusted."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are prepared/parameterised SQL statements effective at preventing SQL injection?",
+      "answer": "Prepared statements separate the SQL query structure from user-supplied data. The query is pre-compiled with placeholders (e.g., @User, @Pwd), and user data is passed separately. The database library handles encoding and escaping of the data values, ensuring they are always interpreted as data — never as SQL syntax. This means even if an attacker inputs ' OR 1=1 --, it is treated as a literal string value, not executable SQL."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Name three significant real-world SQL injection breaches mentioned in the lectures, including approximate scale.",
+      "answer": "1. CardSystems (June 2005): approximately 40 million credit card accounts compromised. 2. HeartLand (March 2008): approximately 134 million credit card accounts stolen. 3. CyberVor (circa 2014): approximately 1.2 billion accounts harvested from around 420,000 websites. Yahoo! (July 2012) was also mentioned with 450,000 passwords leaked."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is a positive allow-list approach to input validation more effective than a deny-list (blacklist) approach for preventing injection attacks?",
+      "answer": "A deny-list must anticipate every possible malicious input pattern, encoding trick, or evasion technique — and there are too many variations (e.g., different character encodings, case variations, fragmented tags) to enumerate exhaustively. An allow-list defines precisely what legitimate input looks like (e.g., only alphanumeric characters) and rejects everything else by default. This means novel evasion techniques are automatically blocked because they do not match the allowed pattern, making the defence much more robust."
+    }
+  ]
+}
