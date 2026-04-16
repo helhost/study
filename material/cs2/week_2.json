@@ -1,0 +1,537 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is Access Control?",
+      "back": "A security mechanism that ensures all accesses and actions on system objects are by principals within the security policy — i.e. only authorised events are permitted."
+    },
+    {
+      "type": "flashcard",
+      "front": "Authentication",
+      "back": "The process of verifying identity: 'Who are you?'"
+    },
+    {
+      "type": "flashcard",
+      "front": "Authorisation",
+      "back": "Determining what a principal is allowed to access: 'What are you allowed to access?'"
+    },
+    {
+      "type": "flashcard",
+      "front": "Audit (in access control)",
+      "back": "Keeping records of who accessed what and when. Helps detect attacks and is often legally required."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mandatory Access Control (MAC)",
+      "back": "Permissions are assigned centrally according to a security policy. Used within organisations with a strong need for central control."
+    },
+    {
+      "type": "flashcard",
+      "front": "Discretionary Access Control (DAC)",
+      "back": "All objects have owners, and owners assign permissions to objects under their control."
+    },
+    {
+      "type": "flashcard",
+      "front": "Access Control Matrix",
+      "back": "A representation of all permitted triplets of (subject, action, access right) over sets O (objects), S (subjects), and R (access rights)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Reference Monitor",
+      "back": "The part of the system that enforces access control decisions. Must be: (1) completely mediating, (2) tamper-proof, and (3) small enough to verify."
+    },
+    {
+      "type": "flashcard",
+      "front": "Three properties of a Reference Monitor",
+      "back": "1. Complete mediation — must always be called. 2. Tamper-proof — adversary cannot influence it. 3. Small — so its correctness can be verified."
+    },
+    {
+      "type": "flashcard",
+      "front": "Graham-Denning Model",
+      "back": "An access control model where each object has an owner and each subject has a controller. Rights may be transferable (marked with *). Defines 8 rules covering creation, destruction, grant, transfer, deletion, and checking of rights."
+    },
+    {
+      "type": "flashcard",
+      "front": "Graham-Denning: Delegation",
+      "back": "r* means a subject has the right to transfer the right r (or r*) to another subject. Used in rule (6): transfer."
+    },
+    {
+      "type": "flashcard",
+      "front": "Graham-Denning: Revocation",
+      "back": "Rule (7): Subject x can delete a right r on object o from subject s if x controls s or owns o."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bell LaPadula Model — objective",
+      "back": "To show that a computer system can securely handle classified information. Ensures confidentiality."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bell LaPadula informal rules",
+      "back": "Read Down: a subject can only read objects at or below its clearance level. Write Up: a subject can only write to objects at or above its clearance level."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bell LaPadula: Dominance relationship",
+      "back": "Security level (c1, l1) dominates (c2, l2) if and only if c1 ≥ c2 AND l2 ⊆ l1 (classification is at least as high AND categories of the lower level are a subset of those of the higher)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security level in Bell LaPadula",
+      "back": "A pair (classification, set of categories). Classification is a partial order (e.g. U < C < S < TS). Categories are compartments (e.g. SIGINT, CRYPTO, NOFORN)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clearance (Bell LaPadula)",
+      "back": "The maximum security level assigned to a subject. A subject can operate at a lower level than their clearance."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biba Model — objective",
+      "back": "To show that a computer system can securely manage the integrity of information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biba Model informal rules",
+      "back": "No Read Down: a subject cannot read objects below its integrity level. No Write Up: a subject cannot write to objects above its integrity level. A process from below cannot request higher access."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bell LaPadula vs. Biba",
+      "back": "Bell LaPadula ensures confidentiality (Read Down / Write Up). Biba ensures integrity (No Read Down / No Write Up). They have complementary but conflicting rules."
+    },
+    {
+      "type": "flashcard",
+      "front": "Sanitisation",
+      "back": "The process of taking objects with low integrity and 'lifting' them to high integrity. The fundamental principle is to positively verify low objects are within a valid set before elevating their integrity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biba Ring Policy",
+      "back": "A variant of Biba where: (A) integrity labels are fixed, (B) no write up (classic Biba), (C) a subject may read an object at any level, (D) a principal can invoke a program with a higher integrity label (ring invocation property)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biba Invocation Property",
+      "back": "Only allow subjects to invoke subjects with a label they dominate (subject invokes lower/equal integrity subjects). Protects high integrity data from misuse."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biba Controlled (Ring) Invocation",
+      "back": "Only allow subjects to invoke subjects that dominate them (subjects invoke higher integrity subjects). Prevents calling a low integrity program on high integrity data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Capability List",
+      "back": "Storing the access control matrix by row (per subject/user). Good for auditing user permissions. Bad for revocation, transferability, and authenticity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Access Control List (ACL)",
+      "back": "Storing the access control matrix by column (per object/resource). Good for revocation by resource. Difficult to audit rights of individual users."
+    },
+    {
+      "type": "flashcard",
+      "front": "Confused Deputy Problem",
+      "back": "A security vulnerability where a privileged program (the 'deputy') is tricked by a less privileged caller into misusing its authority. Common in systems with ambient authority. Solutions: reimplement access control in the deputy's process, or allow the deputy to check authorisation on behalf of the caller."
+    },
+    {
+      "type": "flashcard",
+      "front": "Break-Glass Access Control",
+      "back": "An emergency access mechanism that overrides normal access controls when time is critical (e.g. emergency medical access). Named by analogy to a fire alarm."
+    },
+    {
+      "type": "flashcard",
+      "front": "Role-Based Access Control (RBAC)",
+      "back": "An access control approach where rights are granted based on roles. Can implement both MAC and DAC. Roles abstract the relationship between subjects and permissions."
+    },
+    {
+      "type": "flashcard",
+      "front": "Three problems with RBAC",
+      "back": "1. Role Explosion: temptation to create too many fine-grained roles. 2. Limited Expressiveness: some roles are relative (e.g. 'Marie's doctor'). 3. Separation of Duty: hard to enforce distinctness (e.g. any two distinct doctors authorise a procedure)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Separation of Duties",
+      "back": "An integrity principle requiring multiple principals to perform an action. Examples: two officers required to launch a missile; both sides of a transaction must match."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rotation of Duties",
+      "back": "An integrity principle that limits a principal to a particular role for only a limited time. Example: guards rotating over a bank safe."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secure Logging",
+      "back": "An integrity principle requiring tamper-evident logs to support recovery and consistency. Examples: ATM transaction logs, Bitcoin."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Model — core idea",
+      "back": "Transaction security model combining ACID transactions with an integrity security property. Integrity is defined as a set of constraints; well-formed transactions move data from one valid state to another."
+    },
+    {
+      "type": "flashcard",
+      "front": "CDI (Constrained Data Item)",
+      "back": "Objects in the Clark-Wilson model that are subject to integrity controls and system constraints."
+    },
+    {
+      "type": "flashcard",
+      "front": "UDI (Unconstrained Data Item)",
+      "back": "Objects in the Clark-Wilson model that are NOT subject to integrity controls (e.g. untrusted input from the network or a user)."
+    },
+    {
+      "type": "flashcard",
+      "front": "IVP (Integrity Verification Procedure)",
+      "back": "A Clark-Wilson procedure used to check that CDIs satisfy their integrity constraints."
+    },
+    {
+      "type": "flashcard",
+      "front": "TP (Transaction Procedure)",
+      "back": "A Clark-Wilson procedure that takes a CDI from one valid state to another valid state, or converts a UDI into a CDI."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Certification Rule CR1",
+      "back": "When any IVP is run, it must ensure all CDIs are in a valid state."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Certification Rule CR2",
+      "back": "For some CDIs, a TP must transform those CDIs from a valid state to a valid state. The relation between CDIs and TPs is typed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Enforcement Rule ER1",
+      "back": "The system must maintain certified relations and ensure that only TPs certified to run on a CDI can manipulate that CDI (like type safety)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Enforcement Rule ER2",
+      "back": "The system must associate a user with each TP and a set of CDIs. The TP may access those CDIs only on behalf of the associated user — access control is on the basis of (user, CDI, TP)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Certification Rule CR3",
+      "back": "Allowed (user, TP, CDI) relations must meet separation of duty requirements. Example: different users must log incoming orders and outgoing books in a shop."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Enforcement Rule ER3",
+      "back": "The system must authenticate each user attempting to execute a TP."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Certification Rule CR4",
+      "back": "All TPs must append enough information to reconstruct the operation to an append-only CDI (the log). Enables reconstruction of all intermediate states."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Certification Rule CR5",
+      "back": "Any TP that takes a UDI as input may perform only valid transformations for all possible UDI values — it must either reject the UDI or transform it into a CDI. This is the sanitisation rule."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clark-Wilson Enforcement Rule ER4",
+      "back": "Only the certifier of a TP may change the list of entities associated with that TP. No certifier of a TP, or any entity associated with it, may have execute permission on that TP."
+    },
+    {
+      "type": "flashcard",
+      "front": "ACID (transaction properties)",
+      "back": "Atomicity: all-or-nothing execution. Consistency: valid state to valid state. Isolation: as if executed serially. Durability: once committed, persists. Defined by Jim Gray (1970)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biba vs. Clark-Wilson",
+      "back": "Biba provides multilevel security using labels — coarse-grained, provided at OS level. Clark-Wilson provides transaction security — application-level, requires high-level semantics."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT one of the three properties required of a Reference Monitor?",
+      "options": ["Complete mediation", "Tamper-proof", "Small enough to verify", "Highly available"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Bell LaPadula model, which operations are permitted?",
+      "options": ["Read Up, Write Down", "Read Down, Write Up", "Read Up, Write Up", "Read Down, Write Down"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Biba model, which operations are permitted to protect integrity?",
+      "options": ["Read Up, Write Down", "Read Down, Write Up", "No Read Down, No Write Up", "No Read Up, No Write Down"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does Bell LaPadula primarily ensure?",
+      "options": ["Integrity", "Availability", "Confidentiality", "Accountability"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the Biba model primarily ensure?",
+      "options": ["Confidentiality", "Integrity", "Availability", "Non-repudiation"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Bell LaPadula dominance relation, (c1, l1) dominates (c2, l2) when:",
+      "options": ["c1 ≥ c2 and l1 ⊆ l2", "c1 ≤ c2 and l2 ⊆ l1", "c1 ≥ c2 and l2 ⊆ l1", "c1 = c2 and l1 = l2"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Graham-Denning model, which rule allows subject x to grant a right to subject s?",
+      "options": ["Rule 5 — if x owns the object", "Rule 6 — if x has a transferable right", "Rule 7 — if x controls s", "Rule 8 — if x checks what rights s has"],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which storage approach for the access control matrix makes it easy to revoke rights per resource?",
+      "options": ["Capability List (by row)", "Access Control List (by column)", "Roles", "Labels"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which storage approach for the access control matrix makes it easy to audit all permissions of a single user?",
+      "options": ["Access Control List (by column)", "Labels", "Capability List (by row)", "Groups"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the Clark-Wilson CR5 rule concerned with?",
+      "options": ["Logging all TP operations", "Authentication of users", "Sanitisation of UDIs into CDIs", "Separation of duty for certifiers"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Clark-Wilson, what is the role of an IVP?",
+      "options": ["Transform CDIs from one valid state to another", "Check that CDIs satisfy their integrity constraints", "Convert UDIs to CDIs", "Log all transaction procedures"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to Clark-Wilson ER4, who may change the list of entities associated with a TP?",
+      "options": ["Any administrator", "Only the user associated with the TP", "Only the certifier of the TP", "Any user who can execute the TP"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is a problem specific to Role-Based Access Control?",
+      "options": ["No concept of ownership", "Role explosion due to fine-grained roles", "Cannot be used to implement MAC", "Does not support authentication"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In ACID, what does 'Atomicity' mean?",
+      "options": ["Transactions execute in isolation", "All-or-nothing execution: commit or abort", "Data moves between valid states", "Committed data persists"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which model is described as: 'Intuition = Transactions + Integrity security property'?",
+      "options": ["Bell LaPadula", "Biba", "Graham-Denning", "Clark-Wilson"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Biba Ring Policy, what is the 'ring invocation property'?",
+      "options": ["A subject may read from any level", "A principal can invoke a program with a higher integrity label that may write at higher levels", "Integrity labels are fixed for all subjects", "No write up is permitted"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the fundamental principle of sanitisation according to the lecture?",
+      "options": ["Remove all special characters from input", "Check that input does not contain prohibited strings like <script>", "Positively verify that low-integrity objects are within a valid set before elevating their integrity", "Reject all input from low-integrity subjects"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Given labels U < C < S < TS and categories SIGINT, CRYPTO, NOFORN: does (S, {SIGINT, CRYPTO}) dominate (C, {CRYPTO})?",
+      "options": ["Yes, because S ≥ C and {CRYPTO} ⊆ {SIGINT, CRYPTO}", "No, because SIGINT is not in the lower level", "No, because S ≠ C", "Yes, but only if NOFORN is excluded"],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Bell LaPadula model, a subject is allowed to write to an object at a lower classification level.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Biba model, a subject may read an object at a lower integrity level.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Biba Ring Policy, a subject may read an object at any integrity level.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Access Control Lists store the access control matrix by row (per subject).",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Graham-Denning model, a subject can transfer a right r* on an object only if it has the owner right on that object.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Reference Monitor must be as large as possible to handle complex security decisions.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Role-Based Access Control can implement both MAC and DAC.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Clark-Wilson, a certifier of a TP may also hold execute permission on that TP.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Clark-Wilson model provides coarse-grained protection at the OS level, similar to Biba.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Graham-Denning model, rule (8) — checking rights — does not change the state of the access control matrix.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Sanitisation problems are the root cause of large classes of real-world vulnerabilities.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Clark-Wilson, an append-only CDI is used as the audit log for TPs.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A subject in Bell LaPadula can always operate at their maximum clearance level.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Confused Deputy Problem only affects systems where the deputy has fewer privileges than the caller.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Graham-Denning model, r* indicates a transferable right.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Security levels in the Bell LaPadula model form a total order.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the Confused Deputy Problem and describe two possible solutions.",
+      "answer": "The Confused Deputy Problem occurs when a privileged program (the deputy) is tricked by a less-privileged caller into misusing its authority. For example, a server (Bob) with broad file access can be asked by a user (Alice) to read a file Bob can access but Alice cannot, bypassing access controls. Solutions include: (1) reimplementing access control inside the deputy's process so it re-checks the caller's actual permissions before acting, or (2) allowing the deputy to perform authorisation checks on behalf of the caller using their credentials."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why do Bell LaPadula and Biba conflict with each other, and what challenge does this create?",
+      "answer": "Bell LaPadula enforces confidentiality using 'Read Down / Write Up', while Biba enforces integrity using 'No Read Down / No Write Up'. These rules are complementary but contradictory: BLP's Write Up is Biba's No Write Up. A system cannot straightforwardly apply both simultaneously — providing both confidentiality and integrity requires more nuanced mechanisms or careful design trade-offs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are CDIs, UDIs, IVPs, and TPs in the Clark-Wilson model? Give a real-world example of each.",
+      "answer": "CDIs (Constrained Data Items) are objects subject to integrity controls, e.g. a bank account balance. UDIs (Unconstrained Data Items) are inputs not subject to integrity controls, e.g. a web form order. IVPs (Integrity Verification Procedures) check that CDIs satisfy constraints, e.g. verifying today's balance equals yesterday's balance plus deposits minus withdrawals. TPs (Transaction Procedures) move CDIs between valid states or convert UDIs to CDIs, e.g. a payment procedure that debits one account and credits another atomically."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is 'simply checking that input does not contain <script>' an insufficient sanitisation strategy for web security?",
+      "answer": "Checking for exclusions (blacklisting) is inherently incomplete — attackers can bypass such checks using encoding, alternative representations, or other injection techniques not explicitly listed. The correct approach is positive validation: verifying that the input belongs to a known valid set (e.g. restricting to a defined Unicode subset or applying a strict transform), rather than trying to enumerate all possible harmful patterns."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the Graham-Denning rule for granting versus transferring a right, and how delegation works.",
+      "answer": "Rule (5) — Grant: subject x may grant a right r (or r*) on object o to subject s if x owns o. Rule (6) — Transfer: subject x may transfer a right r (or r*) on object o to subject s if x already holds r* (a transferable version of that right) on o. Delegation is enabled by the r* notation: holding r* means you not only have the right r but also the ability to pass it (or r*) on to others. This allows rights to propagate in a controlled way without requiring object ownership."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the Clark-Wilson bank integrity constraint example, and which ACID property does it relate to?",
+      "answer": "The constraint is: TB = D + YB – W, where TB is today's balance, D is today's deposits, YB is yesterday's balance, and W is withdrawals. Well-formed TPs must always take the bank's data from a state satisfying this constraint to another state satisfying it. This relates to the ACID property of Consistency — transactions must move the database from one valid state to another."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the three problems with Role-Based Access Control (RBAC), and give a concrete example for each?",
+      "answer": "1. Role Explosion: the temptation to create overly fine-grained roles leads to an unmanageably large number of roles (e.g. creating a separate role for every combination of department and permission). 2. Limited Expressiveness: some access relationships are relative rather than absolute (e.g. 'Marie's doctor' rather than 'any doctor'), which RBAC cannot naturally express. 3. Separation of Duty: RBAC struggles to enforce constraints like 'any two distinct doctors must authorise a procedure', since there is no built-in mechanism to ensure the two doctors are different individuals."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare Capability Lists and Access Control Lists as implementations of the access control matrix. What are the key trade-offs?",
+      "answer": "Capability Lists store the matrix by row (per subject/user). They are good for auditing all permissions of a user and can be stored with the user. However, they make revocation difficult (you must find and remove every capability across all users) and raise authenticity and transferability concerns. Access Control Lists store the matrix by column (per object/resource). They are stored close to the resource and make revocation easy (remove the entry from the object's list). However, auditing all rights of a specific user is difficult, as you must check every object's ACL."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "In the context of the Clark-Wilson model, what is the Clark-Wilson exercise from the 2014 exam asking? Outline the key checks a TP should perform when converting a web user's string into a valid email address CDI.",
+      "answer": "The TP must validate that the UDI (user-provided string) satisfies all constraints for a valid email address before promoting it to a CDI. Checks should include: syntactic validation (correct format: local-part@domain), length constraints, allowed character sets (e.g. RFC-compliant characters only), domain validity (valid TLD, no illegal characters), and potentially verifying the email belongs to the user (e.g. via a confirmation message). The TP must reject any input that does not pass all checks — it must not simply filter out known-bad patterns (no blacklisting), but positively confirm the input is valid."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is audit logging important in access control systems, and what are two practical challenges with implementing it?",
+      "answer": "Audit logs are important because attackers may remain inside a system for months before detection — logs help speed up detection of intrusions and enable real-time attack detection. They are also often legally required. Practical challenges include: (1) Where to log — in decentralised systems it is unclear where logs should be stored and how to ensure their integrity; (2) Size management — in large systems the volume of audit data can grow exponentially, making storage and analysis difficult."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the 'safety' problem in access control. Why is it important and what makes it hard to solve?",
+      "answer": "The safety problem asks: given a specific starting state of the access control matrix and a set of rules for assigning rights (like Graham-Denning), can we prove that a particular right (x, o, r) will never be granted in any reachable state? This is important because the access control matrix is a mechanism, not the policy itself — discretionary mechanisms allow owners to grant rights, and the chain of delegations may lead to unintended states. It is hard because the state space of reachable matrices can be very large or even infinite, making proofs of safety computationally challenging (in general, it is undecidable)."
+    }
+  ]
+}
