@@ -1,0 +1,487 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Schneier's Law",
+      "back": "Any person can invent a security system so clever that he or she can't imagine a way of breaking it — implying that self-designed systems are likely insecure because the designer cannot see their own blind spots."
+    },
+    {
+      "type": "flashcard",
+      "front": "Full Disclosure Policy",
+      "back": "A policy where vulnerability information is shared with parties who can provide a solution (e.g., vendors) before or alongside public release, in order to prevent similar mistakes from being repeated."
+    },
+    {
+      "type": "flashcard",
+      "front": "Firewall",
+      "back": "A network device that connects two networks with different trust levels and decides which traffic is allowed to and from the protected network. Two main types: packet filters and application gateways."
+    },
+    {
+      "type": "flashcard",
+      "front": "Packet Filter Firewall",
+      "back": "A firewall that makes decisions based on lower-layer TCP/IP information: IP source/destination address, protocol (TCP/UDP/ICMP), source/destination port, and TCP flags (SYN, ACK, RST, FIN, PSH, URG)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Application Gateway (Proxy Firewall)",
+      "back": "A firewall that terminates the application-level connection and opens a new one, allowing it to inspect and apply security policy to application-level traffic. Examples: HTTP (remove sensitive info) and SMTP (virus scanning)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Demilitarized Zone (DMZ)",
+      "back": "A network segment that isolates hosts requiring external access (e.g., web servers, mail servers) from the internal local network. If a DMZ server is compromised, the attacker is contained there."
+    },
+    {
+      "type": "flashcard",
+      "front": "Intrusion Detection System (IDS)",
+      "back": "A system that analyses actions performed by users and applications to identify evidence of malicious activity, using a stream of events from network, OS, and application sources."
+    },
+    {
+      "type": "flashcard",
+      "front": "Misuse-Based IDS",
+      "back": "An IDS that relies on models of known malicious behaviours (traditionally signatures) and identifies matching entries in the event stream. Fast and generates few false alarms, but only detects known attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anomaly-Based IDS",
+      "back": "An IDS that relies on models of normal behaviour and identifies anomalous entries. Can detect previously-unknown attacks but generates many false alarms, is resource-intensive, and does not need updating."
+    },
+    {
+      "type": "flashcard",
+      "front": "Precision (IDS metric)",
+      "back": "P = tp / (tp + fp). The proportion of detected events that are actual attacks (true positives out of all positives reported)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Recall (IDS metric)",
+      "back": "R = tp / (tp + fn). The proportion of actual attacks that were detected (true positives out of all real positives)."
+    },
+    {
+      "type": "flashcard",
+      "front": "F-Measure",
+      "back": "Fm = 2 * (P * R) / (P + R). The harmonic mean of Precision and Recall, used to combine both metrics into a single evaluation score for an IDS."
+    },
+    {
+      "type": "flashcard",
+      "front": "ROC Curve",
+      "back": "Receiver Operating Characteristic curve — plots true positive (detection) rate against false positive rate by varying the sensitivity of a detection system. Summarised by Area Under Curve (AUC) and Equal Error Rate."
+    },
+    {
+      "type": "flashcard",
+      "front": "Snort",
+      "back": "A popular open-source, real-time network-based IDS built on libpcap with a simple rule-based analysis engine that supports pattern matching and community-contributed signatures and plugins."
+    },
+    {
+      "type": "flashcard",
+      "front": "Snort Rule Structure",
+      "back": "Header (action, protocol, source/destination IP and ports) + Options (content matching and additional functions). Example: Alert tcp any any -> any any (content: \"|90 90 90 90|\"; msg: \"shellcode detected\";)"
+    },
+    {
+      "type": "flashcard",
+      "front": "Intrusion Prevention System (IPS)",
+      "back": "An IDS deployed inline in the network path so it can analyse live traffic and actively block attacks, as opposed to a traditional IDS connected to a trunk port that can only detect but not prevent."
+    },
+    {
+      "type": "flashcard",
+      "front": "Alert Correlation",
+      "back": "The process of combining multiple IDS alerts and contextual information to reconstruct attack histories, reduce noise, and prioritise the most critical security events for operators."
+    },
+    {
+      "type": "flashcard",
+      "front": "SIEM (Security Information and Event Management)",
+      "back": "A system that collects logs from multiple sources, performs alert correlation, and provides a real-time dashboard to help network administrators understand what is happening on the network."
+    },
+    {
+      "type": "flashcard",
+      "front": "Denial of Service (DoS)",
+      "back": "An attack whose goal is to take out a large site with little effort through amplification. Two main types: DoS bug (design flaw allowing one machine to disrupt a service) and DoS flood (botnet-generated request flood)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Smurf Attack",
+      "back": "A DoS amplification attack that sends an ICMP Echo Request to a network's broadcast address with a spoofed source IP (the victim's). Every host on the network replies to the victim, flooding it. Prevention: reject external broadcast packets."
+    },
+    {
+      "type": "flashcard",
+      "front": "DNS Amplification Attack",
+      "back": "A DoS attack that sends small DNS queries (e.g., 60 bytes) with a spoofed source IP to open DNS resolvers, which return large EDNS responses (e.g., 3000 bytes) to the victim — roughly 50x amplification factor."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP SYN Flood Attack",
+      "back": "A DoS attack that sends many SYN packets with random source IPs to a server, filling its backlog queue and preventing legitimate connections. Exhausts state rather than bandwidth."
+    },
+    {
+      "type": "flashcard",
+      "front": "SYN Cookies",
+      "back": "A defence against SYN flood attacks that encodes TCP state into the initial sequence number (using a time counter T and a MAC), so the server allocates socket space only when a valid ACK is received. Removes server-side state."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP Three-Way Handshake",
+      "back": "Session establishment: (1) Client sends SYN with random sequence number SNC; (2) Server responds SYN/ACK with its own SNS and acknowledges SNC; (3) Client sends ACK acknowledging SNS. Both sides are now established."
+    },
+    {
+      "type": "flashcard",
+      "front": "DNS Tunneling",
+      "back": "A technique where an attacker encapsulates a different protocol inside DNS traffic to evade packet filters that only allow DNS traffic through port 53."
+    },
+    {
+      "type": "flashcard",
+      "front": "Type I Error (False Positive) in IDS",
+      "back": "An alert raised for a benign event — the system incorrectly classifies normal behaviour as an attack. Leads to alert fatigue."
+    },
+    {
+      "type": "flashcard",
+      "front": "Type II Error (False Negative) in IDS",
+      "back": "A real attack that the IDS fails to detect — the system incorrectly classifies malicious behaviour as normal. Allows attacks to go unnoticed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Alert Normalization",
+      "back": "The first step of alert correlation — transforming alerts from different sensors (which use different formats) into a single standard format for unified analysis."
+    },
+    {
+      "type": "flashcard",
+      "front": "Alert Fusion",
+      "back": "An alert correlation step that combines alerts from different sensors that represent the same attack event, reducing duplicate alerts."
+    },
+    {
+      "type": "flashcard",
+      "front": "Thread Reconstruction (Alert Correlation)",
+      "back": "An alert correlation step that groups alerts from the same attacker against a single target, reducing the number of alerts caused by the same ongoing attack."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multi-Step Correlation",
+      "back": "An alert correlation technique that groups events to infer higher-level attack patterns, answering the question 'what is the attacker doing?' (e.g., scan → break-in → escalate)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Impact Analysis (Alert Correlation)",
+      "back": "Infers the effect of attacks on network hosts, using heartbeats to determine which hosts have gone down as a result of an attack."
+    },
+    {
+      "type": "flashcard",
+      "front": "Four IDS Detection Technique Categories",
+      "back": "1. Rules/Signatures — match events against known malicious patterns. 2. Data mining/Machine learning — automatically learn good vs malicious behaviour. 3. Specification-based — validate events against a defined system spec. 4. Statistical analysis — model behaviour statistically and detect deviations."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT a decision criterion available to a packet filter firewall?",
+      "options": [
+        "Source and destination IP address",
+        "TCP flags such as SYN and ACK",
+        "Application-level HTTP request body",
+        "Source and destination port number"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary purpose of a Demilitarized Zone (DMZ) in network security?",
+      "options": [
+        "To encrypt all traffic between the internet and the local network",
+        "To isolate publicly-accessible servers from the internal local network",
+        "To replace the need for a firewall",
+        "To perform deep packet inspection on all traffic"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "An IDS that generates many false alarms but can detect previously-unknown attacks is best described as:",
+      "options": [
+        "Misuse-based",
+        "Signature-based",
+        "Anomaly-based",
+        "Specification-based"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the IDS evaluation scenario where 100 actual attacks exist, IDS3 detected 94 events of which 90 are real attacks. What is IDS3's Precision?",
+      "options": [
+        "90%",
+        "94%",
+        "~95.7%",
+        "~96.8%"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Where are Network IDS sensors typically connected in order to observe all network traffic?",
+      "options": [
+        "The default gateway's WAN port",
+        "The trunk port of a network switch or via a network tap",
+        "The DMZ firewall's external interface only",
+        "A dedicated VPN concentrator"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which open-source IDS tools are mentioned in the lecture as most popular?",
+      "options": [
+        "Wireshark and tcpdump",
+        "Nmap and Metasploit",
+        "Snort and Suricata",
+        "Zeek and OSSEC"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How does a SYN cookie defend against a TCP SYN flood?",
+      "options": [
+        "It rate-limits incoming SYN packets at the firewall",
+        "It encodes TCP connection state into the server's initial sequence number, avoiding per-connection storage until the ACK is verified",
+        "It blocks all traffic from IP addresses that send more than 10 SYN packets per second",
+        "It increases the backlog queue size to accommodate more half-open connections"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The Smurf attack achieves amplification by:",
+      "options": [
+        "Exploiting the DNS EDNS extension to generate large responses",
+        "Sending ICMP Echo Requests to a broadcast address with the victim's IP as source, causing all hosts to reply to the victim",
+        "Completing the TCP three-way handshake repeatedly to exhaust server state",
+        "Flooding the victim with BGP route advertisements"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What approximate amplification factor can a DNS-based DoS attack achieve using EDNS?",
+      "options": [
+        "5x",
+        "10x",
+        "50x",
+        "200x"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was Estonia's response to block the April 2007 DDoS attack?",
+      "options": [
+        "It deployed SYN cookies on all government servers",
+        "It used a DoS prevention proxy to filter traffic",
+        "It blocked all foreign traffic until the attacks stopped",
+        "It moved all services to Akamai's CDN"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The MS Blaster worm (2003) carried out a SYN flood against which target?",
+      "options": [
+        "microsoft.com port 443",
+        "windowsupdate.com port 80",
+        "windows.com port 8080",
+        "update.microsoft.com port 22"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is a TCP connection flood harder to block than a SYN flood?",
+      "options": [
+        "It uses UDP instead of TCP, bypassing SYN flood filters",
+        "It completes the three-way handshake, so SYN flood proxies cannot distinguish it from legitimate traffic",
+        "It uses encrypted payloads that packet filters cannot inspect",
+        "It targets the DNS layer rather than the web server"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How does the SSL/TLS handshake create an asymmetric DoS vulnerability?",
+      "options": [
+        "The client must perform heavy AES encryption while the server does nothing",
+        "RSA encryption (client side) is approximately 10x faster than RSA decryption (server side), so one client can overwhelm multiple servers",
+        "TLS uses UDP, making it easy to spoof source addresses",
+        "The server must store a session key for every handshake, exhausting memory"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the SYN cookie formula, what does 'T' represent?",
+      "options": [
+        "A random 32-bit nonce generated per connection",
+        "A 5-bit counter incremented every 64 seconds",
+        "The timestamp of the original SYN packet in milliseconds",
+        "The TTL value from the incoming IP packet"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which attack does a packet filter defend against by forbidding packets that do not belong to already established connections?",
+      "options": [
+        "SYN flood",
+        "Smurf attack",
+        "FIN scan and XMAS scan",
+        "DNS amplification"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Packet filters can inspect and make decisions based on application-layer protocol data such as HTTP request bodies.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Anomaly-based IDS systems require continuous signature updates to remain effective.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Misuse-based IDS systems are capable of detecting previously unknown (zero-day) attacks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A traditional IDS connected to a trunk port can observe all traffic but cannot modify or block any packets.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The DMZ guarantees that if an attacker compromises a DMZ server, they cannot under any circumstances reach the local network.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The TCP SYN flood attack primarily exhausts bandwidth rather than server state.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "SYN cookies introduce a large performance overhead and are therefore rarely used in practice.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a DNS amplification attack, the attacker spoofs the victim's IP address as the source of DNS queries sent to open resolvers.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A high Area Under the ROC Curve (AUC) indicates a better-performing detection system.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Alert correlation is a fully solved problem with mature, standardised tooling.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The 2007 botnet attack on the 13 Internet DNS root servers caused all 13 servers to crash.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Discussing how vulnerabilities are exploited is useful for education and awareness, even though performing unauthorised attacks is illegal.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The February 2008 YouTube BGP hijack by Pakistan Telecom lasted over 24 hours before being resolved.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An IPS is deployed inline and can both detect and block attacks, unlike a traditional IDS.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Attackers can encapsulate protocols inside DNS traffic (DNS tunneling) to bypass packet filters that only allow DNS.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the key trade-off between misuse-based and anomaly-based intrusion detection systems.",
+      "answer": "Misuse-based systems rely on known attack signatures, so they generate few false alarms, are fast, and are easy to explain — but they can only detect known attacks and need constant updating. Anomaly-based systems model normal behaviour and can detect unknown attacks without updating, but they generate many false alarms, are resource-intensive, hard to configure, and do not identify the specific attack. The choice depends on whether detection of novel attacks or low false-alarm rates is more important in a given environment."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is it insufficient to simply increase the backlog queue size to defend against a TCP SYN flood attack, and what is the correct solution?",
+      "answer": "Increasing the backlog queue size or reducing timeout only delays the problem — a sufficiently large flood will still exhaust the queue. The correct solution is SYN cookies: the server encodes connection state into its initial sequence number using a keyed MAC and a time counter, so it stores no per-connection state. State is only allocated when the client returns a valid ACK containing the encoded information, meaning illegitimate half-open connections consume no server resources."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the steps involved in the alert correlation pipeline from raw sensor alerts to prioritised output.",
+      "answer": "1. Normalization: alerts from heterogeneous sensors are converted to a common format. 2. Fusion: duplicate alerts from different sensors representing the same event are merged. 3. Alert verification: irrelevant alerts (e.g., attacks against non-vulnerable targets) are filtered to reduce false positives. 4. Thread reconstruction: alerts from the same attacker targeting the same host are grouped. 5. Attack session reconstruction: network-based alerts are linked with host-based alerts. 6. Focus recognition: hosts appearing frequently as source or target of many attacks are identified. 7. Multi-step correlation: higher-level attack strategies (e.g., scan → break-in → escalate) are inferred. 8. Impact analysis: the effect of attacks on hosts is assessed using heartbeats. 9. Prioritization: the most critical alerts are surfaced for operator action."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are network IDS systems vulnerable to evasion, and what partial solutions exist?",
+      "answer": "An IDS may accept or reassemble packets differently from the end host — for example, accepting a malformed packet that the OS would discard, or handling overlapping TCP sequence numbers differently. An attacker can exploit these differences to craft payloads that the IDS misses but the host processes as an attack. Partial solutions include configuring the IDS to take into account the target OS, the installed services and their configuration, and deploying a normalizer module that blocks malformed packets before they reach the IDS. However, this conflicts with the goal of easy deployment."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the ethical rationale for learning about attack techniques in a security course?",
+      "answer": "Understanding how to break a system is a prerequisite for securing it — as Marc Weber Tobias stated, 'You can't make something secure if you don't know how to break it.' Schneier's Law reinforces this: designers who cannot imagine how their system can be broken will produce insecure systems. The knowledge is taught purely for defensive purposes — to build better defences — and must never be used to conduct unauthorised attacks. Full disclosure further supports spreading vulnerability knowledge to those who can fix it, preventing mistakes from recurring."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how a DoS prevention proxy (such as those used by Verisign or Akamai) mitigates SYN flood bandwidth attacks.",
+      "answer": "The proxy sits in front of the target web site and absorbs all incoming SYN packets. It responds with SYN/ACK to every SYN, but only forwards a connection to the real web site once the full TCP three-way handshake is completed (i.e., a genuine ACK is received). Because bots typically do not complete the handshake, the vast majority of flood traffic is absorbed at the proxy. Only the small fraction of legitimate connections that send an ACK are forwarded to the origin server, protecting it from bandwidth exhaustion."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the two main types of firewall, and what are the key differences in how they inspect traffic?",
+      "answer": "Packet filters operate at the network and transport layers, making decisions based on IP addresses, ports, protocols, and TCP flags. They are fast but have no visibility into application-layer content and can be evaded by misuse of allowed ports or protocol tunneling. Application gateways (proxy firewalls) terminate the application-layer connection and relay data through a proxy program, giving them full visibility into and control over application-level traffic. They can enforce content policies (e.g., block inappropriate HTTP content or scan SMTP for viruses) and resist evasion through ambiguous packets."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the 2007 Estonia DDoS attack: what was targeted, how large was it, and what made it significant?",
+      "answer": "Starting in April 2007 and lasting about two weeks, the attack targeted Estonian ministerial and commercial websites. It included 115 ICMP floods and 4 TCP SYN floods, with peak attacks of 70–95 Mbps lasting over 10 hours. Though small in absolute bandwidth terms, it was large relative to Estonia's national internet capacity and had significant political impact. Estonia's response was to block all foreign traffic. Russia was suspected of involvement, but the extent of any official government role was never confirmed."
+    }
+  ]
+}
