@@ -1,0 +1,466 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Client Puzzle (DoS mitigation)",
+      "back": "A challenge given to clients that is moderately hard to compute but easy to verify. Used to slow down attackers by requiring clients to solve a puzzle before their request is processed. Example: find X such that LSBn(SHA-1(C || X)) = 0n."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does LSBn(SHA-1(C || X)) = 0n mean in the context of client puzzles?",
+      "back": "The n least significant bits of SHA-1 applied to the concatenation of challenge C and value X must all be zero. This requires expected 2^n attempts to solve."
+    },
+    {
+      "type": "flashcard",
+      "front": "Memory-Bound Functions",
+      "back": "Puzzle functions designed to require many main memory accesses rather than CPU cycles, making them fairer to low-end devices (e.g., smartphones) since memory access time ratios between high-end servers and low-end phones are much smaller (~2x) than CPU ratios (~8000x)."
+    },
+    {
+      "type": "flashcard",
+      "front": "CAPTCHA",
+      "back": "Completely Automated Public Turing test to tell Computers and Humans Apart. Easy to generate but hard for automated systems to solve. Used to resist application-layer DDoS attacks by requiring human intervention."
+    },
+    {
+      "type": "flashcard",
+      "front": "reCAPTCHA",
+      "back": "An innovation on CAPTCHA that also gets the user to perform a useful task (e.g., digitising text) while proving they are human."
+    },
+    {
+      "type": "flashcard",
+      "front": "Ingress Filtering",
+      "back": "An ISP policy where only packets with legitimate (non-spoofed) source IP addresses are forwarded onto the Internet. Aims to prevent DDoS attacks using spoofed source IPs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Traceback (network security)",
+      "back": "A method to identify the true source of attack packets even if the source IP is spoofed. Routers record routing information in packets so the victim can reconstruct the attack path."
+    },
+    {
+      "type": "flashcard",
+      "front": "Edge Sampling",
+      "back": "A probabilistic traceback method where each router probabilistically writes its own IP address (start/end of an edge) and a distance field into passing packets. The victim reconstructs the path using many packets."
+    },
+    {
+      "type": "flashcard",
+      "front": "Edge Sampling: fields written to packet",
+      "back": "Three fields: (1) Start address – the router that began the edge; (2) End address – the next router; (3) Distance – number of hops since the edge was stored."
+    },
+    {
+      "type": "flashcard",
+      "front": "Edge Sampling: marking procedure",
+      "back": "If coin is heads (probability p): write router address to start field, set distance to 0. If tails and distance == 0: write router address to end field, increment distance. If tails and distance > 0: only increment distance."
+    },
+    {
+      "type": "flashcard",
+      "front": "IP Identification Field (traceback use)",
+      "back": "The 16-bit Identification field in an IP header, normally used for fragmentation (which is rare), is repurposed in edge sampling to store edge chunk data: offset, distance, and edge chunk bits."
+    },
+    {
+      "type": "flashcard",
+      "front": "Expected packets needed for path reconstruction (edge sampling formula)",
+      "back": "E(X) < ln(d) / (p(1-p)^(d-1)), where p is the marking probability and d is the path length (number of hops)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Denial of Service (DoS)",
+      "back": "An attack that attempts to defeat availability — preventing legitimate users from accessing a service or data. Methods include flooding/overload and blocking access."
+    },
+    {
+      "type": "flashcard",
+      "front": "OWASP Top 10 (2017)",
+      "back": "A consensus list of the top web application security risks: Injection, Broken Authentication, Sensitive Data Exposure, XXE, Broken Access Control, Security Misconfiguration, XSS, Insecure Deserialization, Using Components with Known Vulnerabilities, Insufficient Logging & Monitoring."
+    },
+    {
+      "type": "flashcard",
+      "front": "Same-Origin Policy (SOP)",
+      "back": "A browser security mechanism that restricts scripts to only access resources associated with the same origin (same server, protocol, and port). Prevents hostile scripts from accessing cookies or content from other sites."
+    },
+    {
+      "type": "flashcard",
+      "front": "Origin (web security)",
+      "back": "Defined by the combination of server (domain), protocol (e.g. HTTP/HTTPS), and port number from which a frame's content was downloaded."
+    },
+    {
+      "type": "flashcard",
+      "front": "CORS (Cross-Origin Resource Sharing)",
+      "back": "A mechanism that allows the same-origin policy to be explicitly relaxed or tightened. CORS-compatible clients send an 'Origin' HTTP header; CORS-enabled servers respond with Access-Control-Allow-Origin and Access-Control-Allow-Credentials headers."
+    },
+    {
+      "type": "flashcard",
+      "front": "CSRF (Cross-Site Request Forgery)",
+      "back": "An attack where a victim's browser is tricked into sending an authenticated request to a vulnerable web application without the user's knowledge, exploiting the fact that browsers automatically include authentication data (e.g., session cookies) with requests."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secret Validation Token (CSRF defence)",
+      "back": "A random challenge token associated with the user's session that is embedded as a hidden field in HTML forms. The server checks for this token when processing sensitive requests, blocking forged requests that lack it."
+    },
+    {
+      "type": "flashcard",
+      "front": "Referer Validation (CSRF defence)",
+      "back": "Checking the HTTP Referer header to confirm the request originates from the expected site. Lenient checking denies if referer is wrong; strict checking requires the referer to be present. Both have limitations as the referer is often absent legitimately."
+    },
+    {
+      "type": "flashcard",
+      "front": "Custom HTTP Header (CSRF defence)",
+      "back": "Using XMLHttpRequest (AJAX) to add a custom header (e.g., X-Requested-By: XMLHttpRequest) that browsers only allow for same-origin requests. Since cross-origin scripts cannot set custom headers, this confirms the request is from the legitimate origin."
+    },
+    {
+      "type": "flashcard",
+      "front": "JavaScript Sandbox",
+      "back": "A security restriction on JavaScript execution that prevents scripts from accessing memory of other programs, the file system, or the network beyond the current document. Enforced by the browser to mitigate risks from executing unknown code."
+    },
+    {
+      "type": "flashcard",
+      "front": "Web Attacker (threat model)",
+      "back": "An attacker who controls a malicious website and can obtain TLS certificates for it. Relies on tricking users into visiting the site (phishing, ads, search results). Has no direct access to the user's machine."
+    },
+    {
+      "type": "flashcard",
+      "front": "Network Attacker (threat model)",
+      "back": "An attacker who can passively eavesdrop on network traffic (e.g., wireless sniffing) or actively intercept/modify traffic (e.g., evil Wi-Fi router, DNS poisoning)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Malware Attacker (threat model)",
+      "back": "An attacker whose malicious code executes directly on the victim's machine, either by exploiting bugs (e.g., buffer overflow) or by tricking the user into installing malicious software (e.g., fake antivirus, codec)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Cookie (web sessions)",
+      "back": "Up to 4kB of text sent by a server in a response, which the client returns in subsequent requests to the same server. Used to create stateful sessions over stateless HTTP."
+    },
+    {
+      "type": "flashcard",
+      "front": "WebAuthn / FIDO",
+      "back": "An authentication standard that binds authentication data to a specific website's identity, providing resistance to phishing unlike traditional username/password or 2FA methods."
+    },
+    {
+      "type": "flashcard",
+      "front": "iframe attacker",
+      "back": "A variant of the web attacker threat model where malicious content is embedded within an otherwise legitimate webpage via an iframe (e.g., through syndicated advertising or mashups)."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a client puzzle, for n=16, approximately how long does it take to solve on a 1 GHz machine?",
+      "options": ["0.003 seconds", "0.03 seconds", "0.3 seconds", "3 seconds"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the approximate CPU power ratio between a high-end server and a low-end cell phone?",
+      "options": ["200", "800", "2000", "8000"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the approximate main memory access time ratio between a high-end server and a low-end cell phone?",
+      "options": ["2", "20", "200", "2000"],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which paper proposed memory-bound functions as fairer puzzles for low-end devices?",
+      "options": ["Dwork-Goldberg-Naor, Crypto 2003", "RSA 1999", "Killbots 2005", "SD 2003"],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In edge sampling, what happens when a router flips heads (probability p)?",
+      "options": [
+        "The router increments the distance field",
+        "The router writes its address to the end field",
+        "The router writes its address to the start field and sets distance to 0",
+        "The router discards the packet"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which existing IP header field is repurposed in edge sampling to store traceback data?",
+      "options": ["Time to Live", "Protocol", "Identification", "Fragment Offset"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which OWASP 2017 Top 10 vulnerability involves browsers automatically submitting stored credentials with forged requests?",
+      "options": ["Injection", "Broken Authentication", "Cross-Site Scripting (XSS)", "Broken Access Control"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does CAPTCHA stand for?",
+      "options": [
+        "Completely Automated Program To Check Human Authenticity",
+        "Completely Automated Public Turing test to tell Computers and Humans Apart",
+        "Computer Assisted Public Test Confirming Human Access",
+        "Centralised Authentication Protocol To Check Human Activity"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which CSRF defence requires no secrets and has no synchronisation issues with load balancing?",
+      "options": ["Secret Validation Token", "Challenge-Response (CAPTCHA)", "Referer Validation", "Custom HTTP Header via XMLHttpRequest"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the CSRF bank example, how does the attacker's form trigger a funds transfer?",
+      "options": [
+        "By exploiting a SQL injection vulnerability",
+        "By using JavaScript to auto-submit a form to bank.com with the user's session cookie",
+        "By intercepting the network traffic using a MITM attack",
+        "By directly accessing the user's cookies via the DOM"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the key weakness of ingress filtering as a DDoS defence?",
+      "options": [
+        "It adds too much latency to legitimate traffic",
+        "It only works for UDP traffic",
+        "All ISPs must implement it — even 10% non-compliance eliminates the defence",
+        "It cannot distinguish spoofed from legitimate IP addresses"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the browser security model, what is the equivalent of 'Users' in an operating system?",
+      "options": ["Cookies", "Frames", "Origins", "Scripts"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which access control model does the web browser use for its principals, compared to an OS?",
+      "options": [
+        "Discretionary access control (DAC)",
+        "Mandatory access control (MAC)",
+        "Role-based access control (RBAC)",
+        "Attribute-based access control (ABAC)"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A TCP connection flood client puzzle was proposed by which group/year?",
+      "options": ["SD, 2003", "RSA, 1999", "Killbots, 2005", "Dwork-Goldberg-Naor, 2003"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In strict referer checking for CSRF defence, what is the main practical problem?",
+      "options": [
+        "The referer header is too easy to forge",
+        "Referer is often legitimately absent (HTTPS to HTTP transitions, user preference, proxies)",
+        "Referer validation only works for GET requests",
+        "The referer header doesn't contain origin information"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which web vulnerability is listed in the OWASP 2017 Top 10 and involves inserting malicious client-side scripts into pages viewed by other users?",
+      "options": ["Injection", "Insecure Deserialization", "Cross-Site Scripting (XSS)", "XML External Entities (XXE)"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Client puzzles should always be required, even when there is no active DoS attack.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Memory-bound puzzles are more equitable for low-end devices than CPU-bound puzzles because the memory access time ratio between high-end and low-end devices is much smaller than the CPU ratio.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In edge sampling, every router along the path writes its address into every packet it forwards.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Traceback requires that the attacker sends only a small number of packets for path reconstruction to work.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The IP Identification field is normally used for fragmentation reassembly.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The same-origin policy protects against attacks where one server hosts content for multiple different parties under different subdirectories.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "JavaScript code can run before the HTML page is fully loaded.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A web attacker is assumed to have direct access to the victim's machine.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a CSRF attack, the attacker must know the victim's session cookie value.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "HTTP is a stateful protocol with built-in session management.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Client puzzles based on CPU-bound functions disadvantage low-power clients (e.g., mobile phones) more than high-end servers during a DDoS attack.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "CORS allows a server to explicitly permit cross-origin requests using the Access-Control-Allow-Origin header.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The same-origin policy prevents an iframe with malicious content from being included in an honest webpage.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Client puzzles have been widely adopted in cryptocurrencies.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A TLS handshake DoS puzzle solution is checked by the server before it performs RSA decryption.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "WebAuthn (FIDO) provides protection against phishing attacks by binding authentication to website identity.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "JavaScript has built-in input/output facilities that do not depend on the embedding environment.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a DDoS attack, the attacker has access to large amounts of compute power, which undermines CPU-bound client puzzles.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why memory-bound functions are considered fairer than CPU-bound puzzles for DoS mitigation.",
+      "answer": "CPU power ratios between high-end servers and low-end smartphones can be as high as 8000:1, meaning a CPU-bound puzzle that takes 0.3 seconds on a smartphone could be trivial for a server-based attacker. In contrast, main memory access time ratios are approximately 2:1 between high-end and low-end devices. Memory-bound puzzles therefore impose similar time costs on all participants regardless of CPU speed, making them much fairer to legitimate users on low-end devices."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the edge sampling traceback procedure step by step, including what each router does.",
+      "answer": "Each router flips a biased coin (probability p of heads). If heads: the router writes its own IP address into the packet's start address field and sets the distance field to 0. If tails and distance == 0: the router writes its IP into the end address field and increments the distance to 1. If tails and distance > 0: the router only increments the distance field. This means each packet carries one edge (start IP, end IP, distance) that was written probabilistically along the path. The victim collects many such packets, each carrying a different sampled edge, and reconstructs the full attack path as a graph rooted at itself."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the four main defences against CSRF and how does each work?",
+      "answer": "1. Secret Validation Token: a random token tied to the user's session is embedded as a hidden field in forms; the server validates this token on submission, blocking forged requests that lack it. 2. Challenge-Response: the user must pass a CAPTCHA or re-authenticate (e.g., re-enter password) before sensitive actions are performed. 3. Referer Validation: the server checks the HTTP Referer header to confirm the request came from the expected origin; lenient checking rejects wrong referers, strict checking requires the header to be present. 4. Custom HTTP Header: XMLHttpRequest (AJAX) is used to add a custom header that browsers only allow for same-origin requests, so cross-origin forged requests cannot include it."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is ingress filtering insufficient on its own to prevent DDoS attacks with spoofed IPs?",
+      "answer": "Ingress filtering requires universal adoption — every ISP must implement the policy of only forwarding packets with legitimate source IPs. If even 10% of ISPs do not enforce ingress filtering, attackers can route their spoofed packets through those non-compliant ISPs, completely bypassing the defence. There is no mechanism to compel all ISPs worldwide to adopt the policy, making this a coordination problem."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how a CSRF attack works using the bank transfer example from the slides.",
+      "answer": "The user logs into bank.com, which sets a session cookie in their browser. While still logged in, the user visits a malicious site which contains an HTML form targeting bank.com/BillPay.php with a hidden recipient field set to 'badguy'. JavaScript on the malicious page auto-submits this form. Because the browser automatically attaches the bank.com session cookie to any request to bank.com, the server receives what looks like an authenticated, legitimate transfer request and fulfils it — transferring funds to the attacker without the user's knowledge or consent."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the limitations of the same-origin policy?",
+      "answer": "First, browser vulnerabilities can cause the policy to not be enforced properly; many bugs have been found in browsers over the years. Second, the SOP provides no protection when multiple parties host content on the same server under different subdirectories (e.g., example.com/party1 and example.com/party2) — all content from the same origin is treated as equivalent regardless of subdirectory. Third, if a frame explicitly includes external code (e.g., a script tag pointing to another host), that code executes within the embedding frame's domain, not the external host's origin."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare the web browser to an operating system in terms of primitives, principals, access control, and vulnerabilities.",
+      "answer": "An OS has system calls, processes, and disk as primitives, with users as principals under discretionary access control (DAC). Vulnerabilities include buffer overflows and root exploits. A web browser has the DOM, frames, and cookies/localStorage as primitives, with origins as principals under mandatory access control (MAC). Vulnerabilities include cross-site scripting (XSS) and universal XSS. In both cases, security depends on isolation between principals and correct enforcement of access control."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can't the path be simply written in full into each packet as a simple traceback method?",
+      "answer": "Writing the full path into each packet requires space proportional to the path length. Network paths can be very long, and the current IP packet format has no extra fields available for this purpose. Modifying the IP packet format would require changes to all routers and hosts on the Internet — an impractically large-scale change. This is why probabilistic approaches like edge sampling, which use a fixed-size field regardless of path length, are preferred."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the three threat models for web security described in the slides, and what distinguishes them?",
+      "answer": "1. Web attacker: controls a malicious website and tricks users into visiting it (via phishing, ads, search). Has no direct access to the user's machine. 2. Network attacker: can passively eavesdrop (e.g., wireless sniffing) or actively manipulate traffic (e.g., evil Wi-Fi router, DNS poisoning). 3. Malware attacker: executes malicious code directly on the victim's computer, either by exploiting software vulnerabilities (e.g., buffer overflow) or social engineering (e.g., fake antivirus). The key distinction is the attacker's position relative to the victim: web attackers are remote and indirect, network attackers intercept communications, and malware attackers have the most direct access."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the three goals of web security as stated in the slides?",
+      "answer": "1. Safe to visit an evil website — browsing a malicious site should not compromise the user's system or other sites. 2. Safe to visit two pages at the same time — different tabs or windows should not be able to interfere with each other. 3. Safe delegation — it should be possible to safely delegate limited capabilities to third-party content (e.g., iframes, scripts) without granting excessive access."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is asking users for permission to execute JavaScript impractical as a security measure?",
+      "answer": "More than 50% of all web pages use JavaScript. Prompting users to grant permission for every script execution would be extremely disruptive and annoying. Users would either habitually accept all prompts (defeating the purpose) or be unable to use the majority of modern websites. This is why browsers instead impose automatic technical restrictions (sandbox, same-origin policy) rather than relying on user decisions."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does the TCP connection flood client puzzle work, and what role does the TCP server sequence number play?",
+      "answer": "Proposed by RSA in 1999, the challenge C is set equal to the TCP server sequence number. The client must solve the puzzle (find X such that the required hash condition holds) and include the solution in its first data packet. If the puzzle solution is absent or incorrect, the TCP connection is closed. This ensures that each connection attempt requires non-trivial computation, slowing down an attacker trying to flood the server with connection requests while the verification on the server side remains cheap."
+    }
+  ]
+}
