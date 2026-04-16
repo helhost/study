@@ -1,0 +1,30 @@
+(file name should be the display name with "_" istead of " " ending in .json)
+
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Question or term",
+      "back": "Answer or definition"
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is correct?",
+      "options": ["Option A", "Option B", "Option C", "Option D"],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "This statement is true.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the answer?",
+      "answer": "Expected answer"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  Study — Flashcard & Quiz Study Application               ║
+  ║                                                              ║
+  ║  HOW TO RUN:                                                 ║
+  ║  This app uses fetch() to load JSON files, which requires    ║
+  ║  a local HTTP server (file:// protocol won't work).          ║
+  ║                                                              ║
+  ║  Option 1:  docker compose up                                ║
+  ║             → http://localhost:8080                          ║
+  ║                                                              ║
+  ║  Option 2:  npx serve .                                      ║
+  ║  Option 3:  python3 -m http.server 8080                      ║
+  ║  Option 4:  VS Code Live Server                              ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+<div id="app">
+
+  <!-- Header -->
+  <div id="header">
+    <button id="btn-sidebar-toggle" title="Toggle sidebar">☰</button>
+    <div id="header-title">⚡ Study</div>
+    <button id="btn-theme" title="Toggle theme">🌙</button>
+  </div>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay"><div class="spinner"></div></div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar" aria-label="Study materials">
+    <div id="sidebar-tree"></div>
+  </nav>
+
+  <!-- Main area -->
+  <main id="main">
+
+    <!-- Welcome state -->
+    <div id="welcome">
+      <div class="welcome-icon">📚</div>
+      <div class="welcome-title">Welcome to Study</div>
+      <div class="welcome-sub">Select a study set from the sidebar to get started with flashcards or a quiz.</div>
+    </div>
+
+    <!-- Content panel (hidden until file loaded) -->
+    <div id="content-panel">
+
+      <!-- Tab bar -->
+      <div id="tab-bar">
+        <button class="tab-btn" id="tab-btn-flashcards" data-tab="flashcards">⬛ Flashcards</button>
+        <button class="tab-btn" id="tab-btn-quiz" data-tab="quiz">❓ Quiz</button>
+        <div class="tab-spacer"></div>
+        <div class="shuffle-wrap">
+          <span class="shuffle-label">Shuffle</span>
+          <button class="toggle-btn" id="btn-shuffle" title="Toggle shuffle"></button>
+        </div>
+      </div>
+
+      <!-- Flashcards tab -->
+      <div id="tab-flashcards">
+        <div class="flashcard-scene">
+          <div class="progress-text" id="fc-progress"></div>
+          <div class="card-3d-wrap" id="card-wrap" role="button" tabindex="0" aria-label="Flashcard — click to flip">
+            <div class="card-3d" id="card-3d">
+              <div class="card-face card-face-front">
+                <div class="card-face-label">FRONT</div>
+                <div class="card-face-text" id="fc-front"></div>
+                <div class="card-flip-hint">🖱 Click to reveal answer</div>
+              </div>
+              <div class="card-face card-face-back">
+                <div class="card-face-label">BACK</div>
+                <div class="card-face-text" id="fc-back"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card-controls">
+            <button class="nav-btn" id="fc-prev" title="Previous card">‹</button>
+            <button class="nav-btn" id="fc-next" title="Next card">›</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz tab -->
+      <div id="tab-quiz">
+        <div class="quiz-nav-bar">
+          <button class="nav-btn" id="quiz-prev" title="Previous question (←)">‹</button>
+          <div class="progress-text-quiz" id="quiz-progress-inline"></div>
+          <button class="nav-btn" id="quiz-next" title="Next question (→)">›</button>
+          <button class="finish-btn" id="quiz-finish" style="display:none">Finish Quiz</button>
+        </div>
+        <div class="quiz-scene">
+          <div class="quiz-card" id="quiz-card">
+            <div class="quiz-question" id="quiz-question"></div>
+            <div id="quiz-answer-area"></div>
+            <div class="feedback-row" id="quiz-feedback" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results tab -->
+      <div id="tab-results">
+        <div class="results-scene">
+          <div class="score-card" id="score-card">
+            <div class="score-num" id="result-score"></div>
+            <div class="score-pct" id="result-pct"></div>
+            <div class="score-label">Quiz Complete</div>
+          </div>
+          <div class="results-actions">
+            <button class="btn-retake" id="btn-retake">↺ Retake Quiz</button>
+            <button class="btn-back-study" id="btn-back-study">← Back to Flashcards</button>
+          </div>
+          <div class="review-list" id="review-list"></div>
+        </div>
+      </div>
+
+    </div><!-- #content-panel -->
+  </main>
+</div><!-- #app -->
+
+<script src="app.js"></script>
+</body>
+</html>

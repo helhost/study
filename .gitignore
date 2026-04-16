@@ -1,0 +1,7 @@
+# Dependencies & tooling
+node_modules/
+.DS_Store
+
+# Material files (keep only the template)
+material/**/*.json
+!material/_template.json
