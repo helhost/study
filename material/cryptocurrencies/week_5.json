@@ -1,0 +1,608 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Smart Contract",
+      "back": "A program running on top of a blockchain that acts as a trusted third party with public state. It is immutable, executes authenticated calls atomically, and has no privacy (all state is public)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Immutability (smart contracts)",
+      "back": "Once deployed, the code of a smart contract can never be modified or changed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Atomicity (smart contracts)",
+      "back": "Execution is all-or-nothing — code never stops halfway. Either all effects of a transaction are applied, or none are."
+    },
+    {
+      "type": "flashcard",
+      "front": "No Privacy (smart contracts)",
+      "back": "Everything stored in a smart contract is public knowledge — smart contracts cannot keep secrets."
+    },
+    {
+      "type": "flashcard",
+      "front": "Solidity",
+      "back": "A JavaScript-like high-level language for writing Ethereum smart contracts. Compiled by solc into EVM bytecode."
+    },
+    {
+      "type": "flashcard",
+      "front": "Vyper",
+      "back": "A Python-like smart contract language for Ethereum, designed to avoid common programming mistakes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Serpent",
+      "back": "A Python-like smart contract language for Ethereum (older, largely superseded by Vyper)."
+    },
+    {
+      "type": "flashcard",
+      "front": "EVM (Ethereum Virtual Machine)",
+      "back": "A stack-based computation engine that executes smart contract bytecode. Word size is 256 bits (32 bytes). Uses three data components: immutable program code, volatile memory, and permanent storage."
+    },
+    {
+      "type": "flashcard",
+      "front": "EVM word size",
+      "back": "256 bits (32 bytes)"
+    },
+    {
+      "type": "flashcard",
+      "front": "EVM: three data components",
+      "back": "1. Program code (immutable) 2. Volatile memory (zeroed for every transaction) 3. Permanent storage (persisted per contract)"
+    },
+    {
+      "type": "flashcard",
+      "front": "Gas (EVM)",
+      "back": "A unit that measures the computational cost of each EVM instruction. Every opcode costs gas. Running out of gas causes the transaction to revert (but gas is still consumed)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Gas cost: basic operations (ADD, MUL, PUSH, JUMP)",
+      "back": "2–10 gas"
+    },
+    {
+      "type": "flashcard",
+      "front": "Gas cost: CALL opcode",
+      "back": "700 gas"
+    },
+    {
+      "type": "flashcard",
+      "front": "Gas cost: transaction overhead",
+      "back": "21,000 gas"
+    },
+    {
+      "type": "flashcard",
+      "front": "Gas cost: CREATE (contract creation)",
+      "back": "32,000 + 200 × (code size in bytes)"
+    },
+    {
+      "type": "flashcard",
+      "front": "SSTORE gas costs",
+      "back": "zero→non-zero: 20,000 gas; non-zero→non-zero: 5,000 gas; non-zero→zero: 15,000 gas refund"
+    },
+    {
+      "type": "flashcard",
+      "front": "Cost of storing 1 MB on Ethereum",
+      "back": "Approximately $2,600 (assuming 100 gwei gas price and ETH at $4,000)"
+    },
+    {
+      "type": "flashcard",
+      "front": "EVM Storage vs Memory",
+      "back": "Storage: persistent across transactions, maps {0,1}^256 → {0,1}^256. Memory: volatile, reset to zero each transaction. Storage is very expensive."
+    },
+    {
+      "type": "flashcard",
+      "front": "CALL opcode",
+      "back": "Invokes another contract in a new execution context. msg.sender changes to the calling contract's address."
+    },
+    {
+      "type": "flashcard",
+      "front": "DELEGATECALL opcode",
+      "back": "Runs the callee's code but within the caller's context — same storage, same msg.sender, same msg.value. The caller 'delegates' their storage to the callee."
+    },
+    {
+      "type": "flashcard",
+      "front": "STATICCALL opcode",
+      "back": "A read-only message call — the callee cannot modify state."
+    },
+    {
+      "type": "flashcard",
+      "front": "CALLCODE opcode",
+      "back": "Similar to DELEGATECALL but being deprecated in modern Ethereum."
+    },
+    {
+      "type": "flashcard",
+      "front": "Execution Context (EVM)",
+      "back": "A data region created when executing a transaction or call, containing: code, program counter, stack, memory, persistent storage, call data, and return data. Destroyed when execution ends."
+    },
+    {
+      "type": "flashcard",
+      "front": "tx.origin",
+      "back": "The Ethereum address of the original external account (EOA) that signed the transaction — the originator of the entire call chain."
+    },
+    {
+      "type": "flashcard",
+      "front": "msg.sender",
+      "back": "The address of the immediate caller of the current function. Changes with each CALL. Should be used instead of tx.origin for authentication."
+    },
+    {
+      "type": "flashcard",
+      "front": "msg.value",
+      "back": "The amount of Ether (in wei) sent by the caller with the current call."
+    },
+    {
+      "type": "flashcard",
+      "front": "selfdestruct(address)",
+      "back": "Destroys the contract and sends all its remaining Ether to the specified address. The Ether transfer cannot be refused by the recipient, even if it has no payable function."
+    },
+    {
+      "type": "flashcard",
+      "front": "fallback() function",
+      "back": "A special Solidity function executed when a contract is called with no matching function selector, or when Ether is sent directly to the contract."
+    },
+    {
+      "type": "flashcard",
+      "front": "payable modifier (Solidity)",
+      "back": "Marks a function as able to receive Ether. Calls sending Ether to a non-payable function will revert — but selfdestruct bypasses this."
+    },
+    {
+      "type": "flashcard",
+      "front": "Solidity State Variable",
+      "back": "A variable declared at the contract level that is persisted in EVM storage between transactions."
+    },
+    {
+      "type": "flashcard",
+      "front": "State Variable: public visibility",
+      "back": "The variable can be read by other contracts. Solidity automatically generates a getter function."
+    },
+    {
+      "type": "flashcard",
+      "front": "State Variable: internal visibility",
+      "back": "The variable can only be accessed by the contract it is defined in and derived (child) contracts."
+    },
+    {
+      "type": "flashcard",
+      "front": "State Variable: private visibility",
+      "back": "The variable can only be accessed by the contract it is defined in. Note: the data is still publicly visible on-chain."
+    },
+    {
+      "type": "flashcard",
+      "front": "Function Modifier (Solidity)",
+      "back": "A reusable precondition block applied to functions. Declared with the 'modifier' keyword. The underscore '_' marks where the function body executes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Event (Solidity)",
+      "back": "A mechanism that lets smart contracts log information to the transaction receipt, allowing off-chain systems to efficiently monitor on-chain state changes. Triggered with 'emit'."
+    },
+    {
+      "type": "flashcard",
+      "front": "revert() / require()",
+      "back": "Solidity error-handling mechanisms that abort execution and undo all state changes in the current call (gas consumed is not refunded). require() is used for input validation; revert() for custom errors."
+    },
+    {
+      "type": "flashcard",
+      "front": "Message (Ethereum)",
+      "back": "A virtual transaction initiated by a contract rather than an EOA. Has no signature. Used for contract-to-contract and contract-to-EOA calls. One user transaction can trigger many messages."
+    },
+    {
+      "type": "flashcard",
+      "front": "Flash Loan",
+      "back": "A DeFi primitive enabled by atomicity: borrow a large amount of Ether/tokens within a single transaction without collateral, as long as it is repaid before the transaction ends."
+    },
+    {
+      "type": "flashcard",
+      "front": "Solidity 'library' keyword",
+      "back": "Defines a library contract that: has no storage of its own, cannot be destroyed via selfdestruct, and is deployed once for reuse. Prevents the Devops199-style vulnerability."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bug #1: tx.origin authentication vulnerability",
+      "back": "Using tx.origin for authentication is unsafe. A malicious contract-in-the-middle can trick a victim contract into executing as if it were the original signer. Always use msg.sender."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bug #2: Unbounded computation",
+      "back": "Looping over an array with no upper bound can consume all available gas, causing the transaction to fail and potentially locking any funds the contract was supposed to send."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bug #3: Relying on a destructible contract",
+      "back": "If multiple contracts delegate all logic to a shared 'library' contract that can be selfdestructed, one call to selfdestruct() destroys all dependent contracts' functionality. Use the 'library' keyword to prevent this."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bug #4: Exact-balance condition vulnerability",
+      "back": "Checking address(this).balance == exact_amount is dangerous because selfdestruct() can force-send Ether to any contract without triggering any function, shifting the balance unexpectedly."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bug #5: Front-running / unpredictable execution",
+      "back": "Miners and validators choose the order of transactions in a block. They (or anyone watching the mempool) can insert or reorder transactions to their advantage before a pending transaction is confirmed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bug #6: Reentrancy",
+      "back": "A vulnerability where an attacker's contract repeatedly calls back into the victim's withdraw() function via fallback() before the victim updates the attacker's balance to zero, draining all funds."
+    },
+    {
+      "type": "flashcard",
+      "front": "Reentrancy fix: Checks-Effects-Interactions pattern",
+      "back": "Always update all state (set balances to 0) BEFORE making external calls or sending Ether. This prevents the re-entrant call from seeing a stale (non-zero) balance."
+    },
+    {
+      "type": "flashcard",
+      "front": ".transfer() and .send() — reentrancy mitigation",
+      "back": "These Solidity methods forward only 2,300 gas to the recipient — too little for re-entrant logic to execute. However, the best practice is still to follow the Checks-Effects-Interactions pattern."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bug #7: Compiler bug",
+      "back": "Smart contract vulnerabilities can arise from bugs in the Solidity compiler itself, even if the source code is correct. Always use well-audited, up-to-date compiler versions."
+    },
+    {
+      "type": "flashcard",
+      "front": "Honey Pot contract",
+      "back": "A contract designed to look exploitable but which traps attackers. Often exploits unpredictable execution or hidden state to steal funds from would-be attackers."
+    },
+    {
+      "type": "flashcard",
+      "front": "EVM opcode categories",
+      "back": "1. Arithmetic & bitwise logic 2. Execution context inquiries 3. Stack, memory & storage access 4. Control flow 5. Logging, calling & other operators"
+    },
+    {
+      "type": "flashcard",
+      "front": "pragma solidity ^0.8.20",
+      "back": "A Solidity version pragma. The ^ means the compiler version must be ≥ 0.8.20 and < 0.9.0."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which property of a smart contract guarantees that code execution is ALL or NOTHING?",
+      "options": ["Immutability", "Atomicity", "Authentication", "No Privacy"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the word size of the Ethereum Virtual Machine?",
+      "options": ["64 bits", "128 bits", "256 bits", "512 bits"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Ethereum smart contract language is described as 'Python-like but designed to avoid basic mistakes'?",
+      "options": ["Serpent", "Solidity", "Vyper", "LLL"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How much gas does a CALL opcode cost?",
+      "options": ["2–10", "21,000", "700", "32,000"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How much gas is the overhead for any Ethereum transaction?",
+      "options": ["700", "2,300", "21,000", "32,000"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Writing a value from zero to non-zero using SSTORE costs:",
+      "options": ["5,000 gas", "20,000 gas", "15,000 gas", "32,000 gas"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "DELEGATECALL differs from CALL in that it:",
+      "options": [
+        "Creates a new context with new storage and new msg.sender",
+        "Is read-only and cannot modify state",
+        "Runs the callee's code but uses the caller's storage and msg.sender",
+        "Is only valid for sending Ether"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which opcode is used to create a new smart contract on the EVM?",
+      "options": ["CALL", "JUMP", "CREATE", "DEPLOY"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Solidity value represents the address of the immediate caller of a function?",
+      "options": ["tx.origin", "msg.sender", "block.coinbase", "address(this)"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How much gas do .send() and .transfer() forward to the recipient?",
+      "options": ["700", "2,300", "5,000", "21,000"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a reentrancy attack, which function in the attacker's contract is exploited to re-enter the victim?",
+      "options": ["constructor()", "modifier", "fallback()", "receive()"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the correct order of operations in the Checks-Effects-Interactions pattern for a withdraw function?",
+      "options": [
+        "Send funds → check balance → update balance",
+        "Check balance → send funds → update balance",
+        "Check balance → update balance → send funds",
+        "Update balance → send funds → check balance"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Solidity keyword prevents a shared contract from having its own storage and from being destroyed via selfdestruct?",
+      "options": ["abstract", "interface", "library", "immutable"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Approximately how much does it cost to store 1 MB of data on Ethereum at 100 gwei gas price and ETH at $4,000?",
+      "options": ["$26", "$260", "$2,600", "$26,000"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is tx.origin in Solidity?",
+      "options": [
+        "The address of the immediate caller",
+        "The address of the contract itself",
+        "The address of the original EOA that signed the transaction",
+        "The address of the current block's validator"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which type of Ethereum account can initiate a transaction?",
+      "options": [
+        "Contract account only",
+        "Externally Owned Account (EOA) only",
+        "Both EOA and contract accounts",
+        "Neither — transactions are automatic"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the 'payable' modifier on a Solidity function indicate?",
+      "options": [
+        "The function is free to call",
+        "The function can receive Ether",
+        "The function returns Ether",
+        "The function is read-only"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What happens to the execution context when CALL is used?",
+      "options": [
+        "The existing context is reused with the callee's code",
+        "A new execution context is created",
+        "The current context is permanently destroyed",
+        "The EVM switches to delegated storage"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the gas refund for setting a non-zero storage value back to zero?",
+      "options": ["0 gas", "5,000 gas", "15,000 gas", "20,000 gas"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The Solidity 'view' function keyword means:",
+      "options": [
+        "The function can modify state variables",
+        "The function can only receive Ether",
+        "The function reads state but does not modify it",
+        "The function is invisible to external callers"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Smart contracts have no privacy — all state stored in a contract is publicly visible.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The EVM is a register-based virtual machine, similar to x86.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "EVM volatile memory is reset to zero at the start of every transaction.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Gas is consumed only if a transaction succeeds; if it reverts, no gas is used.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Using tx.origin for authentication is safe because it always reflects who called the function.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A contract with no payable function can still receive Ether via selfdestruct.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "DELEGATECALL changes msg.sender to the address of the calling contract.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A Solidity 'library' contract cannot be destroyed with selfdestruct.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a reentrancy attack, the key flaw is that the victim contract updates the attacker's balance before sending funds.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Miners and validators have no control over the ordering of transactions within a block.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Solidity Events are stored on-chain and can be queried by off-chain applications.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A private state variable in Solidity is genuinely secret and cannot be read from outside the contract.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "One Ethereum transaction can trigger execution of multiple smart contracts via message calls.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "STATICCALL allows the called contract to modify state variables.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Solidity automatically generates a getter function for public state variables.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Looping over an unbounded array in Solidity is safe as long as the array stays small in practice.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Smart contract storage is cheaper than memory in Ethereum.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Flash loans rely on Ethereum's atomicity property to enable uncollateralised borrowing within a single transaction.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between tx.origin and msg.sender, and why tx.origin should not be used for authentication.",
+      "answer": "tx.origin is the address of the EOA that originally signed the transaction, while msg.sender is the address of the immediate caller of the current function. In a multi-contract call chain, tx.origin stays constant but msg.sender changes at each CALL. A malicious contract-in-the-middle can trick a victim into executing a privileged function — the victim sees tx.origin == legitimate user, even though msg.sender is actually the attacker's contract. Using msg.sender prevents this because it correctly reflects the direct caller."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how a reentrancy attack works step by step.",
+      "answer": "1. The attacker deposits a small amount into the victim contract. 2. The attacker calls withdraw(). 3. The victim reads the attacker's balance and sends Ether before zeroing the balance. 4. Receiving Ether triggers the attacker contract's fallback() function. 5. fallback() immediately calls withdraw() again. 6. Because the balance was never set to zero, the victim still sees a non-zero balance and sends Ether again. 7. This loop continues until the victim contract is drained. 8. Eventually execution unwinds and the balance is set to 0, but it is too late."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the Checks-Effects-Interactions pattern and why does it prevent reentrancy?",
+      "answer": "It is a coding discipline for Solidity functions that perform state changes and external calls. The order is: (1) Checks — validate all preconditions with require(); (2) Effects — update all state variables first; (3) Interactions — only then make external calls or send Ether. It prevents reentrancy because by the time the external call is made the balance has already been set to zero, so any re-entrant call will see a zero balance and fail the balance check."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between CALL and DELEGATECALL in the EVM.",
+      "answer": "CALL invokes another contract in a completely new execution context — the callee has its own storage, and msg.sender becomes the address of the calling contract. DELEGATECALL also runs the callee's code, but does so within the caller's context: the caller's storage is used, and msg.sender and msg.value remain the same as in the original call. This is useful for upgradeable proxy patterns, where logic lives in one contract but state lives in another."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is it dangerous to check an exact Ether balance (e.g. address(this).balance == 10 ether) in a smart contract?",
+      "answer": "A contract cannot refuse Ether sent to it via selfdestruct(). An attacker can create a contract, fund it, then selfdestruct it and direct the funds to the target contract. This shifts the target's balance by any arbitrary amount, making an exact-balance condition permanently unsatisfiable. In the jackpot game example, the attacker sends 1 wei so the balance is 9 ether + 1 wei, which never equals exactly 10 ether, locking all deposited funds."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is front-running in Ethereum and what makes it possible?",
+      "answer": "Front-running is when a miner, validator, or observer of the mempool inserts their own transaction ahead of a pending transaction to profit from the predictable state change. It is possible because transactions sit in a public mempool before inclusion, and block producers choose the ordering of transactions. For example, if Alice submits a getCoins() call while 'ready' is true, a validator can place their own updateReady() transaction first, flipping the flag to false so Alice's transaction wastes gas."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the Devops199 vulnerability, and how does the 'library' keyword prevent it?",
+      "answer": "The Devops199 incident involved multiple multi-sig wallets that all delegated their functionality to a single shared contract. A developer accidentally (or intentionally) called selfdestruct() on that shared contract, destroying all dependent wallets' logic and freezing hundreds of millions of dollars. The Solidity 'library' keyword prevents this by creating a contract that has no storage of its own and cannot be selfdestructed, making it safe to share across many contracts."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the three visibility levels for Solidity state variables.",
+      "answer": "Public: the variable can be read by any contract or external account; Solidity auto-generates a getter. Internal: readable only by the defining contract and contracts that inherit from it; external contracts cannot read it. Private: readable only by the contract in which it is defined, not even by derived contracts. Importantly, none of these levels prevent on-chain data from being visible to anyone inspecting the blockchain — 'private' does not mean secret."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is an EVM execution context and what happens when CALL creates one?",
+      "answer": "An execution context is the set of data regions created for a single function invocation: code, program counter, stack, memory, persistent storage, call data, and return data. When CALL is used, a brand new execution context is created for the callee. The callee runs in this new context with its own storage and a new msg.sender (set to the calling contract's address). When the callee returns, execution resumes in the original context at PC+1."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is Ethereum storage so expensive, and what best practices does this imply?",
+      "answer": "Storage is expensive because every full node on the Ethereum network must store the data permanently. SSTORE from zero to non-zero costs 20,000 gas, which at typical gas prices can cost dollars per 32-byte word. At 100 gwei and $4,000 ETH, 1 MB costs roughly $2,600. This means developers should minimise on-chain storage: avoid storing large data on-chain, delete storage slots when no longer needed (which provides a gas refund), and prefer events for historical data that does not need to be accessed by contracts."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are Solidity Events, and how do they differ from state variables?",
+      "answer": "Events are a logging mechanism that writes data to the transaction receipt rather than to contract storage. They are cheaper than storage and provide a convenient interface for off-chain applications (like web frontends or indexers) to monitor contract activity. Unlike state variables, event data is not directly accessible by other contracts on-chain — it is write-only from the contract's perspective. They are declared with the 'event' keyword and triggered with 'emit'."
+    }
+  ]
+}
