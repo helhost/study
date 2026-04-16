@@ -1,0 +1,600 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Application Layer",
+      "back": "Deals with protocol logic implemented by higher-level applications: HTTP, FTP, DNS."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Transport Layer",
+      "back": "Deals with the data channel that applications use for data exchange: TCP, UDP."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Network Layer",
+      "back": "Deals with data transmitted between different networks: IPv4, IPv6."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Data-Link Layer",
+      "back": "Deals with data transmitted between hosts connected to the same link: Ethernet."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Physical Layer",
+      "back": "Describes how signals are physically transmitted."
+    },
+    {
+      "type": "flashcard",
+      "front": "Socket (networking)",
+      "back": "The interface presented to a program when it is associated with a port at the source and destination in a transport protocol."
+    },
+    {
+      "type": "flashcard",
+      "front": "UDP (User Datagram Protocol)",
+      "back": "The simplest transport protocol. Messages are not acknowledged and reception is not guaranteed. Ideal for applications where losing some packets is better than retransmitting them (e.g. video, audio)."
+    },
+    {
+      "type": "flashcard",
+      "front": "DNS (Domain Name System) — port",
+      "back": "Port 53. Uses UDP for simple and fast lookups; falls back to TCP when a DNS request won't fit in a UDP datagram."
+    },
+    {
+      "type": "flashcard",
+      "front": "DHCP (Dynamic Host Configuration Protocol) — ports",
+      "back": "Ports 67 and 68. Designed to be simple and fast, so uses UDP."
+    },
+    {
+      "type": "flashcard",
+      "front": "HTTP/3 transport",
+      "back": "Uses QUIC, which runs over UDP. QUIC provides its own reliability and congestion management, avoiding the overhead of TCP."
+    },
+    {
+      "type": "flashcard",
+      "front": "µTP (BitTorrent)",
+      "back": "Uses UDP with its own latency-based congestion management so as not to disrupt TCP traffic."
+    },
+    {
+      "type": "flashcard",
+      "front": "UDP spoofing / hijacking (local network)",
+      "back": "The attacker sniffs traffic on the local network to observe a request, then races with the legitimate server to send a spoofed UDP reply to the victim before the real reply arrives."
+    },
+    {
+      "type": "flashcard",
+      "front": "Blind UDP spoofing",
+      "back": "A UDP spoofing attack performed against a remote target where the attacker cannot sniff traffic. The attacker sends spoofed datagrams without visibility of the network path."
+    },
+    {
+      "type": "flashcard",
+      "front": "Portscan",
+      "back": "The process of enumerating which services (ports) are listening on a host by probing each port and observing the response."
+    },
+    {
+      "type": "flashcard",
+      "front": "UDP portscan method",
+      "back": "Send an empty UDP datagram to each port. If no service is listening, the host sends an ICMP port unreachable error. Some OSes rate-limit ICMP errors (~80 per 20 seconds), making the scan slow (~1 hour for all 65,535 ports)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Sweeping (network scanning)",
+      "back": "Scanning multiple hosts for a single specific port — e.g. checking which hosts on a network are running a web server."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP (Transmission Control Protocol)",
+      "back": "A connection-oriented, reliable transport protocol that provides: no loss or duplication of packets, congestion management, no transmission errors, and correct ordering of segments."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP virtual circuit identifier",
+      "back": "The 4-tuple of: source IP address, destination IP address, source port (randomly chosen by client), destination port (the listening service port)."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP Sequence Number",
+      "back": "Specifies the position of a segment in the communication stream. Used for reliability, ordering, and loss detection."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP Acknowledgement Number",
+      "back": "Specifies the position of the last segment received (next expected byte). Calculated as: ack = seq + len(payload)."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP Window field",
+      "back": "Controls flow: only segments falling within the specified window range will be accepted by the receiver."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP SYN flag",
+      "back": "Requests synchronization of sequence and acknowledgement numbers. Used during the three-way handshake to initiate a connection."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP ACK flag",
+      "back": "Acknowledges receipt of a segment. Set on all segments after the initial SYN."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP FIN flag",
+      "back": "Requests a graceful shutdown of the circuit, allowing in-progress communication to finish."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP RST flag",
+      "back": "Requests an immediate (abrupt) shutdown of the circuit. It is unclear what data has been received when RST is used."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP PSH flag",
+      "back": "Requests that the data stream be passed to the user-level program as soon as possible."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP URG flag",
+      "back": "Specifies that the data in the segment is urgent."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP Three-Way Handshake",
+      "back": "1. Client sends SYN with its random sequence number. 2. Server replies with SYN+ACK, its own random sequence number, and ack = client_seq + 1. 3. Client sends ACK with ack = server_seq + 1. Connection is now established."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP graceful connection close",
+      "back": "One host sends FIN+ACK. The other continues sending data until done, then replies with FIN+ACK. The first host sends a final ACK, and the connection terminates."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP ACK storm",
+      "back": "An infinite loop of ACK segments generated when an attacker injects spoofed data into a TCP connection, causing sequence numbers to desynchronize. Ends when a data-less ACK is dropped (as the standard says such segments are not retransmitted)."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP Hijacking",
+      "back": "An attack where an attacker with network visibility waits for a quiet TCP connection, then injects spoofed data of their choice to the server, desynchronizing sequence numbers and triggering an ACK storm."
+    },
+    {
+      "type": "flashcard",
+      "front": "RFC 5961 challenge ACK",
+      "back": "A mitigation for blind TCP injection. If a segment falls within an acceptable range but is not the exact next segment, the receiver sends a challenge ACK to the source IP. These are rate-limited on Linux, which can be exploited as a side channel."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP connect() scan",
+      "back": "A portscan that completes the full three-way handshake. Does not require root privileges but is noisy and easy to detect."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP SYN scan (half-open scan)",
+      "back": "Sends a SYN; if the port is open the host replies SYN+ACK (port open); if closed it replies RST. Never completes the handshake, so the connection is not logged by the target OS. Detection relies on IDS."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP FIN scan",
+      "back": "Sends a FIN segment. If the port is open, the segment is ignored; if closed, a RST is returned. Unreliable: if the segment is lost, the port appears open."
+    },
+    {
+      "type": "flashcard",
+      "front": "XMAS scan",
+      "back": "A portscan sending segments with FIN, PSH, and URG flags all set simultaneously."
+    },
+    {
+      "type": "flashcard",
+      "front": "Null scan",
+      "back": "A portscan that sends TCP segments with no flags set."
+    },
+    {
+      "type": "flashcard",
+      "front": "Idle scan",
+      "back": "A covert portscan performed through a third-party 'idle' host. The attacker spoofs the idle host's IP, observes changes in the idle host's IP ID counter to determine if target ports are open, without revealing the attacker's own IP."
+    },
+    {
+      "type": "flashcard",
+      "front": "IP ID field (IPv4)",
+      "back": "A field in the IPv4 header incremented by 1 for each datagram sent. Used in idle scanning to infer whether the target replied to a spoofed probe."
+    },
+    {
+      "type": "flashcard",
+      "front": "OS Fingerprinting",
+      "back": "The practice of identifying a host's operating system by observing subtle differences in TCP/IP stack behaviour (e.g. initial TTL, IP ID increments, response to unusual flag combinations)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Active vs Passive OS Fingerprinting",
+      "back": "Active: send specific crafted packets (e.g. nmap). Passive: observe existing traffic and infer the OS without sending probes (e.g. p0f)."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP covert channel via Initial Sequence Numbers",
+      "back": "Because ISNs must contain randomness for security, that random component can be used to encode encrypted data. The technique must account for non-random parts of the ISN. (Murdoch & Lewis, 2005)"
+    },
+    {
+      "type": "flashcard",
+      "front": "DNS Recursive Server",
+      "back": "A DNS server that clients query directly; it fetches the answer by contacting authoritative servers up the hierarchy and caches results for performance."
+    },
+    {
+      "type": "flashcard",
+      "front": "DNS Authoritative Server",
+      "back": "A DNS server that holds the definitive IP–domain mappings for a zone."
+    },
+    {
+      "type": "flashcard",
+      "front": "DNS Cache Poisoning",
+      "back": "An attack where a malicious DNS record is injected into a resolver's cache, causing it to return incorrect IP addresses to clients for the poisoned domain."
+    },
+    {
+      "type": "flashcard",
+      "front": "Kaminsky Attack",
+      "back": "A DNS cache-poisoning attack that leverages the birthday paradox. The attacker floods a recursive resolver with spoofed DNS replies to guess the 16-bit transaction ID (and source port), poisoning the cache for a target domain. On average requires ~320 guesses for the ID alone."
+    },
+    {
+      "type": "flashcard",
+      "front": "DNS 0x20 encoding",
+      "back": "A backwards-compatible DNS spoofing mitigation that randomises the case of the queried name (e.g. WwW.eXaMpLe.CoM). Servers verify the reply matches the case of the request, adding ~12 bits of security."
+    },
+    {
+      "type": "flashcard",
+      "front": "DNSSEC",
+      "back": "A DNS extension that adds cryptographic authentication to DNS responses, preventing spoofing. Requires backwards-incompatible changes throughout the DNS system."
+    },
+    {
+      "type": "flashcard",
+      "front": "TLS (Transport Layer Security)",
+      "back": "The most common protocol for encrypting and authenticating TCP-based communications (HTTPS, SMTP, IMAP, etc.). Uses public-key cryptography for authentication and symmetric cryptography for data encryption."
+    },
+    {
+      "type": "flashcard",
+      "front": "TLS Man-in-the-Middle Attack",
+      "back": "Possible when certificates are not properly checked. An attacker intercepts the connection using a rogue certificate, decrypts the victim's traffic, then relays it to the real server via a second TLS channel."
+    },
+    {
+      "type": "flashcard",
+      "front": "TLS rogue CA certificate attack",
+      "back": "Attacker installs a rogue Certificate Authority certificate in the victim's browser (e.g. via malware), then performs a MITM attack. The browser trusts all certificates signed by the rogue CA."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which TCP/IP layer does UDP operate at?",
+      "options": ["Application Layer", "Transport Layer", "Network Layer", "Data-Link Layer"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many possible ports does UDP allow?",
+      "options": ["1,024", "32,767", "65,535", "65,536"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which protocol uses QUIC for transport, running over UDP?",
+      "options": ["HTTP/1.1", "HTTP/2", "HTTP/3", "HTTPS"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is UDP ideal for streaming video or audio applications?",
+      "options": [
+        "It guarantees delivery of all packets",
+        "It is connection-oriented and ordered",
+        "Losing some packets is preferable to the delay of retransmission",
+        "It encrypts data by default"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a UDP portscan, what response indicates that no service is listening on a port?",
+      "options": [
+        "A TCP RST segment",
+        "An ICMP port unreachable error",
+        "A UDP acknowledgement",
+        "Silence (no response)"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Approximately how long can a full UDP portscan of all 65,535 ports take on a Linux host that rate-limits ICMP errors to 80 per 20 seconds?",
+      "options": ["About 1 minute", "About 10 minutes", "About 1 hour", "About 24 hours"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is 'sweeping' in the context of network scanning?",
+      "options": [
+        "Scanning all ports on a single host",
+        "Scanning multiple hosts for a single port",
+        "Scanning for open UDP ports only",
+        "Scanning using a third-party relay host"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which TCP flag is used to request a graceful connection shutdown?",
+      "options": ["RST", "SYN", "FIN", "URG"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the TCP three-way handshake, what does the server send as its acknowledgement number in the SYN+ACK?",
+      "options": [
+        "The server's own sequence number",
+        "The client's sequence number unchanged",
+        "The client's sequence number incremented by 1",
+        "Zero"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which TCP flag set is used in an XMAS scan?",
+      "options": ["SYN + ACK", "FIN + PSH + URG", "FIN + RST", "SYN + FIN"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the key advantage of a SYN (half-open) scan over a connect() scan?",
+      "options": [
+        "It does not require root privileges",
+        "The connection is never completed, so it is not logged by the target OS",
+        "It works without knowing the target's IP address",
+        "It can scan UDP ports as well"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In an idle scan, what property of the relay host does the attacker exploit?",
+      "options": [
+        "Its open file descriptors",
+        "Its IP ID field, which increments by 1 for each datagram sent",
+        "Its DNS cache",
+        "Its TCP window size"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What initial IP Time-To-Live value does Linux set by default?",
+      "options": ["32", "64", "128", "255"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What initial IP TTL value does Windows use?",
+      "options": ["32", "64", "128", "255"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which tool is described as the tool of choice for performing portscans?",
+      "options": ["Wireshark", "Metasploit", "nmap", "tcpdump"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the purpose of the birthday paradox in the context of the Kaminsky DNS attack?",
+      "options": [
+        "It shows that cache entries expire at predictable times",
+        "It calculates that far fewer guesses are needed than intuition suggests to find a matching DNS ID",
+        "It proves DNS IDs must be at least 32 bits long",
+        "It is used to determine the TTL of poisoned records"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "On average, how many guesses does the Kaminsky attack require when only the 16-bit DNS transaction ID needs to be guessed?",
+      "options": ["About 80", "About 160", "About 320", "About 65,535"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What mitigation did all major DNS server software adopt after the Kaminsky attack disclosure?",
+      "options": [
+        "Switching entirely to TCP",
+        "Using DNSSEC on all zones",
+        "Randomising the source port (adding ~16 bits of security)",
+        "Encrypting DNS responses with TLS"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In TLS, how is the shared session key protected from an attacker who intercepts traffic?",
+      "options": [
+        "It is transmitted in cleartext but XORed with a nonce",
+        "It can only be decrypted with the other endpoint's private key",
+        "It is derived solely from the client's IP address",
+        "It is never transmitted; it is computed from the DNS record"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which passive OS fingerprinting tool is mentioned in the slides?",
+      "options": ["nmap", "Wireshark", "p0f", "Zmap"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "UDP guarantees that all sent packets are received by the destination.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "DNS uses only UDP and never falls back to TCP.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "HTTP/1 and HTTP/2 use TCP as their transport, while HTTP/3 uses QUIC over UDP.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A UDP portscan sends a payload-filled datagram to each port to check if a service is listening.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "TCP provides reliable, ordered, and error-checked delivery of data.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "During regular TCP data transmission (not handshake), only the ACK flag is set to 1.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The RST flag allows the receiving end to know exactly what data was previously received before the reset.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A TCP connect() scan requires root privileges on the scanning host.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A SYN scan is logged by the target operating system because it completes the three-way handshake.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An idle scan requires the relay host to be actively sending traffic so its IP ID changes predictably.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Purely random TCP sequence numbers are ideal for security but could cause confusion if two connections end up with sequence numbers close to each other.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Windows sets the IP ID field in network byte order, causing each new datagram to increment the IP ID by 1.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "DNSSEC adds cryptographic authentication to DNS but requires backwards-incompatible changes throughout the DNS system.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "TLS prevents all man-in-the-middle attacks unconditionally.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Zmap can scan all of IPv4 in approximately 24 hours (or faster with more bandwidth).",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A DNS cache poisoning attack can redirect clients requesting a legitimate domain to an attacker-controlled IP address.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "RFC 5961 rate-limits challenge ACKs on Linux, and this rate limit can be exploited as a side channel to infer the correct TCP sequence number.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why each layer of the TCP/IP stack introduces its own security concerns.",
+      "answer": "Each layer is designed to be largely oblivious to the other layers, allowing developers to focus on their own layer. However, this means security problems can exist independently at every layer: even if application-level code is secure, attackers can exploit vulnerabilities at the transport, network, or data-link layers to compromise the overall system."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how a local-network UDP spoofing / hijacking attack works.",
+      "answer": "The attacker sniffs traffic on the local network to see a UDP request from the victim. They then race with the legitimate server to send a spoofed UDP reply (with a forged source IP) back to the victim before the real reply arrives. If the attacker wins the race, the victim processes the malicious reply. The attacker may also use a DoS attack to silence the legitimate server, removing the race condition."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Walk through the TCP three-way handshake, including what sequence and acknowledgement numbers are exchanged at each step.",
+      "answer": "1. SYN: The client picks a random sequence number (e.g. 49876) and sends a segment with SYN=1, ACK=0 to the server. 2. SYN+ACK: The server picks its own random sequence number (e.g. 7694), sets SYN=1 and ACK=1, and returns an ack number equal to the client's sequence number plus 1 (49877). 3. ACK: The client sends a segment with SYN=0, ACK=1, and an ack number equal to the server's sequence number plus 1 (7695). The connection is now established."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does TCP Hijacking work and what is an ACK storm?",
+      "answer": "The attacker waits until a TCP connection is idle (all segments acknowledged). They then inject spoofed data with the correct source IP and a valid sequence number into the connection, causing the server to accept it and advance its acknowledgement number. This desynchronises the sequence numbers between the real client and server. The server sends an ACK to the real client, but the client's sequence number doesn't match, so it sends its own ACK back — creating an infinite loop of ACK segments called an ACK storm. The storm ends when a data-less ACK segment is lost, since such segments are not retransmitted by the TCP standard."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What makes TCP spoofing harder than UDP spoofing, and what two strategies can an attacker use to overcome this?",
+      "answer": "TCP spoofing is harder because to complete the three-way handshake an attacker must know the server's current sequence number. The spoofed (legitimate) host will also send RST segments when it receives the server's SYN+ACK, disrupting the connection. The attacker can overcome this by: (1) Sniffing the sequence number if they have network access, or (2) Guessing the sequence number, which is feasible if the target OS uses a predictable or non-random ISN generation algorithm. The attacker also typically performs a DoS attack on the spoofed host to silence its RST responses."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe at least three TCP/IP stack behaviours that can be used to fingerprint an operating system.",
+      "answer": "1. Initial TTL: Linux sets TTL to 64; Windows sets it to 128. 2. FIN response: RFC793 says hosts should not reply to a FIN on an open port, but some Windows, Cisco IOS, and HP/UX versions reply with RST. 3. IP ID byte order: Windows sets the IP ID in host byte order rather than network byte order, causing it to increment by 256 per datagram instead of 1. 4. Initial sequence number patterns can reveal the OS and version. 5. The Don't Fragment bit is set in different circumstances by different OSes."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the Kaminsky DNS cache-poisoning attack and how source-port randomisation mitigates it.",
+      "answer": "In the Kaminsky attack, the attacker repeatedly requests non-existent subdomains of a target domain from the victim's recursive resolver, causing it to issue fresh DNS queries with new transaction IDs. The attacker floods the resolver with spoofed replies hoping to guess the correct 16-bit DNS transaction ID. If successful, the forged reply is cached and all future queries for the domain are redirected. Source-port randomisation means the attacker must also guess the random UDP source port (another 16 bits), expanding the search space from ~65,535 to billions of combinations, making the attack far less feasible."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does TLS protect against TCP spoofing and hijacking, and what is its remaining weakness?",
+      "answer": "TLS uses public-key cryptography so that each side authenticates the other via certificates, and then negotiates a shared symmetric session key. Because the session key can only be decrypted with the server's private key, an attacker who intercepts or injects segments cannot read or forge the encrypted payload. Its remaining weakness is the man-in-the-middle attack: if an attacker can present a rogue certificate that the client trusts (e.g. by installing a rogue CA certificate via malware), they can intercept, decrypt, and re-encrypt all traffic between the client and the legitimate server."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What responsible disclosure practices were described for carrying out large-scale network scans?",
+      "answer": "The researchers: (1) set up an easily discoverable explanation page for anyone who looked up the scan's source IP; (2) allowed network operators to opt their IP ranges out of future scans; (3) used an existing opt-out list from previous research (covering ~0.7% of IPv4 space). Despite receiving many complaints, no serious consequences resulted. These practices aim to be transparent and respect network operators' wishes."
+    }
+  ]
+}
