@@ -1,0 +1,530 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Application Layer",
+      "back": "Deals with protocol logic implemented by higher-level applications. Examples: HTTP, FTP, DNS."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Transport Layer",
+      "back": "Deals with the data channel that applications use for data exchange. Examples: TCP, UDP."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Network Layer",
+      "back": "Deals with data transmitted between different networks. Examples: IPv4, IPv6."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Data-Link Layer",
+      "back": "Deals with data transmitted between hosts connected to the same link. Example: Ethernet."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCP/IP Physical Layer",
+      "back": "Defines how signals are physically transmitted over a medium."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPv4 address size",
+      "back": "32 bits long, allowing approximately 4 billion (2^32) unique addresses."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPv6 address size",
+      "back": "128 bits long, allowing approximately 3.4×10^38 (2^128) unique addresses."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPv4 loopback address",
+      "back": "127.0.0.1 — refers to the local host itself."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPv6 loopback address",
+      "back": "::1 — the IPv6 equivalent of 127.0.0.1."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPv4 broadcast address",
+      "back": "255.255.255.255 — sends a packet to all hosts on the local network."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPv6 broadcast (multicast) address",
+      "back": "ff02::1 — the all-nodes multicast address in IPv6."
+    },
+    {
+      "type": "flashcard",
+      "front": "Port (TCP/UDP)",
+      "back": "A 16-bit number used by TCP and UDP to distinguish multiple simultaneous connections between the same pair of hosts."
+    },
+    {
+      "type": "flashcard",
+      "front": "NAT (Network Address Translation)",
+      "back": "A technique where a gateway rewrites the source IP address (and port if needed) of outgoing packets so that multiple hosts sharing private IP addresses can communicate over the Internet using a single public IP."
+    },
+    {
+      "type": "flashcard",
+      "front": "Private IP address range (NAT)",
+      "back": "Hosts behind NAT are assigned private addresses such as 192.168.x.y, which are not routable on the public Internet."
+    },
+    {
+      "type": "flashcard",
+      "front": "TTL (Time To Live)",
+      "back": "A field in the IPv4 header decremented by 1 at each router. When it reaches 0, the datagram is discarded and an ICMP Time Exceeded message is sent to the sender. Prevents packets from wandering forever."
+    },
+    {
+      "type": "flashcard",
+      "front": "Traceroute",
+      "back": "A tool that discovers the route packets take to a destination by sending datagrams with incrementally increasing TTL values and observing the ICMP Time Exceeded replies from each router."
+    },
+    {
+      "type": "flashcard",
+      "front": "ICMP Time Exceeded",
+      "back": "An ICMP message sent back to the sender when a router drops a datagram because its TTL has reached zero."
+    },
+    {
+      "type": "flashcard",
+      "front": "Ping of Death",
+      "back": "An attack that exploits IP fragmentation to send a packet whose reassembled size exceeds 65,535 bytes, causing a buffer overflow in the target OS. Now patched on most systems."
+    },
+    {
+      "type": "flashcard",
+      "front": "IP fragmentation",
+      "back": "The process of splitting an IP packet into smaller fragments when the underlying link layer (e.g., Ethernet, max 1,500 bytes) cannot carry a packet as large as the maximum IP size (65,535 bytes). Fragments are reassembled at the destination."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fragment Offset field",
+      "back": "An IPv4 header field that indicates the position of a fragment within the original datagram, used by the receiver to reassemble fragments in the correct order."
+    },
+    {
+      "type": "flashcard",
+      "front": "Postel's Law (Robustness Principle)",
+      "back": "Be conservative in what you send, but liberal in what you accept. Originally intended to promote interoperability, but the liberal acceptance can introduce security vulnerabilities."
+    },
+    {
+      "type": "flashcard",
+      "front": "Promiscuous mode",
+      "back": "A network card mode in which the card accepts and passes all frames to the OS, not just those addressed to it. Used by network sniffers to capture traffic not intended for that host."
+    },
+    {
+      "type": "flashcard",
+      "front": "ARP (Address Resolution Protocol)",
+      "back": "A protocol used on local networks to map IPv4 addresses to data-link layer (e.g., Ethernet MAC) addresses. It broadcasts a query and the matching host replies with its MAC address."
+    },
+    {
+      "type": "flashcard",
+      "front": "ARP Spoofing",
+      "back": "An attack where an attacker sends forged ARP replies to associate their MAC address with a legitimate IP address, redirecting traffic to themselves. Requires continuous spoofed replies to maintain the fake mapping."
+    },
+    {
+      "type": "flashcard",
+      "front": "Switched Ethernet",
+      "back": "A network topology where a switch maintains a MAC-to-port mapping and forwards frames only to the port of the destination MAC address, preventing other hosts from seeing traffic not intended for them."
+    },
+    {
+      "type": "flashcard",
+      "front": "MAC flooding",
+      "back": "An attack that fills a switch's MAC-to-port table with fake entries, causing some switches to fall back to broadcasting all traffic to all ports, enabling sniffing."
+    },
+    {
+      "type": "flashcard",
+      "front": "802.1X standard",
+      "back": "A network access control standard that requires hosts to authenticate to an authentication server before the switch forwards their traffic — enforcing one port, one MAC address."
+    },
+    {
+      "type": "flashcard",
+      "front": "BGP (Border Gateway Protocol)",
+      "back": "The inter-domain routing protocol used by ISPs and large networks to advertise which IP address prefixes they own and to exchange routing information across the Internet."
+    },
+    {
+      "type": "flashcard",
+      "front": "Autonomous System (AS)",
+      "back": "A collection of IP networks and routers under the control of a single organisation that presents a common routing policy to the Internet. BGP is the protocol used between ASes."
+    },
+    {
+      "type": "flashcard",
+      "front": "BGP route hijacking",
+      "back": "An attack (or misconfiguration) where a rogue AS advertises a more specific route (smaller prefix) for an IP range it does not own, causing Internet traffic to be misdirected to that AS."
+    },
+    {
+      "type": "flashcard",
+      "front": "RPKI (Resource Public Key Infrastructure)",
+      "back": "A security framework for authenticating BGP route advertisements, allowing network operators to cryptographically verify that an AS is authorised to advertise a specific IP prefix."
+    },
+    {
+      "type": "flashcard",
+      "front": "IP spoofing",
+      "back": "The act of sending IP packets with a forged source address. In a remote context, it is 'blind' spoofing because the attacker cannot see replies sent to the spoofed address."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPSec",
+      "back": "A suite of protocols that adds authentication and encryption at the IP layer. It uses a Security Association (SA), and provides Authentication Header (AH) and Encapsulating Security Payload (ESP)."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPSec Authentication Header (AH)",
+      "back": "An IPSec extension providing integrity (hashing) and authentication (MAC) for the IP header and payload. Also includes a timestamp to prevent replay attacks. IP options are excluded as they can change in transit."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPSec Encapsulating Security Payload (ESP)",
+      "back": "An IPSec extension providing encryption (symmetric algorithms), integrity, and authentication for the higher-level payload only."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPSec Transport Mode",
+      "back": "An IPSec mode used for host-to-host communication where the IPSec header is inserted into the original packet. Not commonly used due to NAT incompatibility."
+    },
+    {
+      "type": "flashcard",
+      "front": "IPSec Tunnel Mode",
+      "back": "An IPSec mode used for VPNs where the entire original IP packet is encapsulated inside a new IP packet with an IPSec header. Widely used but complex and easy to misconfigure."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security Association (SA) in IPSec",
+      "back": "A pre-established agreement between two IPSec endpoints defining the algorithms used for authentication and encryption, and the keys exchanged via IKE (IPSec Key Exchange)."
+    },
+    {
+      "type": "flashcard",
+      "front": "WireGuard",
+      "back": "A simpler, non-standard VPN alternative to IPSec tunnel mode. It is easier to configure correctly and is growing in popularity."
+    },
+    {
+      "type": "flashcard",
+      "front": "MAC address",
+      "back": "A 48-bit hardware address assigned to a network interface, used at the Data-Link layer (e.g., Ethernet) to identify hosts within the same local network segment."
+    },
+    {
+      "type": "flashcard",
+      "front": "Common sources of network protocol vulnerabilities (four types)",
+      "back": "1. No authentication → spoofing/hijacking. 2. No timestamps → replay attacks. 3. Insufficient checks → poisoning. 4. Poor implementations → memory corruption, weak randomness."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which layer of the TCP/IP stack does HTTP operate at?",
+      "options": ["Transport Layer", "Network Layer", "Application Layer", "Data-Link Layer"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many bits long is an IPv4 address?",
+      "options": ["16", "32", "64", "128"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many bits long is an IPv6 address?",
+      "options": ["32", "64", "96", "128"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the IPv4 loopback address?",
+      "options": ["0.0.0.0", "255.255.255.255", "127.0.0.1", "192.168.0.1"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does NAT stand for?",
+      "options": ["Network Authentication Token", "Network Address Translation", "Node Allocation Table", "Null Address Transfer"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What happens when an IP packet's TTL reaches 0 at a router?",
+      "options": [
+        "The packet is forwarded to the next hop anyway",
+        "The router sends a TCP RST to the sender",
+        "The datagram is discarded and an ICMP Time Exceeded message is sent to the sender",
+        "The packet is queued and retransmitted later"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which protocol does Traceroute exploit to map the route to a destination?",
+      "options": ["TCP SYN packets only", "UDP only", "Incrementally increasing TTL values to trigger ICMP Time Exceeded responses", "ARP broadcasts"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the maximum size of an IPv4 packet?",
+      "options": ["1,500 bytes", "9,000 bytes", "32,767 bytes", "65,535 bytes"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the maximum Ethernet frame payload (MTU)?",
+      "options": ["576 bytes", "1,500 bytes", "4,096 bytes", "65,535 bytes"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What command can be used to perform a Ping of Death on vulnerable systems?",
+      "options": [
+        "ping -l 1500 192.168.0.123",
+        "ping -l 65510 192.168.0.123",
+        "tracert -death 192.168.0.123",
+        "nmap --ping-death 192.168.0.123"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which field in the IPv4 header is used to reassemble fragmented packets?",
+      "options": ["Protocol", "Header Checksum", "Flags and Fragment Offset", "Time To Live"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What protocol maps IPv4 addresses to MAC addresses on a local network?",
+      "options": ["DNS", "DHCP", "ARP", "RARP"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a BGP route conflict, which advertisement wins?",
+      "options": [
+        "The one advertised first",
+        "The one with the largest IP space (least specific)",
+        "The one that covers the smallest IP space (most specific)",
+        "The one from the AS with the lowest AS number"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which IPSec mode is most commonly used for VPNs?",
+      "options": ["Transport Mode", "Tunnel Mode", "Bridge Mode", "Host Mode"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does IPSec ESP provide that AH does not?",
+      "options": ["Integrity", "Authentication", "Encryption (confidentiality)", "Anti-replay protection via timestamps"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is a key reason IPSec has not been widely adopted in Transport Mode?",
+      "options": [
+        "It is too slow",
+        "It does not support NAT",
+        "It requires IPv6",
+        "It only works on Windows"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which private IP range is commonly assigned to hosts behind NAT?",
+      "options": ["10.0.0.0/8 and 192.168.x.y", "128.16.0.0/16", "166.111.0.0/16", "217.16.0.0/16"],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What standard provides host authentication in a switched Ethernet environment?",
+      "options": ["802.11", "802.3", "802.1X", "802.1Q"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In 2013, a notable BGP hijacking attack routed traffic via which two countries?",
+      "options": [
+        "Russia and China",
+        "Belarus and Iceland",
+        "Iran and North Korea",
+        "Ukraine and Germany"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the countermeasure to BGP hijacking that uses cryptographic authentication of route advertisements?",
+      "options": ["IPSec AH", "DNSSEC", "RPKI (Resource Public Key Infrastructure)", "TLS"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Each layer of the TCP/IP stack is designed to be mostly oblivious to the other layers.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "IPv4 addresses are 128 bits long.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The IPv4 source address field in an IP packet header provides authentication of who sent the packet.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Traceroute can always reveal every hop on the path to a destination.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In IP fragmentation, the IP Identification field is copied into each fragment.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Ping of Death vulnerability has been patched on virtually all modern operating systems.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Internet was originally designed with strong security in mind.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A host in promiscuous mode can capture network traffic not addressed to it.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Switched Ethernet completely eliminates ARP spoofing as a threat.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "BGP route advertisements are cryptographically authenticated by default.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In BGP, the route covering the larger IP space (less specific prefix) takes precedence over a more specific one.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "IPSec's Authentication Header (AH) provides encryption of the packet payload.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "IPv6 increases the number of available IP addresses compared to IPv4.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "IPv6 is inherently more secure than IPv4.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "NAT was originally designed as a security mechanism.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "IP spoofing towards a remote network is called 'blind' spoofing because the attacker cannot see replies.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The forward network path taken by packets is always the same as the return path.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Promiscuous mode sniffers on a network can be detected by observing increases in a suspected host's latency.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why the Internet was not originally designed for security and what challenges this creates today.",
+      "answer": "The Internet's foundational protocols were developed in the late 1960s and 1970s by academics who trusted each other (analogous to the peer-review culture). Standards were built to make things work, not to keep them secure. Today this creates challenges because: (1) different implementations of the same standards introduce security bugs; (2) compatibility with legacy systems is still required; and (3) there is vast heterogeneity across vendors, operating systems, and software versions, making coordinated upgrades difficult. Improvements like TLS, IPSec, and DNSSEC have been added, but adoption is uneven."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how Traceroute works and what limitations it has.",
+      "answer": "Traceroute works by sending datagrams with progressively increasing TTL values (starting at 1). Each router decrements the TTL by 1; when it reaches 0, the datagram is discarded and the router sends an ICMP Time Exceeded message back to the sender, revealing its IP address. By incrementing the TTL with each probe, the sender can enumerate every router on the path. Limitations include: (1) ICMP is often blocked or rate-limited by firewalls, causing '*' hops; (2) it cannot detect hops where TTL is unchanged, such as under the MPLS protocol; and (3) the return path may differ from the forward path."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the Ping of Death attack, why it worked, and what underlying IP feature it exploited.",
+      "answer": "The Ping of Death exploited IP fragmentation. The maximum IP packet size is 65,535 bytes, but lower-layer protocols like Ethernet can only carry 1,500 bytes, so large packets are split into fragments. The attack crafted fragments that, when reassembled at the destination, produced a packet exceeding 65,535 bytes. Because the total length is not known until all fragments arrive, operating systems used static buffers, which overflowed on reassembly—causing crashes or arbitrary code execution. The vulnerability affected Solaris, macOS, Windows 95, and Linux. It is now patched on modern systems."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is ARP spoofing, how does it work, and what makes it difficult to fully prevent?",
+      "answer": "ARP spoofing is an attack where an adversary sends forged ARP reply messages, associating their own MAC address with a legitimate host's IP address. Since ARP provides no authentication, other hosts update their ARP caches with the fake mapping and send traffic to the attacker instead. The main challenge in preventing it is a race condition: the legitimate host will also send valid ARP replies that would restore the correct mapping, so the attacker must continuously flood the network with spoofed replies to maintain the hijack. Switched Ethernet does not prevent it; solutions include dynamic ARP inspection and 802.1X authentication."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how BGP route hijacking works and give an example of why a more-specific prefix wins.",
+      "answer": "BGP route hijacking occurs when a rogue Autonomous System (AS) advertises an IP prefix that it does not legitimately own. Because BGP has no built-in authentication, other routers accept and propagate the false advertisement. When two routes conflict, routers prefer the most specific (smallest) prefix. For example, if AS1 legitimately advertises 217.16.0.0/16 (covering 65,535 hosts), a rogue AS4 can advertise 217.16.0.0/24 (covering only 255 hosts). Routers seeing both prefer the /24 route and send traffic for that range to AS4, effectively hijacking it. The 2013 incident that routed US government traffic through Belarus and Iceland is a real-world example."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare IPSec Transport Mode and Tunnel Mode. When is each used?",
+      "answer": "In Transport Mode, the IPSec header (AH or ESP) is inserted directly into the original IP packet between the IP header and the payload. It provides security end-to-end between two hosts but is incompatible with NAT and not widely adopted. In Tunnel Mode, the entire original IP packet (header + payload) is encapsulated inside a new IP packet with an outer IP header and IPSec header. The outer header is used for routing to the tunnel gateway, where it is removed. Tunnel Mode is widely used for VPNs because it hides the internal network topology and is more NAT-compatible. However, it is complex and easy to misconfigure; simpler alternatives like WireGuard exist."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are IPv6 deployments not automatically more secure than IPv4, and what specific security concerns arise with IPv6?",
+      "answer": "IPv6 is not inherently more or less secure than IPv4. Specific concerns include: (1) IPv6 implementations may be less mature than IPv4, containing more undiscovered bugs; (2) IPv6 traffic can bypass IPv4-only security controls if IPv6 deployment is not planned carefully; (3) while IPv6's larger address space makes scanning harder, it is still possible due to addressing conventions and public listings; (4) IPv6 autoconfiguration historically embedded the MAC address in the IP address, creating privacy risks (alternatives now exist); and (5) removing NAT eliminates a layer that, while not designed for security, provided some isolation benefit."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the four main categories of vulnerabilities in network protocols identified in the slides, and what attack does each enable?",
+      "answer": "1. No authentication: hosts blindly trust received packets, enabling spoofing and hijacking attacks. 2. No timestamps: attackers can capture legitimate packets and resend them later in replay attacks. 3. Insufficient checks: attackers can inject unsolicited information, enabling poisoning attacks (e.g., DNS or ARP cache poisoning). 4. Poor implementations: developers fail to handle edge cases correctly, leading to memory corruption vulnerabilities or weak randomness in cryptographic operations."
+    }
+  ]
+}
