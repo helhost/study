@@ -1,0 +1,451 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Cryptographic hash function",
+      "back": "A function H : {0,1}* → {0,1}^ℓ that maps arbitrary-length input to a fixed-length digest ℓ. It is a one-way function: fast to compute forward, computationally infeasible to invert. Also called a CRHF (collision-resistant hash function)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Collision resistance",
+      "back": "A security property of hash functions: it is computationally hard to find any two distinct inputs m₀ ≠ m₁ such that H(m₀) = H(m₁). The adversary is free to choose both inputs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Preimage resistance",
+      "back": "A security property of hash functions: given a digest h, it is computationally hard to find any input m such that H(m) = h. This is the 'one-way' property."
+    },
+    {
+      "type": "flashcard",
+      "front": "Second-preimage resistance",
+      "back": "A security property of hash functions: given a specific input m₀, it is computationally hard to find a different input m₁ ≠ m₀ such that H(m₀) = H(m₁). The adversary is constrained to collide with a given input."
+    },
+    {
+      "type": "flashcard",
+      "front": "Merkle tree",
+      "back": "A binary hash tree over n = 2^k inputs. Leaves are H(xⱼ). Internal nodes are H(left_child ∥ right_child). The root r is a single hash summarising all inputs. Supports Root, Prove, and Verify operations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Merkle proof",
+      "back": "A proof π for leaf xⱼ consisting of the k sibling nodes along the path from xⱼ to the Merkle root — one sibling per level. For a tree over n = 2^k leaves, |π| = k = log₂(n) hashes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Merkle root",
+      "back": "The top-level hash of a Merkle tree, denoted r = a(k, 0). It cryptographically commits to the entire dataset: changing any input changes the root (by collision resistance of H)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Digital signature scheme",
+      "back": "A tuple DS = (Gen, Sign, Verify). Gen(λ) → (sk, pk). Sign(sk, m) → σ. Verify(pk, m, σ) → {0,1}. Correctness: Verify(pk, m, Sign(sk, m)) = 1 for all valid key pairs and messages."
+    },
+    {
+      "type": "flashcard",
+      "front": "Existential unforgeability",
+      "back": "The security property of a digital signature scheme: an adversary without the secret key sk cannot produce a valid (message, signature) pair — even after seeing polynomially many signatures on messages of their choice."
+    },
+    {
+      "type": "flashcard",
+      "front": "ECDSA",
+      "back": "Elliptic Curve Digital Signature Algorithm. Gen: pick secret d ∈ [1, q−1], pk = dG. Sign: pick random nonce k, r = (kG).x mod q, s = k⁻¹(z + r·d) mod q, σ = (r, s). Verify: recompute (x,y) = u₁G + u₂·pk and check r ≡ x (mod q). Bitcoin uses ECDSA over secp256k1."
+    },
+    {
+      "type": "flashcard",
+      "front": "secp256k1",
+      "back": "The specific elliptic curve used by Bitcoin for its ECDSA digital signature scheme. An elliptic curve of the form y² = x³ + 7 over a large prime field."
+    },
+    {
+      "type": "flashcard",
+      "front": "Elliptic Curve Discrete Logarithm Problem (ECDLP)",
+      "back": "Given a generator point G on an elliptic curve and a point Q = kG, find the scalar k. Believed to be computationally hard, forming the informal security basis for ECDSA. Note: ECDSA has no formal security proof, only an informal reduction to ECDLP."
+    },
+    {
+      "type": "flashcard",
+      "front": "Commitment scheme",
+      "back": "A two-phase cryptographic protocol between sender S and receiver R. Phase 1 (Commit): S sends c = Commit(m, r) to R. Phase 2 (Reveal): S sends (m, r); R accepts iff c = Commit(m, r). Must satisfy hiding and binding."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hiding (commitment scheme)",
+      "back": "The receiver R cannot learn any information about the committed message m from the commitment c alone. Perfectly hiding: even an unbounded adversary learns nothing. Computationally hiding: no polynomial-time adversary can distinguish."
+    },
+    {
+      "type": "flashcard",
+      "front": "Binding (commitment scheme)",
+      "back": "The sender S cannot open a commitment c to any message m' ≠ m after the commitment has been sent. Once committed, the message is fixed. Computationally binding: no poly-time adversary can find two valid openings."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pedersen commitment scheme",
+      "back": "Commit(m, r) = g^m · h^r in a cyclic group of order q where DLP is hard, g and h are generators, and the discrete log of h base g is unknown. Perfectly hiding (uniform r makes c a random group element). Computationally binding (breaking binding requires solving DLP). Additively homomorphic."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hash-based commitment scheme",
+      "back": "Commit(m, r) = H(m ∥ r) where H is a CRHF and r is a uniformly random nonce. Computationally hiding (in the ROM, adversary cannot query H at the specific r). Computationally binding (finding two openings is a collision in H)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pseudonym (in cryptocurrencies)",
+      "back": "An alias used to identify a user in a cryptocurrency network. In Bitcoin, pseudonyms are addresses — hashes of public keys. Users can create unlimited pseudonyms by generating new key pairs. Pseudonymity does NOT provide true anonymity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitcoin address",
+      "back": "A hash of a public key from a digital signature scheme, used to identify a recipient. Addresses are the pseudonyms of the Bitcoin system. They are shorter than public keys and provide an additional layer of security."
+    },
+    {
+      "type": "flashcard",
+      "front": "Nakamoto consensus",
+      "back": "The consensus mechanism introduced by Bitcoin to achieve agreement in a decentralised, permissionless network. Uses proof-of-work (computationally hard puzzles / mining) to replace identity with computational cost, preventing Sybil attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proof-of-Work (PoW)",
+      "back": "A consensus mechanism where nodes must solve computationally hard hash puzzles (mining) to propose blocks. The difficulty is adjusted so blocks arrive at a roughly constant rate. Energy-intensive but Sybil-resistant. Used by Bitcoin."
+    },
+    {
+      "type": "flashcard",
+      "front": "Sybil attack",
+      "back": "An attack where a single adversary creates many fake identities to gain disproportionate influence in a distributed system. In BFT voting, Sybil attacks allow the attacker to dominate votes. PoW defends against this by tying influence to computational work, not identity count."
+    },
+    {
+      "type": "flashcard",
+      "front": "Byzantine Fault Tolerant (BFT) consensus",
+      "back": "A class of consensus protocols that can tolerate Byzantine (arbitrarily malicious) node failures. Goals: Safety (consistent view of transaction history) and Liveness (honest nodes make progress). Classic BFT requires a fixed, known node set."
+    },
+    {
+      "type": "flashcard",
+      "front": "The four layers of a cryptocurrency network",
+      "back": "Bottom to top: (1) Network layer — peer discovery and gossip. (2) Consensus layer — ordering transactions, maintaining the blockchain. (3) Transaction layer — forming, validating, executing transactions. (4) Application layer — dApps and smart contracts."
+    },
+    {
+      "type": "flashcard",
+      "front": "Light client (thin client)",
+      "back": "A cryptocurrency node that stores only block headers (metadata), not full transaction data. Cannot independently verify all transactions; relies on full nodes. Used in mobile wallets. The majority of Bitcoin nodes are light clients."
+    },
+    {
+      "type": "flashcard",
+      "front": "Full client",
+      "back": "A cryptocurrency node that stores a complete copy of the blockchain but does not participate in consensus. Serves data to other peers (e.g. dApps, syncing requests). Distinct from consensus nodes (miners) and light clients."
+    },
+    {
+      "type": "flashcard",
+      "front": "Consensus node (miner)",
+      "back": "A node that participates in the consensus process (e.g. mining in PoW or voting in BFT). Maintains a full copy of the blockchain including all transactions and metadata. The most resource-intensive node type."
+    },
+    {
+      "type": "flashcard",
+      "front": "dApp (decentralised application)",
+      "back": "An application whose backend runs on top of a distributed ledger platform rather than centralised servers. Popularised by Ethereum, where dApps are often called smart contracts. Used for DeFi, games, gambling, social media, and more."
+    },
+    {
+      "type": "flashcard",
+      "front": "Seed nodes",
+      "back": "Well-known, highly available nodes in a cryptocurrency network whose IP addresses are hardcoded into the client software. New nodes connect to seed nodes to bootstrap their initial list of active peers."
+    },
+    {
+      "type": "flashcard",
+      "front": "Gossip protocol",
+      "back": "A peer-to-peer communication protocol in which each node forwards information to a random subset of its peers. Used in cryptocurrency networks to propagate transactions and blocks without a central server."
+    },
+    {
+      "type": "flashcard",
+      "front": "UTXO vs account-based model",
+      "back": "Two approaches to representing state in blockchains. UTXO (Unspent Transaction Output), used by Bitcoin: coins are modelled as discrete unspent outputs. Account-based, used by Ethereum: state is a mapping from addresses to balances/contract state, similar to a bank ledger."
+    },
+    {
+      "type": "flashcard",
+      "front": "The three core properties of most cryptocurrency systems",
+      "back": "Decentralized (governed by a P2P network with no single controlling authority), Pseudonymous (users identified by aliases/addresses, not real identities), Transparent (all transactions are globally visible on the public ledger)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitcoin throughput vs Visa",
+      "back": "Bitcoin: ~7 transactions/second. PayPal: ~110 tx/sec. Visa: ~1,700 tx/sec. Bitcoin is roughly 240× slower than Visa, a central argument in the 'lack of legitimate purpose' controversy."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following correctly describes a cryptographic hash function H : {0,1}* → {0,1}^ℓ?",
+      "options": [
+        "It maps fixed-length inputs to variable-length outputs",
+        "It maps arbitrary-length inputs to a fixed-length digest",
+        "It is a two-way function that can be inverted with the secret key",
+        "It maps arbitrary-length inputs to outputs of the same length as the input"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Collision resistance implies preimage resistance: if a hash function is collision-resistant, it is necessarily preimage-resistant.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the size of a Merkle proof for a tree built over 2^10 = 1,024 leaves?",
+      "options": [
+        "1,024 hashes",
+        "512 hashes",
+        "10 hashes",
+        "20 hashes"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bitcoin, a user's address is the same as their public key.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary reason classic BFT consensus protocols cannot be used directly in a permissionless public blockchain?",
+      "options": [
+        "They require too much bandwidth for large transaction volumes",
+        "They assume a fixed, known set of participating nodes, making Sybil attacks possible in open networks",
+        "They cannot tolerate any node failures",
+        "They do not support digital signatures"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which elliptic curve does Bitcoin use for its ECDSA signatures?",
+      "options": [
+        "P-256 (secp256r1)",
+        "Curve25519",
+        "secp256k1",
+        "BN-254"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Proof-of-Work (PoW) mining in Bitcoin involves solving computationally hard encryption puzzles.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between second-preimage resistance and collision resistance in a hash function.",
+      "answer": "In second-preimage resistance, the adversary is given a specific input m₀ and must find a different input m₁ ≠ m₀ that hashes to the same value. In collision resistance, the adversary is free to choose both inputs m₀ and m₁ from scratch — they just need any two distinct inputs with the same hash. Collision resistance is the stronger property because the adversary has more freedom; breaking collision resistance does not necessarily break second-preimage resistance, and they are formally independent properties."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Pedersen commitment scheme, why is the scheme described as 'perfectly hiding'?",
+      "options": [
+        "Because the hash function used has preimage resistance",
+        "Because the commitment c = g^m · h^r is uniformly distributed over the group regardless of m, so even an unbounded adversary learns nothing",
+        "Because the receiver cannot compute g^m without knowing the discrete log of h",
+        "Because the message m is encrypted with the receiver's public key"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A commitment scheme can simultaneously achieve perfect hiding and perfect binding.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a hash-based commitment Commit(m, r) = H(m ∥ r), what is the purpose of including the random nonce r?",
+      "options": [
+        "To ensure the commitment is unique across different users",
+        "To prevent brute-force guessing of m by making the preimage space too large to enumerate",
+        "To allow the receiver to verify the commitment without the secret key",
+        "To enable additive homomorphism of commitments"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a Merkle proof and how does it enable Simplified Payment Verification (SPV) for light clients in Bitcoin?",
+      "answer": "A Merkle proof for leaf xⱼ is a set of log₂(n) sibling hashes — one per level of the tree — that allows a verifier to recompute the Merkle root from xⱼ alone. The verifier checks whether the recomputed root matches the known root. In Bitcoin, block headers contain the Merkle root over all transactions in that block. A light client stores only block headers (not full blocks). A full node can prove a specific transaction is in a block by sending the Merkle proof (log₂(n) hashes); the light client recomputes and verifies the root without downloading all transactions. This makes verification efficient in both bandwidth and storage."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is a known practical vulnerability of ECDSA that has been exploited in the real world?",
+      "options": [
+        "Reuse of the same public key across transactions",
+        "Reuse of the signing nonce k across two signatures, allowing recovery of the private key",
+        "Using a curve of order less than 2^128",
+        "The absence of a hash function in the signing algorithm"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ECDSA has a formal security proof reducing its security to the Elliptic Curve Discrete Logarithm Problem.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the lecture, what is Bitcoin's approximate transaction throughput?",
+      "options": [
+        "~110 transactions per second",
+        "~1,700 transactions per second",
+        "~7 transactions per second",
+        "~700 transactions per second"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the context of cryptocurrency controversies, approximately what percentage of Bitcoin users and transactions have been linked to illicit activity according to the lecture?",
+      "options": [
+        "1% of users and 2% of transactions",
+        "10% of users and 20% of transactions",
+        "25% of users and 50% of transactions",
+        "50% of users and 75% of transactions"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Ethereum's move from Proof-of-Work to Proof-of-Stake reduced its energy consumption by more than 99.8%.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the three open challenges in cryptocurrency development identified in the lecture.",
+      "answer": "Privacy: It is difficult to have a public ledger that is simultaneously private for users and auditable by governments to prevent crime. These two goals are in fundamental tension, and architecting systems that satisfy both remains an open problem. Scalability: Increasing transaction throughput tends to centralise the network (larger blocks favour well-resourced nodes) and increases environmental impact. Solutions must scale without exacerbating centralisation or energy use. Stewardship: How to build cryptocurrency systems that serve the common good — avoiding financial exclusion, excessive centralisation, and financial risk — rather than primarily benefiting early adopters and speculators."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which node type in a cryptocurrency network stores only block headers and relies on full nodes for transaction data?",
+      "options": [
+        "Consensus node",
+        "Full client",
+        "Light client",
+        "Seed node"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Pseudonymity in Bitcoin provides true anonymity: it is impossible to link a Bitcoin address to a real-world identity.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the de-facto centralisation controversy in cryptocurrency systems, including both the critique and a counterargument.",
+      "answer": "Critique: Although cryptocurrencies claim decentralisation, in practice power concentrates. Bitcoin mining gravitates to regions with cheap electricity and is dominated by large mining pools. A small number of long-term investors hold most of the supply. Regulatory requirements (KYC/AML) push activity through centralised exchanges. A few cryptocurrencies hoard most of the sector's wealth. Counterargument: The underlying P2P protocol of Bitcoin and Ethereum is genuinely decentralised — no single party controls the network rules. Open-source code allows anyone to audit, fork, or contribute. Community-based governance structures distribute decision-making power."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In ECDSA key generation, if the secret key is d, what is the corresponding public key?",
+      "options": [
+        "H(d), the hash of the secret key",
+        "d mod q, the secret key reduced modulo the curve order",
+        "dG, the scalar multiplication of d by the curve generator G",
+        "d + G, the point addition of d and G"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Pedersen commitment scheme, the binding property is information-theoretic (perfect), meaning even a computationally unbounded adversary cannot break it.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the binding property of a commitment scheme?",
+      "options": [
+        "The receiver cannot determine the committed message from the commitment",
+        "The sender cannot open the commitment to a different message after committing",
+        "The commitment is indistinguishable from a random string",
+        "The scheme is secure against chosen-plaintext attacks"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the application layer in a cryptocurrency network and what is it used for?",
+      "answer": "The application layer sits at the top of the cryptocurrency stack. It hosts decentralised applications (dApps) whose backend logic runs on the distributed ledger rather than centralised servers. DApps are sometimes called smart contracts, particularly on Ethereum. The application layer enables a wide range of use cases: decentralised finance (DeFi) protocols, games, gambling applications, social media platforms, governance systems, and more. The application layer depends on the transaction, consensus, and network layers below it for execution, ordering, and communication."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following correctly describes the Verify operation in a Merkle tree?",
+      "options": [
+        "Verify(r, xⱼ, π) recomputes all n leaf hashes and checks the root",
+        "Verify(r, xⱼ, π) uses the sibling hashes in π to recompute the root from xⱼ and checks it against r",
+        "Verify(r, xⱼ, π) downloads the full dataset and checks if xⱼ is present",
+        "Verify(r, xⱼ, π) decrypts r using xⱼ as the key"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A Bitcoin user must register with a central authority to obtain a valid address.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT one of the four cryptographic building blocks identified in the lecture as foundational to cryptocurrencies?",
+      "options": [
+        "Hash functions",
+        "Merkle trees",
+        "Zero-knowledge proofs",
+        "Commitment schemes"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how new Bitcoin nodes bootstrap into the network.",
+      "answer": "New nodes use hardcoded IP addresses of well-known seed nodes — highly available nodes run by trusted community members — to make their first connections. The new node connects to one or more seed nodes and requests an initial list of currently active peers. It then connects to a small number of random peers from that list and begins exchanging data using gossip protocols. Over time, the node builds its own peer list and no longer depends on the seed nodes."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the social exclusion controversy about cryptocurrencies primarily argue?",
+      "options": [
+        "Cryptocurrency transactions exclude regulators from oversight",
+        "Cryptocurrency adoption skews toward already-wealthy demographics, undermining financial inclusion claims",
+        "Smart contracts exclude users without programming knowledge",
+        "Mining hardware is unavailable in developing countries"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Elliptic curves are useful in cryptography partly because the discrete logarithm problem is believed to be harder on elliptic curves than on other finite groups of comparable size, allowing shorter key lengths.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare the hiding and binding properties of Pedersen commitments versus hash-based commitments.",
+      "answer": "Pedersen commitments are perfectly (information-theoretically) hiding: because r is chosen uniformly at random, c = g^m · h^r is a uniformly distributed group element regardless of m, so an unbounded adversary learns nothing. Pedersen commitments are computationally binding: breaking binding requires computing the discrete log of h base g, which is hard by assumption. Hash-based commitments are computationally hiding: in the random oracle model, an adversary queries H at the specific nonce r with only negligible probability. They are also computationally binding: finding two valid openings requires finding a collision in H. The key difference is that Pedersen's hiding is unconditional while hash-based hiding depends on the random oracle assumption."
+    }
+  ]
+}
