@@ -1,0 +1,603 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is a Fungible Token (ERC20)?",
+      "back": "A standardised Ethereum token where every unit is interchangeable with every other unit. Key methods include transfer(), transferFrom(), approve(), allowance(), balanceOf(), and totalSupply()."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Non-Fungible Token (NFT / ERC721)?",
+      "back": "A token standard where each token is unique and not interchangeable with another. Each token has a distinct identity, making it suitable for representing ownership of unique assets."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Decentralized Finance (DeFi)?",
+      "back": "A financial system where (1) assets are non-custodial (user-controlled), (2) no single entity can censor a transaction, and (3) no single entity can censor protocol execution. If any of these conditions fail, the system is either CeFi or a hybrid."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is CeFi (Centralized Finance)?",
+      "back": "Traditional financial infrastructure where a central intermediary (bank, exchange, regulator) controls asset custody and can intervene in or censor transactions."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does 'non-custodial' mean in DeFi?",
+      "back": "The user retains direct control over their own assets; no third party holds or controls them on the user's behalf."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is 'Centrally Governed DeFi'?",
+      "back": "A system where assets are non-custodial and transactions cannot be censored individually, but a single entity can still censor or halt the protocol itself."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is 'CeFi Intermediary, DeFi Settlement'?",
+      "back": "A hybrid model where a centralised intermediary can censor individual transactions, but settlement still occurs on a DeFi (blockchain) layer."
+    },
+    {
+      "type": "flashcard",
+      "front": "List the eight key DeFi properties.",
+      "back": "1. Public Verifiability, 2. Custody, 3. Privacy, 4. Atomicity, 5. Execution Order Malleability, 6. Transaction Costs, 7. Non-stop Market Hours, 8. Anonymous Development and Deployment."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Atomicity in DeFi?",
+      "back": "A transaction either executes completely (all steps succeed) or fails entirely — there is no partial execution. This property enables flash loans and risk-free arbitrage."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Execution Order Malleability in DeFi?",
+      "back": "The ability of miners or validators to reorder, insert, or censor transactions within a block, which can be exploited for MEV (Miner/Maximal Extractable Value)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are KYC, AML, and CFT?",
+      "back": "KYC = Know Your Customer; AML = Anti-Money Laundering; CFT = Combat the Financing of Terrorism. These are strict on-boarding and continuous compliance rules enforced in CeFi."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does on-boarding typically work in DeFi?",
+      "back": "DeFi has no native on-boarding requirements. Users enter DeFi either by purchasing coins from a CeFi exchange (subject to KYC/AML there) or via P2P (peer-to-peer) purchase of coins from individuals IRL."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the OFAC SDN list in the context of DeFi?",
+      "back": "The U.S. Office of Foreign Assets Control's Specially Designated Nationals and Blocked Persons List. OFAC sanctioned 132 Ethereum addresses, including 90 (68%) smart contract addresses of Tornado Cash."
+    },
+    {
+      "type": "flashcard",
+      "front": "How can stablecoins USDT and USDC act as censorship tools?",
+      "back": "Both have built-in smart contract code that allows the issuer to blacklist addresses (blocking transfers) and destroy (burn) coins. USDT blacklisted 449 accounts and destroyed nearly 44M USDT; USDC blacklisted 8 accounts."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a DeFi 'Bank Run' and how does it differ from a CeFi bank run?",
+      "back": "In CeFi a bank run typically results in no money returned. In DeFi, if a pool (e.g., Curve, Aave) gets blacklisted, the pool operates on a first-come-first-served basis, and the AMM formula penalises late withdrawals with increasingly worse prices."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three core components of a financial asset exchange?",
+      "back": "1. Price Discovery, 2. Algorithmic Trade Matching Engine, 3. Trade Clearing System."
+    },
+    {
+      "type": "flashcard",
+      "front": "What techniques can be used to implement a DEX (Decentralised Exchange)?",
+      "back": "On-chain smart contract only (e.g., Uniswap), Trusted Execution Environments (TEE), Multi-Party Computation (MPC), and Layer-2/Rollup (off-chain) solutions."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does CeFi asset listing differ from DeFi asset listing?",
+      "back": "CeFi listings are well-regulated, requiring financial audits, earnings reports, and minimum working capital. DeFi listings are currently unregulated with no binding legal requirements; DEX listing (e.g., Uniswap) can be permissionless."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is an Automated Market Maker (AMM)?",
+      "back": "A smart contract that performs market-making using a mathematical formula. The Constant Product AMM uses x × y = k, where x and y are asset quantities in the pool and k is a constant."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Constant Product AMM formula?",
+      "back": "x × y = k, where x = quantity of asset X in the pool, y = quantity of asset Y in the pool, and k = a constant. The ratio of x and y determines the price."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Liquidity Pool?",
+      "back": "A smart contract pool holding two (or more) assets. Liquidity providers deposit assets to earn fees; traders swap assets against the pool. Market making is automated by the AMM formula."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Liquidity Provider (LP) Token?",
+      "back": "A token issued to liquidity providers representing their proportional share of the pool. LP tokens can be used for accounting, traded on secondary markets, reused in other contracts, or staked."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Expected Slippage?",
+      "back": "The predictable price impact of a trade based on the trading volume and available liquidity. Larger trades relative to pool size cause greater slippage along the AMM curve."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Unexpected Slippage?",
+      "back": "Price movement caused by other transactions being included in the blockchain before your transaction (e.g., front-running or organic trades). It can result in either a worse or a better execution price than expected."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Slippage Protection in AMMs?",
+      "back": "A user-configurable threshold that causes a transaction to fail (revert) if the actual execution price deviates beyond the specified tolerance, protecting against unexpectedly bad fill prices."
+    },
+    {
+      "type": "flashcard",
+      "front": "List the pros and cons of an AMM.",
+      "back": "Pros: No order book maintenance needed; simple implementation for CP AMM; low gas costs. Cons: Danger of impermanent loss/coin de-peg (total loss possible); high slippage in low-liquidity markets; users vulnerable to sandwich attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Impermanent Loss in a Liquidity Pool?",
+      "back": "A temporary (or permanent) loss experienced by liquidity providers when the relative price of pooled assets changes compared to when they were deposited, resulting in less value than simply holding the assets."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does lending/borrowing differ between CeFi and DeFi?",
+      "back": "CeFi measures credit worthiness and can grant unsecured credit. DeFi does not grant unsecured credit; it uses over-collateralisation (deposit > borrow, <2x leverage, e.g., MakerDAO/Aave) or enforced under-collateralisation via smart contracts for specific purposes (e.g., Alpha Homora, leverage >2x)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is over-collateralisation in DeFi lending?",
+      "back": "Depositing (collateralising) more value than you borrow, providing less than 2× leverage. Example: MakerDAO and Aave require collateral exceeding the borrowed amount."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is under-collateralisation in DeFi lending?",
+      "back": "Borrowing for a specific purpose only, with leverage >2×, enforced by smart contracts that restrict how the borrowed funds can be used (e.g., Alpha Homora)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a DeFi Liquidation?",
+      "back": "When a borrower's collateral value falls below a threshold (e.g., 110% of debt), the collateral becomes available for liquidation — sold at a discount to third-party liquidators to secure the outstanding debt."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Flash Loan?",
+      "back": "A DeFi-native uncollateralised loan that is borrowed and repaid (plus interest) within a single atomic blockchain transaction. If not repaid, the entire transaction reverts. It can grow to billions of USD with only transaction fee costs. Flash loans do NOT exist in CeFi."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three steps of a Flash Loan?",
+      "back": "1. Take the flash loan from a pool. 2. Execute arbitrary operations with the borrowed funds (go-Wild). 3. Repay the loan plus interest — all within the same transaction."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three types of stablecoins?",
+      "back": "1. Reserve-based (backed by fiat reserves, e.g., USDC, USDT). 2. Collateral-based (backed by crypto collateral, e.g., DAI via MakerDAO). 3. Algorithmic (e.g., AMPL, ESD)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the difference between a stablecoin and a pegged coin?",
+      "back": "Stablecoins are pegged to fiat currencies (e.g., USDC, USDT, DAI pegged to USD). Pegged coins are pegged to other crypto assets (e.g., WBTC, renBTC pegged to BTC; sETH, stETH pegged to ETH)."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does MakerDAO (DAI) work?",
+      "back": "Step 1: User deposits ETH as collateral into a CDP (Collateralised Debt Position) — 150% collateral mints 100% debt. Step 2: User draws DAI (the stablecoin). Step 3: User pays back DAI (plus stability fee) to unlock the ETH collateral."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a CDP in MakerDAO?",
+      "back": "A Collateralised Debt Position. A smart contract where a user locks up collateral (e.g., ETH) and draws a proportional amount of DAI. Requires 150% collateralisation ratio."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is 'stability' in the context of stablecoins?",
+      "back": "Stability is a relative metric measured by volatility (standard deviation of returns), worst drop over a timeframe, and price range. Fiat currencies like EUR and GBP have a volatility of ~6–12%. Volatility alone does not capture the full range of prices."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Front-Running in DeFi?",
+      "back": "An adversary observes a pending transaction on the P2P network, creates a transaction paying a higher gas fee, and gets it mined before the victim's transaction to profit from the anticipated price movement."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Sandwich Attack?",
+      "back": "A combination of front-running and back-running. The attacker places a buy order before the victim's buy (front-run), lets the victim's transaction execute at a worse price, then sells immediately after (back-run), extracting profit from the victim."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the four categories of market manipulation techniques?",
+      "back": "(a) External Manipulation: Ponzi schemes, honeypots. Exchange-based manipulation splits into (i) Action-Based: fraudulent statements, pump & dump; (ii) Information-Based: wash trading, insider trading, cornering, front-/back-running, clogging/jamming; (iii) Trade-Based; (iv) Order-Based: ramping, spoofing, quote stuffing."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Pump and Dump scheme?",
+      "back": "A manipulation scheme where a group coordinates via social media/Telegram to artificially inflate (pump) an asset's price by buying heavily, then sells (dumps) at the peak, causing the price to crash. P&D can grow trading volume by more than 10×."
+    },
+    {
+      "type": "flashcard",
+      "front": "How is DeFi more transparent regarding market manipulation compared to CeFi?",
+      "back": "DeFi records all transactions publicly on-chain, making market manipulation attacks transparently measurable and auditable by anyone, unlike CeFi where manipulation may be hidden."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Privacy in DeFi (pseudonymity vs anonymity)?",
+      "back": "DeFi blockchains are mostly pseudonymous, not anonymous. Balances, transactions, timestamps, and amounts are all publicly visible. An address can be linked to a real identity through on-chain analysis."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Mixer (e.g., Tornado Cash)?",
+      "back": "A smart contract that tries to break the linkability between blockchain addresses by pooling deposits of fixed denominations (e.g., 1, 10, 100 ETH) and allowing withdrawals to unlinked addresses, inspired by privacy-by-design blockchains like Zcash."
+    },
+    {
+      "type": "flashcard",
+      "front": "What happened to Tornado Cash regarding OFAC sanctions?",
+      "back": "OFAC sanctioned Tornado Cash's smart contract addresses, adding them to the SDN list. After sanctions (around August 2022), both TC deposits and withdrawals dropped sharply, as shown by on-chain data."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the four layers of DeFi security threats?",
+      "back": "1. Network attacks (Eclipse/DoS). 2. Consensus attacks (51% attacks, double-spending, selfish mining). 3. Smart contract code bugs (reentrancy, authorization flaws). 4. DeFi protocol composability attacks (MEV, arbitrage between pools, flash loan exploits)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What DeFi innovations feed back into CeFi?",
+      "back": "AMM exchanges (instead of order books), Flash Loans, Over-collateralised Loans, Liquidation Mechanisms, Atomic Composability, and Liquidity Mining."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are ERC20 key methods?",
+      "back": "name(), symbol(), decimals(), totalSupply(), balanceOf(address), transfer(address, uint256), transferFrom(address, address, uint256), approve(address, uint256), allowance(address, address)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the DeFi Stack composed of?",
+      "back": "Asset Standards (Native Coin, Fungible Token, NFT) → Distributed Database with Atomic Settlement (P2P Layer, Blockchain Consensus Layer, Application Logic State) → DeFi Services with Atomic Composability (Exchange, Lending, Flash Loans, Market Making, Stablecoins, Derivatives, Privacy Mixer, Portfolio Manager) ↔ Market Mechanisms (Arbitrage, Liquidation, Governance, Security Deposit) ↔ Market Manipulations (Front-Running, Back-Running, Pump & Dump, Wash Trading, Market Cornering, Bear Raiding). External Databases connect via Price Oracles / Cross-Chain Bridges with Non-Atomic Settlement."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Atomic Composability in DeFi?",
+      "back": "The ability to combine multiple DeFi protocols within a single atomic transaction. If any step fails, all steps revert, enabling complex multi-step strategies (e.g., flash loan → swap → repay) with zero execution risk."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Ethereum token standard is used for Non-Fungible Tokens (NFTs)?",
+      "options": ["ERC20", "ERC721", "ERC1155", "ERC777"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Ethereum token standard is used for Fungible Tokens?",
+      "options": ["ERC721", "ERC1155", "ERC20", "ERC777"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Flash Loans exist in both CeFi and DeFi.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Constant Product AMM (x × y = k), purchasing asset X increases the price of X and decreases the price of Y.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "DeFi blockchains are fully anonymous — it is impossible to trace transactions back to a real-world identity.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "CeFi asset listings require financial audits, earnings reports, and minimum working capital.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "DeFi markets operate 24/7 with non-stop market hours.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "USDT and USDC smart contracts include built-in code to blacklist addresses and destroy coins.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In MakerDAO, a user must deposit 150% collateral relative to the DAI they wish to mint.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Liquidity Provider (LP) tokens can only be used for accounting within the pool and cannot be traded on secondary markets.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In DeFi over-collateralised lending, borrowers can achieve more than 2× leverage.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A sandwich attack involves both front-running and back-running a victim's transaction.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "OFAC sanctioned 132 Ethereum addresses related to Tornado Cash, of which 90 (68%) were smart contract addresses.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a Constant Product AMM, the product x × y changes after every trade.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Pump and dump schemes appear to be more prevalent in CeFi than in DeFi.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A system where assets are user-controlled but a single entity can censor individual transactions is classified as 'CeFi Intermediary, DeFi Settlement'.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Constant Product AMM with initial state x₀ = 10 and y₀ = 30 (k = 300), if x₁ = 15, what is y₁?",
+      "options": ["25", "20", "15", "45"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT a DeFi property listed by the lecture?",
+      "options": ["Public Verifiability", "Atomicity", "Fractional Reserve Banking", "Non-stop Market Hours"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following stablecoins is collateral-based (crypto-backed)?",
+      "options": ["USDC", "USDT", "DAI", "AMPL"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many Ethereum addresses did OFAC add to the SDN list?",
+      "options": ["90", "132", "68", "449"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many accounts did USDT blacklist according to the lecture?",
+      "options": ["8", "44", "132", "449"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many accounts did USDC blacklist according to the lecture?",
+      "options": ["8", "44", "90", "449"],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Approximately how much USDT was destroyed by USDT's blacklisting mechanism?",
+      "options": ["4M USDT", "44M USDT", "440M USDT", "4B USDT"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following DEX techniques uses a mathematical invariant to set prices without an order book?",
+      "options": ["Trusted Execution Environment (TEE)", "Constant Product AMM", "Multi-Party Computation (MPC)", "Layer-2 Rollup"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary condition for a Flash Loan to succeed?",
+      "options": ["The borrower must have collateral equal to 150% of the loan", "The loan must be repaid within 24 hours", "The loan must be repaid plus interest within the same atomic transaction", "The borrower must be KYC verified"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a front-running attack on DeFi, how does the adversary ensure their transaction executes before the victim's?",
+      "options": ["By submitting the transaction to a private mempool", "By paying a higher transaction fee (gas)", "By bribing the block producer directly", "By using a flash loan"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following platforms suffered a significant price drop of ~30% on March 12, 2020?",
+      "options": ["DeFi protocols (unaffected)", "Cryptocurrencies broadly", "Only Ethereum", "Only Bitcoin"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What happens to a DeFi transaction when unexpected slippage crosses the user's slippage protection threshold?",
+      "options": ["It executes at the new price regardless", "It is delayed until a better price is available", "It fails (reverts)", "It is split into multiple smaller transactions"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which DeFi lending protocol is specifically mentioned for over-collateralised lending?",
+      "options": ["Alpha Homora", "Compound only", "MakerDAO and Aave", "dYdX only"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the collateralisation ratio required by MakerDAO to mint DAI?",
+      "options": ["100%", "110%", "150%", "200%"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What category of market manipulation does 'Spoofing' and 'Quote Stuffing' fall under?",
+      "options": ["Action-Based Manipulation", "Information-Based Manipulation", "Trade-Based Manipulation", "Order-Based Manipulation"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What characterises algorithmic stablecoins compared to reserve-based ones?",
+      "options": ["They are backed by a centralised bank reserve", "They are backed by over-collateralised crypto", "Their supply/price is managed by a smart contract algorithm without direct asset backing", "They can be blacklisted by a central issuer"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the DeFi Stack diagram, which layer contains 'Price Oracles / Cross-Chain Bridges'?",
+      "options": ["DeFi Services with Atomic Composability", "Market Mechanisms", "The connection between External Databases and the Distributed Database (Non-Atomic Settlement)", "Asset Standards"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is an example of an under-collateralised DeFi lending protocol?",
+      "options": ["MakerDAO", "Aave", "Alpha Homora", "Compound"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Pump and Dump schemes in CeFi/DeFi are typically coordinated via which platform?",
+      "options": ["LinkedIn", "Telegram/social media", "Bloomberg Terminal", "SWIFT"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of these is a fixed-denomination pool of Tornado Cash (TC)?",
+      "options": ["0.5, 5, and 50 ETH", "1, 10, and 100 ETH", "0.1, 1, and 10 ETH", "10, 100, and 1000 ETH"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "By how much can Pump and Dump grow trading volume according to the lecture?",
+      "options": ["2×", "5×", "More than 10×", "More than 100×"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the approximate annual volatility of fiat currencies like EUR and GBP?",
+      "options": ["1–3%", "6–12%", "20–30%", "50–80%"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT listed as a DeFi innovation compared to CeFi?",
+      "back": "Fractional Reserve Lending",
+      "options": ["Flash Loans", "Automated Market Maker Exchanges", "Fractional Reserve Lending", "Atomic Composability"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the decision flowchart that distinguishes DeFi from CeFi. What three questions determine the classification?",
+      "answer": "Step 1: Are financial assets controlled by the user (non-custodial)? If No → CeFi. If Yes → Step 2: Can someone single-handedly censor a transaction execution? If Yes → CeFi Intermediary / DeFi Settlement. If No → Step 3: Can someone single-handedly censor the protocol execution? If Yes → Centrally Governed DeFi. If No → DeFi."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how the Constant Product AMM formula x × y = k works and what its key properties are.",
+      "answer": "x and y represent the quantities of two assets in a liquidity pool; k is a constant that must be maintained after every trade. When a trader buys asset X (adding Y and removing X), x decreases and y increases proportionally so their product stays equal to k. This means buying X raises its price and lowers Y's price. The ratio of x and y determines the current price. The AMM provides instant liquidity regardless of trade size, but causes slippage — larger trades relative to pool size result in worse prices."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a Flash Loan and why does it not exist in CeFi?",
+      "answer": "A Flash Loan is an uncollateralised loan issued and repaid within a single atomic blockchain transaction. Atomicity guarantees that if the borrower fails to repay principal plus interest by the end of the transaction, all steps revert and the lender bears no risk. In CeFi, transactions and settlements are not atomic — they occur across multiple systems and time horizons, making it impossible to guarantee repayment within a single indivisible unit of execution. Therefore CeFi cannot offer risk-free uncollateralised instant loans of this kind."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the three types of stablecoins and give an example of each.",
+      "answer": "1. Reserve-based: Backed 1:1 by fiat held in a bank (e.g., USDC, USDT). 2. Collateral-based: Backed by over-collateralised crypto assets locked in a smart contract (e.g., DAI via MakerDAO, which requires 150% collateral). 3. Algorithmic: Supply or price managed by a smart contract algorithm without direct asset backing (e.g., AMPL, ESD). These vary greatly in stability; algorithmic stablecoins have historically shown the highest price volatility."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a sandwich attack in DeFi and how does it exploit AMM slippage?",
+      "answer": "A sandwich attack is a two-step front-running/back-running exploit. (1) The adversary sees the victim's large buy order in the mempool and submits a buy transaction with higher gas to execute first, pushing the price up. (2) The victim's transaction executes at a worse (higher) price due to the price movement. (3) The adversary immediately sells (back-runs), profiting from the elevated price. The victim suffers unexpected negative slippage. The attack is enabled by the AMM's transparent price mechanics and the public mempool."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does the DeFi 'bank run' differ from a CeFi bank run, and what role does the AMM formula play?",
+      "answer": "In a CeFi bank run, the bank may become insolvent and return nothing. In DeFi, if a pool (e.g., Curve, Aave) gets blacklisted, users race to withdraw on a first-come-first-served basis. The AMM pool formula penalises users who destabilise the pool — each successive large withdrawal shifts the price curve more unfavourably, giving later withdrawers increasingly worse exchange rates. This means early movers recover more value than late movers, but the protocol itself does not default in the traditional sense."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is DeFi transaction censoring legally significant, and what regulatory consequence can follow?",
+      "answer": "If a single entity (e.g., a miner, a Layer-2 operator, or a stablecoin issuer) can single-handedly censor or intervene in a financial transaction, regulators may treat that entity as a financial intermediary. This can trigger obligations to comply with KYC (Know Your Customer), AML (Anti-Money Laundering), and CFT (Combat the Financing of Terrorism) requirements — the same compliance rules applied to CeFi institutions."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a Liquidity Provider (LP) token and what are its use cases?",
+      "answer": "An LP token is issued to users who deposit assets into a liquidity pool, representing their proportional share of the pool. Use cases include: (1) Accounting — tracks ownership share for fee distribution. (2) Trading — LP tokens can be sold on secondary markets. (3) Composability — LP tokens can be deposited into other DeFi contracts (e.g., as collateral). (4) Staking — LP tokens can be staked in governance or yield programs to earn additional rewards. They can be fungible (ERC20) or non-fungible (ERC721/NFT) depending on the protocol."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the pros and cons of an Automated Market Maker (AMM) compared to a traditional order book exchange.",
+      "answer": "Pros: No order book maintenance is needed, reducing operational complexity. The CP AMM has a simple implementation with low gas costs. It provides instant liquidity regardless of trade size and enables passive liquidity provision. Cons: Requires arbitrageurs to keep prices aligned with external markets (the pool doesn't self-adjust without arbitrage). Liquidity providers face impermanent loss risk and even total loss of funds if a coin de-pegs. Low-liquidity markets suffer high slippage. Users are vulnerable to sandwich attacks from front-runners who exploit the predictable price mechanics."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how DeFi and CeFi can be synergistic rather than purely competitive.",
+      "answer": "DeFi borrows many foundational concepts from CeFi (lending, exchanges, stablecoins), but also creates genuine innovations: AMM-based exchanges, flash loans, over-collateralised loans, atomic composability, and liquidity mining. These innovations can feed back into CeFi, inspiring new products and efficiency improvements. During crypto price collapses (e.g., -30% in March 2020, -40% in May 2021) CeFi platforms like Robinhood and Coinbase collapsed under load, while DeFi protocols continued operating (albeit with high transaction fees). CeFi's regulatory frameworks and consumer protections complement DeFi's openness, and together they can build a more robust financial ecosystem."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the main DeFi security threat categories, and give one example of each?",
+      "answer": "1. Network attacks: Eclipse attacks or DoS attacks targeting P2P nodes to isolate victims. 2. Consensus attacks: 51% attacks allowing double-spending or selfish mining to gain disproportionate block rewards. 3. Smart contract code bugs: Reentrancy vulnerabilities (e.g., the DAO hack) or authorization flaws enabling unauthorised fund withdrawal. 4. DeFi protocol composability attacks: Flash loan attacks that manipulate prices across multiple protocols atomically, or MEV extraction via front-running and sandwich attacks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the significance of OFAC sanctioning Tornado Cash, and what on-chain effect did it have?",
+      "answer": "OFAC added 132 Ethereum addresses — including 90 Tornado Cash smart contract addresses — to the SDN (Specially Designated Nationals) list. This made interacting with these contracts a potential legal violation for U.S. persons and entities. On-chain data shows that both TC deposits and withdrawals peaked just before the sanctions announcement and then dropped sharply and sustained lower volumes thereafter. The sanctioning of immutable smart contract code raised fundamental legal questions about software versus financial service, and demonstrated regulators' willingness to target decentralised protocols."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does Tornado Cash provide privacy, and what are its limitations?",
+      "answer": "Tornado Cash breaks the on-chain link between depositor and withdrawer addresses by using cryptographic proofs (inspired by Zcash's zero-knowledge proofs). Users deposit a fixed denomination of ETH (1, 10, or 100 ETH) and later withdraw to a fresh address, providing plausible deniability about the source. Limitations: It only supports fixed denominations, making it relatively expensive and inflexible. It requires users to wait and let the anonymity set grow. Even with mixing, timing analysis and deposit/withdrawal patterns can partially de-anonymise users. It has been sanctioned by OFAC, creating legal risk for users."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between expected and unexpected slippage in AMMs and the role of slippage protection.",
+      "answer": "Expected slippage is the predictable price impact of a trade given the current pool state and the trade size — larger trades move further along the AMM curve, resulting in worse average fill prices. Unexpected slippage occurs when other transactions are included in the blockchain before yours, shifting the pool state from what it was when you submitted your transaction; this can make your fill price worse (if others bought first) or better (if others sold). Slippage protection allows users to set a maximum acceptable deviation: if actual execution would exceed this threshold (the pool state has moved too far), the transaction reverts rather than executing at an unacceptably bad price."
+    }
+  ]
+}
