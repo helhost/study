@@ -1,0 +1,769 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Application Security — what three factors determine the behavior of an application?",
+      "back": "1. The code being executed. 2. The data being processed. 3. The environment in which the application is run."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three CIA security properties that attacks against applications can violate?",
+      "back": "Confidentiality (unauthorized disclosure of information), Integrity (unauthorized modification of data), and Availability (denial of legitimate access)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Deployment vulnerability",
+      "back": "A vulnerability introduced by incorrect or faulty deployment/configuration of an application — e.g., an overprivileged application, or a file that should be read-only is actually writable."
+    },
+    {
+      "type": "flashcard",
+      "front": "Implementation vulnerability",
+      "back": "A vulnerability introduced because the application cannot correctly handle unexpected events: unexpected input, unexpected errors/exceptions, or unexpected interleaving of events."
+    },
+    {
+      "type": "flashcard",
+      "front": "Local attack",
+      "back": "Manipulates an application through local interaction. Requires a previously-established presence on the host (an account or another application under attacker's control). Allows execution of operations with higher privileges than the attacker would normally have. Easier to perform due to better environment knowledge."
+    },
+    {
+      "type": "flashcard",
+      "front": "Remote attack",
+      "back": "Manipulates an application through network-based interaction. Can be unauthenticated. Allows operations with the privileges of the vulnerable application. Harder to perform but more powerful — requires no prior access to the system."
+    },
+    {
+      "type": "flashcard",
+      "front": "Unix process UIDs — real UID (ruid), effective UID (euid), saved UID (suid)",
+      "back": "Real UID: identifies the user who started/owns the process. Effective UID: used by the kernel to determine if the process is allowed to perform an action. Saved UID: used to drop and re-gain privileges without permanently giving them up."
+    },
+    {
+      "type": "flashcard",
+      "front": "SUID bit",
+      "back": "When a program file has the SUID bit set, any process that executes it has its effective UID/GID changed to those of the file's owner. Commonly used for SUID-root programs (e.g., /usr/bin/passwd, /bin/ping)."
+    },
+    {
+      "type": "flashcard",
+      "front": "setuid(uid)",
+      "back": "Sets the ruid, euid, and suid all to uid. Allowed only if the caller's euid is 0 (root), or if uid equals the current euid. If called by root, permanently drops all three to the given uid."
+    },
+    {
+      "type": "flashcard",
+      "front": "seteuid(uid)",
+      "back": "Sets only the effective UID to uid. If euid is not 0, the new uid must be either the ruid or the suid. Does not change ruid or suid, allowing the process to regain the saved privilege later."
+    },
+    {
+      "type": "flashcard",
+      "front": "setresuid(ruid, euid, suid)",
+      "back": "Allows setting all three UIDs explicitly. Unprivileged processes can only switch among existing values (the current ruid, euid, or suid). Root can set them to any value."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does a SUID process securely switch between user and root privileges?",
+      "back": "It uses the saved UID. It can call seteuid(getuid()) to drop to the real user's UID, then call seteuid(0) to regain root — because suid is still 0. Calling setuid(getuid()) permanently drops all three UIDs, preventing re-elevation."
+    },
+    {
+      "type": "flashcard",
+      "front": "SUID attack surface — two categories of inputs",
+      "back": "1. Startup inputs: command-line arguments and environment variables. 2. Runtime inputs: dynamically-linked objects and file input. Also: interaction with the file system (file creation/access) and processes (signals, invoking other commands)."
+    },
+    {
+      "type": "flashcard",
+      "front": "system() and popen() — why are they dangerous in SUID programs?",
+      "back": "Both invoke the shell, relying on environment variables (PATH, HOME) that attackers can manipulate. Attackers can also inject commands using shell syntax: separators (; && ||), backticks, and $() subshells."
+    },
+    {
+      "type": "flashcard",
+      "front": "Path substitution attack",
+      "back": "An attacker modifies their PATH variable so when a SUID script calls a command by short name (no full path), the shell finds the attacker's malicious binary first. Also: modifying HOME to control access to files specified with home-relative paths (~/myfile)."
+    },
+    {
+      "type": "flashcard",
+      "front": "IFS attack",
+      "back": "Attacker sets the inter-field separator variable IFS to '/' so absolute paths like /bin/ls are interpreted as space-separated commands (runs 'bin' with argument 'ls'). Now obsolete — modern shells reset IFS automatically."
+    },
+    {
+      "type": "flashcard",
+      "front": "The preserve attack (classic SUID exploit)",
+      "back": "preserve (SUID root, used by vi) called /bin/mail via system(). Attacker: changed IFS to '/', created a malicious program named 'bin' in the current directory, then killed vi. preserve ran 'bin' as root instead of /bin/mail."
+    },
+    {
+      "type": "flashcard",
+      "front": "Command injection (the '; attack')",
+      "back": "User-provided data (e.g., a filename) is passed to system() or popen() without sanitization. By inserting ; or other shell metacharacters, an attacker appends arbitrary commands. Example: passing 'file; rm -rf /' to a program that runs 'cat /var/log/[input]'."
+    },
+    {
+      "type": "flashcard",
+      "front": "Directory traversal attack (dot-dot attack)",
+      "back": "User-provided file path contains '../' sequences, allowing traversal outside the intended directory to access restricted files (e.g., ../../etc/shadow)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Input validation — the correct approach",
+      "back": "1. Check length/size before copying into buffers. 2. Define what is allowed and deny everything else (allowlisting). 3. Look for evidence of malicious input (e.g., ; in a username). 4. Escape possibly dangerous input. Applies to web apps, SQL queries, command-line args, etc."
+    },
+    {
+      "type": "flashcard",
+      "front": "File system vulnerabilities — symbolic link attack",
+      "back": "An application opens a file without checking if it already exists or if it is a symbolic link. Attacker creates a symlink from the expected path to a privileged file (e.g., /etc/shadow). The SUID application then operates on the privileged file as root."
+    },
+    {
+      "type": "flashcard",
+      "front": "TOCTTOU (Time-Of-Check-To-Time-Of-Use)",
+      "back": "A race condition where: t1 = check (validity of assumption A on entity E is verified), t2 = use (E is used assuming A is still valid), t3 = attack (A is invalidated by the attacker). Sequence: t1 < t3 < t2. The check passes, but the resource changes before it is used."
+    },
+    {
+      "type": "flashcard",
+      "front": "access() vs. open() in the context of TOCTTOU",
+      "back": "access() checks permissions using the real UID. open() uses the effective UID. A SUID program that calls access() then open() on the same filename is vulnerable: an attacker can replace the file with a symlink between the two calls."
+    },
+    {
+      "type": "flashcard",
+      "front": "How to prevent TOCTTOU race conditions",
+      "back": "1. Use file-descriptor-based syscalls instead of path-based ones (e.g., fstat() not stat()). 2. Perform file descriptor binding first (open the fd, then operate on it). 3. Use truly random, unpredictable filenames for temp files."
+    },
+    {
+      "type": "flashcard",
+      "front": "The dtappgather attack",
+      "back": "dtappgather (CDE, SUID) did not check whether /var/dt/appconfig/appmanager/generic-display-0 existed before opening it. Attacker: ln -s /etc/shadow [path], ran dtappgather — which then changed permissions of /etc/shadow to executable by all users."
+    },
+    {
+      "type": "flashcard",
+      "front": "File descriptor inheritance and the chpass attack",
+      "back": "chpass (SUID) forked vi without setting the close-on-exec flag, so vi inherited the open file descriptor to the temporary password database. Using vi's shell-escape, the attacker got a shell with that fd still open and wrote arbitrary changes (a new root account) into the password file."
+    },
+    {
+      "type": "flashcard",
+      "front": "Buffer overflow — definition",
+      "back": "Attempting to store more elements in a buffer than it can hold. In C, no boundary check occurs — excess data overwrites adjacent memory. The system cannot detect the anomaly and executes the operation silently."
+    },
+    {
+      "type": "flashcard",
+      "front": "Buffer",
+      "back": "A set of contiguous memory locations that contains one or more elements of the same data type. Example: char buf[10] is a buffer of 10 bytes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why do buffer overflows occur? Two root causes.",
+      "back": "1. Language issue: languages like C lack automatic boundary checks. 2. Channeling problem: data and control elements (return addresses, code pointers) share the same memory channel (stack or heap), so overflowing data can overwrite control elements."
+    },
+    {
+      "type": "flashcard",
+      "front": "Buffer overflow attack families",
+      "back": "Stack-based overflows: shellcode injection, return-into-libc, return-oriented programming (ROP). Others: heap overflows, integer overflows, user-controlled format strings."
+    },
+    {
+      "type": "flashcard",
+      "front": "x86 assembly — what is it?",
+      "back": "A low-level, processor-specific symbolic language that is directly translated into machine code. x86 32-bit (IA-32) is used for Intel 80386 and successors (Pentium, Core). These slides use AT&T syntax (used by objdump, GNU assembler) — note: Intel syntax reverses source and destination."
+    },
+    {
+      "type": "flashcard",
+      "front": "Four components of an x86 assembly program",
+      "back": "1. Instructions: actual CPU operations (mov, add, sub, push, pop, call, jmp). 2. Directives: assembler commands (.data, .text, .byte, .ascii). 3. Labels: symbols at current address (e.g., foo: .byte 42). 4. Comments: text after # is ignored."
+    },
+    {
+      "type": "flashcard",
+      "front": "AT&T instruction format",
+      "back": "mnemonic source, destination. Example: mov %eax, %ebx copies %eax into %ebx. Note: Intel syntax is destination, source — the opposite. At most one explicit memory operand is allowed per instruction."
+    },
+    {
+      "type": "flashcard",
+      "front": "x86 operand types",
+      "back": "Registers (e.g., %eax, %esp, %al). Memory (e.g., 0x401000, 8(%ebp), (%edx,%ecx,4)). Constants/immediates (e.g., $42, $0x401000 — source only). Operand size suffix: b=byte, w=word(16-bit), l=long(32-bit)."
+    },
+    {
+      "type": "flashcard",
+      "front": "x86 general-purpose registers",
+      "back": "%eax, %ebx, %ecx, %edx, %esi, %edi — all 32-bit. Sub-registers: lower 16 bits = %ax,%bx,%cx,%dx; lower byte = %al,%bl,%cl,%dl; second byte = %ah,%bh,%ch,%dh."
+    },
+    {
+      "type": "flashcard",
+      "front": "Special x86 registers: %esp, %ebp, %eip",
+      "back": "%esp: stack pointer — points to the top of the stack (lowest valid address). %ebp: frame pointer — base of the current stack frame. %eip: instruction pointer — address of the next instruction to execute."
+    },
+    {
+      "type": "flashcard",
+      "front": "Memory addressing in x86: displacement(base, index, scale)",
+      "back": "Refers to: displacement + base + index × scale. Base and index: 32-bit general-purpose registers. Displacement: 32-bit constant or symbol (default 0). Scale: 1, 2, 4, or 8 (default 1). All parts optional. Example: 8(%ebp) = %ebp + 8."
+    },
+    {
+      "type": "flashcard",
+      "front": "Little-endian ordering (Intel)",
+      "back": "The least-significant byte of a multi-byte value is stored at the lowest memory address. Example: 0x03020100 stored at 0x00F67B40 → address 0x40=0x00, 0x41=0x01, 0x42=0x02, 0x43=0x03."
+    },
+    {
+      "type": "flashcard",
+      "front": "Two's complement notation",
+      "back": "Representation of signed integers. To negate: flip all bits and add 1 (ignoring overflow). Examples: -1 = 0xFFFFFFFF, -2 = 0xFFFFFFFE. The sign bit is the most significant bit."
+    },
+    {
+      "type": "flashcard",
+      "front": "x86 data transfer instructions",
+      "back": "mov src, dst (dst = src). xchg dst1, dst2 (swap). push src (store src on top of stack, decrements %esp). pop dst (retrieve from top of stack, increments %esp)."
+    },
+    {
+      "type": "flashcard",
+      "front": "x86 arithmetic instructions",
+      "back": "add src, dst (dst += src). sub src, dst (dst -= src). inc dst (dst += 1). dec dst (dst -= 1). neg dst (dst = -dst). cmp src1, src2 (sets flags based on src2 - src1, does not store result)."
+    },
+    {
+      "type": "flashcard",
+      "front": "x86 logical and branch instructions",
+      "back": "and/or/xor src, dst (bitwise ops). not dst (bitwise NOT). test src1, src2 (flags based on src1 & src2). jmp addr (unconditional). call addr (push return address, jump). ret (pop return address and jump). jcc addr (conditional jump based on flags)."
+    },
+    {
+      "type": "flashcard",
+      "front": "lea (load effective address)",
+      "back": "lea src, dst — stores the address of src (a memory operand) in dst, without reading the memory contents. Example: lea 4(%esp), %ecx sets %ecx = %esp + 4. Useful for address arithmetic."
+    },
+    {
+      "type": "flashcard",
+      "front": "nop instruction",
+      "back": "No operation — does nothing. Used for alignment, patching, and importantly in shellcode (NOP sleds) to create a region of no-ops before shellcode, increasing the chance of hitting the target address."
+    },
+    {
+      "type": "flashcard",
+      "front": "Conditional branch condition codes (cc) in x86",
+      "back": "e/z=equal/zero, b=below (unsigned <), a=above (unsigned >), l=less (signed <), g=greater (signed >), s=sign (result<0), n=not (inverts condition). Used as suffixes to j, e.g., jz, jnl, jb, jns."
+    },
+    {
+      "type": "flashcard",
+      "front": "x86 flags register",
+      "back": "Implicitly set by arithmetic and logical instructions (e.g., cmp, test, add). Conditional branches read the flags to decide whether to jump. Key flags: zero flag (ZF), sign flag (SF), carry flag (CF), overflow flag (OF)."
+    },
+    {
+      "type": "flashcard",
+      "front": "The x86 stack",
+      "back": "Grows toward lower memory addresses. %esp (stack pointer) always points to the top — the lowest currently valid address. PUSH decrements %esp by 4 then writes the value. POP reads the value then increments %esp by 4."
+    },
+    {
+      "type": "flashcard",
+      "front": "Stack frame contents",
+      "back": "Each function call creates a frame containing: 1. The function's actual parameters (pushed by caller). 2. The return address (saved by call instruction). 3. The saved frame pointer of the caller (pushed by callee's prologue). 4. The function's local variables (allocated by prologue)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Function prologue (x86)",
+      "back": "Three instructions: push %ebp (save caller's frame pointer), mov %esp, %ebp (set new frame pointer), sub $n, %esp (allocate n bytes for local variables). Establishes the new stack frame."
+    },
+    {
+      "type": "flashcard",
+      "front": "Function epilogue (x86) — leave and ret",
+      "back": "leave is equivalent to: mov %ebp, %esp (deallocate locals) + pop %ebp (restore caller's frame pointer). ret pops the return address from the stack and jumps to it. Epilogue also saves return value in %eax."
+    },
+    {
+      "type": "flashcard",
+      "front": "Function invocation sequence (caller side)",
+      "back": "1. Caller pushes arguments onto the stack. 2. Caller executes call <addr> — this pushes the return address (next instruction) and jumps to the callee. 3. Callee executes prologue (save %ebp, set %ebp=%esp, allocate locals)."
+    },
+    {
+      "type": "flashcard",
+      "front": "ELF (Executable and Linkable Format)",
+      "back": "The standard binary object format on Linux/Unix. Three types: relocatable (needs linker fixup), executable (ready to run; all symbols resolved except shared lib ones), shared object (shared library with linking info)."
+    },
+    {
+      "type": "flashcard",
+      "front": "ELF file views: segments vs. sections",
+      "back": "Sections: logical units used by compiler/linker (code, data, symbol tables, etc.). Segments: groupings of sections loaded into memory as described by the Program Header Table. One segment usually consists of multiple sections."
+    },
+    {
+      "type": "flashcard",
+      "front": "ELF section types",
+      "back": "PROGBITS: program data (code, initialized data). NOBITS: no file space (uninitialized data, .bss). SYMTAB/DYNSYM: symbol tables for static/dynamic linking. STRTAB: string table. REL/RELA: relocation information."
+    },
+    {
+      "type": "flashcard",
+      "front": "ELF section flags",
+      "back": "ALLOC: section is allocated in memory at runtime. WRITE: section is writable. EXECINSTR: section contains executable instructions."
+    },
+    {
+      "type": "flashcard",
+      "front": "Key ELF sections and their properties",
+      "back": ".text: code — PROGBITS, ALLOC+EXECINSTR. .data: initialized vars — PROGBITS, ALLOC+WRITE. .rodata: read-only data — PROGBITS, ALLOC. .bss: uninitialized data — NOBITS, ALLOC. .init/.fini: pre/post code — PROGBITS, ALLOC+EXECINSTR."
+    },
+    {
+      "type": "flashcard",
+      "front": "Static vs. dynamic linking",
+      "back": "Static: all external references resolved at compile-time; self-contained binary; larger file. Dynamic: references resolved at run-time by the dynamic linker; smaller binary; multiple processes share one copy of the library."
+    },
+    {
+      "type": "flashcard",
+      "front": "Process memory layout (x86-32 Linux, from high to low addresses)",
+      "back": "0xBFFFFFFF: ENV/ARG strings → ENV/ARG pointers → argc → stack (grows down) → ... → heap (grows up) → .bss → .data → .text (starting ~0x08048000)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tools for binary analysis (from slides)",
+      "back": "gdb: GNU debugger (run, step, backtrace, print, x/ examine). objdump: disassemble with -d. readelf: display ELF file info. hexdump: binary file contents. /proc/<pid>/maps: live process memory layout. IDA Pro: best disassembler/analysis tool."
+    },
+    {
+      "type": "flashcard",
+      "front": "GDB examine memory command: x/nfu <addr>",
+      "back": "n = repeat count (how many units to print). f = format (x=hex, d=decimal, a=address, i=instruction). u = unit size (b=byte, h=halfword, w=word, g=giant/8-byte). Example: x/10i $eip prints the next 10 instructions."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which three properties can attacks against applications violate?",
+      "options": [
+        "Confidentiality, Integrity, Availability",
+        "Authentication, Authorization, Auditing",
+        "Privacy, Trust, Reliability",
+        "Isolation, Integrity, Non-repudiation"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Deployment vulnerabilities arise because the application's source code is incorrect.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the purpose of the effective UID (euid) in a Unix process?",
+      "options": [
+        "To identify who started the process",
+        "To determine whether the process is allowed to perform an action",
+        "To store privileges for later re-elevation",
+        "To record the group of the process owner"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "When a SUID-root program is executed by a user with UID 1000, the process's real UID changes to 0.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What happens when a SUID-root process calls setuid(getuid()) where getuid() returns 1000?",
+      "options": [
+        "Only the effective UID is set to 1000; the saved UID remains 0",
+        "The ruid, euid, and suid are all set to 1000, permanently dropping root",
+        "The call fails because euid is not 0",
+        "Only the saved UID is set to 1000"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A process with ruid=1000, euid=1000, suid=0 can regain root by calling seteuid(0).",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What percentage of local UNIX vulnerabilities involve exploiting SUID-root programs?",
+      "options": ["50%", "75%", "90%", "99%"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Remote attacks are easier to perform than local attacks because the attacker has a better knowledge of the environment.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is calling system() or popen() dangerous inside a SUID program?",
+      "options": [
+        "They are slow and cause performance issues",
+        "They rely on environment variables like PATH that an attacker can manipulate, and they invoke the shell allowing command injection",
+        "They require root privileges to execute",
+        "They only work with absolute paths"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the IFS attack, the attacker modifies the PATH environment variable to point to a directory containing a malicious binary.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the classic preserve attack, what did the attacker change to make system('/bin/mail ...') run a malicious binary?",
+      "options": [
+        "The PATH variable to include the current directory",
+        "The IFS variable to '/' so '/bin/mail' was parsed as the command 'bin' with argument 'mail'",
+        "The HOME variable to point to a malicious directory",
+        "A symlink replacing /bin/mail"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Given this C snippet: snprintf(cmd, 1024, \"cat /var/log/%s\", argv[1]); return system(cmd); — what attack does this enable?",
+      "options": [
+        "Buffer overflow via argv[1]",
+        "Command injection by passing '; malicious_command' as argv[1]",
+        "Directory traversal via argv[1]",
+        "Format string attack via the snprintf call"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "When sanitizing command-line inputs, the correct approach is to look for and block known bad characters while allowing everything else (denylisting).",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the dtappgather attack, what was the root cause of the vulnerability?",
+      "options": [
+        "dtappgather ran with SUID bit set but did not need it",
+        "dtappgather did not check whether the target path existed before opening it, allowing symlink substitution",
+        "dtappgather used system() to invoke a shell command",
+        "dtappgather had a buffer overflow in its filename handling"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a TOCTTOU attack, what is the correct temporal ordering?",
+      "options": [
+        "t1 (check) → t2 (use) → t3 (attack)",
+        "t3 (attack) → t1 (check) → t2 (use)",
+        "t1 (check) → t3 (attack) → t2 (use)",
+        "t2 (use) → t3 (attack) → t1 (check)"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Using access() followed by open() on the same path in a SUID program is safe against TOCTTOU attacks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the most reliable way to prevent TOCTTOU race conditions?",
+      "options": [
+        "Re-check the file permissions immediately before open()",
+        "Use file descriptors (fd-based syscalls) instead of path names, and bind the fd first",
+        "Use access() with the O_NOFOLLOW flag",
+        "Set the file permissions to 0000 before accessing"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The chpass attack on OpenBSD exploited which vulnerability class?",
+      "options": [
+        "Buffer overflow in the password parsing code",
+        "TOCTTOU race condition on the password file",
+        "Inheritance of open file descriptors by a forked child (vi) without close-on-exec",
+        "Command injection via the EDITOR environment variable"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In C, if a program tries to write 10 elements into a buffer of size 6, the runtime will throw an exception and halt execution.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the 'channeling problem' that makes buffer overflows dangerous?",
+      "options": [
+        "Network channels can carry shellcode directly to the kernel",
+        "Data and control elements (like return addresses) share the same memory channel, so overflowing data can overwrite control elements",
+        "The heap and stack channels can be confused by the allocator",
+        "Buffered I/O channels allow injecting data mid-read"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Buffer overflow vulnerabilities can only be exploited locally; they cannot be triggered remotely.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT part of the stack-based overflow attack family?",
+      "options": [
+        "Shellcode injection",
+        "Return-into-libc",
+        "Return-oriented programming (ROP)",
+        "Heap metadata corruption"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In AT&T x86 assembly syntax, what does 'mov %eax, %ebx' do?",
+      "options": [
+        "Copies %ebx into %eax",
+        "Swaps %eax and %ebx",
+        "Copies %eax into %ebx",
+        "Moves the value at address %eax into %ebx"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In AT&T syntax, the source operand appears before the destination operand.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the instruction 'xor %eax, %eax' accomplish?",
+      "options": [
+        "Toggles every bit of %eax",
+        "Sets %eax to 0xFFFFFFFF",
+        "Sets %eax to 0",
+        "Copies %eax to itself with no effect"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the memory operand '8(%ebp)' refer to?",
+      "options": [
+        "The value 8 added to %ebp stored in a register",
+        "The memory location at address %ebp + 8",
+        "The 8th byte of the %ebp register",
+        "A constant offset stored at address 8"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "On x86, an immediate (constant) value can appear as a destination operand in a mov instruction.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In little-endian memory layout, how is the 32-bit value 0x03020100 stored starting at address 0x1000?",
+      "options": [
+        "0x1000=0x03, 0x1001=0x02, 0x1002=0x01, 0x1003=0x00",
+        "0x1000=0x00, 0x1001=0x01, 0x1002=0x02, 0x1003=0x03",
+        "0x1000=0x01, 0x1001=0x00, 0x1002=0x03, 0x1003=0x02",
+        "0x1000=0x00, 0x1001=0x03, 0x1002=0x02, 0x1003=0x01"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In two's complement, what is the 32-bit representation of -1?",
+      "options": ["0x80000000", "0x00000001", "0xFFFFFFFF", "0xFFFFFFFE"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The %eip register holds the address of the current stack frame's base.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does 'push src' do to %esp?",
+      "options": [
+        "Increments %esp by 4, then writes src to the new address",
+        "Writes src to the address %esp points to, then increments %esp by 4",
+        "Decrements %esp by 4, then writes src to the new address",
+        "Writes src to the address %esp points to, then decrements %esp by 4"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The x86 stack grows toward higher memory addresses.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "During a function prologue, why is 'sub $n, %esp' executed?",
+      "options": [
+        "To make room for the return address",
+        "To save the caller's frame pointer",
+        "To allocate space for the function's local variables on the stack",
+        "To align the stack to a 16-byte boundary"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the standard x86 calling convention, who pushes the function arguments onto the stack?",
+      "options": [
+        "The callee during its prologue",
+        "The caller before executing the call instruction",
+        "The OS at context-switch time",
+        "The linker at load time"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The 'call' instruction pushes the address of the next instruction (the return address) onto the stack before jumping.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the 'leave' instruction do?",
+      "options": [
+        "Pops %eip and jumps to the return address",
+        "Sets %esp = %ebp, then pops %ebp — restoring the caller's frame",
+        "Sets %ebp = %esp, then pushes %ebp",
+        "Deallocates heap memory allocated by the current frame"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does 'lea src, dst' do differently from 'mov src, dst' when src is a memory operand?",
+      "options": [
+        "lea reads the memory value; mov computes the address",
+        "lea stores the computed address of src in dst without reading memory; mov reads the memory value",
+        "They are identical for memory operands",
+        "lea works only with the stack; mov works anywhere"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which ELF file type contains shared libraries?",
+      "options": [
+        "Relocatable",
+        "Executable",
+        "Shared object",
+        "Dynamic"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The .bss section consumes space in the ELF file on disk proportional to the size of uninitialized data.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which ELF section holds the program's executable machine code?",
+      "options": [".data", ".bss", ".text", ".rodata"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What are the flags of the .data section?",
+      "options": [
+        "ALLOC and EXECINSTR",
+        "ALLOC and WRITE",
+        "ALLOC only",
+        "WRITE and EXECINSTR"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Static linking resolves symbol references to external libraries at run-time.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a running x86-32 Linux process, where is the stack located relative to the text segment?",
+      "options": [
+        "Immediately below the text segment",
+        "At low virtual addresses, below 0x08048000",
+        "At high virtual addresses (near 0xBFFFFFFF), growing downward",
+        "Interleaved with the heap at mid-range addresses"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which GDB command prints the 10 assembly instructions starting at the current instruction pointer?",
+      "options": [
+        "print /10 $eip",
+        "x/10i $eip",
+        "backtrace 10",
+        "disas $eip 10"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a stack frame, the saved frame pointer of the caller is stored between the return address and the local variables.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain what a TOCTTOU attack is and give a concrete example of how it can be exploited in a SUID program.",
+      "answer": "TOCTTOU (Time-Of-Check-To-Time-Of-Use) is a race condition where a security check is made (t1) and then the resource is later used assuming the check is still valid (t2), but an attacker invalidates the assumption between those two points (t3). In a SUID program: the program calls access() to check the real UID's permission on a file (t1), then calls open() to open it (t2). Between the two calls (t3), the attacker replaces the file with a symlink to a privileged file like /etc/shadow. The check passes on the original file, but open() (using the effective UID, root) follows the symlink and opens the privileged file."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the full function call sequence in x86 — from the caller pushing arguments to the callee executing its prologue — listing the specific instructions involved.",
+      "answer": "1. Caller pushes function arguments onto the stack (e.g., movl $arg, (%esp)). 2. Caller executes 'call <addr>' — this pushes the return address (address of next instruction) onto the stack and jumps to the callee. 3. Callee executes prologue: 'push %ebp' (save caller's frame pointer), 'mov %esp, %ebp' (establish new frame pointer), 'sub $n, %esp' (allocate space for local variables). The callee then uses positive offsets from %ebp to access its arguments and negative offsets for local variables."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the two root causes that make buffer overflows possible in C, and why is C specifically vulnerable compared to Java?",
+      "answer": "1. Language issue: C does not perform automatic boundary checks on array/buffer accesses. When code writes past the end of a buffer, C silently allows it. Java, by contrast, checks bounds and throws an exception, preventing the overflow. 2. Channeling problem: in C programs (especially on the stack), data (local variables, heap objects) and control elements (return addresses, function pointers, saved frame pointers) share the same memory channel. Overflowing a data buffer can overwrite adjacent control elements, allowing an attacker to hijack the control flow of the program."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between the ELF section view and the segment view, and why both exist.",
+      "answer": "The section view is used by the compiler and linker: sections are fine-grained logical units like .text (code), .data (initialized vars), .bss (uninitialized vars), .symtab (symbol table), etc. Each section has a type (PROGBITS, NOBITS, SYMTAB) and flags (ALLOC, WRITE, EXECINSTR). The segment (program header) view is used by the OS loader at runtime: it groups sections into contiguous memory regions (segments) with appropriate permissions (read, write, execute). For example, .text and .rodata might be combined into a read-execute segment, while .data and .bss form a read-write segment. The dual view allows efficient compilation/linking AND efficient loading."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the three types of ELF files, when each is produced, and how they differ.",
+      "answer": "1. Relocatable: produced by the compiler (assembler) from source files. Contains code and data with relocation entries — addresses are not yet finalized. Must be processed by the linker before execution. 2. Executable: produced by the linker. All symbol references resolved (except for shared library symbols). Ready to run directly. 3. Shared object: shared libraries (.so files). Contains code and data that can be linked dynamically at run-time. Multiple processes can share one loaded copy in memory. Contains linking information used by the dynamic linker."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "In x86 assembly, what is the difference between 'cmp' and 'sub', and between 'test' and 'and'?",
+      "answer": "'cmp src1, src2' computes src2 - src1 and sets the flags register accordingly, but discards the result (does not store it). 'sub src, dst' computes dst - src, stores the result in dst, and also sets flags. Similarly, 'test src1, src2' computes src1 & src2, sets flags (especially the zero flag), but discards the result. 'and src, dst' computes dst & src, stores it in dst, and sets flags. Both cmp/test are used purely for comparison — they set flags so a subsequent conditional branch can decide which way to jump."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between setuid(), seteuid(), and setresuid() and when each should be used by a SUID program.",
+      "answer": "seteuid(uid): sets only the effective UID. Use this to temporarily drop privileges (seteuid(getuid())) and regain them (seteuid(0)) — safe because suid is preserved at 0. setuid(uid): if called with euid=0, sets all three IDs (ruid, euid, suid) to uid — permanently drops all privilege; the process cannot regain root. Use this when the program is fully done with root operations and wants to permanently become the invoking user. setresuid(ruid,euid,suid): explicitly sets all three independently. Unprivileged processes can only swap among existing values. Use for fine-grained, auditable privilege control."
+    }
+  ]
+}
