@@ -1,0 +1,600 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Client-Server Paradigm",
+      "back": "A communication model where servers provide resources/services and remain passive until contacted, while clients request resources, do not share anything, and must know the server endpoint. Examples: Web, DNS, Email."
+    },
+    {
+      "type": "flashcard",
+      "front": "Peer-to-Peer (P2P) Paradigm",
+      "back": "A network model where all actors (peers) are equal and have both client and server capabilities. Services and resources can be shared between peers or found in a single location. Each peer chooses what to serve and request. Example: BitTorrent."
+    },
+    {
+      "type": "flashcard",
+      "front": "Reachable Network (Bitcoin taxonomy)",
+      "back": "All nodes in the Bitcoin network that accept public incoming connections."
+    },
+    {
+      "type": "flashcard",
+      "front": "Non-reachable Network (Bitcoin taxonomy)",
+      "back": "All nodes that do not accept incoming connections or cannot be reached, e.g. due to being behind a NAT or firewall."
+    },
+    {
+      "type": "flashcard",
+      "front": "Extended Network (Bitcoin taxonomy)",
+      "back": "All nodes that use different protocols to communicate (not always P2P)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Peer Bootstrapping",
+      "back": "The process by which a new peer finds existing nodes in the network and announces its own presence. Approaches include IRC, trusted DNS seed servers, and hardcoded trusted addresses."
+    },
+    {
+      "type": "flashcard",
+      "front": "DNS Seed Servers (Bitcoin)",
+      "back": "Well-known servers queried by a new Bitcoin node to obtain an initial list of active peers. Examples include seed.bitcoin.sipa.be (Pieter Wuille) and dnsseed.bluematt.me (Matt Corallo)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hardcoded Seeds (Bitcoin)",
+      "back": "A fallback list of fixed seed node addresses compiled directly into the Bitcoin client source code (chainparamsseeds.h), used when DNS seed servers are unavailable."
+    },
+    {
+      "type": "flashcard",
+      "front": "addrman (peer database)",
+      "back": "The address manager maintained by each Bitcoin node. It stores all known peer addresses and is populated by getaddr responses. It is updated continuously."
+    },
+    {
+      "type": "flashcard",
+      "front": "getaddr message",
+      "back": "A Bitcoin network message sent by a node to request a list of known-active peers from a neighbor, used to populate the peer database."
+    },
+    {
+      "type": "flashcard",
+      "front": "addr message",
+      "back": "A Bitcoin network message containing a list of up to 1000 IP addresses and ports of known peers, sent in response to a getaddr request."
+    },
+    {
+      "type": "flashcard",
+      "front": "Address Propagation (Bitcoin)",
+      "back": "When a node connects to the network, connected peers add its address to their databases and relay it to random subsets of their neighbors, eventually spreading the address across the entire network."
+    },
+    {
+      "type": "flashcard",
+      "front": "Gossip (Announce Paradigm)",
+      "back": "A push-based information dissemination method used by cryptocurrency networks. Nodes announce new artifacts (transactions/blocks) via inventory messages; peers request and receive artifacts they do not yet have."
+    },
+    {
+      "type": "flashcard",
+      "front": "inv message",
+      "back": "A Bitcoin network message sent to announce a new block or transaction being relayed. It contains only identifiers (hashes), not the actual data."
+    },
+    {
+      "type": "flashcard",
+      "front": "getdata message",
+      "back": "A Bitcoin network message used to request a specific block or transaction by its hash, sent after receiving an inv announcement."
+    },
+    {
+      "type": "flashcard",
+      "front": "Three steps of Gossip artifact exchange",
+      "back": "1. Announce: sender broadcasts inv(H(artifact)) to neighbors. 2. Request: receiver sends getdata(H(artifact)) if it does not have it. 3. Deliver: sender transmits the full artifact (tx or block)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mempool (Memory Pool)",
+      "back": "A buffer maintained by each Bitcoin node containing valid but unconfirmed transactions. Miners select transactions from it to form blocks. Transactions are removed once included in a confirmed block."
+    },
+    {
+      "type": "flashcard",
+      "front": "Confirmed Transaction (Bitcoin)",
+      "back": "A transaction whose block has at least 6 blocks mined on top of it, making the probability of a fork at that height negligible."
+    },
+    {
+      "type": "flashcard",
+      "front": "Denial-of-Service (DoS) Attack",
+      "back": "An attack that aims to make a machine or network resource unavailable by temporarily or indefinitely disrupting its services."
+    },
+    {
+      "type": "flashcard",
+      "front": "Banscore System (Bitcoin, deprecated)",
+      "back": "A reputation system where each Bitcoin node tracks a banscore per neighbor. If misbehavior is detected the score increases; at threshold 100 the peer is banned for 24 hours by default."
+    },
+    {
+      "type": "flashcard",
+      "front": "Misbehavior Score / Disconnect System (Bitcoin, current)",
+      "back": "Replaces banscore. Nodes simply disconnect from peers that exhibit banned behavior (e.g. sending a block not connecting to the header tree, non-continuous headers, oversized addr or inv messages)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Penny Flood / Dust Attack",
+      "back": "A DoS attack where an adversary spams the network with tiny-value ('dust') transactions. Bitcoin defines a dust threshold below which outputs are considered uneconomical to spend, helping filter such spam."
+    },
+    {
+      "type": "flashcard",
+      "front": "Surveillance Attack (Bitcoin)",
+      "back": "An attack where an adversary sets up a supernode connected to all known peers. Because gossip messages are public, the attacker can monitor all transactions and identify their origin IP addresses."
+    },
+    {
+      "type": "flashcard",
+      "front": "Diffusion (Bitcoin privacy measure)",
+      "back": "Each node forwards a new transaction only after a randomly set delay, making triangulation of transaction origins harder. Research shows it does not provide strong anonymity guarantees."
+    },
+    {
+      "type": "flashcard",
+      "front": "Dandelion / Dandelion++",
+      "back": "Protocols that improve protection against network-level surveillance by using a two-phase dissemination pattern: an anonymity phase (transaction passed along a single path) followed by a normal spreading phase."
+    },
+    {
+      "type": "flashcard",
+      "front": "Eclipse Attack",
+      "back": "An attack where an adversary controls all the network connections of a target node, isolating it from the honest network. The attacker can serve a false blockchain view, enabling double-spending or delayed block delivery."
+    },
+    {
+      "type": "flashcard",
+      "front": "SABRE",
+      "back": "A relay network designed to protect cryptocurrency nodes against routing/partitioning and DDoS attacks, acting as a countermeasure to eclipse attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Front-running Attack",
+      "back": "An attack where adversaries exploit visibility of unconfirmed transactions in the mempool before they are mined, e.g. to steal rewards, reorder transactions, or influence consensus."
+    },
+    {
+      "type": "flashcard",
+      "front": "TxProbe",
+      "back": "A tool that uses double-spending and orphan transactions to infer the topology of a cryptocurrency network, revealing community structure and potential centralization."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fast Relay Networks (Bitcoin block propagation)",
+      "back": "Overlay networks such as Falcon and FIBRE that run on top of Bitcoin to minimize block propagation times, used especially by miners to always mine on the most recent block."
+    },
+    {
+      "type": "flashcard",
+      "front": "version message (Bitcoin)",
+      "back": "The first message exchanged when two Bitcoin nodes connect, containing information about the program version and block count."
+    },
+    {
+      "type": "flashcard",
+      "front": "verack message (Bitcoin)",
+      "back": "Sent in response to a version message to acknowledge willingness to connect."
+    },
+    {
+      "type": "flashcard",
+      "front": "Regular Peer Role (Bitcoin)",
+      "back": "A node that can create and sign transactions, verify the correctness of received transactions and blocks, and relay valid transactions and blocks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Miner Role (Bitcoin)",
+      "back": "A node with all regular peer capabilities that additionally solves computationally hard puzzles to mine blocks, maintain the blockchain, and earn rewards."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the client-server paradigm, which statement about servers is correct?",
+      "options": [
+        "They initiate communication with clients",
+        "They are passive until contacted by clients",
+        "They do not share any resources",
+        "They need to know the client endpoint to connect"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is an example of a P2P network mentioned in the lecture?",
+      "options": [
+        "DNS",
+        "Email",
+        "BitTorrent",
+        "HTTP Web"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How did early versions of Bitcoin bootstrap peer discovery (now deprecated)?",
+      "options": [
+        "Hardcoded IP addresses only",
+        "DNS seed servers",
+        "Internet Relay Chat (IRC) channels",
+        "Distributed Hash Tables (DHTs)"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which IRC server did early Bitcoin clients use for bootstrapping?",
+      "options": [
+        "irc.freenode.net",
+        "irc.lfnet.org",
+        "irc.bitcoin.org",
+        "irc.p2p.net"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "By default, how many outgoing connections does a Bitcoin node try to maintain?",
+      "options": [
+        "4",
+        "8",
+        "16",
+        "117"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "By default, how many incoming connections does a Bitcoin node accept?",
+      "options": [
+        "8",
+        "16",
+        "100",
+        "117"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the maximum number of addresses a Bitcoin node sends in a single addr message?",
+      "options": [
+        "100",
+        "500",
+        "1000",
+        "50000"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the maximum number of IDs in a single Bitcoin inventory message before triggering a misbehavior penalty?",
+      "options": [
+        "1000",
+        "10000",
+        "50000",
+        "100000"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What information propagation approach do cryptocurrency networks use?",
+      "options": [
+        "Request (pull) via distributed hash tables",
+        "Request (pull) via trackers",
+        "Announce (push) via gossip",
+        "Broadcast via central servers"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the correct order of steps in Bitcoin's gossip artifact exchange?",
+      "options": [
+        "Request → Announce → Deliver",
+        "Announce → Deliver → Request",
+        "Announce → Request → Deliver",
+        "Deliver → Request → Announce"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Bitcoin message contains only a list of artifact hashes and NOT the actual data?",
+      "options": [
+        "tx",
+        "block",
+        "inv",
+        "getdata"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why do blocks in Bitcoin propagate faster than transactions even though blocks are larger?",
+      "options": [
+        "Blocks are compressed before sending",
+        "Transactions are batched and delayed, while blocks are forwarded immediately; fast relay networks also assist",
+        "Blocks use a different protocol with higher bandwidth",
+        "Miners have priority access to the network"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the default banscore threshold at which a Bitcoin node bans a misbehaving peer (legacy system)?",
+      "options": [
+        "20",
+        "50",
+        "100",
+        "200"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "For how long does the legacy banscore system ban a misbehaving peer by default?",
+      "options": [
+        "1 hour",
+        "12 hours",
+        "24 hours",
+        "7 days"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What tool can be used on the command line to query Bitcoin DNS seed servers for an initial peer list?",
+      "options": [
+        "nslookup",
+        "ping",
+        "dig",
+        "traceroute"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is a countermeasure specifically designed against eclipse attacks?",
+      "options": [
+        "Dandelion++",
+        "SABRE relay network",
+        "Banscore system",
+        "Dust threshold"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which tool uses double-spending and orphan transactions to infer Bitcoin's network topology?",
+      "options": [
+        "Bitnodes",
+        "SABRE",
+        "TxProbe",
+        "FIBRE"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many blocks must be mined on top of a block in Bitcoin before it is considered confirmed?",
+      "options": [
+        "1",
+        "3",
+        "6",
+        "10"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which network message is sent first when two Bitcoin nodes establish a connection?",
+      "options": [
+        "verack",
+        "ping",
+        "version",
+        "getaddr"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is a key implication of larger Bitcoin network size for gossip-based propagation?",
+      "options": [
+        "Artifacts spread faster because more peers relay them",
+        "Artifacts spread slower, increasing the likelihood of blockchain forks",
+        "The network becomes more secure against DoS",
+        "Each node needs fewer connections"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which service regularly crawls the Bitcoin network to find all reachable nodes and estimate network size?",
+      "options": [
+        "mempool.space",
+        "Bitnodes",
+        "TxProbe",
+        "blockchain.com"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the P2P paradigm, all actors have both client and server capabilities.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bitcoin's IRC-based peer discovery is still the primary bootstrapping method in use today.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Hardcoded seed addresses are the first bootstrapping mechanism tried by a new Bitcoin node.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A Bitcoin node receiving an inv message immediately receives the full transaction or block data.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Cryptocurrency networks use the gossip (announce) paradigm rather than a request-based approach like BitTorrent.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Long block propagation times increase the likelihood of blockchain forks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Miners do not need to verify transactions; only regular peers do.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In an eclipse attack, the attacker isolates a target node by controlling all of its network connections.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Dandelion++ provides absolute anonymity guarantees for Bitcoin transactions.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Unconfirmed transactions are more easily exploited for double-spending than partially confirmed blocks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Bitcoin network topology closely resembles a random graph.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A tx message in Bitcoin is sent only in response to a getdata request.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Diffusion (random forwarding delay) provides strong anonymity guarantees for Bitcoin transactions.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Full nodes need all blockchain information to validate new items, while light clients only need block headers.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bitcoin's gossip network, transactions known to a node are accepted and relayed further.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bitcoin has no formal specification; its behavior is defined only by the source code.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An eclipse attack can be used to facilitate double-spending attacks on the isolated node.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the three network taxonomy categories in Bitcoin (reachable, non-reachable, extended) and give an example of what makes a node non-reachable.",
+      "answer": "The reachable network consists of nodes that accept public incoming connections. The non-reachable network includes nodes that cannot accept incoming connections, for example because they are behind a NAT or firewall. The extended network comprises nodes that communicate using protocols other than the standard Bitcoin P2P protocol."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the three approaches Bitcoin has used or uses for peer bootstrapping.",
+      "answer": "1. IRC (deprecated): early Bitcoin clients joined IRC channels on irc.lfnet.org to find peers. 2. DNS seed servers: new nodes query well-known DNS seeds (e.g. seed.bitcoin.sipa.be) to get an initial list of active peers. 3. Hardcoded addresses: if DNS seeds fail, the client falls back to a hardcoded list of fixed node addresses compiled into the Bitcoin source code."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is a request-based (pull) information model unsuitable for cryptocurrency networks, and why is gossip (push) preferred?",
+      "answer": "In cryptocurrency networks, new transactions and blocks are created continuously by peers. Storing and tracking all these rapidly changing items via a centralized tracker (as BitTorrent does) would create too much overhead and latency. Gossip is preferred because it requires no central directory: nodes simply announce new artifacts to their neighbors, who propagate them virally, achieving network-wide coverage without any single point of failure."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the difference between the gossip rules for unknown versus known transactions?",
+      "answer": "Unknown (previously unseen) transactions are accepted for processing: they are validated and, if valid, stored in the mempool and relayed. Known transactions (already seen by the node) are rejected and not relayed further, preventing infinite loops in propagation."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain what a front-running attack is in the context of cryptocurrency networks and why it is difficult to counter.",
+      "answer": "A front-running attack occurs when an adversary monitors unconfirmed transactions in the mempool and exploits early visibility of them — for example, by submitting a competing transaction with a higher fee to get it mined first, stealing rewards, or manipulating decentralized exchange prices. It is difficult to counter because the open nature of the mempool is fundamental to how nodes validate and propagate transactions; removing this visibility would compromise decentralization and transparency."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does Dandelion improve privacy compared to simple diffusion, and what are its two phases?",
+      "answer": "Dandelion routes a new transaction through an anonymity phase (stem phase) where it is forwarded along a single random path of nodes, obscuring its origin. Then in the spreading phase (fluff phase), the transaction is broadcast normally via gossip. This makes it much harder to triangulate the origin compared to diffusion, which only adds random delays but still broadcasts to all neighbors at once. Dandelion++ extends this with formal anonymity guarantees."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the memory pool (mempool), what transactions does it contain, and how does it relate to mining?",
+      "answer": "The mempool is a per-node buffer of valid but unconfirmed transactions. A transaction enters the mempool after passing signature and consistency checks against the node's current blockchain state. Miners select transactions from their mempools to include in candidate blocks. When a valid block is received, transactions included in it are removed from the mempool."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is an eclipse attack, what harm can it cause, and how can it be mitigated?",
+      "answer": "An eclipse attack is when an adversary gains control of all the network connections of a target node, completely isolating it from the honest network. The attacker can feed the victim a false view of the blockchain, enabling double-spending or delaying block delivery to cause the victim to waste mining effort. It can be mitigated by using relay networks like SABRE, which are specifically designed to protect nodes against partitioning and DDoS attacks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how address propagation works in Bitcoin after a new node connects to the network.",
+      "answer": "When a new node A connects to peer B, B adds A's address to its peer database. B then selects a random subset of its own neighbors and relays A's address to them via an addr message. Each of those nodes in turn relays A's address to random subsets of their neighbors. This process repeats until A's address has spread to the entire network, with each node that learns of A adding its address to their own peer databases."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why do blocks propagate faster than transactions in Bitcoin despite blocks being larger in size?",
+      "answer": "Transactions are intentionally delayed before forwarding (batched with random delays) to break the link between the first relayer and the transaction origin, which improves privacy but slows propagation. Blocks are forwarded as quickly as possible to minimize fork probability. Additionally, miners use specialized fast relay networks such as Falcon and FIBRE that sit on top of Bitcoin specifically to minimize block propagation latency."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What did TxProbe reveal about the Bitcoin test-network topology, and what are the implications?",
+      "answer": "TxProbe revealed that the Bitcoin test-network has clearly identifiable communities and looks far from a random graph of similar characteristics. The implications are that the topology can be used to identify undesired centralization and to locate potential victims for network-based attacks such as eclipse attacks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a dust (penny flood) attack and how does Bitcoin mitigate it?",
+      "answer": "A dust attack involves flooding the network with many tiny-value transactions whose value is less than the fee required to spend them, overwhelming the mempool. Bitcoin mitigates this via a dust threshold: outputs where the cost to spend exceeds their value (e.g. 546 satoshis for a standard non-SegWit output at the default relay fee rate) are classified as dust and filtered out, preventing them from being relayed."
+    }
+  ]
+}
