@@ -1,0 +1,593 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Scalability (in decentralized networks)",
+      "back": "Specified through resource cost (bandwidth, compute, storage) and performance (throughput, latency). Goal: minimize cost and maximize performance."
+    },
+    {
+      "type": "flashcard",
+      "front": "Throughput",
+      "back": "The number of transactions per second (tx/sec) that a system can process."
+    },
+    {
+      "type": "flashcard",
+      "front": "Latency",
+      "back": "The time it takes for a transaction to be processed and confirmed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bandwidth (scalability context)",
+      "back": "The cost of downloading and broadcasting blockchain-related data across the network."
+    },
+    {
+      "type": "flashcard",
+      "front": "Scale-out performance",
+      "back": "A design where throughput increases linearly with the number of available resources (validators/nodes). Bitcoin does NOT achieve this."
+    },
+    {
+      "type": "flashcard",
+      "front": "On-chain (Layer 1) scaling",
+      "back": "Techniques that reduce the cost of operating blockchains themselves and increase their performance. Examples: compact blocks, relay networks, Bitcoin-NG, ByzCoin, sharding."
+    },
+    {
+      "type": "flashcard",
+      "front": "Off-chain (Layer 2) scaling",
+      "back": "Techniques that reduce data saved/processed on-chain by performing the bulk of activity off-chain. Examples: payment channels, sidechains, rollups."
+    },
+    {
+      "type": "flashcard",
+      "front": "Compact blocks",
+      "back": "A technique where newly-mined blocks are relayed as block headers (80 bytes) plus transaction hints (6 bytes each) rather than full transactions, reducing bandwidth from ~1 MB to 9–20 KB."
+    },
+    {
+      "type": "flashcard",
+      "front": "FIBRE (Fast Internet Bitcoin Relay Engine)",
+      "back": "A relay network that connects miners directly to each other for fast block propagation using set reconciliation and other techniques, separate from the public p2p network."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitcoin-NG",
+      "back": "A scalable blockchain protocol that separates leader election (key-blocks, PoW-dependent) from transaction processing (micro-blocks, not PoW-dependent) to improve throughput and reduce latency."
+    },
+    {
+      "type": "flashcard",
+      "front": "Key-blocks (Bitcoin-NG)",
+      "back": "Blocks used for PoW-based leader election in Bitcoin-NG. They include a public key the leader will use to sign micro-blocks. Limited by block size and interval."
+    },
+    {
+      "type": "flashcard",
+      "front": "Micro-blocks (Bitcoin-NG)",
+      "back": "Blocks used for transaction processing in Bitcoin-NG. Not PoW-dependent, not limited by block size/interval. Creation speed limited only by signing and network propagation."
+    },
+    {
+      "type": "flashcard",
+      "front": "ByzCoin",
+      "back": "A BFT consensus protocol combining committee-based consensus (PBFT) with PoW/PoS-based leader election. Achieves strong consistency (no forks), ~100 tx/sec with 1 MB blocks and ~1000 tx/sec with 32 MB blocks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Strong consistency (ByzCoin)",
+      "back": "A property where blocks only become valid if at least 2/3 of consensus nodes co-sign them, ensuring no forks and no double-spending."
+    },
+    {
+      "type": "flashcard",
+      "front": "Sharding",
+      "back": "A scalability concept where a database (or blockchain) is partitioned into distinct subsets (shards) that can be modified independently, enabling scale-out performance."
+    },
+    {
+      "type": "flashcard",
+      "front": "OmniLedger",
+      "back": "A secure, scale-out, decentralized ledger via sharding that uses RandHound for shard membership, ByzCoin for shard consensus, and Atomix for cross-shard transaction consistency."
+    },
+    {
+      "type": "flashcard",
+      "front": "RandHound",
+      "back": "A bias-resistant public randomness protocol used in OmniLedger to assign validators to shards in a manipulation-resistant way."
+    },
+    {
+      "type": "flashcard",
+      "front": "Atomix",
+      "back": "An atomic commit protocol used in OmniLedger by clients to ensure consistency of cross-shard transactions."
+    },
+    {
+      "type": "flashcard",
+      "front": "One-way payment channel",
+      "back": "An off-chain channel where Alice deposits funds on-chain and sends signed payment transactions directly to Bob off-chain. Bob claims the best transaction on-chain when done. Only one-directional."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hashed Time-Lock Contract (HTLC)",
+      "back": "A conditional payment mechanism where funds are locked on-chain and released to the payee only if they reveal the pre-image R of a hash H(R) before a timeout t. Used for fair exchange and as a building block for payment networks like Lightning."
+    },
+    {
+      "type": "flashcard",
+      "front": "Lightning Network",
+      "back": "Bitcoin's Layer 2 scaling solution: a network of interconnected bidirectional payment channels that uses HTLCs to route payments between parties without direct channels."
+    },
+    {
+      "type": "flashcard",
+      "front": "Settlement and Arbitrator System",
+      "back": "An off-chain architecture where the blockchain is used only as a backstop for dispute resolution and final settlement (open/close), while most transactions happen off-chain."
+    },
+    {
+      "type": "flashcard",
+      "front": "Segregated Witness (SegWit)",
+      "back": "A soft fork of Bitcoin that indirectly increases the effective block size to about 1.4 MB by restructuring how transaction data is stored, among other features."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitcoin Cash",
+      "back": "A hard fork of Bitcoin (2017) that resulted from the block size debate, implementing 8 MB blocks to increase throughput."
+    },
+    {
+      "type": "flashcard",
+      "front": "Blobs (Ethereum)",
+      "back": "Binary Large Objects introduced in 2024 via 'proto-danksharding' to allow data storage without smart contracts. Blob data is NOT accessible via the EVM and has a separate fee market."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proto-danksharding",
+      "back": "An Ethereum upgrade introduced in 2024 that added blob storage support to the blockchain, a precursor to full danksharding for Layer 2 data availability."
+    },
+    {
+      "type": "flashcard",
+      "front": "Nakamoto Consensus drawbacks",
+      "back": "High latency (>10 min), low throughput (4–7 tx/sec), weak consistency (no certainty until >1 hour), high storage overhead (all blocks kept forever), high energy consumption from PoW."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fair exchange problem",
+      "back": "The dilemma where two parties must exchange assets but neither wants to go first due to counterparty risk. HTLCs solve this in a trust-free, decentralized way."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is Bitcoin's approximate throughput?",
+      "options": ["4–7 tx/sec", "30 tx/sec", "100 tx/sec", "2000 tx/sec"],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is Ethereum's approximate throughput?",
+      "options": ["7 tx/sec", "30 tx/sec", "100 tx/sec", "2000 tx/sec"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is Visa's average transaction throughput?",
+      "options": ["500 tx/sec", "1000 tx/sec", "2000 tx/sec", "10000 tx/sec"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is Visa's peak transaction throughput?",
+      "options": ["10000 tx/sec", "30000 tx/sec", "56000 tx/sec", "100000 tx/sec"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the 2016 'On Scaling Decentralized Blockchains' paper, what is the maximum feasible block size with a 10-minute block rate while maintaining reasonable propagation?",
+      "options": ["1 MB", "2 MB", "4 MB", "10 MB"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the 2016 scaling paper, what is the minimum recommended block rate?",
+      "options": ["5 seconds", "12 seconds", "30 seconds", "60 seconds"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A 1 MB block takes how long for the top 90% of nodes to receive it?",
+      "options": ["1.5 sec", "15.7 sec", "2.4 min", "10 min"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the maximum transaction fee during the worst of the Bitcoin block size debate?",
+      "options": ["$5", "$10", "$55", "$100"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "When was Bitcoin originally launched with no block size limit?",
+      "options": ["2007", "2008", "2009", "2010"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Compact blocks reduce bandwidth by sending block headers and transaction hints instead of full blocks. Approximately what size are compact blocks?",
+      "options": ["1 KB–3 KB", "9 KB–20 KB", "100 KB–200 KB", "500 KB"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Bitcoin-NG, what determines how fast micro-blocks can be created?",
+      "options": ["Proof-of-work difficulty", "Block size limit", "Signing speed and network propagation", "Number of transactions in mempool"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What fraction of consensus nodes must co-sign a block in ByzCoin for it to be valid?",
+      "options": ["More than 1/2", "At least 2/3", "At least 3/4", "All nodes"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is ByzCoin's approximate throughput with 32 MB blocks?",
+      "options": ["100 tx/sec", "500 tx/sec", "1000 tx/sec", "10000 tx/sec"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "OmniLedger uses which protocol to assign validators to shards in a bias-resistant way?",
+      "options": ["ByzCoin", "Atomix", "RandHound", "PBFT"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "OmniLedger uses which protocol for cross-shard transaction consistency?",
+      "options": ["ByzCoin", "Atomix", "RandHound", "PBFT"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "With 16 shards, OmniLedger achieves approximately how many transactions per second?",
+      "options": ["439 tx/sec", "1674 tx/sec", "3240 tx/sec", "5860 tx/sec"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a one-way payment channel, what condition allows Alice to reclaim her deposit if Bob is unresponsive?",
+      "options": ["Alice can publish any signed transaction at any time", "Alice is refunded after t blocks pass", "Bob must return the funds manually", "The blockchain automatically refunds Alice after 10 confirmations"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In an HTLC, who initially creates and sends the hash h = H(R)?",
+      "options": ["Alice (the payer)", "Bob (the payee)", "A trusted third party", "The blockchain itself"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "If Alice refuses to release a payment in an HTLC, how can Bob claim his funds?",
+      "options": ["Bob cannot claim funds once Alice refuses", "Bob appeals to a trusted arbitrator", "Bob publishes h, R, t, and the amount on-chain to prove pre-image revelation", "Bob must wait for the timeout to expire"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In OmniLedger with 1 shard (70 nodes), throughput is 439 tx/sec. With 4 shards, it is approximately:",
+      "options": ["439 tx/sec", "869 tx/sec", "1674 tx/sec", "3240 tx/sec"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Ethereum upgrade in 2024 introduced blobs?",
+      "options": ["The Merge", "Proto-danksharding", "EIP-1559", "The Surge"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many blobs per block were originally allowed after blob introduction in Ethereum?",
+      "options": ["1", "3", "6", "10"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Adding more nodes to the Bitcoin network increases its transaction throughput.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bitcoin, computation and validation is repeated by every single node across the network.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Larger block sizes always improve Bitcoin's performance without any trade-offs.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Compact blocks require that all transactions are widely propagated in the mempool to be effective; if many transactions are missing, significant overhead is incurred.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In vanilla Bitcoin, miners receive new blocks via the standard p2p network. In practice, miners use FIBRE.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bitcoin-NG achieves strong consistency, meaning there are no forks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bitcoin-NG, a malicious leader can double-spend arbitrarily during their tenure.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ByzCoin is permissioned, meaning not everyone can participate.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Sharding for permissionless blockchains faces unique challenges compared to traditional databases because adversaries might actively interfere.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A one-way payment channel allows both Alice and Bob to send money to each other.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a one-way payment channel, Bob must publish every incoming payment transaction on the blockchain immediately.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "HTLCs can be used as a building block for multi-hop payment networks like the Lightning Network.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In an HTLC, Bob can be griefed for free by promising to reveal R but never doing so.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In an HTLC, Alice can grief Bob for free by promising to pay but never releasing the funds.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Ethereum's blob data is accessible via the EVM (Ethereum Virtual Machine).",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Ethereum scaling relies heavily on Layer 2 off-chain applications.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The 2016 paper 'On Scaling Decentralized Blockchains' concluded that reparametrization of block size and intervals alone is sufficient to scale Bitcoin to Visa-level performance.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In off-chain scaling systems, the blockchain is used as an arbitration/settlement layer rather than processing every transaction.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bitcoin Cash was created as a result of the Bitcoin block size debate and uses 8 MB blocks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "SegWit was implemented as a hard fork of Bitcoin.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ByzCoin's throughput is more than 10x higher than Bitcoin's using 1 MB blocks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the key trade-offs of increasing vs. decreasing Bitcoin's block size.",
+      "answer": "Increasing block size raises throughput and lowers fees (less competition for space), but also increases latency (slower propagation, more forks), and raises resource requirements (more compute and storage for nodes), disadvantaging resource-constrained participants. Decreasing block size has the opposite effects: lower throughput, higher fees, but faster propagation, fewer forks, and lower resource requirements."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does adding more nodes to a Bitcoin network NOT improve scalability?",
+      "answer": "Because in Bitcoin, every node independently validates and replicates all transactions and blocks. Computation and validation is not distributed or divided — it is repeated by every single node. Adding more nodes therefore increases the total redundant work rather than distributing it, making the network slower rather than faster."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the two major scalability concerns Vitalik raised about Ethereum in 2025?",
+      "answer": "Vitalik raised concerns about (1) blob space — the limited number of blobs per block constrains how much Layer 2 data can be posted to Ethereum, and as more L2s are supported more blob space is needed; and (2) interoperability — moving assets between different L2s is difficult and not standardized, with L2s competing rather than working together."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how a one-way payment channel works from setup to finalization.",
+      "answer": "Alice posts a funding transaction (tx0) on-chain depositing funds. The funds can be spent if Alice is refunded after timeout t, or if Alice and Bob jointly authorize spending. Alice then sends Bob signed off-chain payment transactions (tx1, tx2, ...) each paying Bob more. Bob keeps only the latest (highest-paying) transaction. To close, Bob co-signs the latest transaction and publishes it on-chain to receive his funds. If Bob never acts, Alice is refunded after t blocks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how an HTLC achieves fair exchange between Alice and Bob.",
+      "answer": "Bob has a secret R and sends Alice its hash h=H(R). Alice posts a conditional payment on-chain: Bob can claim the funds by revealing R before time t. Bob then sends R to Alice. If Alice refuses to release payment, Bob can simply post R on-chain and the blockchain automatically verifies and releases the coins to him. This removes the need for trust — whoever acts first cannot cheat because the blockchain enforces the conditions."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the three main challenges of applying sharding to permissionless blockchains (as opposed to traditional databases)?",
+      "answer": "The three main challenges are: (1) How to split on-chain data into different shards; (2) How to assign consensus nodes to shards in a manipulation-resistant way, since adversaries may try to take over a shard; and (3) How to handle communication and maintain consistency for cross-shard transactions."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the disadvantages of Bitcoin-NG compared to Bitcoin?",
+      "answer": "Bitcoin-NG has weak consistency (no verifiable commitment that blocks persist, forks can still occur), allows double-spending by malicious leaders during their tenure (punishment is only retroactive via fraud proofs, which may be too late), and has a complex reward system that is tricky to configure and analyze."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does ByzCoin achieve strong consistency?",
+      "answer": "ByzCoin uses a PBFT-like committee-based consensus mechanism where miners/validators earn shares via PoW/PoS. A leader proposes blocks, but those blocks only become valid when at least 2/3 of the consensus committee co-signs them. This collective signing prevents forks and double-spending, providing Byzantine fault tolerance up to f faulty nodes among 3f+2 total."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the relationship between trust and scalability in decentralized networks?",
+      "answer": "Trust and scalability go hand in hand. If participation costs are high and performance gains are low, users will either turn to trusted third parties or not participate at all. Better scalability reduces the need for trusted intermediaries. The goal is therefore to scale decentralized networks while minimizing additional trust assumptions, preserving decentralization."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the key conclusion of the 2016 paper 'On Scaling Decentralized Blockchains' regarding reparametrization?",
+      "answer": "The key takeaway is that reparametrization (adjusting block size and block rate) has its limits. While 4 MB blocks with a 10-minute block rate (~27 tx/sec) is considered feasible and block rates should not go below 12 seconds, reparametrization alone is only a first step. A fundamental protocol redesign is needed for blockchains to scale significantly while retaining decentralization."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are HTLCs described as 'not a scaling solution per se' but still important for off-chain scaling?",
+      "answer": "HTLCs do not inherently increase transaction throughput on their own — they still require on-chain transactions for setup and dispute resolution. However, they are an essential cryptographic primitive (building block) that enables more complex off-chain payment networks like Bitcoin's Lightning Network, where payments can be routed through intermediary nodes without direct payment channels between every pair of users."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does Ethereum's Layer 2 scaling create a need for more blob space?",
+      "answer": "Layer 2 applications post compressed transaction data (calldata or blobs) to Ethereum Layer 1 to ensure data availability and allow fraud proofs or validity proofs. Each L2 requires blob space to post its rollup data. As more L2s are deployed and their transaction volumes grow, the demand for blob space increases, but the number of blobs per block is limited (originally 3, now 6), creating a bottleneck."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the pros and cons of one-way payment channels?",
+      "answer": "Pros: No counterparty risk for the sender (Alice can go offline safely), low risk for the receiver (Bob only needs to bring keys online to claim funds), and fast (only one signature needed per payment, no round-trip). Cons: Fixed expiry time (channel must close before t), Alice's funds are locked up until t, limited total throughput (capped at the initial deposit), and the channel is one-way only (Bob cannot pay Alice back)."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Summarize the five on-chain scalability techniques covered in the lecture.",
+      "answer": "1) Compact blocks: send only transaction hints to reduce block relay bandwidth. 2) Relay networks (FIBRE): miners communicate via a dedicated fast network separate from the p2p network. 3) Bitcoin-NG: separate leader election (key-blocks) from transaction processing (micro-blocks) to improve throughput and latency. 4) ByzCoin: committee-based PBFT consensus achieves strong consistency and higher throughput. 5) Sharding (OmniLedger): partition the blockchain into independent shards each with its own consensus committee to achieve linear scale-out performance."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following best describes OmniLedger's scale-out result with 8 shards (70 nodes each)?",
+      "options": ["1674 tx/sec", "3240 tx/sec", "5860 tx/sec", "10000 tx/sec"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does 'weak consistency' mean in the context of Nakamoto consensus?",
+      "options": ["Transactions are never truly confirmed", "You cannot be certain a transaction is committed until after about 1 hour of confirmations", "Blocks are not cryptographically linked", "Miners do not validate transactions"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT a concern for on-chain scalability resource cost?",
+      "options": ["Bandwidth", "Compute", "Storage", "Interest rates"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the 'fair exchange' problem, why does the naive approach of one party going first fail?",
+      "options": ["The blockchain can't process the transaction fast enough", "Whoever moves first risks losing — the counterparty can take the asset and not reciprocate", "Smart contracts are required to enable any exchange", "Both parties must sign simultaneously, which is technically impossible"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What event famously congested the Ethereum network and highlighted its low performance around 2017?",
+      "options": ["The DAO hack", "CryptoKitties NFT trading", "The Ethereum ICO boom", "Uniswap launch"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "SegWit is what type of change to the Bitcoin protocol?",
+      "options": ["Hard fork", "Soft fork", "New chain", "Off-chain solution"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Bitcoin's block size limit of 1 MB was originally introduced to:",
+      "options": ["Increase mining difficulty", "Limit the impact of spam transactions consuming block space", "Ensure faster block propagation from the start", "Prepare for the Lightning Network"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bitcoin-NG, key-blocks are used for transaction processing and micro-blocks are used for leader election.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "OmniLedger achieves scale-out performance, meaning throughput roughly doubles as the number of shards doubles.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bitcoin's Lightning Network is described as a network of interconnected payment channels.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ByzCoin requires all consensus nodes (100%) to co-sign a block for it to be valid.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Ethereum is scaling its transaction capacity by approximately 17x while also reducing fees by a similar amount.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The main two interoperability concerns in Ethereum L2 scaling are standardized cross-chain bridges and cross-chain message passing.",
+      "answer": true
+    }
+  ]
+}
