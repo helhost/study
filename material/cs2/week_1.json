@@ -1,0 +1,416 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is the distinction between safety and security?",
+      "back": "Safety protects against accidents and natural events, modelled with historical probability data. Security protects against intentional malice from intelligent adversaries whose strategy must be modelled."
+    },
+    {
+      "type": "flashcard",
+      "front": "CIA Triangle — Confidentiality",
+      "back": "Keeping data private; ensuring information is accessible only to those authorised to see it."
+    },
+    {
+      "type": "flashcard",
+      "front": "CIA Triangle — Integrity",
+      "back": "The system and data have not been improperly altered."
+    },
+    {
+      "type": "flashcard",
+      "front": "CIA Triangle — Availability",
+      "back": "The ability to use the system as anticipated; ensuring authorised users can access resources when needed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Binary Model of Security",
+      "back": "A view of security as absolute: a system is either secure or insecure. Used in cryptography: define attacker limitations X and policy Y; the system is secure if Y cannot be violated without X."
+    },
+    {
+      "type": "flashcard",
+      "front": "Risk Management Model of Security",
+      "back": "A view of security as a spectrum. Risks, costs, and likelihoods are assessed and quantified; protection decisions are made where costs of protection are justified by expected losses."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Threat Model?",
+      "back": "A structured analysis of Threats, Vulnerabilities, Likelihood, Impact, and Protection costs that produces security objectives for a system."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threat (in security)",
+      "back": "An adversary who may attack a system. Defined by their motivation and capabilities (what they can observe, corrupt, influence, modify, or control)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Vulnerability (in security)",
+      "back": "A weakness in a system where it can break or be exploited — the place through which a threat could cause harm."
+    },
+    {
+      "type": "flashcard",
+      "front": "Likelihood (in threat modelling)",
+      "back": "The probability that a given threat will actually exploit a vulnerability — may be zero if conditions for exploitation never arise."
+    },
+    {
+      "type": "flashcard",
+      "front": "Impact (in threat modelling)",
+      "back": "The harm caused if a threat successfully exploits a vulnerability. Depends on what assets are at risk and the scale of the attack."
+    },
+    {
+      "type": "flashcard",
+      "front": "Strategic Adversary",
+      "back": "An adversary who chooses the optimal way to use their resources to mount an attack and violate a security policy."
+    },
+    {
+      "type": "flashcard",
+      "front": "Attack (formal definition)",
+      "back": "Some series of actions that allow the adversary to violate a given security policy."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security Policy",
+      "back": "A specific set of rules that defines what a secure system must guarantee, derived from the threat model (threats, vulnerabilities, likelihood, impact, cost)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security Mechanism",
+      "back": "A technical mechanism (software, hardware, cryptography, people, or procedures) used to ensure that the security policy is not violated by an adversary operating within the threat model."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security Argument",
+      "back": "A rigorous argument that the security mechanisms are maintaining the security policy, subject to the assumptions of the threat model."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Computing Base (TCB)",
+      "back": "Every component of a system upon which the security policy relies (hardware, software, etc.). If any TCB component fails, the security policy may be violated. It should be kept as small as possible."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Least Privilege",
+      "back": "Every user and process should have the minimum privileges needed to perform their function — no more."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Separation of Privilege",
+      "back": "No single person or process should be able to destroy the system's security alone; important actions should require cooperation of multiple principals."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Complete Mediation",
+      "back": "Every access to every object must be checked for authorisation; there should be no side-channel or bypass around access control."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Fail-safe Defaults",
+      "back": "Default settings should be secure; access should be denied unless explicitly granted, so that system failures default to the safe state."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Open Design",
+      "back": "The security of a system should not depend on the secrecy of its design ('security by obscurity'). Security should rely on the secrecy of keys/credentials, not on hiding the algorithm."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Psychological Acceptability",
+      "back": "Security mechanisms must be usable enough that users are willing and able to follow them. Overly complex rules lead to workarounds."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Economy of Mechanism",
+      "back": "Keep security mechanisms as simple as possible (KISS principle). Complexity increases the chance of flaws."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Least Common Mechanism",
+      "back": "Minimise shared resources between users or processes, as shared resources create potential channels for information leakage or interference."
+    },
+    {
+      "type": "flashcard",
+      "front": "Principle: Defence in Depth",
+      "back": "Use more than one security measure. Layered defences mean a single failure does not compromise the whole system."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security Mindset (Bruce Schneier)",
+      "back": "Good engineering thinks about how things can be made to work; the security mindset thinks about how things can be made to fail — thinking like an attacker or adversary."
+    },
+    {
+      "type": "flashcard",
+      "front": "Implications of Digital Information for Security",
+      "back": "Digital information: (1) can be perfectly copied at no cost, (2) transmitted anywhere instantly, (3) remembered indefinitely, (4) lacks provenance — making it hard to verify origin or authenticity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Saltzer & Schroeder (SS'73)",
+      "back": "A seminal 1973 paper by J. Saltzer and M. Schroeder ('The Protection of Information in Computer Systems') that laid out the foundational design principles for secure systems."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following best distinguishes security from safety?",
+      "options": [
+        "Security uses probabilistic models; safety does not",
+        "Safety protects against intentional malice; security against accidents",
+        "Security must model adversary strategy; safety models probability of accidents",
+        "Safety is more expensive to implement than security"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the CIA Triangle, which property ensures that data has not been improperly altered?",
+      "options": ["Confidentiality", "Availability", "Integrity", "Authenticity"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Binary Model of security, a system is considered secure if:",
+      "options": [
+        "The risk of attack is below a set threshold",
+        "Policy Y cannot be violated without attacker capability X",
+        "All vulnerabilities have been patched",
+        "The system has passed a penetration test"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which is cited as a pro of the Binary Model?",
+      "options": ["Adaptive to new threats", "Cheap to implement", "Longevity — 'right' answer gives strong guarantees", "Easy to define 'right'"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which is cited as a con of the Risk Management Model?",
+      "options": ["It is not adaptive", "It leads to an arms race and is hard to evaluate", "It only works with cryptographic systems", "It requires binary definitions of security"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The Risk Management Model is analogous to which industry practice?",
+      "options": ["Law enforcement", "Insurance", "Software testing", "Cryptography"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the threat landscape diagram, which adversary type has the highest capabilities?",
+      "options": ["Script kiddy", "Vandal", "Expert specialist", "Trespasser"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does a 'strategic adversary' do?",
+      "options": [
+        "Attacks randomly hoping to get lucky",
+        "Only uses publicly known exploits",
+        "Chooses the optimal way to use their resources to mount an attack",
+        "Focuses exclusively on software vulnerabilities"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the design principles, what does 'Least Privilege' mean?",
+      "options": [
+        "Users should share as few resources as possible",
+        "Processes should have the minimum privileges needed to function",
+        "The security design should be as simple as possible",
+        "Defaults should deny access unless explicitly granted"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which design principle is violated when a single employee can modify all copies of an audit log?",
+      "options": ["Economy of mechanism", "Fail-safe defaults", "Separation of privilege", "Open design"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which design principle is violated by relying on keeping an algorithm secret rather than a key?",
+      "options": ["Least privilege", "Open design", "Psychological acceptability", "Defence in depth"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The UCL password policy shown in the lecture (10-30 characters, many rules, banned symbols) is an example of violating which principle?",
+      "options": ["Least common mechanism", "Psychological acceptability", "Fail-safe defaults", "Economy of mechanism"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the Trusted Computing Base (TCB) refer to?",
+      "options": [
+        "Only the cryptographic components of a system",
+        "All hardware on which the OS runs",
+        "Every component upon which the security policy relies",
+        "The set of users trusted with admin privileges"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which OWASP principle maps to 'Complete Mediation' from Saltzer & Schroeder?",
+      "options": ["Use encapsulation", "Don't trust services", "Detect intrusions", "Create unpredictable defences"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the electronic voting threat model, which threat-capability pairing is identified?",
+      "options": [
+        "Voter — hardware defects",
+        "Manufacturer of EVM — weak cryptography/design",
+        "Cleaner — machine access before/after election",
+        "Election official — software defects only"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which security goal in electronic voting is rated as having 'Huge!' potential impact?",
+      "options": [
+        "Vote as somebody else",
+        "Rig the election",
+        "Learn someone's vote",
+        "Prevent others from voting"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Safety and security are the same concept — both defend against accidental and intentional harm.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the CIA Triangle, availability means keeping data private.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Binary Model of security treats security as a spectrum from fully secure to fully insecure.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A key advantage of the Risk Management Model is that it is adaptive.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A vulnerability and a threat are the same thing.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "If a vulnerability exists, the likelihood of it being exploited is always greater than zero.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Saltzer & Schroeder principles were first published in 1973.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The 'Economy of Mechanism' principle is essentially the KISS principle applied to security design.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Combining two secure security components always results in a secure composed system.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "According to the lecture, a system is considered secure if an adversary constrained by a specific threat model cannot violate the security policy.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Defence in Depth means relying on a single, very strong security measure rather than several weaker ones.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Digital information lacks provenance, meaning it is hard to verify its origin or authenticity.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An open design means the security of a system depends on keeping its algorithm secret.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between a threat, a vulnerability, and likelihood using the water-tank analogy from the lecture.",
+      "answer": "The threat is the water potentially overflowing. The vulnerability is the crack in the tank wall — the weakness that could be exploited. The likelihood is the probability that the crack will actually cause overflow, which could be zero if water is never added. These are distinct: a vulnerability exists even if the likelihood is currently zero."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the 'security mindset' as described by Bruce Schneier, and how does it differ from ordinary engineering thinking?",
+      "answer": "Ordinary engineering thinks about how things can be made to work. The security mindset thinks about how things can be made to fail — approaching a system as an attacker, adversary, or criminal would. The ant farm example illustrates this: most people see a postal service; the security-minded person sees a system that will deliver live ants to any address you name."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is it dangerous to combine security components without re-evaluating the overall system?",
+      "answer": "Because 'security + security ≠ security.' When security components are composed, new interactions may introduce fresh vulnerabilities (the weakest-link effect) or may add strength (defence in depth). Design principles need to be re-assessed after composition — a component that satisfies all principles in isolation might violate them when combined with another component."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the five elements that form a threat model and explain how they lead to security objectives.",
+      "answer": "A threat model analyses: (1) Threats — who the adversaries are and their capabilities/motivation; (2) Vulnerabilities — where the system can break; (3) Likelihood — how probable exploitation is; (4) Impact — how much harm would result; (5) Protection — what it costs to defend. Together these five dimensions allow designers to prioritise which risks to address and define concrete security objectives for the system."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the four special properties of digital information that create unique security challenges?",
+      "answer": "Digital information: (1) can be copied perfectly at no cost, making theft undetectable; (2) can be transmitted anywhere instantly, eliminating geographic barriers; (3) can be remembered indefinitely, so past leaks never fade; and (4) lacks provenance, making it hard to verify where information came from or whether it has been tampered with."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concrete example of how the 'Separation of Privilege' principle was applied in the electronic voting lecture example.",
+      "answer": "The example policy was: 'a log cannot be changed by a single employee.' The corresponding mechanism was to keep copies of the log on multiple computers such that no single employee has access to all of them. This means any tampering requires collusion between multiple people, making it harder for one malicious insider to compromise log integrity alone."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare the pros and cons of the Binary Model and the Risk Management Model of security.",
+      "answer": "Binary Model pros: longevity — when the 'right' answer is found it provides strong guarantees. Cons: brittle (hard to define 'right') and expensive (hard to find 'right'). Risk Management Model pros: adaptive to changing threats. Cons: creates an arms race with attackers, and it is hard to evaluate how much security has been achieved or whether the model is accurate."
+    }
+  ]
+}
