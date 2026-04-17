@@ -1,0 +1,587 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is blockchain analytics?",
+      "back": "Software and intelligence used to visualise and interpret blockchain data for practical use cases, including attributing ownership of crypto wallets to real-world entities (both licit and illicit)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Elliptic?",
+      "back": "A blockchain intelligence company providing data and software for: (1) private crypto companies for compliance/counterparty risk management, and (2) governments for investigations including high-level threat trends and individual case investigations."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does the Elliptic Intelligence Team do?",
+      "back": "Analyses key trends in crypto crime broadly and within subject matter expertise (SME), presents insights to stakeholders, and performs real-world entity attribution through OSINT and data science techniques."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a block explorer?",
+      "back": "A tool (e.g. Etherscan) that allows users to search and view transaction-level data on a blockchain, including transaction hashes, sender/receiver addresses, timestamps, fees, and token transfers."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does 'follow the money' mean in blockchain analytics?",
+      "back": "Tracing the flow of funds from one wallet address to another across the blockchain to map the movement of illicit funds, ultimately identifying where they end up (e.g. at an exchange)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the four main methods for attributing/deanonymising blockchain addresses?",
+      "back": "1. Clear/dark web and social media scraping, 2. Sanctions lists and court documents, 3. Transaction data (e.g. KYC-linked exchange deposits), 4. In-house investigations (e.g. dark market infiltration)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is UTXO clustering?",
+      "back": "A technique to group multiple Bitcoin addresses under a single entity. The two main heuristics are: (1) common spend — multiple inputs in one transaction must be controlled by the same wallet, and (2) change prediction — identifying which output is the change address returned to the sender."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the common spend heuristic?",
+      "back": "If a Bitcoin wallet spends multiple addresses as inputs in a single transaction, those addresses must all be under the control of the same wallet and can be clustered together."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is change prediction in Bitcoin transactions?",
+      "back": "A heuristic that identifies which output of a transaction is the 'change' address (returned to the sender). Clues include: output to a named entity already clustered with sender, output to same address, matching address type, and transaction fingerprinting."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is 'exposure' in blockchain analytics tools?",
+      "back": "An algorithm that shows the makeup of funds received by a given address — i.e., what proportion of its funds originated from known illicit, sanctioned, or legitimate sources — allowing conclusions about activity without needing to label every address."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is address clustering?",
+      "back": "The process of grouping multiple blockchain addresses believed to be controlled by the same entity, based on heuristics such as common spend or shared transaction patterns."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is 'fingerprinting' in Bitcoin transaction analysis?",
+      "back": "Identifying a change address by comparing the fingerprint (technical characteristics) of the next 'hop' transaction from the target with the target transaction itself — a match suggests the output is change."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is pig butchering (sha zhu pan)?",
+      "back": "A highly organised and industrialised romance/investment scam originating predominantly in SE Asia. Scammers build emotional relationships with victims before luring them into fake investment platforms. Operators are often themselves victims of labour trafficking."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is address poisoning?",
+      "back": "A scam where attackers send tiny transactions from a wallet address that visually resembles the victim's regular counterpart, hoping the victim will copy the fake address from their transaction history and send funds to the attacker."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a rug pull?",
+      "back": "A scam where developers create a token, attract investors, then abandon the project and drain the liquidity pool, leaving investors with worthless tokens. Common during meme coin crazes."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is sextortion in the crypto crime context?",
+      "back": "A blackmail scheme where scammers threaten to release intimate content (real or fabricated) of a victim unless a cryptocurrency payment is made. Often involves stolen or fake social media accounts."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a recovery scam?",
+      "back": "A secondary fraud targeting people who have already been scammed. Fraudsters pose as recovery services claiming to retrieve lost funds, but instead steal additional money from already-vulnerable victims."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is ice phishing?",
+      "back": "A Web3-specific phishing attack where victims are tricked into signing a malicious transaction that approves a scammer's address to spend their tokens, rather than stealing private keys directly."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is cross-chain crime / chain-hopping?",
+      "back": "The use of cross-chain services (DEXs, bridges, coin swap services) to move illicit funds across multiple blockchains to obscure the money trail and lose investigators in complex, multi-chain transaction histories."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is TRON?",
+      "back": "A blockchain network featuring a native asset (TRX) and TRC-20 tokens (e.g. USDT, USDC, WETH). Contracts are used for governing tokens, bridging/cross-chain activity, and DeFi. Widely used for illicit stablecoin transfers."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are Bandwidth and Energy on TRON?",
+      "back": "TRON's fee system: Bandwidth is consumed for all transactions (600 BP allocated free daily per address; does not roll over). Energy is additionally required for smart contract/token transfers. Both can be obtained by staking TRX or renting from a service."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is TRON permissions/authorization?",
+      "back": "A TRON feature that allows an account (wallet or contract) to grant specific other addresses the right to perform certain actions — such as sending TRX, interacting with contracts, or delegating/reclaiming energy — on its behalf."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the TraderTraitor threat actor?",
+      "back": "The primary DPRK (North Korea) cyber threat actor today. Uses highly sophisticated spear phishing techniques and targets the largest exchanges in the crypto industry. Also tracked as Jade Sleet, UNC4899, and Slow Pisces."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Contagious Interview DPRK campaign?",
+      "back": "A DPRK operation where threat actors pose as recruiters, tricking developers into installing malware that targets them and their companies' crypto assets."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Wagemole?",
+      "back": "A DPRK operation where North Korean workers get hired at legitimate tech companies, earning wages while also attempting to steal crypto assets from within the organisation."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Bybit exploit?",
+      "back": "The largest crypto theft in history (February 2025), in which $1.46 billion was stolen and attributed to DPRK. Funds were laundered through DEX swaps, layering, bridging via Thorchain and eXch to Bitcoin, mixers, and finally USDT on Tron via OTCs."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Garantex?",
+      "back": "A Russian cryptocurrency exchange founded in 2019, headquartered in Federation Tower, Moscow. It enables crypto-to-crypto and crypto-to-fiat trading and has been used as a key off-ramp for illicit funds. Sanctioned by OFAC on 5 April 2022."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Haowang Guarantee (aka Huione Guarantee)?",
+      "back": "A Telegram-based illicit marketplace ecosystem linked to Huione Group and Huione Pay. It operated via guarantee groups (escrow-backed vendor channels on Telegram) and facilitated money laundering, data sales, deepfake software, and scam infrastructure for pig butchering."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Tudou Guarantee?",
+      "back": "An illicit guarantee marketplace that emerged after the Telegram takedown of Haowang and Xinbi Guarantee in May 2025, rapidly gaining users and becoming one of the largest replacement platforms."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is DangerousPassword?",
+      "back": "A DPRK threat actor campaign focused on lower-sophistication social engineering attacks targeting the cryptocurrency industry, linked to exploits such as DPRK SyFu Exploit (Dec 2024) and DPRK Attributed Exploit (Aug 2024)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the DPRK Lazarus Group?",
+      "back": "The top-level North Korean state-sponsored hacking organisation umbrella, under which various sub-campaigns (TraderTraitor, DangerousPassword, Contagious Interview, Wagemole) operate to steal cryptocurrency to fund the regime."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a deepfake authorisation scam?",
+      "back": "A scam using AI-generated real-time face-swapping technology to impersonate trusted individuals (executives, colleagues) in video calls, tricking victims into authorising large cryptocurrency transactions."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a donation scam in crypto?",
+      "back": "A scam that impersonates legitimate charitable or humanitarian organisations with fake crypto donation addresses, often exploiting geopolitical events. Funds are routed to online gambling or other illicit services rather than the claimed cause."
+    },
+    {
+      "type": "flashcard",
+      "front": "What scale of crypto crime did cross-chain criminal/high-risk activity reach?",
+      "back": "Over $21.8 billion in cross-chain criminal/high-risk activity, up from $7 billion in 2023. DPRK is responsible for approximately 12% of this. A third of complex cross-chain investigations involve more than 3 blockchains."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Ponzi scheme in crypto?",
+      "back": "A fraudulent investment scheme where returns for earlier investors are paid using capital from newer investors rather than legitimate profits. Examples include CBEX and various ICO scams."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which company presented this lecture on cryptocurrency crime and blockchain analytics?",
+      "options": ["Chainalysis", "Elliptic", "CipherTrace", "TRM Labs"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary purpose of the 'exposure' algorithm in blockchain analytics tools?",
+      "options": [
+        "To assign a risk score based only on transaction volume",
+        "To show the makeup of funds received by an address, tracing back to known illicit or licit sources",
+        "To reveal the private key of a wallet",
+        "To count how many transactions an address has made"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the common spend heuristic in Bitcoin clustering state?",
+      "options": [
+        "All outputs of a transaction belong to the same wallet",
+        "Multiple input addresses used in a single transaction must be controlled by the same wallet",
+        "Wallets that transact frequently are owned by exchanges",
+        "Change addresses always have a lower value than the main output"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many free Bandwidth Points does TRON allocate to each address per day?",
+      "options": ["300", "1000", "600", "100"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "When was Garantex sanctioned by OFAC?",
+      "options": ["March 1, 2022", "April 5, 2022", "January 15, 2023", "February 24, 2022"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the approximate value stolen in the Bybit exploit, making it the largest crypto theft in history?",
+      "options": ["$611 million", "$582 million", "$1.46 billion", "$308 million"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which DPRK threat actor is described as 'the primary DPRK actor of today' using highly sophisticated spear phishing?",
+      "options": ["Lazarus Group", "DangerousPassword", "TraderTraitor", "Wagemole"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Where is Garantex headquartered?",
+      "options": ["St. Petersburg, Russia", "Federation Tower, Moscow", "Minsk, Belarus", "Tallinn, Estonia"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the estimated total value of cross-chain criminal/high-risk activity referenced in the slides?",
+      "options": ["$7 billion", "$15 billion", "$21.8 billion", "$50 billion"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What percentage of complex cross-chain investigations involve more than 3 blockchains?",
+      "options": ["10%", "20%", "One third (approximately 33%)", "Half (50%)"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Bybit exploit laundering process, what was the final step before cashing out to fiat?",
+      "options": [
+        "Converting to Bitcoin via Thorchain",
+        "Mixing via privacy wallets",
+        "Swapping to USDT on Tron and then using OTCs",
+        "Depositing directly into Binance"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Pig butchering scam compounds are predominantly located in which region?",
+      "options": ["Eastern Europe", "West Africa", "Southeast Asia (Cambodia, Myanmar, Laos)", "Central America"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the approximate annual revenue generated by pig butchering organised crime groups?",
+      "options": ["$1 billion", "$10 billion", "$60 billion", "$600 billion"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What value of USDT did Elliptic help freeze in the Garantex law enforcement action?",
+      "options": ["Over $100 million", "Over $23 million", "Over $5 million", "Over $1 billion"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many addresses did Elliptic submit to Tether for freezing in the Garantex operation?",
+      "options": ["22", "52", "92", "192"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the slides, how much crypto fraud loss was crypto-based in the US in 2024?",
+      "options": ["$1.2 billion out of $5 billion", "$9.3 billion out of $16.6 billion", "$3.5 billion out of $10 billion", "$16.6 billion out of $20 billion"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was Haowang Guarantee's approximate cryptocurrency inflow, making it the largest illicit online marketplace of all time?",
+      "options": ["Around $8 billion", "Around $30 billion", "Around $15 billion", "Around $5 billion"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "When were Haowang Guarantee and Xinbi Guarantee taken down by Telegram?",
+      "options": ["January 2025", "March 2025", "May 2025", "October 2024"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is DPRK's approximate share of cross-chain criminal/high-risk activity?",
+      "options": ["2%", "5%", "12%", "25%"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT listed as a method to obtain Bandwidth/Energy on TRON?",
+      "options": [
+        "Free daily allocation of 600 BP",
+        "Staking (locking up) TRX",
+        "Renting from a service",
+        "Mining new TRX blocks"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The Garantex exchange was founded in which year?",
+      "options": ["2015", "2017", "2019", "2021"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following was NOT cited as a known illicit client of Garantex before sanctioning?",
+      "options": ["Sellers on Hydra Market", "Conti Ransomware group", "North Korea's Lazarus Group", "Al-Qaeda"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary role of TRON's permissions feature in investigations?",
+      "options": [
+        "It hides transaction amounts from investigators",
+        "If known entities A and B have both granted permissions to address C, investigators can infer the owners of A and B also control C",
+        "It automatically freezes suspicious wallets",
+        "It reveals the physical location of the wallet owner"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the slides, what do TRON energy rental services provide as an investigative lead?",
+      "options": [
+        "The exact IP address of the user",
+        "Clues such as continued use of the same rental service, language of the service (e.g. Chinese Telegram bot), and possible region/ownership change",
+        "The user's real name and bank account details",
+        "The total amount of USDT held by the wallet"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Blockchain analytics requires labelling 100% of addresses to draw conclusions about a given address's activity.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The common spend heuristic groups together output addresses from a single Bitcoin transaction.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Change addresses in Bitcoin transactions always have a different address type from the input address.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "TRON allocates free Energy to each address on a daily basis, just like Bandwidth.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Bybit exploit in February 2025 is considered the largest cryptocurrency theft in history.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Garantex continued to grow in transaction volume after being sanctioned by OFAC in April 2022.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Chain-hopping is used by illicit actors primarily to increase transaction speed.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Pig butchering scam operators are themselves often victims of labour trafficking.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Contagious Interview campaign involves DPRK workers being hired at legitimate tech companies to steal crypto from the inside.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Huione Guarantee had a greater known cryptocurrency inflow than Hydra Market and Kraken darknet market combined.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Garantex only handled cryptocurrency-to-cryptocurrency exchanges and did not offer crypto-to-fiat services.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The majority of activity at VASPs and cross-chain services is illicit.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Sanctions lists and court documents can be used as a source for attributing blockchain addresses to real-world entities.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Bybit exploit, Thorchain and eXch were used to bridge funds from Ethereum to Bitcoin.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "TRON's daily free Bandwidth Points allocation rolls over to the next day if unused.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Garantex changed to daily hot wallet infrastructure in 2023 to evade transaction monitoring.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Recovery scams exclusively target wealthy individuals who have never been scammed before.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "TraderTraitor is also tracked under the names Jade Sleet, UNC4899, and Slow Pisces.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Elliptic tracked over 1 million addresses connected to Garantex using a three-step process of manual OSINT, detailed analysis, and automated detection.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the three-step process Elliptic used to build its Garantex dataset.",
+      "answer": "Step 1 — Manual investigation (OSINT): analysts manually investigated Garantex addresses using open-source intelligence, including YouTube and social media. Step 2 — Detailed analysis: analysts studied Garantex's deposit/withdrawal patterns, including sweep times based on deposit amounts (e.g. >1000 USDT swept instantly, ≤10 USDT swept after 20 days). Step 3 — Automated detection: using patterns learned from manual investigation to automatically identify new addresses, ultimately tracking over 1 million addresses connected to Garantex."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the laundering steps used in the Bybit exploit to move and clean stolen funds.",
+      "answer": "1. Stolen ETH was swapped for native assets using DEXs. 2. Funds were layered across many wallets. 3. Cross-chain swaps and bridging — primarily via Thorchain and eXch — converted ETH to Bitcoin. 4. Bitcoin was further obfuscated using mixers and privacy wallets. 5. Funds were eventually swapped to USDT on Tron. 6. USDT on Tron was cashed out via OTC brokers (including those connected to Huione Pay) to fiat currency."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the difference between the Contagious Interview and Wagemole DPRK operations?",
+      "answer": "Contagious Interview involves DPRK actors posing as recruiters and tricking developers into installing malware during fake job interviews, which then targets the developer and their company's crypto assets. Wagemole involves DPRK workers actually getting hired at legitimate tech companies under false identities, earning salaries while also attempting to steal crypto assets from within — similar to an insider threat."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why did Garantex's transaction volume increase significantly after it was sanctioned by OFAC in April 2022?",
+      "answer": "After Western financial sanctions cut Russia off from the global banking system, Garantex became a key mechanism for moving money between Russia and abroad. It allowed users to deposit rubles into the Russian banking system, convert to crypto (particularly USDT), and then withdraw in USD via non-Russian exchanges into Western banking systems — effectively acting as a sanctions evasion vehicle for capital flight."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does the TRON permissions feature provide investigative leads?",
+      "answer": "TRON allows addresses to grant 'active permissions' to other addresses for actions like sending TRX or interacting with contracts. If two addresses (A and B) that investigators have already identified both granted permissions to a third address (C), then investigators can infer that the owner of address C is related to or the same as the owners of A and B — effectively linking otherwise unconnected entities."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the Haowang / Huione Guarantee ecosystem and what illicit services did it facilitate?",
+      "answer": "Haowang (aka Huione) Guarantee is a Telegram-based marketplace ecosystem linked to the Huione Group (a major Cambodian payments conglomerate). It operated via 'guarantee groups' — Telegram channels run by vendors and guaranteed by escrow — offering a wide range of illicit goods and services including: money laundering for pig butchering proceeds, web development for fake investment platforms, sale of personal data of potential scam victims, AI deepfake software, and labour trafficking-related services. It processed tens of billions in cryptocurrency, making it the largest illicit online marketplace ever observed."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is cross-chain crime and why is USDT on Tron favoured by illicit actors for the final stage of money laundering?",
+      "answer": "Cross-chain crime involves moving illicit funds across multiple blockchains using bridges, DEXs, and coin swap services to obscure the trail. USDT on Tron is favoured at the cash-out stage because: (1) Tron has very low transaction fees, (2) USDT is a dollar-pegged stablecoin avoiding crypto price volatility, (3) it can be exchanged directly with OTC brokers and underground money exchangers for fiat, and (4) Tron is widely used in Asian grey-market financial ecosystems."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What four methods are used to identify change addresses in Bitcoin transactions?",
+      "answer": "1. Output to a named entity: if an output goes to an already-labelled entity that is also clustered with the sender, it is likely change. 2. Output to same address: if the change output is identical to an input address, they are the same wallet. 3. Address type matching: change addresses tend to have the same address type (e.g. both P2SH or both bech32) as the input addresses. 4. Fingerprinting: the transaction fingerprint (technical parameters) of the next transaction from the suspected change address matches those of the current transaction, suggesting consistent wallet software."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how Garantex adapted its infrastructure in response to the Tether freezing campaign coordinated by Elliptic and USSS.",
+      "answer": "Initially Garantex used persistent hot wallets. When Tether began freezing addresses submitted by Elliptic (March 3), Garantex was observed identifying new infrastructure in real time. On March 4, Garantex automated its fund sweeps to react immediately when Tether resumed blacklisting. By March 5, old deposit addresses stopped sweeping to hot wallets, and new hot wallets were only kept active for approximately one hour at a time — drastically reducing the window for investigators to freeze funds. On March 6, law enforcement seized the Garantex domain in a coordinated international action."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are TRC-20 tokens and how do they differ from TRX on the TRON network?",
+      "answer": "TRX is TRON's native asset — used to pay for transaction fees, stake for resources, and as a base currency. TRC-20 tokens are fungible tokens built on the TRON network using smart contracts, following a standard interface similar to ERC-20 on Ethereum. Examples include USDT, USDC, and WETH. TRC-20 token transfers consume both Bandwidth and Energy (as they involve smart contract execution), whereas simple TRX transfers only consume Bandwidth."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the main typologies of crypto scams outlined in the presentation?",
+      "answer": "The main scam typologies include: address poisoning, ATM scams, deepfake authorisation scams, donation scams, incentive-based scams (e.g. investment/giveaway scams using AI), phishing and ice phishing, pig butchering (romance-investment scams), Ponzi schemes, recovery scams, rug pulls, and sextortion. Each has distinct mechanisms but all ultimately aim to extract cryptocurrency from victims."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How is Garantex used to evade international financial sanctions on Russia?",
+      "answer": "Garantex acts as a bridge: a Russian entity deposits rubles into the Russian banking system, converts them to USDT via Garantex, and the USDT is then moved to a non-Russian cryptocurrency exchange which can convert to USD, allowing withdrawal into Western banking systems. This process bypasses SWIFT-based financial sanctions by using the crypto layer as a parallel settlement network that is not subject to traditional correspondent banking controls."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the investigative significance of TRON energy rental services?",
+      "answer": "Energy rental transactions leave traces that can provide investigative leads: (1) if the same rental service is observed repeatedly across a tracing chain, it suggests the same user is being tracked; (2) the language or platform of the rental service (e.g. a Chinese-language Telegram bot) can indicate the geographic region or community of the user; and (3) a change in rental service provider mid-chain may suggest a change of jurisdiction or a handover of funds to a different party."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the scale of global crypto scam losses as presented in the lecture?",
+      "answer": "Global scam losses are estimated at over $1 trillion in 2024. In the US specifically, $9.3 billion out of $16.6 billion in total fraud losses in 2024 were crypto-based. Pig butchering alone is estimated to generate more than $60 billion per year for organised crime groups. The US has the highest proportion of fraud losses attributed to crypto among the countries surveyed."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the significance of Elliptic's role in the Haowang/Xinbi Guarantee takedown?",
+      "answer": "Elliptic's intelligence and data directly contributed to Telegram's decision to take down both the Haowang Guarantee and Xinbi Guarantee ecosystems in May 2025 — the two largest illicit online criminal marketplaces ever recorded. This demonstrates the real-world impact of blockchain analytics in disrupting criminal ecosystems: by tracing cryptocurrency flows and attributing addresses to these platforms, Elliptic built the intelligence case that led to enforcement action by Telegram."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What distinguishes blockchain analytics intelligence from raw blockchain data?",
+      "answer": "Raw blockchain data is fully public but pseudonymous — it shows transactions between addresses but not who owns those addresses. Blockchain analytics adds a layer of intelligence by attributing addresses to real-world entities (exchanges, darknet markets, sanctioned individuals, etc.) through OSINT, court documents, sanctions lists, transaction analysis, and in-house investigations. This transforms pseudonymous on-chain data into actionable financial intelligence for compliance, law enforcement, and investigation."
+    }
+  ]
+}
