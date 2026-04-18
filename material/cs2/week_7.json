@@ -1,0 +1,428 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is shellcode?",
+      "back": "The set of instructions executed as the result of an attack. Typically, shellcode launches a shell (e.g., /bin/sh) on the target system."
+    },
+    {
+      "type": "flashcard",
+      "front": "What system call does classic shellcode use to spawn a shell?",
+      "back": "execve() — called with the filename '/bin/sh', an argv array containing '/bin/sh' and a NULL pointer, and a NULL envp pointer."
+    },
+    {
+      "type": "flashcard",
+      "front": "How are system calls invoked in Linux x86 assembly?",
+      "back": "By loading the syscall number and parameters into registers (eax, ebx, ecx, edx) and then executing the software interrupt instruction: int $0x80."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Linux x86 syscall number for execve?",
+      "back": "0xb (decimal 11). It is loaded into %eax before issuing int $0x80."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three parameters of execve and which registers hold them in x86 Linux?",
+      "back": "filename → %ebx, argv → %ecx, envp → %edx."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the jmp-call-pop technique in shellcode?",
+      "back": "A method to determine the runtime address of an embedded string. A JMP skips forward to a CALL instruction; the CALL pushes the instruction pointer (i.e., the address of the string immediately after the CALL) onto the stack, then jumps back. A POP retrieves that address."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why does shellcode need to avoid null bytes?",
+      "back": "Shellcode is typically delivered via string-copying functions (e.g., strcpy) which stop copying at the first null byte (0x00), truncating the payload."
+    },
+    {
+      "type": "flashcard",
+      "front": "How is 'movl $0x0, offset(%esi)' rewritten to eliminate null bytes?",
+      "back": "Use XOR to zero a register first, then move it: xorl %eax,%eax / movb %eax,0x7(%esi) / movl %eax,0xc(%esi)."
+    },
+    {
+      "type": "flashcard",
+      "front": "How is 'movl $0xb, %eax' rewritten to eliminate null bytes?",
+      "back": "Use a byte-sized move into the low byte of eax: movb $0xb, %al. This avoids encoding three zero bytes in the immediate value."
+    },
+    {
+      "type": "flashcard",
+      "front": "How are 'movl $0x1, %eax' and 'movl $0x0, %ebx' (exit syscall) rewritten to eliminate null bytes?",
+      "back": "xorl %ebx,%ebx / movl %ebx,%eax / inc %eax — zeroing ebx with XOR, copying to eax, then incrementing to get 1."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the NOP sled technique?",
+      "back": "Filling the first half of the exploit buffer with 0x90 (NOP) instructions so that any execution landing anywhere in that region slides forward into the shellcode, increasing the probability of a successful hit."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Linux x86 syscall number for exit?",
+      "back": "0x1 (decimal 1). It is loaded into %eax, with the return value in %ebx, before issuing int $0x80."
+    },
+    {
+      "type": "flashcard",
+      "front": "What memory layout does the shellcode set up relative to the '/bin/sh' string?",
+      "back": "Offset 0: '/bin/sh' string (7 bytes + null terminator at offset 7). Offset 8: pointer to the string (argv[0]). Offset 12: NULL pointer (argv[1] and reused as envp)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What function can be used to approximate the current stack pointer in C?",
+      "back": "unsigned long get_sp(void) { __asm__(\"movl %esp,%eax\"); } — reads the ESP register and returns it as the stack address."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is ASLR and why must it be disabled for the basic exploit to work?",
+      "back": "Address Space Layout Randomisation randomises where the stack (and other regions) are loaded each run, making it impossible to predict the buffer's address. It is disabled by writing 0 to /proc/sys/kernel/randomize_va_space."
+    },
+    {
+      "type": "flashcard",
+      "front": "What compiler flags are used to compile the vulnerable program in the lecture example?",
+      "back": "-m32 -fno-stack-protector -z execstack -mpreferred-stack-boundary=2 — disabling stack canaries, enabling executable stack, and targeting 32-bit."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why is the exploit buffer larger (768 bytes) than the vulnerable buffer (512 bytes)?",
+      "back": "The extra bytes overwrite the saved return address on the stack with the guessed target address, and also provide room for both the NOP sled and the shellcode."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the purpose of the offset argument passed to the exploit program?",
+      "back": "It adjusts the guessed address (get_esp() + offset) to account for the difference between the exploit's stack pointer and the location of the victim's buffer on the stack."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does the 'call' instruction do that makes it useful in the jmp-call-pop trick?",
+      "back": "It saves the address of the next instruction (the return address / instruction pointer) onto the stack before transferring control, effectively revealing the runtime address of whatever follows the call."
+    },
+    {
+      "type": "flashcard",
+      "front": "What vulnerable C function is used in the lecture's example vulnerable program?",
+      "back": "strcpy(buf, argv[1]) — copies user input into a fixed-size 512-byte stack buffer without bounds checking."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which register holds the system call number when invoking a Linux x86 syscall via int $0x80?",
+      "options": ["%ebx", "%ecx", "%eax", "%edx"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the syscall number for execve on Linux x86?",
+      "options": ["0x1", "0xa", "0xb", "0x80"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the execve syscall on Linux x86, which register holds the filename argument?",
+      "options": ["%eax", "%ebx", "%ecx", "%edx"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the execve syscall on Linux x86, which register holds the argv argument?",
+      "options": ["%eax", "%ebx", "%ecx", "%edx"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the execve syscall on Linux x86, which register holds the envp argument?",
+      "options": ["%eax", "%ebx", "%ecx", "%edx"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which instruction is used to invoke a system call in Linux x86?",
+      "options": ["syscall", "sysenter", "int $0x80", "call $0x80"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary reason null bytes must be eliminated from shellcode?",
+      "options": [
+        "They cause a segmentation fault when executed",
+        "String-copying functions like strcpy stop at null bytes, truncating the payload",
+        "The kernel rejects system calls with null bytes in arguments",
+        "Null bytes are not valid x86 instructions"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What technique does the shellcode use to determine the runtime address of the '/bin/sh' string?",
+      "options": [
+        "Hardcoding the address at compile time",
+        "Reading the EIP register directly",
+        "The jmp-call-pop technique",
+        "Using a lookup table in the data segment"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the jmp-call-pop technique, what does the 'call' instruction push onto the stack?",
+      "options": [
+        "The base pointer",
+        "The address of the '/bin/sh' string (the instruction immediately after the call)",
+        "The syscall number",
+        "The stack pointer"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which instruction is the null-byte-free replacement for 'movl $0xb, %eax'?",
+      "options": [
+        "movl $0xb, %eax",
+        "movb $0xb, %al",
+        "xorl %eax,%eax / inc %eax",
+        "pushl $0xb / popl %eax"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How is the NOP sled used in the exploit buffer?",
+      "options": [
+        "It is placed after the shellcode to pad the buffer",
+        "It fills the second half of the buffer with the target return address",
+        "It fills the first half of the buffer so any landing point slides into the shellcode",
+        "It is used to zero out the buffer before writing the shellcode"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What byte value represents a NOP instruction on x86?",
+      "options": ["0x00", "0xff", "0x90", "0xcc"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is written to /proc/sys/kernel/randomize_va_space to disable ASLR?",
+      "options": ["1", "0", "-1", "2"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the example exploit, the buf array in the exploit program is how large?",
+      "options": ["512 bytes", "256 bytes", "1024 bytes", "768 bytes"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which compiler flag disables stack canary protection?",
+      "options": ["-m32", "-z execstack", "-fno-stack-protector", "-mpreferred-stack-boundary=2"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which compiler flag makes the stack executable?",
+      "options": ["-m32", "-z execstack", "-fno-stack-protector", "-mpreferred-stack-boundary=2"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the vulnerable program, which unsafe function causes the buffer overflow?",
+      "options": ["gets()", "sprintf()", "strcpy()", "scanf()"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is stored at offset 8 from the start of the '/bin/sh' string in the shellcode's memory layout?",
+      "options": [
+        "The NULL terminator for '/bin/sh'",
+        "A pointer to the '/bin/sh' string (argv[0])",
+        "The syscall number 0xb",
+        "A pointer to the envp array"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the exploit, how is the target address calculated?",
+      "options": [
+        "By reading the vulnerable program's EIP directly",
+        "get_esp() + offset, where offset is supplied as a command-line argument",
+        "By reading /proc/<pid>/maps",
+        "By hardcoding the stack base address"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What value is used in the exploit to fill the second half of the buffer before placing the shellcode?",
+      "options": [
+        "0x00 (null bytes)",
+        "0xff",
+        "0x90 (NOP)",
+        "Repeated copies of the return address"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the exploit, the entire buffer is initially filled (for loop) with what value?",
+      "options": [
+        "0x90",
+        "The guessed target address repeated every 4 bytes",
+        "0x00",
+        "The shellcode bytes"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Shellcode always spawns a shell — it cannot perform any other action.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "On Linux x86, system calls are invoked by executing 'int $0x80' after setting the appropriate registers.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The instruction 'movl $0x0, %eax' is safe to use in shellcode because it does not contain null bytes.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The jmp-call-pop technique works because the 'call' instruction pushes the address of the next instruction onto the stack.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Disabling ASLR is required for the basic shellcode injection exploit shown in the lecture to reliably succeed.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The null pointer used as argv[1] (the NULL terminator of the argv array) can be reused as the envp argument to execve.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A NOP sled increases the precision required to guess the exact buffer address.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The '-fno-stack-protector' flag enables stack canaries to protect against buffer overflows.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the shellcode memory layout, the NULL pointer at the end of argv is reused as the envp parameter.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the lecture example, the vulnerable program's buffer is 512 bytes and is located on the stack.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Using 'xorl %eax, %eax' to zero a register produces a null byte in the machine code encoding.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The get_sp() helper function uses inline assembly to read the ESP register.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Shellcode injected via a string buffer must be position-independent because its load address is not known at assembly time.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The '-m32' compiler flag targets a 64-bit build of the program.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the three memory requirements the shellcode must satisfy to successfully call execve('/bin/sh', argv, envp).",
+      "answer": "1) A null-terminated '/bin/sh' string must exist somewhere in memory (filename parameter). 2) The address of that string followed by a NULL pointer must exist in memory to form the argv array. 3) A NULL longword must exist in memory for the envp parameter — in practice the NULL at the end of argv is reused for this purpose."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe step by step how the jmp-call-pop technique allows shellcode to find the address of an embedded string.",
+      "answer": "1) Execution begins with a JMP instruction that jumps forward past the main shellcode body to a CALL instruction. 2) The CALL instruction jumps backward to the instruction immediately following the original JMP (the start of the main shellcode), while simultaneously pushing the return address — which is the address of the byte immediately after the CALL, i.e., the first byte of the '/bin/sh' string — onto the stack. 3) The POP instruction at the start of the main shellcode retrieves this address from the stack into a register (e.g., %esi), giving the shellcode the runtime address of the string."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why must null bytes be eliminated from shellcode, and give two concrete examples of instructions that are rewritten to remove them?",
+      "answer": "Null bytes terminate C strings, so functions like strcpy stop copying when they encounter a 0x00 byte, truncating the shellcode before it is fully written into the buffer. Example 1: 'movl $0x0, 0x7(%esi)' becomes 'xorl %eax,%eax / movb %eax,0x7(%esi)' — XOR zeroes the register without embedding null bytes. Example 2: 'movl $0xb, %eax' becomes 'movb $0xb, %al' — moving only a byte avoids three zero padding bytes in the 32-bit immediate encoding."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a NOP sled and why does it improve the reliability of a stack buffer overflow exploit?",
+      "answer": "A NOP sled is a long sequence of NOP (0x90) instructions placed at the beginning of the exploit payload. When the overwritten return address redirects execution anywhere within the sled, the processor simply executes no-ops one after another until it slides into the actual shellcode. This greatly widens the target area, so the attacker does not need to guess the exact buffer address — only an address somewhere within the sled."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the structure of the 768-byte exploit buffer in the lecture example, including what each portion contains and why.",
+      "answer": "The buffer is constructed in three stages: First, the entire 768 bytes is filled with the guessed target address repeated every 4 bytes — this ensures that wherever the overwritten return address lands on the stack, it points back into the buffer. Second, the first 384 bytes (half the buffer) are overwritten with 0x90 NOP instructions to form the NOP sled. Third, the shellcode is copied into the second half of the buffer (starting at offset 384), immediately following the sled. Execution landing anywhere in the sled slides forward into the shellcode."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What environment conditions must be met for the basic shellcode injection attack demonstrated in the lecture to succeed?",
+      "answer": "ASLR must be disabled (echo 0 > /proc/sys/kernel/randomize_va_space) so stack addresses are predictable. Stack canaries must be disabled (-fno-stack-protector) so the overwritten return address is not detected. The stack must be executable (-z execstack) so injected code can run. The program must be compiled in 32-bit mode (-m32) to match the x86 shellcode. The attacker must also correctly guess (or approximate with sufficient offset) the address of the buffer within the victim process's stack."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the role of the offset argument in the exploit program, and how is the final target address computed?",
+      "answer": "Because the exploit program and the victim program have slightly different stack layouts (different local variables, argument counts, etc.), get_esp() in the exploit does not directly give the address of the victim's buffer. The offset is a manually supplied adjustment (e.g., 1500 bytes) added to the exploit's stack pointer to produce an approximate address that lands somewhere within the NOP sled in the victim's stack frame: addr = get_esp() + offset."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Walk through what happens in memory when the vulnerable program calls strcpy(buf, argv[1]) with a crafted input from the exploit.",
+      "answer": "strcpy copies bytes from the attacker-controlled argv[1] into the 512-byte stack buffer buf without bounds checking. Since the exploit input is 768 bytes, copying continues past the end of buf, overwriting adjacent stack data: first any padding/alignment bytes, then the saved frame pointer (EBP), and finally the saved return address (EIP). When main() returns, the CPU loads the attacker's overwritten return address into EIP and jumps to it — which points into the NOP sled / shellcode embedded in the buffer, executing the shellcode."
+    }
+  ]
+}
