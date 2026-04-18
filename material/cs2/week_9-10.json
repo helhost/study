@@ -1,0 +1,404 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is a memory corruption vulnerability?",
+      "back": "An implementation error that allows an attacker to read or write memory in unintended ways, potentially leading to arbitrary code execution or information disclosure."
+    },
+    {
+      "type": "flashcard",
+      "front": "StackGuard",
+      "back": "A compiler-based mitigation that places a canary value between local variables and the return address on the stack. If a buffer overflow overwrites the canary, the program detects the corruption and aborts before the corrupted return address is used."
+    },
+    {
+      "type": "flashcard",
+      "front": "Non-executable stack (NX / W^X)",
+      "back": "A hardware and OS-enforced mitigation that marks stack memory as non-executable. If an attacker injects shellcode onto the stack, the CPU will raise a fault rather than execute it."
+    },
+    {
+      "type": "flashcard",
+      "front": "Address Space Layout Randomisation (ASLR)",
+      "back": "A mitigation that randomises the base addresses of the stack, heap, and shared libraries each time a program is loaded. This makes it harder for attackers to predict the location of code or data they want to jump to."
+    },
+    {
+      "type": "flashcard",
+      "front": "Control Flow Integrity (CFI)",
+      "back": "A mitigation that enforces a policy on which control flow transfers are legitimate at runtime. It prevents attackers from redirecting execution to arbitrary locations by checking that indirect calls and returns target valid destinations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Write4 primitive",
+      "back": "An exploitation technique that gives an attacker the ability to write exactly 4 arbitrary bytes to any chosen address in a process's address space, which is often sufficient to hijack execution (e.g., overwriting a function pointer or return address)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Format string vulnerability",
+      "back": "A bug that occurs when user-controlled input is passed directly as the format string argument to functions like printf(). This allows an attacker to read from or write to arbitrary memory addresses using format specifiers such as %x, %s, and %n."
+    },
+    {
+      "type": "flashcard",
+      "front": "%n format specifier",
+      "back": "A printf format specifier that writes the number of bytes printed so far into the memory address pointed to by the corresponding argument. Attackers exploit this to achieve arbitrary memory writes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Return-into-libc attack",
+      "back": "An exploitation technique used to bypass a non-executable stack. Instead of injecting shellcode, the attacker overwrites the return address with the address of an existing library function (e.g., system()) in libc."
+    },
+    {
+      "type": "flashcard",
+      "front": "Return-Oriented Programming (ROP)",
+      "back": "An advanced exploitation technique that chains together short sequences of existing instructions ending in a 'ret' instruction (gadgets) to perform arbitrary computation, bypassing both NX and ASLR when gadget addresses are known."
+    },
+    {
+      "type": "flashcard",
+      "front": "Stack canary",
+      "back": "A secret value placed on the stack between a buffer and the return address. Before a function returns, the runtime checks the canary has not changed. A mismatch indicates a stack overflow and the program is terminated."
+    },
+    {
+      "type": "flashcard",
+      "front": "Memory safety (definition)",
+      "back": "A property of a program guaranteeing that it only accesses memory that has been properly allocated and initialised for it, and does so within bounds and with the correct type."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is pwn.college?",
+      "back": "An online platform providing hands-on cybersecurity challenges. In weeks 9–10 the 'Program Exploitation' topic is unlocked, with the goal of reading the contents of /flag."
+    },
+    {
+      "type": "flashcard",
+      "front": "StackGuard – authors and publication venue",
+      "back": "Crispin Cowan et al., published at USENIX Security 1998."
+    },
+    {
+      "type": "flashcard",
+      "front": "'Memory Errors: The Past, the Present, and the Future' – authors and venue",
+      "back": "Victor van der Veen et al., published at RAID 2012."
+    },
+    {
+      "type": "flashcard",
+      "front": "'On the Effectiveness of Address-Space Layout Randomization' – authors and venue",
+      "back": "Hovav Shacham et al., published at CCS 2004."
+    },
+    {
+      "type": "flashcard",
+      "front": "'Exploiting Format String Vulnerabilities' – authors",
+      "back": "scut / team teso — the required reading for Week 10 on format string vulnerabilities."
+    },
+    {
+      "type": "flashcard",
+      "front": "Static analysis (in the context of mitigations)",
+      "back": "Analysis performed on source code or binaries without executing the program, used to detect potential vulnerabilities or enforce safety properties at compile time (e.g., compiler warnings, StackGuard instrumentation)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Dynamic analysis (in the context of mitigations)",
+      "back": "Analysis performed at runtime by monitoring program behaviour during execution, used to detect memory errors as they happen (e.g., AddressSanitizer, Valgrind)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mathias Payer's contribution to CFI",
+      "back": "Authored 'Control Flow Integrity: An Introduction', a required reading for Week 9 that explains the concepts behind CFI and references foundational academic work."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which paper introduced StackGuard?",
+      "options": [
+        "Cowan et al., USENIX Security 1998",
+        "Shacham et al., CCS 2004",
+        "van der Veen et al., RAID 2012",
+        "scut / team teso, Phrack 2001"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does ASLR stand for?",
+      "options": [
+        "Automatic Stack Layout Restriction",
+        "Address Space Layout Randomisation",
+        "Advanced Security Layer Runtime",
+        "Arbitrary Stack Location Randomiser"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which format specifier is central to exploiting format string vulnerabilities for arbitrary memory writes?",
+      "options": [
+        "%s",
+        "%x",
+        "%n",
+        "%p"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A write4 primitive allows an attacker to write how many arbitrary bytes to any address?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "8"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which mitigation was evaluated for effectiveness by Shacham et al. at CCS 2004?",
+      "options": [
+        "StackGuard",
+        "Control Flow Integrity",
+        "Address Space Layout Randomisation",
+        "Non-executable stack"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Return-into-libc attacks are primarily designed to bypass which mitigation?",
+      "options": [
+        "ASLR",
+        "Stack canaries",
+        "Non-executable stack (NX)",
+        "Control Flow Integrity"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is a suggested (non-examinable) additional reading for Week 9?",
+      "options": [
+        "scut / team teso, 'Exploiting Format String Vulnerabilities'",
+        "Bulba and Kil3r, 'Bypassing StackGuard and StackShield', Phrack #56",
+        "van der Veen et al., 'Memory Errors', RAID 2012",
+        "Cowan et al., 'StackGuard', USENIX Security 1998"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the practical goal set for students on pwn.college in Weeks 9–10?",
+      "options": [
+        "Exploit a remote web server",
+        "Read the contents of /flag",
+        "Bypass a firewall",
+        "Perform a SQL injection"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which book covers chapters 0x350, 0x610, 0x6a0, 0x6b0, and 0x6c0 as required reading for Week 9?",
+      "options": [
+        "The Art of Computer Programming by Knuth",
+        "Computer Security: Art and Science by Bishop",
+        "Hacking: The Art of Exploitation (2nd ed.) by Jon Erickson",
+        "The Shellcoder's Handbook by Anley et al."
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which topic is unlocked on pwn.college in Week 10?",
+      "options": [
+        "Web Security",
+        "Reverse Engineering",
+        "Program Exploitation",
+        "Cryptography"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "CFI stands for:",
+      "options": [
+        "Code Flow Interception",
+        "Control Flow Integrity",
+        "Compiler Function Instrumentation",
+        "Control Frame Injection"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Who authored 'Control Flow Integrity: An Introduction', a required reading for Week 9?",
+      "options": [
+        "Hovav Shacham",
+        "Crispin Cowan",
+        "Mathias Payer",
+        "Jon Erickson"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Format string vulnerabilities arise when user input is passed as which argument to printf-family functions?",
+      "options": [
+        "The output file descriptor",
+        "The format string argument",
+        "A variadic integer argument",
+        "A pointer to a buffer"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "StackGuard places a canary value between local variables and the return address on the stack.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A non-executable stack prevents all forms of code-reuse attacks, including return-into-libc.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ASLR randomises the base addresses of the stack, heap, and shared libraries at load time.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Control Flow Integrity (CFI) prevents attackers from redirecting execution to completely arbitrary addresses via indirect calls or returns.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The %n format specifier reads a value from memory and prints it to stdout.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A write4 primitive alone is always sufficient to read the contents of arbitrary memory.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The paper 'Bypassing StackGuard and StackShield' is listed as required (examinable) reading for Week 9.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Return-Oriented Programming (ROP) can be used to bypass a non-executable stack mitigation.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Static analysis involves executing the program to observe its runtime behaviour.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The paper 'On the Effectiveness of Address-Space Layout Randomization' was published at CCS 2004.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Format string vulnerabilities can be used to achieve both arbitrary memory reads and arbitrary memory writes.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ASLR was introduced in the StackGuard paper by Cowan et al.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Phrack #58 article 'The Advanced Return-into-lib(c) Exploits: PaX Case Study' is listed as non-examinable suggested reading.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A write4 primitive allows writing 4 arbitrary bytes to any chosen address in a process's address space.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how StackGuard detects and prevents buffer overflow attacks.",
+      "answer": "StackGuard inserts a canary value onto the stack between local variables (including buffers) and the saved return address when a function is called. Before the function returns, it checks that the canary still has its original value. A sequential buffer overflow that overwrites the return address must first overwrite the canary; if the canary has changed, the runtime detects the corruption and terminates the program before the attacker-controlled return address is used."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does a non-executable stack not fully protect against code-reuse attacks?",
+      "answer": "A non-executable stack prevents the CPU from executing injected shellcode on the stack. However, it does not prevent an attacker from overwriting the return address to point to existing executable code already loaded in memory, such as functions in libc. Techniques like return-into-libc and Return-Oriented Programming (ROP) reuse legitimate code sequences and so bypass the NX protection entirely."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how ASLR mitigates exploitation and explain one known weakness.",
+      "answer": "ASLR randomises the base addresses of the stack, heap, and loaded libraries each time a program runs, making it difficult for an attacker to predict where code or data lives. A key weakness, explored by Shacham et al. at CCS 2004, is that on 32-bit systems the entropy is low enough for brute-force attacks. Additionally, information leaks (e.g., via format strings) can reveal addresses, defeating the randomisation."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is Control Flow Integrity (CFI) and what class of attacks does it mitigate?",
+      "answer": "CFI is a security mitigation that enforces a pre-computed policy on legitimate control flow transfers at runtime. It checks that indirect branches (indirect calls, indirect jumps, and returns) target only valid destinations as defined by a static analysis of the program. It mitigates code-reuse attacks such as ROP and return-into-libc by preventing the attacker from chaining arbitrary gadgets or redirecting execution to unintended functions."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how a format string vulnerability can be used to write to an arbitrary memory address.",
+      "back": "When user-supplied input is passed directly as the format string to printf(), the attacker can include %n specifiers. %n causes printf() to write the count of bytes printed so far into the address pointed to by the corresponding argument. By crafting the format string to consume arguments already on the stack (or by placing target addresses on the stack) and by controlling the number of bytes printed before the %n, an attacker can write a chosen value to a chosen address, achieving an arbitrary write primitive."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a write4 primitive and why is it significant for exploitation?",
+      "answer": "A write4 primitive is a capability that lets an attacker write exactly 4 bytes of chosen data to any address in the process's address space. It is significant because many critical targets—such as function pointers, GOT entries, or return addresses—are 4 bytes (on 32-bit systems). Overwriting one of these with the address of attacker-controlled code or a useful function is sufficient to hijack control flow and achieve code execution."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the difference between static and dynamic analysis in the context of memory safety mitigations?",
+      "answer": "Static analysis examines source code or compiled binaries without executing them, identifying potential vulnerabilities or inserting instrumentation at compile time (e.g., StackGuard canary insertion). Dynamic analysis monitors a program during execution, detecting errors as they occur at runtime (e.g., detecting out-of-bounds accesses with AddressSanitizer). Static analysis has zero runtime overhead but may miss runtime-dependent bugs; dynamic analysis catches real misbehaviour but adds execution overhead."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the learning outcomes for Week 9 regarding mitigations?",
+      "answer": "Students should understand implementation errors, exploits, and the mitigations built on static and dynamic analysis; understand generic approaches to mitigating memory corruption; understand how a non-executable stack works; understand how ASLR works; and understand how Control Flow Integrity (CFI) works."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the learning outcomes for Week 10 on write4 primitives and format strings?",
+      "answer": "Students should understand what write4 primitives are, understand format string vulnerabilities as a mechanism to achieve a write4 primitive, and understand how to leverage these techniques to execute malicious code."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Who are the authors of 'Exploiting Format String Vulnerabilities' and why is it significant for Week 10?",
+      "answer": "The paper is authored by scut / team teso and is the sole required reading for Week 10. It provides a foundational, detailed explanation of format string vulnerabilities, covering how they arise, how %n can be abused for arbitrary writes, and how to exploit them to gain code execution — directly supporting the week's learning outcomes."
+    }
+  ]
+}
