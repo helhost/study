@@ -1,0 +1,486 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Stack-based Buffer Overflow",
+      "back": "A vulnerability where data is copied into a pre-allocated buffer without boundary checks, causing data to overflow and overwrite adjacent memory including the return address. If correctly crafted, an attacker can redirect execution to arbitrary code."
+    },
+    {
+      "type": "flashcard",
+      "front": "Return Address",
+      "back": "A value stored on the stack that tells the CPU where to resume execution after a function returns. In a stack-based buffer overflow, this is the primary target to overwrite in order to hijack control flow."
+    },
+    {
+      "type": "flashcard",
+      "front": "Shellcode",
+      "back": "A compact sequence of machine instructions injected and executed as the result of a buffer overflow attack. Typically it spawns a shell (e.g., execve(\"/bin/sh\")), giving the attacker interactive access."
+    },
+    {
+      "type": "flashcard",
+      "front": "NOP Sled",
+      "back": "A sequence of no-operation (NOP, opcode 0x90) instructions placed before shellcode. It widens the target address space so the attacker can jump anywhere within the sled and execution will slide into the shellcode."
+    },
+    {
+      "type": "flashcard",
+      "front": "Injection Vector",
+      "back": "The payload used in a buffer overflow exploit, composed of three parts: (1) an optional NOP sled, (2) the shellcode itself, and (3) the shellcode address that overwrites the saved return address."
+    },
+    {
+      "type": "flashcard",
+      "front": "EBP (Extended Base Pointer)",
+      "back": "A CPU register that points to the base of the current stack frame. It is stored on the stack during function calls and sits between the local buffer and the saved return address."
+    },
+    {
+      "type": "flashcard",
+      "front": "execve system call",
+      "back": "A Linux system call (number 0xb) that replaces the current process image with a new program. Used in shellcode as execve(\"/bin/sh\", {\"/bin/sh\", NULL}, {NULL}) to launch a shell."
+    },
+    {
+      "type": "flashcard",
+      "front": "gets()",
+      "back": "A C standard library function that reads input into a buffer with no boundary check. It is a classic source of stack-based buffer overflows. It stops only at newlines or EOF, not at buffer limits."
+    },
+    {
+      "type": "flashcard",
+      "front": "strcpy()",
+      "back": "A C string function that copies a source string into a destination buffer without checking the destination size. Commonly exploited in buffer overflow attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "strncpy()",
+      "back": "A bounded version of strcpy() that limits bytes copied. However, it does NOT append a null terminator when the limit is reached, which can lead to non-terminated string overflows when the result is subsequently copied by strcpy()."
+    },
+    {
+      "type": "flashcard",
+      "front": "GOT (Global Offset Table)",
+      "back": "A section in ELF binaries used to resolve addresses of dynamically linked functions at runtime. Its entries are writable code pointers and can be targeted in a buffer overflow to redirect calls to attacker-controlled code."
+    },
+    {
+      "type": "flashcard",
+      "front": ".dtors section",
+      "back": "An ELF binary section that stores addresses of destructor functions called after main() exits. It is a writable code pointer target; overwriting it can hijack execution flow at program termination."
+    },
+    {
+      "type": "flashcard",
+      "front": ".ctors section",
+      "back": "An ELF binary section that stores addresses of constructor functions called before main() begins. Along with .dtors, it is present even if the program defines no constructors or destructors."
+    },
+    {
+      "type": "flashcard",
+      "front": "Off-by-one Overflow",
+      "back": "An overflow where only a single byte beyond the buffer boundary is overwritten. Often used to modify the least significant byte of the saved base pointer (frame pointer overwrite)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Array Overflow",
+      "back": "An attack that exploits unchecked user-supplied array indices to write arbitrary values to arbitrary memory locations, bypassing the need for sequential buffer overflow."
+    },
+    {
+      "type": "flashcard",
+      "front": "Integer Overflow",
+      "back": "An attack that exploits arithmetic mistakes with signed or unsigned integer types, causing incorrect size or index calculations that enable subsequent memory corruption."
+    },
+    {
+      "type": "flashcard",
+      "front": "Return-into-libc Attack",
+      "back": "An exploitation technique that overwrites the return address with the address of an existing library function (e.g., system() in libc) instead of injected shellcode, bypassing non-executable stack protections."
+    },
+    {
+      "type": "flashcard",
+      "front": "Non-terminated String Overflow",
+      "back": "A vulnerability where a string controlled by the attacker lacks a null terminator (e.g., because strncpy() filled the buffer exactly). A subsequent strcpy() reads beyond the intended boundary, causing an overflow."
+    },
+    {
+      "type": "flashcard",
+      "front": "Longjmp Overflow",
+      "back": "An attack that overflows the jmp_buf data structure saved by setjmp(), corrupting the saved base pointer and program counter so that the subsequent longjmp() transfers execution to an attacker-chosen location."
+    },
+    {
+      "type": "flashcard",
+      "front": "setjmp() / longjmp()",
+      "back": "C functions for non-local control transfer. setjmp(env) saves the program context (returns 0) and longjmp(env, x) restores it (making setjmp appear to return x). Used for exception handling and user-space threads but vulnerable to overflow of the saved state."
+    },
+    {
+      "type": "flashcard",
+      "front": "get_sp() technique",
+      "back": "A function using inline assembly (movl %esp, %eax) to read the current stack pointer value. Used by attackers to estimate the buffer address in exploits when ASLR is disabled."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anatomy of a Stack Overflow Attack (two steps)",
+      "back": "1. Inject shellcode into a writable memory region (stack, .data, heap, etc.). 2. Overwrite a code pointer (e.g., the saved return address) in the process's virtual address space to redirect execution to the shellcode."
+    },
+    {
+      "type": "flashcard",
+      "front": "ASLR (Address Space Layout Randomisation)",
+      "back": "A kernel defence that randomises the base addresses of the stack, heap, and libraries at each execution, making it hard to predict the shellcode address. Disabled in examples using: echo 0 | sudo tee /proc/sys/kernel/randomize_va_space"
+    },
+    {
+      "type": "flashcard",
+      "front": "sprintf() / scanf() as overflow sources",
+      "back": "These formatted I/O functions can overflow a fixed-size destination buffer when the formatted or scanned data is longer than the buffer, making them dangerous overflow-triggering functions."
+    },
+    {
+      "type": "flashcard",
+      "front": "data and bss Overflows (Heap Overflows)",
+      "back": "Buffer overflows targeting variables and function pointers in the data or bss segments. Overflowing a buffer can corrupt adjacent pointers (e.g., a filename pointer), redirecting file operations or function calls."
+    },
+    {
+      "type": "flashcard",
+      "front": "JMP/CALL trick for position-independent shellcode",
+      "back": "Because the shellcode's absolute address is unknown, a JMP forward to a CALL instruction is used. The CALL pushes the address of the next instruction (the /bin/sh string) onto the stack, which is then popped into a register via POP, giving position-independent access to the string."
+    },
+    {
+      "type": "flashcard",
+      "front": "Null byte elimination in shellcode",
+      "back": "String-copying functions stop at null bytes (0x00). To avoid premature termination, shellcode must eliminate null bytes: e.g., replace 'movl $0x0, ...' with 'xorl %eax, %eax; movb %eax, ...' and replace 'movl $0xb, %eax' with 'movb $0xb, %al'."
+    },
+    {
+      "type": "flashcard",
+      "front": "Function pointer as a code pointer target",
+      "back": "If a function pointer stored in memory is adjacent to an overflowable buffer, an attacker can overwrite it to point to shellcode, hijacking the next indirect call through that pointer."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following C functions is the most dangerous source of stack-based buffer overflows because it performs NO boundary checking at all?",
+      "options": ["strncpy()", "gets()", "fgets()", "snprintf()"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the vulnerable program example, the buffer is 100 bytes. How many 'A' characters does the injection vector use in total (including EBP and return address)?",
+      "options": ["100", "104", "108", "112"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the Linux software interrupt number used to invoke system calls in x86 shellcode?",
+      "options": ["0x7f", "0x80", "0x81", "0xff"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the syscall number for execve in x86 Linux?",
+      "options": ["0x1", "0x5", "0xb", "0x80"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which register holds the syscall number when invoking a Linux system call via int 0x80?",
+      "options": ["%ebx", "%ecx", "%edx", "%eax"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the execve syscall for shellcode, which register holds the address of the filename string (/bin/sh)?",
+      "options": ["%eax", "%ebx", "%ecx", "%edx"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the injection vector construction example, what are the sizes (in bytes) of the NOP sled, shellcode, and shellcode address respectively?",
+      "options": ["64, 40, 4", "59, 45, 4", "50, 55, 4", "64, 45, 8"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which ELF section stores destructor function addresses that are called after main() exits?",
+      "options": [".ctors", ".dtors", ".got", ".bss"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT a writable code pointer that can be targeted in a buffer overflow attack?",
+      "options": ["Saved return address on the stack", "GOT entry", ".dtors entry", "Read-only text segment (.text)"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the return-into-libc technique allow an attacker to do?",
+      "options": [
+        "Inject shellcode into the heap",
+        "Bypass non-executable stack protection by jumping to existing library code",
+        "Defeat ASLR by brute force",
+        "Overwrite the GOT entry for printf"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Exploit II (env-based) approach, where is the shellcode placed?",
+      "options": [
+        "Directly in the overflowed buffer",
+        "In the argv[1] argument",
+        "In the process environment (env array)",
+        "In the .bss segment"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the array overflow example, how is an attacker able to write to arbitrary memory?",
+      "options": [
+        "By overflowing a string buffer with strcpy",
+        "By supplying an out-of-bounds integer index and value via command-line arguments",
+        "By corrupting the heap allocator metadata",
+        "By overwriting the GOT with a format string"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What command is used in the lecture examples to disable kernel ASLR?",
+      "options": [
+        "echo 0 | sudo tee /proc/sys/kernel/randomize_va_space",
+        "sysctl -w kernel.aslr=0",
+        "echo 0 > /proc/sys/kernel/exec_shield",
+        "ulimit -s unlimited"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What GCC flag disables the stack canary (stack protector) when compiling a vulnerable program for demonstration?",
+      "options": ["-z execstack", "-fno-stack-protector", "-m32", "-mpreferred-stack-boundary=2"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What GCC flag is required to allow shellcode to execute on the stack?",
+      "options": ["-fno-stack-protector", "-m32", "-z execstack", "-O0"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the non-terminated string overflow example, which two functions are combined to create the vulnerability?",
+      "options": [
+        "gets() followed by printf()",
+        "strncpy() followed by strcpy()",
+        "scanf() followed by strcpy()",
+        "fgets() followed by strcat()"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What tool is used in the lecture examples to display the opcodes of a shellcode binary file?",
+      "options": ["objdump", "gdb", "ndisasm", "strace"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "When an off-by-one overflow occurs, which value is it most commonly used to modify?",
+      "options": [
+        "The entire return address",
+        "The least significant byte of the saved base pointer",
+        "The shellcode address",
+        "The argv[0] pointer"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the purpose of the saved EBP on the stack relative to the return address?",
+      "options": [
+        "It stores the system call number",
+        "It sits between the local buffer and the return address, and must also be overwritten to reach retaddr",
+        "It points to the shellcode address",
+        "It stores the address of argv[0]"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the data/bss overflow example, what is the consequence of overflowing the static char buffer[16] into the adjacent char *filename pointer?",
+      "options": [
+        "The program crashes immediately with SIGSEGV",
+        "The filename pointer can be redirected to attacker-controlled data, bypassing file safety checks",
+        "The stack canary is corrupted",
+        "The GOT entry for open() is overwritten"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A stack-based buffer overflow normally causes a segmentation fault unless the overflow data is carefully crafted.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The injected shellcode always executes with the privileges of the user who launched the attack, never with the privileges of the running program.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The NOP sled is a mandatory component of every injection vector.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "strncpy() always null-terminates the destination buffer, even when the source string exceeds the specified limit.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The .ctors and .dtors sections are only present in ELF binaries that explicitly define constructor or destructor functions.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Null bytes (0x00) in shellcode can prematurely terminate string-copying functions such as strcpy(), preventing the full payload from being copied.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The return address is the only code pointer that can be overwritten to hijack control flow in a buffer overflow attack.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the JMP/CALL trick for position-independent shellcode, the CALL instruction is placed immediately before the /bin/sh string so that its return address (the string's address) is pushed onto the stack.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The strace -i option displays the instruction pointer at the time of a signal, which is useful for confirming that a return address was successfully overwritten.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A longjmp overflow can only target the return address on the stack.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Destructors are preferred over constructors as overflow targets because they execute after main(), giving more time for the overflow to be triggered.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The get_sp() function using inline assembly reads the current value of the ESP register to estimate the stack address.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "sprintf() and scanf() are safe from buffer overflows because they format data before writing.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Exploit II environment-based approach, the shellcode address is deterministically computed as 0xc0000000 minus the lengths of the filename, shellcode, and null terminators.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Array overflows can only write sequential bytes, just like classic buffer overflows.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the two high-level steps that an attacker must perform to successfully exploit a stack-based buffer overflow.",
+      "answer": "Step 1: Inject shellcode into a writable memory region such as the stack, .data section, or heap. Step 2: Overwrite a code pointer (most commonly the saved return address on the stack) within the process's virtual address space so that when the function returns, execution jumps to the injected shellcode."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why must null bytes be eliminated from shellcode, and give two examples of how null-byte-producing instructions can be rewritten to avoid them.",
+      "answer": "Null bytes (0x00) act as string terminators for functions like strcpy() and gets(), so the shellcode would be truncated before it is fully copied into the buffer. Example 1: 'movl $0x0, 0x7(%esi)' becomes 'xorl %eax, %eax; movb %eax, 0x7(%esi)' — XOR clears a register without encoding a 0x00. Example 2: 'movl $0xb, %eax' becomes 'movb $0xb, %al' — writing only the low byte avoids the three zero padding bytes."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how the JMP/CALL trick solves the problem of not knowing the absolute address of the /bin/sh string in position-independent shellcode.",
+      "answer": "The shellcode begins with a JMP forward to a CALL instruction. The CALL instruction is placed immediately before the /bin/sh string. When CALL executes, it pushes the address of the next instruction (which is the first byte of /bin/sh) onto the stack and jumps back to the POP instruction after the original JMP. The POP then reads the string address off the stack into a register. This gives position-independent access to the string without needing to know the absolute load address."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a NOP sled and why is it useful in a buffer overflow exploit?",
+      "answer": "A NOP sled is a sequence of no-operation instructions (opcode 0x90 on x86) placed before the shellcode in the injection vector. Because the exact address of the shellcode on the stack is hard to guess precisely, the NOP sled provides a large landing zone. If the attacker's guessed return address lands anywhere within the sled, execution slides through the NOPs until it reaches the actual shellcode."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are data/bss overflows sometimes called 'heap overflows', and what type of memory corruption do they cause?",
+      "answer": "They are loosely called heap overflows because they affect statically or dynamically allocated data outside the stack, particularly in the data and bss segments. In these overflows, an attacker overflows a buffer to corrupt adjacent variables or function pointers stored in the same segment. For example, overflowing a static buffer can overwrite an adjacent filename pointer, redirecting subsequent file operations to attacker-chosen paths."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the non-terminated string overflow vulnerability. What combination of functions creates it, and how is it exploited?",
+      "answer": "The vulnerability arises when strncpy() fills a buffer to its exact limit without appending a null terminator. If another buffer is adjacent in memory, the two buffers together appear to be one continuous string. When a subsequent strcpy() copies 'password', it reads beyond the password buffer into the username buffer (which lacks its own null terminator), copying both into the destination. An attacker can craft the username to contain shellcode or a return address, causing the overflow inside the called function."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the three components of an injection vector and their respective roles.",
+      "answer": "1. NOP sled (optional): a block of NOP instructions that gives the attacker a tolerant landing zone — any jump into the sled slides down to the shellcode. 2. Shellcode: the actual machine instructions to execute (e.g., execve(\"/bin/sh\")), crafted to be null-free and position-independent. 3. Shellcode address: the crafted value that overwrites the saved return address on the stack, pointing back into the NOP sled or shellcode so that when the function returns, execution is redirected."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "List four 'overflowing' C functions highlighted in the lecture and briefly explain why each is dangerous.",
+      "answer": "1. gets() — reads input with no length limit, stopping only at newline or EOF. 2. strcpy() — copies until a null byte in the source, with no check on the destination size. 3. strcat() — concatenates strings without checking the destination buffer length. 4. sprintf()/scanf() — format or scan data into a fixed-size buffer without inherent size limiting, allowing overflow if the formatted result or scanned input is longer than the buffer."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is a longjmp overflow and what program mechanism does it exploit?",
+      "answer": "A longjmp overflow exploits the setjmp/longjmp non-local goto mechanism. setjmp() saves CPU registers including the base pointer and program counter into a jmp_buf structure. If an attacker can overflow a buffer adjacent to this structure, they can corrupt the saved PC and/or base pointer. When longjmp() is subsequently called to restore the context, execution jumps to the attacker-specified address rather than the legitimate saved point."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What makes the .dtors section a useful target for a buffer overflow attacker, and why is it often preferred over .ctors?",
+      "answer": ".dtors stores the addresses of destructor functions that the runtime calls after main() exits. Because it contains writable code pointers, an attacker who can overwrite memory can replace a destructor address with the shellcode address. Destructors are preferred over constructors because they execute at the end of the program — after main() runs — giving the attacker the opportunity to trigger the overflow during normal program execution before the destructors fire."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the three parameters required by the execve() system call and how shellcode sets them up for spawning /bin/sh.",
+      "answer": "execve(filename, argv, envp). 1. filename (%ebx): address of the null-terminated string \"/bin/sh\". 2. argv (%ecx): address of an array containing the pointer to \"/bin/sh\" followed by a NULL pointer — i.e., {\"/bin/sh\", NULL}. 3. envp (%edx): address of a NULL long word (the null pointer at the end of argv is reused). Shellcode constructs these data structures at runtime in the buffer after the /bin/sh string, sets each register, places 0xb in %eax, then executes int 0x80."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "In the array overflow attack, how can an integer index allow direct arbitrary memory write without a sequential overflow?",
+      "answer": "If a program uses a user-supplied integer as an array index without bounds checking (e.g., array[index] = value), the attacker can supply a large positive or negative index that computes to any memory address relative to the array. Unlike a sequential overflow which must write through all intermediate bytes, this allows the attacker to write a specific integer value directly to an arbitrary address, such as the return address slot on the stack, in a single assignment."
+    }
+  ]
+}
