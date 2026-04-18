@@ -1,0 +1,548 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Privacy",
+      "back": "The ability to control who has access to your data. Understood through the lens of contextual integrity — the appropriate flow of data in line with the individual's preferences."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anonymity",
+      "back": "A property where identity is completely unknown."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pseudonymity",
+      "back": "A property where identity is tied to a pseudonym rather than a real name. If the pseudonym is ever linked to a real identity, anonymity is broken."
+    },
+    {
+      "type": "flashcard",
+      "front": "Contextual Integrity",
+      "back": "A framework for privacy that defines appropriate data flow as data moving in line with an individual's preferences and the context in which it was shared."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tainted Coins",
+      "back": "Coins that have interacted with something bad (e.g., theft, drug sales, ransomware) or coins that have been identified and can be traced to a specific entity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Clustering Heuristics",
+      "back": "Techniques used in blockchain analysis to associate multiple addresses with the same common entity, enabling de-anonymisation of users."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multi-Input / Co-Spend Heuristic",
+      "back": "A clustering heuristic that assumes all input addresses in a single transaction are controlled by the same entity, because the sender must know the secret key for each input."
+    },
+    {
+      "type": "flashcard",
+      "front": "Change Address",
+      "back": "In Bitcoin, when a UTXO is spent, all funds must be spent at once. A change address is a new address that receives leftover funds (change) back to the original sender."
+    },
+    {
+      "type": "flashcard",
+      "front": "Change Heuristic",
+      "back": "A clustering heuristic stating that the input entity also controls the change address in a transaction. The change address is typically the only fresh output address used at most twice."
+    },
+    {
+      "type": "flashcard",
+      "front": "Peel Chain",
+      "back": "A sequence of transactions where bitcoins are repeatedly sent forward, with small amounts peeled off each time. Identifying change addresses allows researchers to follow peel chains and trace fund flows."
+    },
+    {
+      "type": "flashcard",
+      "front": "CoinJoin",
+      "back": "A Bitcoin privacy technique where multiple senders combine their transactions into a single transaction with multiple inputs and outputs, breaking the multi-input heuristic and obscuring which input maps to which output."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tornado Cash",
+      "back": "An Ethereum smart contract (first stable release 2019, banned in the US in 2022) that accepts ETH and ERC-20 tokens, mixes all inputs together, and allows withdrawal to a fresh address. It uses zero-knowledge proofs and is non-custodial."
+    },
+    {
+      "type": "flashcard",
+      "front": "Monero",
+      "back": "A privacy-focused altcoin that uses Ring Signatures to obfuscate which UTXO is being spent by presenting a set of possible UTXOs (mixins). It also uses Dandelion++ to delink IP addresses from transactions."
+    },
+    {
+      "type": "flashcard",
+      "front": "Ring Signatures (in Monero)",
+      "back": "A cryptographic technique used in Monero that allows a user to spend one UTXO from a set of possible UTXOs (the ring), ensuring each UTXO is spent precisely once without revealing which one was actually spent."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mixins (Monero)",
+      "back": "Decoy UTXOs included in a Monero ring signature transaction alongside the real input. They make it impossible for an outside observer to determine which UTXO was actually spent."
+    },
+    {
+      "type": "flashcard",
+      "front": "Dandelion++",
+      "back": "A network-layer privacy protocol used in Monero that delinks IP addresses from transactions by relaying transactions via a proxy or proxies before broadcasting to the network."
+    },
+    {
+      "type": "flashcard",
+      "front": "ZCash",
+      "back": "A privacy-focused cryptocurrency with two address types: z-addresses (shielded, private) and t-addresses (transparent). Only z-to-z transactions are fully private. Uses zero-knowledge proofs (zk-SNARKs) to validate transactions without revealing details."
+    },
+    {
+      "type": "flashcard",
+      "front": "Shielded Pool (ZCash)",
+      "back": "The private transaction layer in ZCash. Only transactions between z-addresses (z-to-z) are fully private. Approximately 10% of ZCash transactions use the shielded pool."
+    },
+    {
+      "type": "flashcard",
+      "front": "z-addresses vs t-addresses (ZCash)",
+      "back": "z-addresses are shielded (private), t-addresses are transparent (public). Only z-to-z transactions are private; z-to-t, t-to-z, and t-to-t transactions leak information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Zero-Knowledge Proof (in cryptocurrency privacy)",
+      "back": "A cryptographic method that allows one party to prove a statement is true (e.g., a transaction is valid) without revealing any additional information beyond the validity of the statement."
+    },
+    {
+      "type": "flashcard",
+      "front": "KYC / AML",
+      "back": "Know Your Customer (KYC) and Anti-Money Laundering (AML) — regulatory requirements for financial institutions to verify customer identity and monitor for illegal transactions. Traditional banks collect personal data for this purpose."
+    },
+    {
+      "type": "flashcard",
+      "front": "Satoshi's Privacy Model",
+      "back": "Bitcoin's original privacy model separates identities from transactions: identities and transactions are both public but not linked. This contrasts with the traditional model where a trusted third party links them privately."
+    },
+    {
+      "type": "flashcard",
+      "front": "Wrench Attack",
+      "back": "A physical coercion attack where a person is forced to reveal their private keys or funds. Privacy-preserving features in cryptocurrencies are sometimes justified as protection against such attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anonymity Set",
+      "back": "The crowd of users among whom an individual is hidden. True anonymity requires a sufficiently large anonymity set — 'anonymity needs a crowd'."
+    },
+    {
+      "type": "flashcard",
+      "front": "Unlinkability (anonymous payments)",
+      "back": "A security property requiring that inputs and outputs in a mixing scheme cannot be linked to each other — with respect to the tumbler, sender, recipient, and eavesdropper."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anti-Theft (anonymous payments)",
+      "back": "A security goal ensuring that neither the tumbler nor other participants can steal a user's coins during the mixing process."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following best defines 'pseudonymity' in the context of cryptocurrencies?",
+      "options": [
+        "Identity is completely unknown to all parties",
+        "Identity is tied to a pseudonym that, if linked to a real identity, breaks anonymity",
+        "Identity is shared only with a trusted third party",
+        "Identity is cryptographically hidden using zero-knowledge proofs"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bitcoin, a user's identity is directly linked to their public address on the blockchain.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bitcoin's original whitepaper by Satoshi Nakamoto acknowledged that multi-input transactions could be used to link addresses to the same entity.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the multi-input / co-spend heuristic assume?",
+      "options": [
+        "Multiple outputs in a transaction belong to the same entity",
+        "All input addresses in a single transaction are controlled by the same entity",
+        "Change addresses can always be identified by their age",
+        "Transactions with exactly two outputs always have one change address"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The multi-input heuristic is invalidated by CoinJoin transactions.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why must Bitcoin users create change addresses?",
+      "options": [
+        "To comply with KYC regulations",
+        "Because all bitcoins received in a UTXO must be spent all at once",
+        "To enable ring signatures",
+        "Because the Bitcoin protocol mandates two outputs per transaction"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The change heuristic identifies the change address in a transaction as:",
+      "options": [
+        "The output with the largest value",
+        "The only fresh output address (used at most twice)",
+        "Any output sent back to one of the input addresses",
+        "The address with the lowest balance"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Peel chains allow researchers to follow bitcoin flows between entities by identifying change addresses.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how researchers can collect data to tag Bitcoin addresses and link clusters to real-world entities.",
+      "answer": "Researchers can tag addresses by engaging in their own transactions with known entities (e.g., making purchases on Silk Road), scraping publicly published tags from websites and forums, and finding addresses discussed in online communities. Once individual addresses are tagged, entire clusters identified by heuristics can be labelled with the corresponding entity."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how CoinJoin works and why it improves privacy in Bitcoin.",
+      "answer": "CoinJoin combines multiple users' transactions into a single on-chain transaction with multiple inputs and outputs. Participants communicate off-chain (e.g., via IRC or private messaging) to coordinate. Each sender provides their input and a receiving address; all sign the combined transaction. Because there are multiple inputs from different senders and multiple outputs to different receivers, an outside observer cannot determine which input funded which output, breaking the multi-input heuristic and hiding the payment graph."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a CoinJoin transaction with senders pkC and pkA and receivers pkD and pkB, what can an outside observer determine?",
+      "options": [
+        "Exactly which sender paid which receiver",
+        "That all inputs belong to the same entity",
+        "Only that inputs and outputs exist, but not which input funded which output",
+        "The exact amounts each receiver received"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT listed as a risk of anonymous payments?",
+      "options": [
+        "Online drug sales",
+        "Tax evasion",
+        "Domestic violence implications",
+        "Ransomware / extortion"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Domestic violence implications are listed as a benefit (not a risk) of anonymous payments.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the key difference between Ethereum's transaction model and Bitcoin's with respect to privacy analysis?",
+      "options": [
+        "Ethereum transactions are encrypted by default",
+        "Ethereum is account-based with no UTXOs, so change address heuristics do not apply",
+        "Ethereum uses ring signatures natively",
+        "Ethereum transactions are not stored on a public ledger"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Tornado Cash is a custodial service — it holds users' funds between deposit and withdrawal.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How does Tornado Cash use zero-knowledge proofs?",
+      "options": [
+        "To encrypt the entire Ethereum blockchain",
+        "To prove a valid deposit exists without revealing which deposit corresponds to a given withdrawal",
+        "To verify the sender's KYC identity",
+        "To prevent any government from observing deposits or withdrawals"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "When was Tornado Cash banned in the United States?",
+      "options": [
+        "2019",
+        "2020",
+        "2021",
+        "2022"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain what 'tainted coins' means and give two examples of how coins can become tainted.",
+      "answer": "Tainted coins are coins that have interacted with illicit activity or have been identified and can be traced. Examples include coins that were involved in a theft (e.g., from an exchange hack), coins used in ransomware payments, coins transacted on darknet markets like Silk Road, or coins that have passed through a flagged address. Identifiable coins (where the owner is known) can also be considered tainted."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How did Monero initially attempt to solve the coordination problem of CoinJoin?",
+      "options": [
+        "By requiring all users to sign a joint transaction on-chain",
+        "By using ring signatures so users can prove one UTXO from a decoy set was spent, without identifying which",
+        "By using shielded pools similar to ZCash",
+        "By mandating a minimum anonymity set enforced by the protocol"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Monero, Ring Signatures guarantee that a given UTXO is spent precisely once.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the purpose of Dandelion++ in Monero?",
+      "options": [
+        "To encrypt transaction amounts using confidential transactions",
+        "To delink IP addresses from transactions by relaying them through proxy nodes before broadcasting",
+        "To create decoy outputs alongside the real output",
+        "To reduce transaction fees by batching transactions"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Zero-mixin Monero transactions (where no decoy UTXOs are included) can be trivially identified as the real spend.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Approximately what percentage of ZCash transactions use the shielded pool?",
+      "options": [
+        "50%",
+        "30%",
+        "10%",
+        "90%"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In ZCash, a transaction from a t-address to a z-address is fully private.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is it a problem that only z-to-z transactions are private in ZCash?",
+      "answer": "Because most users interact with exchanges and other services using transparent t-addresses, the majority of ZCash transactions (t-to-t, t-to-z, z-to-t) leak information. When funds move between the transparent and shielded pools, timing and amount analysis can be used to deanonymise users. The low adoption of shielded transactions also shrinks the anonymity set, making it easier to identify the few users in the shielded pool."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main usability issue with ZCash's shielded pool?",
+      "options": [
+        "Shielded transactions require physical hardware wallets",
+        "Only about 10% of transactions use the shielded pool, shrinking the anonymity set",
+        "Shielded transactions take days to confirm",
+        "Shielded addresses cannot interact with smart contracts"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare centralised tumblers and decentralised mixing schemes in terms of their tradeoffs.",
+      "answer": "Centralised tumblers are simpler to use but can go offline or be seized, violating availability. They may also be custodial, meaning they can steal funds. Decentralised schemes avoid a single point of failure but require participants to coordinate, which introduces scalability challenges and overhead (off-chain and on-chain messages). Decentralised schemes are also harder for regulators to shut down but harder to design securely."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which security goal asks whether the tumbler or other participants can steal coins?",
+      "options": [
+        "Anonymity",
+        "Availability",
+        "Anti-theft",
+        "Unlinkability"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which efficiency goal for anonymous payments measures how many transactions need to appear on-chain?",
+      "options": [
+        "msgs",
+        "txs",
+        "rounds",
+        "latency"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Traditional banks store all transaction data centrally and require personal information for KYC/AML compliance.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bitcoin's new privacy model, identities and transactions are both completely hidden from the public.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Bitcoin's traditional vs. new privacy model, what is the key structural difference?",
+      "options": [
+        "The traditional model makes transactions public; the new model keeps them private",
+        "The traditional model uses a trusted third party between identities and transactions; the new model separates identities from public transactions with no intermediary",
+        "The new model adds a regulatory body to verify each transaction",
+        "The traditional model uses public keys; the new model uses zero-knowledge proofs"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the approach proposed to give 'good actors' anonymity on Ethereum while filtering out bad actors.",
+      "answer": "One proposed approach is to add an overlay to a mixing service like Tornado Cash that restricts access to users who satisfy certain conditions — for example, deposits from KYC/AML-compliant exchanges, or users holding untainted tokens. This would create a verified anonymity pool where participants can prove they are not associated with illicit activity (using zero-knowledge proofs) without revealing their identity, allowing legitimate users to benefit from privacy while excluding bad actors."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the 'change heuristic' rely on to identify the change address?",
+      "options": [
+        "The change address always receives exactly 1 satoshi",
+        "The change address is the only fresh output address (appearing at most twice: to receive change and to spend it)",
+        "The change address is always the largest output",
+        "The change address is always the last output listed in a transaction"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Ethereum's account-based model means that UTXO-based clustering heuristics like the co-spend heuristic can be applied directly.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the 'bicycle wheel' structure observed in Bitcoin transaction graph data, and what does it represent?",
+      "answer": "The 'bicycle wheel' pattern is a visual structure observed in the Bitcoin transaction graph where a central hub (typically a high-volume gambling site) has many spokes radiating out to other addresses. It represents a highly connected entity transacting with a large number of counterparties, and the strongly connected component at the centre contains most of the named/identified users and services (such as MtGox, Silk Road, Satoshi Dice)."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following describes how researchers tracked illicit bitcoins from the Silk Road?",
+      "options": [
+        "By subpoenaing the Silk Road servers directly",
+        "By following peel chains to exchanges, then subpoenaing exchanges to identify account owners",
+        "By using ring signatures to trace the exact UTXO path",
+        "By applying the Dandelion++ protocol in reverse"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is listed as a benefit of anonymous payments?",
+      "options": [
+        "Online drug sales",
+        "Ransomware payments",
+        "Antitrust implications",
+        "Cycle theft"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Monero's zero-mixin issue was fully resolved with the introduction of the RingCT upgrade.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does anonymity 'need a crowd' in cryptocurrency privacy systems?",
+      "answer": "Anonymity is only meaningful when there are many participants whose transactions cannot be distinguished from one another. If only a few users use a privacy-preserving feature (like ZCash's shielded pool), an observer can narrow down the candidates easily. A larger anonymity set makes it computationally and statistically infeasible to link a transaction to a specific individual, since the probability of any one person being the sender is spread across the whole crowd."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What issue does the lecture note with regard to the multi-input heuristic and multi-signature (multisig) wallets?",
+      "options": [
+        "Multisig wallets always use CoinJoin",
+        "The heuristic assumption that the sender knows the secret key for each input is contradicted by multisig arrangements",
+        "Multisig wallets are immune to clustering",
+        "Multisig wallets always produce zero-mixin transactions"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Smart contracts on Ethereum can facilitate privacy-preserving transactions.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What happened to Tornado Cash developers?",
+      "options": [
+        "They were awarded a privacy research prize",
+        "They were arrested in 2022/23",
+        "They voluntarily shut down the protocol",
+        "They moved the protocol offshore"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Under the hood, how does Tornado Cash ensure that a withdrawal cannot be linked to a specific deposit?",
+      "answer": "When a user deposits, a deposit note is generated on their computer. The note is split into two halves: a secret and a lock. The encoded note (commitment) is sent to the smart contract along with the funds. To withdraw, the user provides the encoded lock and a zero-knowledge proof that they know the secret corresponding to a valid deposit, without revealing which deposit it was. The smart contract verifies the proof and releases funds to a fresh address. Since all deposits look identical on-chain, nobody can link the withdrawal to the original depositor."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which unlinkability dimension is NOT listed in the lecture's security goals for anonymous payments?",
+      "options": [
+        "Unlinkability with respect to the tumbler",
+        "Unlinkability with respect to the miner",
+        "Unlinkability with respect to the sender",
+        "Unlinkability with respect to the recipient"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Governments can taint all addresses that have sent to or received from the Tornado Cash smart contract.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is the change heuristic described as 'not conservative enough' in the lecture, and what steps can improve it?",
+      "answer": "The basic change heuristic — labelling the only fresh output address as the change address — can produce false positives. To improve accuracy, researchers can: wait a week before classifying addresses (to see if fresh addresses appear in further transactions), ignore 'self-change' addresses (where the sender sends to an address they already own), and manually inspect remaining ambiguous addresses. These steps reduce misclassification while still enabling accurate clustering."
+    }
+  ]
+}
