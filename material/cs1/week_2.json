@@ -2,536 +2,590 @@
   "entries": [
     {
       "type": "flashcard",
-      "front": "What is Access Control?",
-      "back": "A security mechanism that ensures all accesses and actions on system objects are by principals within the security policy — i.e. only authorised events are permitted."
+      "front": "Group vs Role (OS access control)",
+      "back": "A group is a list of principals. A role is a fixed set of access permissions that one or more principals may assume for a period of time (e.g. the officer of the watch on a ship \u2014 exactly one at a time, with a formal handover procedure)."
     },
     {
       "type": "flashcard",
-      "front": "Authentication",
-      "back": "The process of verifying identity: 'Who are you?'"
+      "front": "Protection Domain",
+      "back": "A set of processes or threads that share access to the same resources. Access control can be expressed as triples of (user, program, file) or more generally as (subject, program, object) using protection domains."
     },
     {
       "type": "flashcard",
-      "front": "Authorisation",
-      "back": "Determining what a principal is allowed to access: 'What are you allowed to access?'"
+      "front": "Unix ACL format",
+      "back": "Files have rwx attributes for owner, group, and world. Format: [d]rwxrwxrwx owner group. Example: -rw-r----- Alice Accounts means Alice can read/write, group members can read, others have no access."
     },
     {
       "type": "flashcard",
-      "front": "Audit (in access control)",
-      "back": "Keeping records of who accessed what and when. Helps detect attacks and is often legally required."
+      "front": "Set-user-id (suid) in Unix",
+      "back": "A file attribute that allows a program to run with the privileges of its owner rather than the privileges of the user invoking it. Used to approximate 3-dimensional access control (user, program, file) within Unix's 2D ACL model. Often misused by setting suid root, creating security holes."
     },
     {
       "type": "flashcard",
-      "front": "Mandatory Access Control (MAC)",
-      "back": "Permissions are assigned centrally according to a security policy. Used within organisations with a strong need for central control."
+      "front": "Same-Origin Policy",
+      "back": "A browser access control rule: JavaScript or other active content on a web page may only communicate with the IP address it originally came from. Enforced by running scripts in a sandbox."
     },
     {
       "type": "flashcard",
-      "front": "Discretionary Access Control (DAC)",
-      "back": "All objects have owners, and owners assign permissions to objects under their control."
+      "front": "Software Sandbox",
+      "back": "A restricted execution environment where downloaded code has no access to the local hard disk (or at most restricted access) and can only communicate with its host of origin. Introduced by Sun with Java (JVM) and adapted to JavaScript."
     },
     {
       "type": "flashcard",
-      "front": "Access Control Matrix",
-      "back": "A representation of all permitted triplets of (subject, action, access right) over sets O (objects), S (subjects), and R (access rights)."
+      "front": "Virtualisation",
+      "back": "Technology enabling a single machine to emulate multiple independent machines (VMs). Each VM has a complete OS insulated from hardware by a hypervisor/VMM. Key to cloud computing. First implemented by IBM in the 1960s (VM/370)."
     },
     {
       "type": "flashcard",
-      "front": "Reference Monitor",
-      "back": "The part of the system that enforces access control decisions. Must be: (1) completely mediating, (2) tamper-proof, and (3) small enough to verify."
+      "front": "Container (vs VM)",
+      "back": "A container is an isolated guest process that shares a kernel with other containers \u2014 not a full OS. Containers virtualise a subset of OS mechanisms (process IDs, namespaces, IPC) and use sandboxing/syscall filtering. Lighter than VMs but with fewer security guarantees."
     },
     {
       "type": "flashcard",
-      "front": "Three properties of a Reference Monitor",
-      "back": "1. Complete mediation — must always be called. 2. Tamper-proof — adversary cannot influence it. 3. Small — so its correctness can be verified."
+      "front": "Trusted Platform Module (TPM)",
+      "back": "A separate processor chip on the PC motherboard supporting trusted boot and disk encryption. Monitors the boot process; each stage requires a hash of everything loaded so far to decrypt the next stage. Makes the OS vendor (not the machine owner) the effective 'root of trust'."
     },
     {
       "type": "flashcard",
-      "front": "Graham-Denning Model",
-      "back": "An access control model where each object has an owner and each subject has a controller. Rights may be transferable (marked with *). Defines 8 rules covering creation, destruction, grant, transfer, deletion, and checking of rights."
+      "front": "Rings of Protection",
+      "back": "A hardware mechanism expressing differing levels of privilege. Ring 0 = highest privilege (kernel); higher ring numbers = less privilege (user code). Introduced by Multics. Modern Intel CPUs have 9 rings: ring 0\u20133 for normal code, ring 0\u20133 VMX root mode for the hypervisor, and SMM at the bottom."
     },
     {
       "type": "flashcard",
-      "front": "Graham-Denning: Delegation",
-      "back": "r* means a subject has the right to transfer the right r (or r*) to another subject. Used in rule (6): transfer."
+      "front": "Intel SGX (Software Guard eXtensions)",
+      "back": "An Intel CPU feature (2015) letting trusted code run in an encrypted memory enclave, isolated even from root processes. Used for DRM and protecting crypto keys. Vulnerable to Spectre-type side-channel attacks. Signing originally required Intel's approval."
     },
     {
       "type": "flashcard",
-      "front": "Graham-Denning: Revocation",
-      "back": "Rule (7): Subject x can delete a right r on object o from subject s if x controls s or owns o."
+      "front": "ARM TrustZone",
+      "back": "An ARM CPU security extension (available 2004) supporting an 'open world' for a normal OS and a 'closed world' (TEE \u2014 Trusted Execution Environment) for sensitive operations such as cryptography and critical I/O. The two worlds are orthogonal to user/supervisor modes."
     },
     {
       "type": "flashcard",
-      "front": "Bell LaPadula Model — objective",
-      "back": "To show that a computer system can securely handle classified information. Ensures confidentiality."
+      "front": "CHERI (Capability Hardware Enhanced RISC Instructions)",
+      "back": "An ARM CPU extension adding fine-grained capability support. Allows a process to allocate a subthread with read/write access to specific memory ranges, enabling multiple sandboxes within the same process without expensive inter-process context switches."
     },
     {
       "type": "flashcard",
-      "front": "Bell LaPadula informal rules",
-      "back": "Read Down: a subject can only read objects at or below its clearance level. Write Up: a subject can only write to objects at or above its clearance level."
+      "front": "Stack Smashing Attack (Buffer Overflow)",
+      "back": "An attack where an over-long input overwrites the call stack and injects malicious code. Classic example: Morris worm (1988) exploiting the Unix finger command. Attacker places a 'landing pad' of NOP instructions followed by shellcode granting admin access."
     },
     {
       "type": "flashcard",
-      "front": "Bell LaPadula: Dominance relationship",
-      "back": "Security level (c1, l1) dominates (c2, l2) if and only if c1 ≥ c2 AND l2 ⊆ l1 (classification is at least as high AND categories of the lower level are a subset of those of the higher)."
+      "front": "Use-After-Free vulnerability",
+      "back": "A type safety failure where freed memory is still referenced by a pointer. If an attacker allocates a malicious chunk in the freed location, calling the old (innocent) function pointer may invoke malicious code. Now the most common cause of remote execution vulnerabilities in browsers."
     },
     {
       "type": "flashcard",
-      "front": "Security level in Bell LaPadula",
-      "back": "A pair (classification, set of categories). Classification is a partial order (e.g. U < C < S < TS). Categories are compartments (e.g. SIGINT, CRYPTO, NOFORN)."
+      "front": "SQL Injection",
+      "back": "An attack based on failure to sanitise user input: a developer passes user input to a database without checking for embedded SQL code, letting the attacker modify the query. The most common input-sanitisation attack. Remedy: treat all user input as suspicious and validate it positively."
     },
     {
       "type": "flashcard",
-      "front": "Clearance (Bell LaPadula)",
-      "back": "The maximum security level assigned to a subject. A subject can operate at a lower level than their clearance."
+      "front": "TOCTTOU (Time-of-Check-to-Time-of-Use)",
+      "back": "A race condition attack: access rights are verified at step 1, and the privileged action is taken at step 2. If the attacker alters state between the two steps, they bypass the check. Classic example: Unix mkdir bug where a new directory could be swapped for a symlink to /etc/passwd."
     },
     {
       "type": "flashcard",
-      "front": "Biba Model — objective",
-      "back": "To show that a computer system can securely manage the integrity of information."
+      "front": "Return-Oriented Programming (ROP)",
+      "back": "An attack technique bypassing DEP by chaining existing 'gadgets' \u2014 short instruction sequences ending in a return \u2014 from code already in memory. Assembles Turing-powerful computation without injecting any new code. Defeats DEP; mitigated by ASLR and Control Flow Integrity."
     },
     {
       "type": "flashcard",
-      "front": "Biba Model informal rules",
-      "back": "No Read Down: a subject cannot read objects below its integrity level. No Write Up: a subject cannot write to objects above its integrity level. A process from below cannot request higher access."
+      "front": "Stack Canary",
+      "back": "A compiler-inserted random number placed next to the return address on the stack. If a stack overflow overwrites the canary, the change is detected before the corrupted return address is used. Effective against classic buffer overflows; bypassed by ROP and info-leak attacks."
     },
     {
       "type": "flashcard",
-      "front": "Bell LaPadula vs. Biba",
-      "back": "Bell LaPadula ensures confidentiality (Read Down / Write Up). Biba ensures integrity (No Read Down / No Write Up). They have complementary but conflicting rules."
+      "front": "Data Execution Prevention (DEP)",
+      "back": "A defence marking all memory pages as either data or code, preventing the execution of data pages. Appeared in Windows XP (2003). Defeated by ROP attacks, which reuse existing executable code rather than injecting new code."
     },
     {
       "type": "flashcard",
-      "front": "Sanitisation",
-      "back": "The process of taking objects with low integrity and 'lifting' them to high integrity. The fundamental principle is to positively verify low objects are within a valid set before elevating their integrity."
+      "front": "Address Space Layout Randomisation (ASLR)",
+      "back": "A defence randomising the memory layout for each process instance, making it harder to predict target addresses for exploits. Critical for defeating ROP toolkits. Appeared alongside DEP in 2003. Partially weakened by information-leak vulnerabilities."
     },
     {
       "type": "flashcard",
-      "front": "Biba Ring Policy",
-      "back": "A variant of Biba where: (A) integrity labels are fixed, (B) no write up (classic Biba), (C) a subject may read an object at any level, (D) a principal can invoke a program with a higher integrity label (ring invocation property)."
+      "front": "Principle of Least Privilege",
+      "back": "Programs should only have as much privilege as they strictly need to perform their function. A key software security principle (Saltzer and Schroeder). Reduces the damage an attacker can cause if they compromise a program. Safe defaults and sound architecture are needed to achieve it."
     },
     {
       "type": "flashcard",
-      "front": "Biba Invocation Property",
-      "back": "Only allow subjects to invoke subjects with a label they dominate (subject invokes lower/equal integrity subjects). Protects high integrity data from misuse."
+      "front": "Environmental Creep (in access control)",
+      "back": "Security failures caused when a security model designed for a narrow environment is extended to broader, more hostile contexts without redesigning the protection mechanisms. Example: Unix was designed for trusted lab users and extended to billions of hostile Internet users without fundamentally re-engineering the model."
     },
     {
       "type": "flashcard",
-      "front": "Biba Controlled (Ring) Invocation",
-      "back": "Only allow subjects to invoke subjects that dominate them (subjects invoke higher integrity subjects). Prevents calling a low integrity program on high integrity data."
+      "front": "Meltdown and Spectre",
+      "back": "CPU side-channel attacks published January 2018. Meltdown exploits out-of-order execution on Intel CPUs to read kernel memory; Spectre exploits speculative execution on Intel/AMD/ARM to read arbitrary process memory via cache timing. Both cross VM, container, and enclave boundaries."
     },
     {
       "type": "flashcard",
-      "front": "Capability List",
-      "back": "Storing the access control matrix by row (per subject/user). Good for auditing user permissions. Bad for revocation, transferability, and authenticity."
+      "front": "Security Policy Model",
+      "back": "A succinct (typically one-page) statement of the protection properties a system must have. Agreed with a community or top management, and may form the basis for formal mathematical analysis. Distinct from vague corporate platitudes."
     },
     {
       "type": "flashcard",
-      "front": "Access Control List (ACL)",
-      "back": "Storing the access control matrix by column (per object/resource). Good for revocation by resource. Difficult to audit rights of individual users."
+      "front": "Security Target",
+      "back": "A detailed description of the protection mechanisms a specific product provides and how they relate to a list of control objectives. Forms the basis for testing and evaluation of that product. More detailed than a security policy model."
     },
     {
       "type": "flashcard",
-      "front": "Confused Deputy Problem",
-      "back": "A security vulnerability where a privileged program (the 'deputy') is tricked by a less privileged caller into misusing its authority. Common in systems with ambient authority. Solutions: reimplement access control in the deputy's process, or allow the deputy to check authorisation on behalf of the caller."
+      "front": "Protection Profile",
+      "back": "Like a security target but expressed implementation-independently, enabling comparable evaluations across products and versions. Required for Common Criteria evaluation. May use semi-formal language or security jargon."
     },
     {
       "type": "flashcard",
-      "front": "Break-Glass Access Control",
-      "back": "An emergency access mechanism that overrides normal access controls when time is critical (e.g. emergency medical access). Named by analogy to a fire alarm."
+      "front": "Multilevel Security (MLS) policy",
+      "back": "A policy for handling information at different classification levels (Unclassified < Confidential < Secret < Top Secret). A principal may read a document only if their clearance is at least as high as the document's classification. Information may only flow upwards."
     },
     {
       "type": "flashcard",
-      "front": "Role-Based Access Control (RBAC)",
-      "back": "An access control approach where rights are granted based on roles. Can implement both MAC and DAC. Roles abstract the relationship between subjects and permissions."
+      "front": "Compartment / Codeword (MLS)",
+      "back": "A classification label plus one or more codewords (e.g. TS/SCI). A user must hold all codewords attached to a document to read it. Codewords further restrict access beyond clearance level; compartmentation is typically implemented using DAC mechanisms."
     },
     {
       "type": "flashcard",
-      "front": "Three problems with RBAC",
-      "back": "1. Role Explosion: temptation to create too many fine-grained roles. 2. Limited Expressiveness: some roles are relative (e.g. 'Marie's doctor'). 3. Separation of Duty: hard to enforce distinctness (e.g. any two distinct doctors authorise a procedure)."
+      "front": "Trusted Computing Base (TCB)",
+      "back": "The set of components (hardware, software, procedures) whose correct functioning is sufficient to ensure the security policy is enforced \u2014 equivalently, whose failure could cause a breach. From the Anderson Report (1972). Must be kept small enough to verify."
     },
     {
       "type": "flashcard",
-      "front": "Separation of Duties",
-      "back": "An integrity principle requiring multiple principals to perform an action. Examples: two officers required to launch a missile; both sides of a transaction must match."
+      "front": "Anderson Report (1972)",
+      "back": "A US government study by James Anderson concluding a secure system should do one or two things well, with protection properties enforced by simple, rarely-changing mechanisms amenable to verification. Introduced the reference monitor concept and the TCB."
     },
     {
       "type": "flashcard",
-      "front": "Rotation of Duties",
-      "back": "An integrity principle that limits a principal to a particular role for only a limited time. Example: guards rotating over a bank safe."
+      "front": "Bell-LaPadula: Simple Security Property",
+      "back": "No process may read data at a higher classification level than its clearance \u2014 also called No Read Up (NRU). Prevents unauthorised access to classified data."
     },
     {
       "type": "flashcard",
-      "front": "Secure Logging",
-      "back": "An integrity principle requiring tamper-evident logs to support recovery and consistency. Examples: ATM transaction logs, Bitcoin."
+      "front": "Bell-LaPadula: *-Property (Star Property)",
+      "back": "No process may write data to a lower classification level than its current level \u2014 also called No Write Down (NWD). Bell and LaPadula's critical innovation, preventing Trojan horse programs from leaking data downward."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Model — core idea",
-      "back": "Transaction security model combining ACID transactions with an integrity security property. Integrity is defined as a set of constraints; well-formed transactions move data from one valid state to another."
+      "front": "Tranquility (BLP)",
+      "back": "Strong tranquility: labels never change during system operation. Weak tranquility: labels never change in a way that violates the security policy. Weak tranquility is needed to support least privilege and the high water mark principle."
     },
     {
       "type": "flashcard",
-      "front": "CDI (Constrained Data Item)",
-      "back": "Objects in the Clark-Wilson model that are subject to integrity controls and system constraints."
+      "front": "High Water Mark Principle (BLP)",
+      "back": "A process is automatically upgraded to the highest classification level of any data it reads. Its subsequently created files inherit this highest label. A process reading Secret/Crypto and Secret/Nuclear files will create files labelled Secret/Crypto/Nuclear."
     },
     {
       "type": "flashcard",
-      "front": "UDI (Unconstrained Data Item)",
-      "back": "Objects in the Clark-Wilson model that are NOT subject to integrity controls (e.g. untrusted input from the network or a user)."
+      "front": "Noninterference",
+      "back": "A security property (Goguen and Meseguer, 1982): High's actions have no observable effect on what Low can see. Stronger than Bell-LaPadula. Ensures no covert channel of any form \u2014 not just formal information-flow channels."
     },
     {
       "type": "flashcard",
-      "front": "IVP (Integrity Verification Procedure)",
-      "back": "A Clark-Wilson procedure used to check that CDIs satisfy their integrity constraints."
+      "front": "Nondeducibility",
+      "back": "A security property (Sutherland, 1986) weaker than noninterference: Low cannot deduce High's inputs from its observations. Introduced to model encrypted traffic on shared LANs. Found to be too weak \u2014 allows deductions with near-certainty."
     },
     {
       "type": "flashcard",
-      "front": "TP (Transaction Procedure)",
-      "back": "A Clark-Wilson procedure that takes a CDI from one valid state to another valid state, or converts a UDI into a CDI."
+      "front": "Type Enforcement (TE) / Domain and Type Enforcement (DTE)",
+      "back": "A MAC model assigning subjects to domains and objects to types, with matrices of permitted interactions. Used in SELinux. More general than BLP \u2014 handles integrity as well as confidentiality, can enforce trusted pipelines and role-based constraints."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Certification Rule CR1",
-      "back": "When any IVP is run, it must ensure all CDIs are in a valid state."
+      "front": "SELinux",
+      "back": "Security-Enhanced Linux, implementing TE/DTE-based MAC, developed by the NSA using the Flask architecture. Uses security identifiers (SIDs) for subjects and objects. Mainstream since Linux 2.6; adopted by Android. Can express RBAC, TE, and MLS from a unified policy engine."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Certification Rule CR2",
-      "back": "For some CDIs, a TP must transform those CDIs from a valid state to a valid state. The relation between CDIs and TPs is typed."
+      "front": "Low Water Mark Principle (Biba)",
+      "back": "The integrity level of an object is the lowest level of all the objects that contributed to its creation. Dual of BLP's high water mark. Formalises how untrusted input contaminates anything it influences."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Enforcement Rule ER1",
-      "back": "The system must maintain certified relations and ensure that only TPs certified to run on a CDI can manipulate that CDI (like type safety)."
+      "front": "SCOMP and Orange Book",
+      "back": "SCOMP (1983) was the first system evaluated at A1 (highest) under the Orange Book \u2014 the US Trusted Computer Systems Evaluation Criteria (1985). Defined evaluation levels C1/C2, B1/B2/B3, A1. Hugely influential internationally; replaced by the Common Criteria."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Enforcement Rule ER2",
-      "back": "The system must associate a user with each TP and a set of CDIs. The TP may access those CDIs only on behalf of the associated user — access control is on the basis of (user, CDI, TP)."
+      "front": "Data Diode",
+      "back": "A device enforcing strictly one-way information flow \u2014 Low to High only, with no path back. Allows simpler 'system high' machines to be connected securely without running MLS on a single machine. Simple mail guards and the NRL Pump are examples."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Certification Rule CR3",
-      "back": "Allowed (user, TP, CDI) relations must meet separation of duty requirements. Example: different users must log incoming orders and outgoing books in a shop."
+      "front": "NRL Pump",
+      "back": "A one-way data transfer device (data diode) developed by the US Naval Research Laboratory. Allows Low-to-High information flow while limiting backward leakage (e.g., TCP acknowledgements) using buffering and randomised acknowledgement timing."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Enforcement Rule ER3",
-      "back": "The system must authenticate each user attempting to execute a TP."
+      "front": "Covert Channel",
+      "back": "A mechanism not designed for communication that can be used to signal information from High to Low, bypassing BLP's no-write-down rule. First identified by Lampson (1973). Example: modulating CPU clock frequency. DoD target: limit to 1 bit/second. Meltdown/Spectre achieve far higher rates."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Certification Rule CR4",
-      "back": "All TPs must append enough information to reconstruct the operation to an append-only CDI (the log). Enables reconstruction of all intermediate states."
+      "front": "Cascade Problem",
+      "back": "A MLS composition vulnerability: two separately-secure systems connected together can violate a span-limit rule. E.g., system 1 spans Unclassified\u2013Secret, system 2 spans Secret\u2013Top Secret; combined they span Unclassified\u2013Top Secret, which is forbidden."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Certification Rule CR5",
-      "back": "Any TP that takes a UDI as input may perform only valid transformations for all possible UDI values — it must either reject the UDI or transform it into a CDI. This is the sanitisation rule."
+      "front": "Polyinstantiation (MLS)",
+      "back": "The MLS database problem where Low and High users both try to create a record with the same name. Refusing the Low user leaks that a High record exists. Allowing both creates two records with the same name. US solution: High user simultaneously creates a Low cover story."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Enforcement Rule ER4",
-      "back": "Only the certifier of a TP may change the list of entities associated with that TP. No certifier of a TP, or any entity associated with it, may have execute permission on that TP."
+      "front": "TCB Bloat",
+      "back": "A practical MLS problem: as exceptions accumulate (applications needing to downgrade data, word processors scrubbing documents), more components must be added to the TCB to handle them. The TCB ends up containing most of the OS plus utilities and middleware, making verification infeasible."
     },
     {
       "type": "flashcard",
-      "front": "ACID (transaction properties)",
-      "back": "Atomicity: all-or-nothing execution. Consistency: valid state to valid state. Isolation: as if executed serially. Durability: once committed, persists. Defined by Jim Gray (1970)."
+      "front": "MILS (Multiple Independent Levels of Security)",
+      "back": "The modern successor to MLS: separate system-high machines at each classification level, connected by data diodes, pumps, and mail guards at the network level. Avoids the complexity of running MLS on a single machine. Enabled by falling hardware costs and virtualisation."
     },
     {
       "type": "flashcard",
-      "front": "Biba vs. Clark-Wilson",
-      "back": "Biba provides multilevel security using labels — coarse-grained, provided at OS level. Clark-Wilson provides transaction security — application-level, requires high-level semantics."
+      "front": "Composability Problem (MLS)",
+      "back": "The difficulty of combining two or more individually secure components into a system that is also secure. Simple information flow, noninterference, and nondeducibility all fail to compose in the presence of feedback. One of the fundamental challenges in formal security verification."
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which of the following is NOT one of the three properties required of a Reference Monitor?",
-      "options": ["Complete mediation", "Tamper-proof", "Small enough to verify", "Highly available"],
-      "answer": 3
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the Bell LaPadula model, which operations are permitted?",
-      "options": ["Read Up, Write Down", "Read Down, Write Up", "Read Up, Write Up", "Read Down, Write Down"],
+      "question": "What is the key difference between a 'group' and a 'role' in OS access control?",
+      "options": [
+        "A group is temporary; a role is permanent",
+        "A group is a list of principals; a role is a fixed set of permissions that principals may assume",
+        "A group applies to files; a role applies to users",
+        "A group is enforced by MAC; a role is enforced by DAC"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the Biba model, which operations are permitted to protect integrity?",
-      "options": ["Read Up, Write Down", "Read Down, Write Up", "No Read Down, No Write Up", "No Read Up, No Write Down"],
+      "question": "In Unix, what does the suid (set-user-id) file attribute do when applied to an executable?",
+      "options": [
+        "It allows any user to read the file",
+        "It runs the program with the invoking user's privileges",
+        "It runs the program with the file owner's privileges instead of the invoker's",
+        "It prevents the file from being executed by non-root users"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What does Bell LaPadula primarily ensure?",
-      "options": ["Integrity", "Availability", "Confidentiality", "Accountability"],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What does the Biba model primarily ensure?",
-      "options": ["Confidentiality", "Integrity", "Availability", "Non-repudiation"],
+      "question": "Which of the following is a weakness of Access Control Lists (ACLs) compared to Capability Lists at runtime?",
+      "options": [
+        "ACLs make it harder to revoke all permissions for a single resource",
+        "The OS typically knows which user is running a program, not which files it was authorised to access, making ACL checking less efficient",
+        "ACLs cannot express read/write/execute distinctions",
+        "ACLs require the user to hold a physical token"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the Bell LaPadula dominance relation, (c1, l1) dominates (c2, l2) when:",
-      "options": ["c1 ≥ c2 and l1 ⊆ l2", "c1 ≤ c2 and l2 ⊆ l1", "c1 ≥ c2 and l2 ⊆ l1", "c1 = c2 and l1 = l2"],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the Graham-Denning model, which rule allows subject x to grant a right to subject s?",
-      "options": ["Rule 5 — if x owns the object", "Rule 6 — if x has a transferable right", "Rule 7 — if x controls s", "Rule 8 — if x checks what rights s has"],
-      "answer": 0
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which storage approach for the access control matrix makes it easy to revoke rights per resource?",
-      "options": ["Capability List (by row)", "Access Control List (by column)", "Roles", "Labels"],
+      "question": "What is a 'landing pad' in a stack-smashing attack?",
+      "options": [
+        "The return address that the attacker overwrites",
+        "A long stretch of NOP instructions that catch the processor and deliver it to the attack code",
+        "The boundary between the stack and the heap",
+        "A compiler-inserted check that detects stack overflows"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which storage approach for the access control matrix makes it easy to audit all permissions of a single user?",
-      "options": ["Access Control List (by column)", "Labels", "Capability List (by row)", "Groups"],
+      "question": "Which defence randomises the memory layout of each process to make ROP exploits harder?",
+      "options": [
+        "Stack canaries",
+        "Data Execution Prevention (DEP)",
+        "Address Space Layout Randomisation (ASLR)",
+        "Control Flow Integrity (CFI)"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What is the Clark-Wilson CR5 rule concerned with?",
-      "options": ["Logging all TP operations", "Authentication of users", "Sanitisation of UDIs into CDIs", "Separation of duty for certifiers"],
+      "question": "What type of vulnerability is 'use-after-free'?",
+      "options": [
+        "An input sanitisation failure allowing SQL injection",
+        "A race condition between two processes accessing a shared file",
+        "A type safety failure where freed memory is still referenced and can be replaced with malicious content",
+        "A covert channel exploiting CPU caches"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In Clark-Wilson, what is the role of an IVP?",
-      "options": ["Transform CDIs from one valid state to another", "Check that CDIs satisfy their integrity constraints", "Convert UDIs to CDIs", "Log all transaction procedures"],
+      "question": "What distinguishes a container from a virtual machine (VM)?",
+      "options": [
+        "A container has its own separate OS; a VM shares the host kernel",
+        "A VM has a complete OS isolated by a hypervisor; a container is an isolated process sharing the host kernel",
+        "Containers are always more secure than VMs",
+        "VMs are only used in cloud computing; containers are only for client machines"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to Clark-Wilson ER4, who may change the list of entities associated with a TP?",
-      "options": ["Any administrator", "Only the user associated with the TP", "Only the certifier of the TP", "Any user who can execute the TP"],
+      "question": "What is the primary security purpose of Intel SGX?",
+      "options": [
+        "To virtualise multiple OS instances on one CPU",
+        "To run trusted code in an encrypted memory enclave isolated even from root processes",
+        "To enforce the same-origin policy in web browsers",
+        "To implement ring-0 kernel isolation from user mode"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which defence does Return-Oriented Programming (ROP) specifically bypass?",
+      "options": [
+        "Stack canaries",
+        "ASLR",
+        "Data Execution Prevention (DEP)",
+        "Control Flow Integrity (CFI)"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which of the following is a problem specific to Role-Based Access Control?",
-      "options": ["No concept of ownership", "Role explosion due to fine-grained roles", "Cannot be used to implement MAC", "Does not support authentication"],
+      "question": "What is a TOCTTOU attack?",
+      "options": [
+        "An attack reading memory from an SGX enclave via cache timing",
+        "An attack where state is altered between an access check and the privileged operation it authorises",
+        "An attack that overwrites the stack return address with shellcode",
+        "An attack that injects SQL into a web form submission"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In ACID, what does 'Atomicity' mean?",
-      "options": ["Transactions execute in isolation", "All-or-nothing execution: commit or abort", "Data moves between valid states", "Committed data persists"],
+      "question": "In Bell-LaPadula, what is the *-property (star property)?",
+      "options": [
+        "No process may read data at a higher level than its clearance",
+        "No process may write data to a lower classification level than its current level",
+        "Security labels may never change during system operation",
+        "A process automatically acquires the labels of all data it reads"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which model is described as: 'Intuition = Transactions + Integrity security property'?",
-      "options": ["Bell LaPadula", "Biba", "Graham-Denning", "Clark-Wilson"],
-      "answer": 3
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the Biba Ring Policy, what is the 'ring invocation property'?",
-      "options": ["A subject may read from any level", "A principal can invoke a program with a higher integrity label that may write at higher levels", "Integrity labels are fixed for all subjects", "No write up is permitted"],
+      "question": "What threat primarily motivated Bell and LaPadula's *-property?",
+      "options": [
+        "SQL injection attacks against military databases",
+        "Trojan horse programs that could leak classified data to lower levels by writing it down",
+        "Covert channels via CPU cache timing",
+        "Physical theft of classified printouts by insiders"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What is the fundamental principle of sanitisation according to the lecture?",
-      "options": ["Remove all special characters from input", "Check that input does not contain prohibited strings like <script>", "Positively verify that low-integrity objects are within a valid set before elevating their integrity", "Reject all input from low-integrity subjects"],
+      "question": "What does the high water mark principle state in the Bell-LaPadula model?",
+      "options": [
+        "A process's clearance is set to the highest level it will ever need, at creation time",
+        "A process is automatically upgraded to the classification level of any data it reads",
+        "Labels only increase and can never decrease during system operation",
+        "Files default to the highest possible classification level by default"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is a covert channel?",
+      "options": [
+        "An encrypted tunnel between two different security classification levels",
+        "A mechanism not designed for communication that can be abused to signal information from High to Low",
+        "A trusted pipeline allowing controlled one-way information flow between levels",
+        "A hardware backdoor installed by a manufacturer during fabrication"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the cascade problem in MLS?",
+      "options": [
+        "Labels accumulating on processes until no principal can access them",
+        "Connecting two separately-secure MLS systems so that together they violate a span-limit policy",
+        "Malware copying itself upward through classification levels",
+        "The high water mark causing everything to be overclassified"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which security property is stronger: Bell-LaPadula or noninterference?",
+      "options": [
+        "Bell-LaPadula, because it uses a formal lattice of labels",
+        "Noninterference, because it ensures High's actions have no observable effect whatsoever on what Low can see",
+        "They are equivalent in strength",
+        "Nondeducibility, which strictly implies noninterference"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is polyinstantiation in MLS databases?",
+      "options": [
+        "Running the same process simultaneously at multiple classification levels",
+        "The problem where Low and High users both create a record with the same name, requiring either leaking information or allowing duplicate records",
+        "A process accumulating so many labels it becomes inaccessible",
+        "Two MLS systems connected in a way that violates the span-limit policy"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the Trusted Computing Base (TCB)?",
+      "options": [
+        "The set of users who have been vetted to Top Secret clearance",
+        "The hardware root of trust provided by the TPM chip on the motherboard",
+        "The set of components whose correct functioning is sufficient to ensure the security policy is enforced",
+        "The Orange Book's highest evaluation level (A1)"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Given labels U < C < S < TS and categories SIGINT, CRYPTO, NOFORN: does (S, {SIGINT, CRYPTO}) dominate (C, {CRYPTO})?",
-      "options": ["Yes, because S ≥ C and {CRYPTO} ⊆ {SIGINT, CRYPTO}", "No, because SIGINT is not in the lower level", "No, because S ≠ C", "Yes, but only if NOFORN is excluded"],
-      "answer": 0
+      "question": "Why has MILS (Multiple Independent Levels of Security) largely replaced classical MLS on a single machine?",
+      "options": [
+        "Because the DoD mandated MILS after the 9/11 intelligence failures",
+        "Because falling hardware costs and virtualisation make separate system-high machines connected by guards cheaper than solving MLS complexity on one machine",
+        "Because Linux kernels now enforce BLP natively, removing the need for MILS",
+        "Because covert channels were mathematically proven impossible in MILS architectures"
+      ],
+      "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "In the Bell LaPadula model, a subject is allowed to write to an object at a lower classification level.",
+      "question": "In Unix, setting a program as suid root means it runs with the invoking user's privileges.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "In the Biba model, a subject may read an object at a lower integrity level.",
+      "question": "Data Execution Prevention (DEP) is sufficient on its own to prevent Return-Oriented Programming (ROP) attacks.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "In the Biba Ring Policy, a subject may read an object at any integrity level.",
+      "question": "A virtual machine (VM) shares the host OS kernel with other VMs running on the same hypervisor.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Meltdown and Spectre are side-channel attacks that can allow one process to read the memory of another process.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Access Control Lists store the access control matrix by row (per subject).",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the Graham-Denning model, a subject can transfer a right r* on an object only if it has the owner right on that object.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Reference Monitor must be as large as possible to handle complex security decisions.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Role-Based Access Control can implement both MAC and DAC.",
+      "question": "The Bell-LaPadula *-property prevents Trojan horse programs from leaking classified data to lower classification levels.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "In Clark-Wilson, a certifier of a TP may also hold execute permission on that TP.",
+      "question": "Strong tranquility allows security labels to change as long as the change does not violate the stated security policy.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The Clark-Wilson model provides coarse-grained protection at the OS level, similar to Biba.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the Graham-Denning model, rule (8) — checking rights — does not change the state of the access control matrix.",
+      "question": "Noninterference guarantees that High's actions have no observable effect on what Low can see.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Sanitisation problems are the root cause of large classes of real-world vulnerabilities.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In Clark-Wilson, an append-only CDI is used as the audit log for TPs.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "A subject in Bell LaPadula can always operate at their maximum clearance level.",
+      "question": "The covert channel problem was first identified by Bell and LaPadula in their 1973 model.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The Confused Deputy Problem only affects systems where the deputy has fewer privileges than the caller.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the Graham-Denning model, r* indicates a transferable right.",
+      "question": "Under the high water mark principle, a process that reads a Secret file will thereafter create files labelled at least Secret.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Security levels in the Bell LaPadula model form a total order.",
+      "question": "SELinux was developed by Apple to protect iOS core system components from malware.",
       "answer": false
     },
     {
       "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain the Confused Deputy Problem and describe two possible solutions.",
-      "answer": "The Confused Deputy Problem occurs when a privileged program (the deputy) is tricked by a less-privileged caller into misusing its authority. For example, a server (Bob) with broad file access can be asked by a user (Alice) to read a file Bob can access but Alice cannot, bypassing access controls. Solutions include: (1) reimplementing access control inside the deputy's process so it re-checks the caller's actual permissions before acting, or (2) allowing the deputy to perform authorisation checks on behalf of the caller using their credentials."
+      "subtype": "true_false",
+      "question": "A data diode enforces strictly two-way information flow between security levels.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ASLR randomises the memory layout of each process, making it harder for attackers to predict target addresses for exploits.",
+      "answer": true
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why do Bell LaPadula and Biba conflict with each other, and what challenge does this create?",
-      "answer": "Bell LaPadula enforces confidentiality using 'Read Down / Write Up', while Biba enforces integrity using 'No Read Down / No Write Up'. These rules are complementary but contradictory: BLP's Write Up is Biba's No Write Up. A system cannot straightforwardly apply both simultaneously — providing both confidentiality and integrity requires more nuanced mechanisms or careful design trade-offs."
+      "question": "Why does the Unix suid mechanism create security problems, and how does this relate to the confused deputy problem?",
+      "answer": "suid reduces a 3-dimensional access control problem (user, program, file) to a 2-dimensional one, making it error-prone. Programmers often take shortcuts by setting programs suid root, giving them unrestricted access rather than carefully crafting minimal privileges. This creates a confused deputy situation: the suid program runs with the file owner's authority (e.g., root), but its behaviour can be influenced by the invoking user's environment (arguments, PATH, environment variables). A malicious user can manipulate this environment to exploit the elevated privilege \u2014 the deputy's own power is turned against the system. The canonical fix is ensuring '.' (current directory) is never in a privileged user's PATH."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are CDIs, UDIs, IVPs, and TPs in the Clark-Wilson model? Give a real-world example of each.",
-      "answer": "CDIs (Constrained Data Items) are objects subject to integrity controls, e.g. a bank account balance. UDIs (Unconstrained Data Items) are inputs not subject to integrity controls, e.g. a web form order. IVPs (Integrity Verification Procedures) check that CDIs satisfy constraints, e.g. verifying today's balance equals yesterday's balance plus deposits minus withdrawals. TPs (Transaction Procedures) move CDIs between valid states or convert UDIs to CDIs, e.g. a payment procedure that debits one account and credits another atomically."
+      "question": "Explain the difference between a VM and a container, and why containers may offer weaker security isolation.",
+      "answer": "A VM has a complete operating system insulated from the hardware by a hypervisor. A container is an isolated guest process sharing the host kernel with other containers; it virtualises only a subset of OS mechanisms (namespaces, PID spaces, IPC) and uses sandboxing/syscall filtering. Containers offer weaker isolation because a kernel vulnerability \u2014 for example, a TOCTTOU attack on a syscall wrapper \u2014 can escape the container. Additionally, Meltdown/Spectre-type side-channel attacks exploit shared CPU microarchitecture and can cross container boundaries, since all containers share the same CPU pipelines and caches."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why is 'simply checking that input does not contain <script>' an insufficient sanitisation strategy for web security?",
-      "answer": "Checking for exclusions (blacklisting) is inherently incomplete — attackers can bypass such checks using encoding, alternative representations, or other injection techniques not explicitly listed. The correct approach is positive validation: verifying that the input belongs to a known valid set (e.g. restricting to a defined Unicode subset or applying a strict transform), rather than trying to enumerate all possible harmful patterns."
+      "question": "What is Return-Oriented Programming (ROP) and why does it defeat Data Execution Prevention (DEP)?",
+      "answer": "ROP chains together 'gadgets' \u2014 short sequences of existing, legitimately-loaded instructions ending in a return \u2014 to implement arbitrary computation without injecting new code. DEP prevents the execution of memory marked as data, stopping traditional shellcode injection. But ROP only uses code already in executable memory (e.g., from libc or the main binary), so DEP has nothing new to block. The attacker only needs to control the call stack to chain gadgets. ASLR makes it harder to locate gadgets, and Control Flow Integrity (CFI) aims to restrict which control-flow transfers are valid at runtime."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Describe the Graham-Denning rule for granting versus transferring a right, and how delegation works.",
-      "answer": "Rule (5) — Grant: subject x may grant a right r (or r*) on object o to subject s if x owns o. Rule (6) — Transfer: subject x may transfer a right r (or r*) on object o to subject s if x already holds r* (a transferable version of that right) on o. Delegation is enabled by the r* notation: holding r* means you not only have the right r but also the ability to pass it (or r*) on to others. This allows rights to propagate in a controlled way without requiring object ownership."
+      "question": "What is the Bell-LaPadula *-property, what threat does it address, and what is the key criticism revealed by System Z?",
+      "answer": "The *-property (no write down / NWD) prevents any process from writing data to a classification level below its current level. It addresses Trojan horse attacks: without it, a trojan running at Secret could read classified data and write it down to Unclassified, leaking it. The System Z criticism (John McLean) showed that BLP rules alone are insufficient: an administrator could be allowed to temporarily declassify any file on request, enabling Low users to read High files without formally violating any BLP rule. This showed BLP needed an explicit tranquility property stating labels cannot be changed in ways that circumvent the policy."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What is the Clark-Wilson bank integrity constraint example, and which ACID property does it relate to?",
-      "answer": "The constraint is: TB = D + YB – W, where TB is today's balance, D is today's deposits, YB is yesterday's balance, and W is withdrawals. Well-formed TPs must always take the bank's data from a state satisfying this constraint to another state satisfying it. This relates to the ACID property of Consistency — transactions must move the database from one valid state to another."
+      "question": "Describe the covert channel problem in MLS, give a concrete modern example, and explain why it is hard to eliminate.",
+      "answer": "A covert channel is a mechanism not designed for communication that can be used to signal information from High to Low, bypassing BLP's no-write-down rule. Modern example: Spectre exploits speculative execution \u2014 a High process speculatively accesses memory it is not supposed to, loading data into CPU caches; a Low process measures cache access timing to infer the High data, achieving large bandwidth. Covert channels are hard to eliminate because they exploit any shared physical resource (CPU cache, memory bus, power consumption, clock frequency) \u2014 not only formal information-flow channels. Mitigations typically limit bandwidth (DoD target: 1 bit/second) or add noise, but cannot eliminate the channel without sacrificing performance-critical CPU optimisations."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the three problems with Role-Based Access Control (RBAC), and give a concrete example for each?",
-      "answer": "1. Role Explosion: the temptation to create overly fine-grained roles leads to an unmanageably large number of roles (e.g. creating a separate role for every combination of department and permission). 2. Limited Expressiveness: some access relationships are relative rather than absolute (e.g. 'Marie's doctor' rather than 'any doctor'), which RBAC cannot naturally express. 3. Separation of Duty: RBAC struggles to enforce constraints like 'any two distinct doctors must authorise a procedure', since there is no built-in mechanism to ensure the two doctors are different individuals."
+      "question": "What is environmental creep, using Unix as the main example, and what does it illustrate about security design?",
+      "answer": "Environmental creep occurs when a security model designed for a narrow, benign context is iteratively extended to broader, more hostile environments without fundamentally re-designing the protection mechanisms. Unix was designed for a small group of trusted, skilled lab users sharing one machine; its security mechanisms were primarily about containing mistakes. It was then extended \u2014 without redesign \u2014 to networked machines (Berkeley), to the Internet (SMTP, FTP, DNS), to cloud servers, and finally to billions of smartphones running apps from millions of potentially malicious authors. At each step, duct-tape mechanisms (Kerberos, TLS, SSH, SELinux) were retrofitted. This illustrates that threat models must be revisited as systems scale, and that retrofitting security is always more expensive and less effective than building it in from the start."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Compare Capability Lists and Access Control Lists as implementations of the access control matrix. What are the key trade-offs?",
-      "answer": "Capability Lists store the matrix by row (per subject/user). They are good for auditing all permissions of a user and can be stored with the user. However, they make revocation difficult (you must find and remove every capability across all users) and raise authenticity and transferability concerns. Access Control Lists store the matrix by column (per object/resource). They are stored close to the resource and make revocation easy (remove the entry from the object's list). However, auditing all rights of a specific user is difficult, as you must check every object's ACL."
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "In the context of the Clark-Wilson model, what is the Clark-Wilson exercise from the 2014 exam asking? Outline the key checks a TP should perform when converting a web user's string into a valid email address CDI.",
-      "answer": "The TP must validate that the UDI (user-provided string) satisfies all constraints for a valid email address before promoting it to a CDI. Checks should include: syntactic validation (correct format: local-part@domain), length constraints, allowed character sets (e.g. RFC-compliant characters only), domain validity (valid TLD, no illegal characters), and potentially verifying the email belongs to the user (e.g. via a confirmation message). The TP must reject any input that does not pass all checks — it must not simply filter out known-bad patterns (no blacklisting), but positively confirm the input is valid."
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Why is audit logging important in access control systems, and what are two practical challenges with implementing it?",
-      "answer": "Audit logs are important because attackers may remain inside a system for months before detection — logs help speed up detection of intrusions and enable real-time attack detection. They are also often legally required. Practical challenges include: (1) Where to log — in decentralised systems it is unclear where logs should be stored and how to ensure their integrity; (2) Size management — in large systems the volume of audit data can grow exponentially, making storage and analysis difficult."
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain the 'safety' problem in access control. Why is it important and what makes it hard to solve?",
-      "answer": "The safety problem asks: given a specific starting state of the access control matrix and a set of rules for assigning rights (like Graham-Denning), can we prove that a particular right (x, o, r) will never be granted in any reachable state? This is important because the access control matrix is a mechanism, not the policy itself — discretionary mechanisms allow owners to grant rights, and the chain of delegations may lead to unintended states. It is hard because the state space of reachable matrices can be very large or even infinite, making proofs of safety computationally challenging (in general, it is undecidable)."
+      "question": "What are the main practical problems with classical MLS systems, and why has MILS replaced them?",
+      "answer": "Key problems: (1) TCB bloat \u2014 applications requiring policy exceptions force more components into the TCB, making formal verification infeasible; (2) label explosion / overclassification \u2014 the high water mark causes objects to accumulate all labels seen, eventually making them inaccessible; (3) applications must be rewritten to handle real-time classification changes; (4) polyinstantiation creates hard database integrity problems; (5) covert channels can only be limited, not eliminated; (6) MLS administration requires specialised training; (7) proper declassification requires trusted subjects that BLP cannot formally bound. MILS replaces this with separate system-high machines at each level, connected by data diodes and mail guards at the network boundary. Falling hardware costs and virtualisation made running separate machines for each level cheaper than solving all MLS complexity on one machine."
     }
   ]
 }
