@@ -1,0 +1,965 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Authentication",
+      "back": "The process of verifying that principals are who they claim to be. Ensures entities entrusted with the role of principal are able to interact within the system."
+    },
+    {
+      "type": "flashcard",
+      "front": "Access Control",
+      "back": "Determining what principals should be allowed to do. Ensures that actions by a principal are within the security policy."
+    },
+    {
+      "type": "flashcard",
+      "front": "The three factors of authentication",
+      "back": "What you know (e.g. passwords), What you have (e.g. RFID card, cryptographic token), What you are (e.g. biometrics)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hash Function",
+      "back": "A cryptographic primitive that maps an input to a fixed-size output. It is deterministic and one-way. Good hash functions cause ~half of output bits to flip when a single input bit changes, and have no (or negligible) collisions."
+    },
+    {
+      "type": "flashcard",
+      "front": "One-Way Function",
+      "back": "A function f where given x, computing f(x) is easy, but given y, finding x such that f(x) = y is hard."
+    },
+    {
+      "type": "flashcard",
+      "front": "Password Salting",
+      "back": "Adding a unique random value (salt) to each password before hashing, stored alongside the hash. Prevents identical passwords from producing identical hashes and defeats precomputed rainbow table attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Password Stretching / Key Derivation Function (KDF)",
+      "back": "Using a deliberately slow hash function (KDF) instead of a fast one to make brute-force cracking more expensive for attackers. KDFs are used with salt because they are deterministic."
+    },
+    {
+      "type": "flashcard",
+      "front": "Key Derivation Function (KDF) — what makes it slow?",
+      "back": "KDFs can be made slow by: iterating more rounds, using a longer salt, and forcing usage of memory."
+    },
+    {
+      "type": "flashcard",
+      "front": "Federated Login",
+      "back": "Offloading authentication to a trusted third party (e.g. Apple, Facebook, Google) so the service does not need to store passwords at all."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rainbow Table",
+      "back": "A precomputed table of hash values for common passwords, used to reverse hash lookups quickly. An example of the classic time/space trade-off. Defeated by salting."
+    },
+    {
+      "type": "flashcard",
+      "front": "Online vs. Offline Password Attack",
+      "back": "Online: repeatedly attempting login via a live website. Offline: cracking passwords from a stolen hash dump (e.g. /etc/shadow) without interacting with the live service."
+    },
+    {
+      "type": "flashcard",
+      "front": "LanMan (Windows hash function)",
+      "back": "A legacy Windows password hashing scheme: max 14 characters, converted to uppercase and padded, first 7 chars hashed separately, second 7 chars hashed separately, then concatenated. Considered very weak."
+    },
+    {
+      "type": "flashcard",
+      "front": "/etc/passwd vs /etc/shadow (Linux)",
+      "back": "/etc/passwd: information about each user (home directory, groups, etc.). /etc/shadow: hashed passwords for each user, including salt, hashing algorithm, and validity info."
+    },
+    {
+      "type": "flashcard",
+      "front": "Three ways passwords fail",
+      "back": "1. Attacker steals them. 2. Attacker guesses them. 3. Attacker bypasses them."
+    },
+    {
+      "type": "flashcard",
+      "front": "Encrypted Password Manager",
+      "back": "A platform where users store all usernames/passwords, encrypted with a master password, accessible across devices. Security is reduced to the strength of the master password."
+    },
+    {
+      "type": "flashcard",
+      "front": "Challenge-Response Authentication",
+      "back": "A protocol where the verifier sends a random challenge (R_B); the claimant encrypts it with the shared key K_AB and returns the ciphertext; the verifier decrypts and checks it matches R_B."
+    },
+    {
+      "type": "flashcard",
+      "front": "Two-Way Challenge-Response",
+      "back": "Both parties authenticate each other by each issuing a random challenge and verifying the other's encrypted response. Requires more message round-trips but provides mutual authentication."
+    },
+    {
+      "type": "flashcard",
+      "front": "One-Time Password (OTP)",
+      "back": "A password valid for only one login session. Can be time-based (requires synchronisation) or math-based (e.g. hash chains). Protects against replay attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hash-Chain OTP scheme",
+      "back": "The server stores H^t(w). The client sends H^(t-1)(w). The server verifies by hashing the received value once and comparing to its stored value, then updates state. Each login uses one step up the chain."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multifactor Authentication (MFA)",
+      "back": "Combining two or more authentication factors (what you know, what you have, what you are) to increase security. Compromise of one factor alone is insufficient for access."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biometrics",
+      "back": "Authentication based on physical or behavioural characteristics: voice, fingerprint, iris, gait, DNA, veins, scent."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biometric Authentication — Phase 1: Enrolment",
+      "back": "Extract and discretise distinguishing features from the biometric (e.g. ridge patterns for fingerprints), then store the discretisation in a database."
+    },
+    {
+      "type": "flashcard",
+      "front": "Biometric Authentication — Phase 2: Authentication",
+      "back": "Re-discretise the individual's biometric at login time and compare it against all stored templates in the database."
+    },
+    {
+      "type": "flashcard",
+      "front": "CAPTCHA",
+      "back": "Completely Automated Public Turing test to tell Computers and Humans Apart. Used to verify that a user is human rather than an automated bot."
+    },
+    {
+      "type": "flashcard",
+      "front": "Graphical Password",
+      "back": "An authentication method where the user draws or selects a pattern (e.g. on a grid) rather than typing a text password. Falls under the 'what you know' factor."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why not encrypt passwords instead of hashing them?",
+      "back": "Encryption is reversible; anyone with the key can decrypt all passwords. Hash functions are one-way, so an attacker with the hash database still cannot trivially recover passwords. Encryption creates a single point of failure."
+    },
+    {
+      "type": "flashcard",
+      "front": "XKCD password insight",
+      "back": "Complex substitution-based passwords (e.g. Tr0ub4dor&3) have ~28 bits of entropy and are hard to remember but easy for computers to guess. Four random common words (e.g. 'correct horse battery staple') have ~44 bits of entropy, are hard to guess, and easy to remember."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security Protocol",
+      "back": "A set of rules specifying the steps that principals use to establish trust relationships. Security protocols are where cryptography and access controls meet; they link human users with remote machines, synchronise security contexts, and regulate key applications such as payment."
+    },
+    {
+      "type": "flashcard",
+      "front": "Nonce",
+      "back": "A 'number used once' that guarantees the freshness of a message. Can be a random number, counter, timestamp, or random challenge from a third party. Used to prevent replay attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Replay Attack",
+      "back": "An attack where an adversary records a valid protocol message and retransmits it later to gain unauthorised access. Defeated by including nonces or timestamps in messages."
+    },
+    {
+      "type": "flashcard",
+      "front": "Man-in-the-Middle (MitM) Attack",
+      "back": "An attack where an adversary intercepts communications between two parties, relaying or modifying messages to impersonate one or both parties. The adversary never needs to know the shared key."
+    },
+    {
+      "type": "flashcard",
+      "front": "Reflection Attack",
+      "back": "A variant of the man-in-the-middle attack where an adversary reflects a challenge back to the sender using a second session, in order to obtain a valid response without knowing the key. Prevented by including party names in the encrypted response."
+    },
+    {
+      "type": "flashcard",
+      "front": "Key Diversification",
+      "back": "Deriving a unique per-device key from a master key (e.g. KT = {T}KM). Limits the damage from a compromised device token to that single device, rather than the entire system."
+    },
+    {
+      "type": "flashcard",
+      "front": "Grabber (remote key entry attack)",
+      "back": "A device that records a radio code from a key fob and replays it later. Defeated the early static-code remote locking systems used in cars and garages in the 1990s."
+    },
+    {
+      "type": "flashcard",
+      "front": "Passive Keyless Entry (PKES) relay attack",
+      "back": "Thieves use two relay devices to amplify or relay the signal between a car and its key fob, tricking the car into unlocking without the owner's knowledge. Contributed to a 56% surge in UK vehicle thefts in 2017."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trust on First Use (TOFU) / Resurrecting Duckling",
+      "back": "A key management approach where a device imprints on the first key or entity it sees after powering up (like a duckling imprinting on its mother). Widely used in IoT. A reset button returns the device to a newborn state."
+    },
+    {
+      "type": "flashcard",
+      "front": "Needham-Schroeder Protocol",
+      "back": "A 1978 key distribution protocol using a trusted third party (Sam) and nonces to allow Alice and Bob to share a session key. A subtle flaw allows a compromised old session key to be replayed; later fixed by Kerberos using timestamps instead of nonces."
+    },
+    {
+      "type": "flashcard",
+      "front": "Kerberos",
+      "back": "A distributed access control system derived from Needham-Schroeder, using timestamps to fix the replay vulnerability. Uses two server types: authentication servers (for user logon) and ticket-granting servers (for resource access). Standard in Windows and Linux LANs."
+    },
+    {
+      "type": "flashcard",
+      "front": "OAuth",
+      "back": "A protocol for access delegation, allowing one website to authenticate a user via mechanisms provided by another (e.g. log into a newspaper with a Google account). Not originally designed for authentication. Issues authorisation tokens and is used as the basis for OpenID Connect."
+    },
+    {
+      "type": "flashcard",
+      "front": "OpenID Connect",
+      "back": "A profile of OAuth that pins down the specific details for the authentication use-case. Used when logging into a website with a Google or Facebook account."
+    },
+    {
+      "type": "flashcard",
+      "front": "BAN Logic (Burrows-Abadi-Needham logic)",
+      "back": "A formal logic for reasoning about what a principal might reasonably believe having seen certain protocol messages, timestamps, and nonces. Used to verify the correctness of security protocols. Does not catch all bugs, particularly in later-added features."
+    },
+    {
+      "type": "flashcard",
+      "front": "Protocol Robustness",
+      "back": "A design principle stating that the interpretation of a protocol should depend only on its content, not its context. Everything of importance (names, addresses, timestamps) must be stated explicitly in messages, and data must not be interpretable in more than one way."
+    },
+    {
+      "type": "flashcard",
+      "front": "SIM Swap Attack",
+      "back": "An attacker impersonates the target to their mobile phone company and obtains a replacement SIM card. This redirects SMS authentication codes to the attacker. Originated in South Africa in 2007 and spread globally. A major threat to SMS-based two-factor authentication."
+    },
+    {
+      "type": "flashcard",
+      "front": "Credential Stuffing",
+      "back": "When a system is hacked and passwords are cracked (or found unencrypted), they are systematically tried against other services to exploit users who reuse passwords across sites."
+    },
+    {
+      "type": "flashcard",
+      "front": "Throttling vs Lockout (password guessing defences)",
+      "back": "Lockout freezes an account after a fixed number of wrong guesses (e.g. 3 attempts) — but opens the service to denial-of-service attacks. Throttling slows down guess attempts without locking the account entirely. Most commercial websites prefer throttling."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Path",
+      "back": "A means of being sure that you are logging into a genuine machine through a channel that is not open to eavesdropping. In Windows, Ctrl-Alt-Del was the secure attention sequence guaranteeing a genuine password prompt. Removed in Windows 10."
+    },
+    {
+      "type": "flashcard",
+      "front": "ATM Skimmer",
+      "back": "A device placed on an ATM that copies magnetic card data from the card reader, combined with a camera to capture the customer's PIN. Used to clone cards and commit fraud."
+    },
+    {
+      "type": "flashcard",
+      "front": "Timing Attack (on password retry counters)",
+      "back": "An attack exploiting the fact that some systems check passwords character-by-character and reject early. The attacker measures how long rejection takes to determine correct characters one at a time, reducing the search space from A^N to A*N/2."
+    },
+    {
+      "type": "flashcard",
+      "front": "Password Entropy formula (DoD guideline)",
+      "back": "P = LR/S, where P is the probability of guessing a password in its lifetime, L is maximum password lifetime, R is login attempt rate, and S is the size of the password space."
+    },
+    {
+      "type": "flashcard",
+      "front": "Password Recovery via Security Questions — key weakness",
+      "back": "Security question answers are often guessable or public (e.g. a 19.7% success rate against 'Favourite food?' in English). 16% of people's answers are publicly available. 40% of English-speaking US users couldn't recall their answers when needed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Password Canaries",
+      "back": "Bogus encrypted password entries for real accounts planted in a password database. If a canary password is ever used to log in, it signals that the database has been compromised and cracked."
+    },
+    {
+      "type": "flashcard",
+      "front": "Chosen Protocol Attack / Mafia-in-the-Middle",
+      "back": "An attack where a malicious service tricks a victim into authenticating a transaction for a different service, by relaying the victim's authentication response. E.g. a porn site relays a coin dealer's transaction challenge to a victim, who inadvertently authenticates a purchase."
+    },
+    {
+      "type": "flashcard",
+      "front": "MIG-in-the-Middle Attack",
+      "back": "A real-world IFF (Identify Friend or Foe) relay attack: enemy aircraft relayed radar challenges from the defending side to friendly aircraft, obtained valid responses, and retransmitted them to pass as friendly. Illustrates how man-in-the-middle attacks work against challenge-response in real time."
+    },
+    {
+      "type": "flashcard",
+      "front": "IFF (Identify Friend or Foe)",
+      "back": "A military authentication system where radar sends challenges and friendly aircraft respond with correct encrypted answers. Vulnerable to relay attacks. Modern systems use 32-bit encrypted challenges, directionality, and time-of-flight measurements to resist replays."
+    },
+    {
+      "type": "flashcard",
+      "front": "HTTP Digest Authentication",
+      "back": "A web authentication scheme where the server sends a nonce to the client; the client responds with a hash of the nonce, the shared password, and the requested URI. Not vulnerable to password snooping but susceptible to man-in-the-middle attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Angela Sasse's insight on passwords",
+      "back": "It is hard to think of a worse authentication mechanism than passwords given what we know about human memory: people cannot remember infrequently-used or frequently-changed items, cannot forget on demand, find recall harder than recognition, and find non-meaningful words more difficult."
+    },
+    {
+      "type": "flashcard",
+      "front": "Forced Password Expiry — why it is counterproductive",
+      "back": "Over 40% of new passwords in a forced-expiry system can be guessed from the previous password. Users resort to predictable patterns (e.g. 'julia03' for March, 'julia04' for April). NIST recanted its recommendation for regular changes in 2017 and now recommends long passphrases changed only on compromise."
+    },
+    {
+      "type": "flashcard",
+      "front": "EFF Diceware passphrase",
+      "back": "The Electronic Frontier Foundation promotes using dice to pick words from a list of 7,776 words (6^5). A six-word phrase provides 77 bits of entropy and is memorable."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mirai Botnet",
+      "back": "A botnet that recruits IoT devices (e.g. Wi-Fi CCTV cameras) that have default passwords that cannot be changed. A classic example of the operational failure of not resetting default passwords."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary goal of authentication?",
+      "options": [
+        "Determining what actions a principal is allowed to perform",
+        "Verifying that principals are who they claim to be",
+        "Encrypting data in transit between principals",
+        "Logging all actions taken by a principal"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT one of the three factors of authentication?",
+      "options": [
+        "What you know",
+        "What you have",
+        "What you are",
+        "What you do"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is a hash function preferred over encryption for storing passwords?",
+      "options": [
+        "Hash functions are faster than encryption algorithms",
+        "Hash functions are reversible, making verification easier",
+        "Hash functions are one-way, so the stored value cannot be easily reversed to obtain the password",
+        "Hash functions produce shorter output, saving storage space"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What problem does password salting primarily solve?",
+      "options": [
+        "It makes passwords longer and harder to type",
+        "It prevents two users with the same password from having the same stored hash, defeating precomputed rainbow tables",
+        "It encrypts the password before transmission",
+        "It ensures passwords are changed regularly"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is a Key Derivation Function (KDF) designed to do?",
+      "options": [
+        "Generate encryption keys from random seeds very quickly",
+        "Produce a deliberately slow hash to make brute-force attacks more expensive",
+        "Store passwords in plaintext with an added key",
+        "Replace salting entirely"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the challenge-response protocol, what does the verifier (server) send to the claimant?",
+      "options": [
+        "The shared key K_AB",
+        "An encrypted copy of the claimant's username",
+        "A random nonce (challenge) R_B",
+        "A one-time password"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Linux file contains the hashed passwords for each user?",
+      "options": [
+        "/etc/passwd",
+        "/etc/shadow",
+        "/etc/users",
+        "/etc/auth"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is a rainbow table?",
+      "options": [
+        "A table of common usernames and their access rights",
+        "A precomputed mapping of hash values to passwords used to crack password hashes",
+        "A lookup table of encryption keys",
+        "A log of failed login attempts"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the lecture, which of the following is a characteristic of the LanMan hash?",
+      "options": [
+        "It supports passwords up to 32 characters",
+        "It hashes the full password as a single unit",
+        "It converts passwords to uppercase, splits into two 7-character halves, and hashes each separately",
+        "It uses bcrypt as the underlying hash function"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does multifactor authentication require?",
+      "options": [
+        "Using a password longer than 12 characters",
+        "Combining two or more distinct authentication factors",
+        "Changing your password every 30 days",
+        "Using biometrics only"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the hash-chain OTP scheme, what does the server initially store?",
+      "options": [
+        "The raw password w",
+        "H^1(w)",
+        "H^t(w) — the hash applied t times to the password",
+        "H^(t-1)(w)"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following best describes a federated login?",
+      "options": [
+        "A login that uses a graphical password",
+        "Offloading authentication to a trusted third party such as Google or Apple",
+        "A login requiring two separate passwords",
+        "A login system that stores passwords in plaintext"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the XKCD analysis, approximately how many bits of entropy does a four-random-common-words passphrase provide?",
+      "options": [
+        "~28 bits",
+        "~36 bits",
+        "~44 bits",
+        "~56 bits"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does the simplified two-way challenge-response variant ('Why not do this?') fail?",
+      "options": [
+        "The shared key is too short",
+        "An attacker can initiate a second session to obtain the encryption of any challenge they need, effectively impersonating the original party",
+        "The protocol requires three round trips instead of two",
+        "Hash functions cannot be used inside encryption"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to Anderson's textbook, what percentage of users in one UK bank study never shielded their PIN at an ATM?",
+      "options": [
+        "5%",
+        "10%",
+        "20%",
+        "35%"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Anderson textbook study of three student groups and password choice, which group performed best at resisting the 'Crack' password-cracking software?",
+      "options": [
+        "The red (control) group given standard advice",
+        "Both the green (passphrase mnemonic) group and the yellow (random character) group equally",
+        "The yellow (random character) group only",
+        "The green (passphrase mnemonic) group only"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What percentage of the control (red) group's passwords could be guessed by the 'Crack' software in Anderson's student study?",
+      "options": [
+        "About 10%",
+        "About 20%",
+        "About 30%",
+        "About 50%"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the Anderson textbook, what did Google research find about SMS-based second-factor authentication?",
+      "options": [
+        "It stops all bulk phishing and 99% of targeted attacks",
+        "It stops all bulk guessing by bots, 96% of bulk phishing, and 76% of targeted attacks",
+        "It is no more effective than a password alone",
+        "It stops 50% of bulk phishing attacks but none of the targeted ones"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following correctly describes a reflection attack in a two-party challenge-response protocol?",
+      "options": [
+        "The attacker modifies the encrypted challenge before forwarding it",
+        "The attacker opens a second session and uses the challenge from the first session as their own challenge to obtain a valid response to pass back",
+        "The attacker replays an old recorded challenge",
+        "The attacker sends a timestamp instead of a nonce to confuse the verifier"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is key diversification in the context of garage or car access tokens?",
+      "options": [
+        "Using a different encryption algorithm for each user",
+        "Deriving each device's key from a global master key by encrypting the device's serial number",
+        "Generating a new session key for every access attempt",
+        "Splitting the master key across multiple servers"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the primary flaw in the Needham-Schroeder protocol that Kerberos later fixed?",
+      "options": [
+        "It used weak encryption algorithms",
+        "Bob could not verify that the session key he received was fresh, allowing old compromised keys to be replayed",
+        "It required both parties to share the same secret in advance",
+        "It lacked any nonce and was therefore trivially replayable"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Kerberos, what new vulnerability does the use of timestamps (rather than nonces) introduce?",
+      "options": [
+        "Timestamps can be guessed by an attacker",
+        "If client and server clocks drift out of sync, authentication fails — and clocks could be deliberately desynchronised as part of an attack",
+        "Timestamps expose the user's timezone, reducing anonymity",
+        "Timestamps require more network round-trips than nonces"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the 'resurrecting duckling' model of key management?",
+      "options": [
+        "Storing a backup key in a second hardware module in case the primary fails",
+        "A device imprints on the first key it receives after powering up, just as a duckling imprints on the first moving thing it sees",
+        "Deriving a new key from an old key on every session",
+        "A protocol for transferring keys securely between two trusted servers"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the root cause of the Volkswagen group car key vulnerability discovered by researchers from Birmingham and Nijmegen?",
+      "options": [
+        "The cipher used only 8-bit keys",
+        "The same global master key was shared across millions of cars without per-device key diversification",
+        "The key fob used a static serial number as the password",
+        "The key exchange used an unencrypted plaintext channel"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What problem does the Mafia-in-the-middle (chosen protocol) attack exploit?",
+      "options": [
+        "Weak encryption in the underlying cipher",
+        "Users reusing the same cryptographic keys or authentication mechanisms across different applications",
+        "The server not checking certificate expiry",
+        "An absence of nonces in the authentication exchange"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the Anderson textbook, what happened to car theft rates in the UK in 2017 following widespread adoption of passive keyless entry?",
+      "options": [
+        "Car thefts fell by 20% due to improved cryptography",
+        "Car thefts remained unchanged",
+        "Car thefts surged by 56%, followed by a further 9% in 2018",
+        "Car thefts increased by around 10%"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the DoD password probability formula P = LR/S, what does S represent?",
+      "options": [
+        "The salt length in bytes",
+        "The size of the password space",
+        "The speed of hashing in operations per second",
+        "The number of login sessions per day"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to Anderson, what was the most effective fix for the 2013 US Social Security Administration fraud of redirecting pensioners' payments to different bank accounts?",
+      "options": [
+        "Requiring biometric authentication for all account changes",
+        "Always notifying beneficiaries of account changes by postal mail",
+        "Introducing SMS-based two-factor authentication",
+        "Requiring callers to answer three security questions"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to Anderson, what approach does GCHQ recommend for rejecting obviously weak passwords?",
+      "options": [
+        "Requiring passwords to have at least one uppercase letter, one number, and one symbol",
+        "Using a 'bad password list' of the 100,000 passwords most commonly found in online password dumps",
+        "Forcing all passwords to be at least 20 characters long",
+        "Mandating use of a hardware token alongside every password"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A hash function is a two-way function, meaning the original input can be recovered from the output.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Storing passwords as plain hashes (without salt) is vulnerable to rainbow table attacks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Key Derivation Functions (KDFs) are optimised for speed, just like standard hash functions.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An offline password attack involves repeatedly attempting to log in through a live website.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A rainbow table attack can be effectively mitigated by salting passwords before hashing.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Authentication and access control are the same concept.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Biometric authentication requires an enrolment phase to capture and store a discretised representation of the biometric.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Using encryption rather than hashing is preferable for password storage because it allows password recovery.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "CAPTCHA stands for Completely Automated Public Turing test to tell Computers and Humans Apart.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the hash-chain OTP scheme, the client sends H^t(w) to authenticate (the same value stored on the server).",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Password managers reduce the security of all stored passwords to the security of the master password.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A good hash function should produce the same output whether the input is 1 byte or 1 megabyte.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The LanMan hash treats the full 14-character password as a single unit when hashing.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "RFID cards and cryptographic tokens are examples of 'what you have' authentication factors.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The lecture states that graphical passwords fall under the 'what you are' authentication category.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "One-time passwords are resistant to replay attacks because each password is only valid for a single session.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Security questions are generally considered a strong form of authentication because the answers are private.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Forcing users to change their passwords every month is now recommended by NIST as a best practice.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A nonce must always be a random number in order to guarantee message freshness.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a reflection attack, the adversary must know the shared secret key to forge a valid response.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Needham-Schroeder protocol uses timestamps rather than nonces to prevent replay attacks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Kerberos uses a trusted third party, meaning a server such as law enforcement with a warrant could potentially access session keys.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Key diversification ensures that compromising one device's key also compromises all other devices on the system.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The EFF Diceware method provides a six-word passphrase with approximately 77 bits of entropy.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Applying BAN logic to verify a protocol guarantees that no security bugs will ever be found in that protocol.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Static serial-number passwords (as used in early garage door openers) are vulnerable to grabber relay attacks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A SIM swap attack requires the attacker to physically steal the victim's phone.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Account lockout after failed password attempts is always the safest response because it prevents all further guessing.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the timing attack on the TENEX operating system, checking a password of N characters from an alphabet of A characters was reduced from A^N/2 guesses on average to A*N/2 guesses.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Mafia-in-the-middle attack requires the attacker to break the underlying encryption.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Using the same cryptographic key across multiple unrelated applications is generally safe as long as the cipher is strong.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between authentication and access control.",
+      "answer": "Authentication verifies the identity of principals — it answers the question 'Are you who you claim to be?'. Access control determines what authenticated principals are permitted to do — it answers 'What are you allowed to do?'. Authentication must happen before access control decisions can be made."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why do users tend to undermine strict password policies, and what are common workarounds they use?",
+      "answer": "Users find complex password requirements burdensome. When forced to use different, long, random passwords with letters, numbers, and symbols, and to change them regularly, they respond by reusing the same password across sites, appending simple suffixes like '1234' or '1!', writing passwords down, using predictable seasonal words like 'spring' or 'june', or simply resetting their password each time they forget it."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe how the basic (one-way) challenge-response authentication protocol works.",
+      "answer": "The claimant declares their identity (e.g. 'I'm Alice'). The verifier generates a random nonce R_B and sends it as a challenge. The claimant encrypts R_B with the shared secret key K_AB and returns the ciphertext Enc(K_AB, R_B). The verifier decrypts the ciphertext and checks whether the result equals R_B. If it does, the claimant has proven knowledge of K_AB and is authenticated."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What vulnerability exists in the optimised two-way challenge-response protocol where both R_A and R_B are sent in the first message, and how can it be exploited?",
+      "answer": "The attacker starts a session with the server, sending 'I'm Alice' along with their own random R_A and receiving the server's R_B and C_B = Enc(K_AB, R_A). The attacker then opens a second session, claiming to be Alice and using R_B (the challenge from the first session) as their R_A. The server responds with Enc(K_AB, R_B), which is exactly the response the attacker needs to complete the first session. The attacker never needs to know K_AB, yet successfully impersonates Alice."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the pros and cons of using a password manager.",
+      "answer": "Pros: Simple and easy to use, backwards compatible with existing systems, and provides reasonable protection against shoulder-surfing since the user only types the master password. Cons: If the master password is lost or compromised, all stored passwords are at risk. Some managers involve a trusted third party, creating a single point of failure. The security of each individual stored password is only as strong as how it was originally created."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the two phases of biometric authentication.",
+      "answer": "Phase 1 (Enrolment): Distinguishing features are extracted from the individual's biometric (e.g. ridge and furrow patterns for fingerprints, frequency and harmonic structure for voice). These features are discretised and the result is stored in a database. Phase 2 (Authentication): When the individual attempts to log in, their biometric is re-captured and re-discretised. The resulting template is compared against all entries stored in the database to find a sufficient match."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "List and briefly explain five defences that can be used to thwart password attackers.",
+      "answer": "1. Rate limiting: restricts how many guesses an attacker can make in a given time window. 2. Forcing stronger passwords: requires longer, more complex passwords to increase the search space. 3. Multi-factor authentication: requires an additional factor so a stolen password alone is insufficient. 4. Hashing and salting: prevents direct password recovery and defeats rainbow table attacks. 5. Key stretching (KDFs): makes each hash computation slow, reducing the speed of brute-force offline attacks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does the lecture argue that we are currently 'stuck with passwords' despite their weaknesses?",
+      "answer": "Passwords are deeply entrenched in existing policies and infrastructure, making them 'sticky' and hard to change. They are conceptually simpler than alternatives (biometrics, tokens, cryptographic protocols), which makes them easier to implement, explain, and use. Many of the real-world problems with passwords (breaches, reuse) fall on companies rather than individual users, reducing individuals' motivation to switch. The inertia of established habits and the difficulty of retraining users compounds the problem."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the intuitive (but incorrect) definition of a one-way function, and what is the correct definition?",
+      "answer": "The intuitive but wrong definition is: given f(x), finding x is hard. This is wrong because it doesn't account for the fact that the same x might yield the same f(x). The correct definition is: given an output y, it is computationally hard to find any x such that f(x) = y. The distinction is important — the correct definition allows for the possibility that multiple x values map to the same y, but finding any one of them must still be hard."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the advantages of using a passphrase of four random common words over a complex substitution-based password like 'Tr0ub4dor&3'?",
+      "answer": "A four-word passphrase (e.g. 'correct horse battery staple') provides approximately 44 bits of entropy compared to roughly 28 bits for a typical complex substitution password. The passphrase is significantly harder for computers to guess because the search space is much larger, yet it is easier for humans to memorise because it forms a mental image or story. The XKCD conclusion is that traditional complexity requirements have trained users to create passwords that are simultaneously hard to remember and easier for machines to crack."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What makes brain wallet passwords (Bitcoin private keys derived from passphrases) insecure?",
+      "answer": "Brain wallets use SHA256(passphrase) as the private key, meaning security depends entirely on the passphrase's entropy. If the passphrase is a common word, phrase, or any string found in a dictionary or rainbow table, attackers can systematically compute SHA256 of billions of candidates and check whether the resulting address holds funds. Research found 2,005 distinct brain wallets were cracked, with 1,959 passwords/passphrases identified and over 3,000 BTC drained — demonstrating that human-chosen passphrases are far too predictable."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are security questions considered a weak form of authentication?",
+      "answer": "Security question answers are often guessable or discoverable. Questions like 'What is your pet's name?' or 'What city were you born in?' have small answer spaces, and the answers may be publicly available (e.g. on social media). Unlike passwords, users cannot easily change the facts behind security questions (e.g. mother's maiden name), and many people share the same answers to common questions. They also cannot be salted or stretched effectively because they must be human-memorable and exact."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why do developers and users each have reasons to prefer passwords over alternatives?",
+      "answer": "Developers prefer passwords because they are easy to understand, straightforward to implement, simple to explain to management, and cheap to deploy. Users prefer them because most people already have a personal system for managing passwords, they are cheap to use, easy to reset or revoke (nothing physical to lose), and retraining users on new systems is difficult. Additionally, most of the risk from password failures is borne by companies rather than individuals, reducing users' personal incentive to switch."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the MIG-in-the-middle attack and what general class of attack it illustrates.",
+      "answer": "In a Cold War-era conflict, Cuban MIG aircraft loitered near South African air defences. When SAAF bombers flew a raid, the MIGs relayed the IFF (Identify Friend or Foe) challenges sent by South African radar to Angolan batteries, which retransmitted them at SAAF bombers and relayed back the valid responses to the MIGs. The MIGs passed through enemy air defences undetected by presenting correct responses they had never computed themselves. This illustrates the man-in-the-middle (relay) attack: the adversary does not need to know the shared secret; they only need to relay challenges and responses in real time between the two legitimate parties."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does a reflection attack work, and what is the standard countermeasure?",
+      "answer": "In a reflection attack, an adversary facing a challenge N opens a second parallel session with the same verifier and presents N as their own challenge. The verifier responds with the valid encrypted answer {N}K. The adversary now uses this response to answer the original challenge in the first session, successfully authenticating without knowing the key K. The standard countermeasure is to include the names of both parties in the encrypted response — for example, the challenged party replies with {B, N}K rather than {N}K alone — so that a reflected response from a third party can be detected as coming from the wrong principal."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the Kerberos authentication protocol and explain how it improves upon the basic Needham-Schroeder protocol.",
+      "answer": "Kerberos uses a two-server model: an authentication server (AS) where users log on with a password, and a ticket-granting server (TGS) which issues tickets for specific resources. The client authenticates to the AS, obtains a session key KAS, then contacts the TGS to get a timestamped ticket for resource B. The resource verifies the ticket and confirms liveness by returning an incremented timestamp. Compared to Needham-Schroeder, Kerberos uses timestamps rather than random nonces in tickets, which prevents Bob from accepting stale cached session keys — fixing the key freshness flaw. The trade-off is that clocks must remain synchronised, and deliberate desynchronisation becomes a new attack surface."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the 'resurrecting duckling' model of key management, and in what contexts is it used?",
+      "answer": "The resurrecting duckling model (also called Trust on First Use, or TOFU) is inspired by the imprinting behaviour of ducklings: a device bonds to the first key or entity it encounters after powering up or being reset, just as a duckling imprints on the first moving thing it sees. If false imprinting occurs, a reset button returns the device to a newborn state so it can imprint correctly. This approach is used in IoT devices such as digital tachographs, Homeplug AV home network extenders, and pairing medical devices, where manual key configuration is impractical."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why enforcing monthly password changes is now considered counterproductive, and what NIST now recommends instead.",
+      "answer": "Research by Zhang, Monrose and Reiter found that over 40% of passwords in a forced-expiry system can be guessed from the user's previous password, as users make predictable transformations (e.g. incrementing a month suffix or capitalising a letter). Forced changes do not help users who already chose weak passwords, and the cognitive effort of frequent changes may actually degrade password quality. NIST revised its guidelines in 2017 and now recommends long passphrases that are only changed when a compromise is known or suspected, rather than on a fixed schedule."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the main arguments for and against using SMS codes as a second authentication factor, according to Anderson?",
+      "answer": "Arguments for: SMS codes stop all bulk automated password guessing, 96% of bulk phishing, and 76% of targeted attacks. They are familiar, require no special hardware, and are easy to deploy. Arguments against: They depend on phone companies carefully controlling SIM card issuance. SIM swap attacks — where an attacker impersonates the victim to the phone company and gets a replacement SIM — redirect all codes to the attacker. The SS7 signalling protocol can also be exploited to remotely intercept SMS messages. Using an authenticator app rather than SMS improves the phishing resistance figures to 99% for bulk phishing and 90% for targeted attacks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the chosen protocol (Mafia-in-the-middle) attack and the lesson it teaches about key reuse across applications.",
+      "answer": "In the Mafia-in-the-middle attack, a malicious service (e.g. a fraudulent porn site) waits for a victim to visit, simultaneously opens a transaction with a legitimate merchant (e.g. a coin dealer), and relays the merchant's authentication challenge to the victim, who unwittingly signs it as a 'proof of age'. The signed response is returned to the merchant, completing a purchase the victim never intended to make. The lesson is that using the same cryptographic key or authentication token across multiple unrelated applications is dangerous: each additional application becomes a potential channel through which an adversary can obtain valid signatures or authentications for transactions in another application. Keys should be bound to specific, well-defined purposes."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What two questions must be asked when evaluating a security protocol, according to the Anderson textbook?",
+      "answer": "First, is the threat model realistic? (i.e., do the assumptions underlying the protocol actually hold in the environment where it will be deployed?) Second, does the protocol deal with the threats in the model? (i.e., given the stated threat model, does the protocol's design actually prevent those threats?) Both questions must be answered affirmatively for the protocol to be considered sound in practice."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How did the change from magnetic-strip cards to smartcards in Europe create a new fraud vector, and why did the problem take so long to appear?",
+      "answer": "When European banks switched to chip-and-PIN smartcards in the mid-2000s, the security assumptions changed: the magnetic strip on the new cards still contained clear security data that could be read by a compromised card reader, even though the PIN was encrypted. Criminals wiretapped filling-station card readers, stole both the magnetic-strip data and the PIN (via CCTV), and used cloned magnetic-strip cards in US ATMs that still used magnetic-strip technology. The problem persisted because the environmental changes — adding authentication data to the magnetic strip, and extending card use from trusted ATMs to untrusted retail terminals — happened gradually over a decade, so the industry did not notice the cumulative erosion of its original security assumptions."
+    }
+  ]
+}
