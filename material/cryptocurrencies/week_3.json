@@ -77,7 +77,7 @@
     {"type":"quiz","subtype":"true_false","question":"In a soft fork, nodes that do not upgrade will reject all blocks produced by upgraded nodes.","answer":false},
     {"type":"quiz","subtype":"true_false","question":"A hard fork always results in a permanent split into two currencies.","answer":false},
     {"type":"quiz","subtype":"true_false","question":"Litecoin successfully prevented ASIC mining from ever developing for its scrypt algorithm.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"In Ethereum PoS, a validator requires staking exactly 32 ETH — staking more ETH does not change their rewards.","answer":false},
+    {"type":"quiz","subtype":"true_false","question":"In Ethereum PoS, a validator requires staking exactly 32 ETH — staking more ETH does not change their rewards.","answer":true},
     {"type":"quiz","subtype":"true_false","question":"Selfish mining requires more than 51% of hash power to be profitable.","answer":false},
     {"type":"quiz","subtype":"true_false","question":"In a Sybil attack, the attacker's goal is to gain disproportionate influence by creating many fake identities.","answer":true},
     {"type":"quiz","subtype":"true_false","question":"Bitcoin's difficulty target is recalibrated every 2,016 blocks to maintain a 10-minute average block time.","answer":true},
