@@ -138,7 +138,7 @@
     {
       "type": "flashcard",
       "front": "Gas in Ethereum",
-      "back": "A unit measuring computational work. Every EVM opcode has a gas cost (e.g. ADD=3, MOD=5, KECCAK=30, CREATE=40). Total fee = consumed gas × gas price. If execution exceeds the gas limit, the transaction is reverted but the miner keeps the consumed gas fee."
+      "back": "A unit measuring computational work in the EVM. Each opcode has a gas cost, but this is not the same as the market gas price. Examples: ADD = 3 gas, MOD = 5 gas, KECCAK256 = 30 + 6 gas per 32-byte word plus memory expansion, CREATE = 32,000 gas plus related memory/code costs. Transaction fee = gas used × effective gas price. Since EIP-1559, effective gas price is roughly base fee + priority fee, capped by maxFeePerGas. The base fee is burned, while the validator keeps the priority fee. If execution runs out of gas, state changes are reverted, but gas spent is not refunded."
     },
     {
       "type": "flashcard",
@@ -394,7 +394,7 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What EVM opcode costs 40 gas and is used to deploy a new contract from within a contract?",
+      "question": "What EVM opcode costs 32'000 gas and is used to deploy a new contract from within a contract?",
       "options": [
         "0x20 KECCAK",
         "0x01 ADD",
