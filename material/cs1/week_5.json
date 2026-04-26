@@ -1,0 +1,895 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Tamper Resistant",
+      "back": "A security strategy that physically prevents tampering with a device or object — e.g., a locked chest that makes it hard to access the contents."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tamper Evident",
+      "back": "A security strategy that does not prevent tampering but makes it visible that tampering has occurred — e.g., a holographic seal that breaks and cannot be replaced."
+    },
+    {
+      "type": "flashcard",
+      "front": "SBOM (Software Bill of Materials)",
+      "back": "A dynamically produced list of component parts and software dependencies of a software package, verified via cryptographic signature. Provides transparency and enables faster response to known exploits."
+    },
+    {
+      "type": "flashcard",
+      "front": "Reproducible Builds",
+      "back": "An exact specification of the build environment for software, combined with distributed hashes to verify sameness — allowing anyone to confirm they compiled the correct code."
+    },
+    {
+      "type": "flashcard",
+      "front": "TOFU (Trust On First Use)",
+      "back": "A security model where a system trusts a key or certificate the first time it is seen. Vulnerable to man-in-the-middle attacks at that first contact."
+    },
+    {
+      "type": "flashcard",
+      "front": "Code Signing",
+      "back": "The practice of digitally signing software to validate it was delivered from the correct manufacturer. Used by Apple and Windows to prevent unsigned or tampered software from running."
+    },
+    {
+      "type": "flashcard",
+      "front": "Reference Monitor",
+      "back": "A conceptual security mechanism that mediates all accesses to protected resources. Must be tamper-proof and ensure complete mediation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Complete Mediation",
+      "back": "A security principle requiring that every access to every resource is checked against the access control policy — no access bypasses the reference monitor."
+    },
+    {
+      "type": "flashcard",
+      "front": "MULTICS",
+      "back": "A 1970s operating system whose architecture inspired the concepts of Rings, Segments, and Gates for hardware-enforced security — mechanisms later available in the x86 processor family."
+    },
+    {
+      "type": "flashcard",
+      "front": "Protection Rings",
+      "back": "Concentric privilege levels in a CPU architecture. Ring 0 (Kernel) is most privileged; Ring 3 (Applications) is least privileged. Inner rings can access resources outer rings cannot."
+    },
+    {
+      "type": "flashcard",
+      "front": "Virtual Memory",
+      "back": "A CPU feature that provides each user process with the illusion of its own linear address space. 'Under the hood', chunks are mapped to physical memory or disk via page directories and tables."
+    },
+    {
+      "type": "flashcard",
+      "front": "TLB (Translation Lookaside Buffer)",
+      "back": "A hardware cache for page table entries that makes virtual-to-physical address translation very fast, enabling rapid hardware-level memory access control checks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Superuser Mode (Ring 0 / Supervisor Mode)",
+      "back": "A CPU execution mode that allows access to all memory pages, including supervisor-level pages. The page table base can only be changed in this mode."
+    },
+    {
+      "type": "flashcard",
+      "front": "XD Flag (Execute Disable)",
+      "back": "A flag in page descriptor entries that prevents code execution from a memory page. Protects against code injection attacks on the stack or heap."
+    },
+    {
+      "type": "flashcard",
+      "front": "Cold Boot Attack",
+      "back": "An attack that exploits the fact that RAM contents are not immediately lost after power-off. An attacker can dump memory (including cryptographic keys) by keeping the RAM cold and booting into a different OS."
+    },
+    {
+      "type": "flashcard",
+      "front": "DMA (Direct Memory Access)",
+      "back": "A mechanism allowing hardware devices (e.g., disk controllers, GPUs, network cards) to read/write directly to memory without involving the CPU. The CPU initiates the transfer, does other work, and is interrupted when done."
+    },
+    {
+      "type": "flashcard",
+      "front": "SMM (System Management Mode)",
+      "back": "A special x86 CPU mode triggered by a hardware interrupt that executes predetermined BIOS code. It is transparent to all other processes including Ring 0, and has access to all physical memory."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rowhammer Attack",
+      "back": "A hardware attack that exploits the tiny probability that writing to one memory bank interferes with data in neighbouring banks. Demonstrates that even perfect software policies cannot guarantee security if hardware is insecure."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Path (In)",
+      "back": "A mechanism ensuring the user is communicating directly with the OS and not a fake program. Example: Windows uses Ctrl-Alt-Del to guarantee control of I/O is handed to the Windows kernel before entering credentials."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Path (Out)",
+      "back": "A mechanism ensuring the OS can display sensitive information to the user without another process intercepting or masking it. Example: Windows UAC preventing a rogue app from hijacking the screen buffer."
+    },
+    {
+      "type": "flashcard",
+      "front": "HSM (Hardware Security Module)",
+      "back": "A dedicated hardware device (often in a metal enclosure) that provides encryption hardware and secure memory. Used to protect cryptographic keys and perform sensitive cryptographic operations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Evil Maid Attack",
+      "back": "An attack where an adversary with brief, undetected physical access to a device (e.g., a hardware wallet) installs malicious firmware or hardware modifications without leaving obvious traces."
+    },
+    {
+      "type": "flashcard",
+      "front": "Supply Chain Attack",
+      "back": "An attack targeting the manufacturing, shipping, or distribution process of hardware or software to introduce malicious components (e.g., tweaked RNGs, pre-installed firmware malware) before the product reaches the end user."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rice's Theorem",
+      "back": "States that for any non-trivial property of partial functions, there is no general and effective method to decide whether an algorithm computes a function with that property. This means you cannot fully verify in advance that a program is 'safe'."
+    },
+    {
+      "type": "flashcard",
+      "front": "Page Fault",
+      "back": "An event handled by Ring 0 when a process accesses a virtual memory page not currently in physical RAM. The OS retrieves the page from disk, enabling more memory to be simulated than physically exists."
+    },
+    {
+      "type": "flashcard",
+      "front": "Side Channel Attack",
+      "back": "An attack that extracts secrets from a device by analysing physical emissions or behaviour (e.g., power consumption, timing, electromagnetic radiation) rather than breaking the cryptographic algorithm directly."
+    },
+    {
+      "type": "flashcard",
+      "front": "Adware",
+      "back": "A type of counterfeit or malicious software that displays unwanted advertisements to the user. Distinct from malware in that it typically does not directly damage the system."
+    },
+    {
+      "type": "flashcard",
+      "front": "Memory Remanence",
+      "back": "The phenomenon where computer memory (SRAM, DRAM, Flash, EEPROM) retains traces of previously stored data after power is removed or data is 'erased'. At low temperatures, remanence can persist for minutes, enabling cold boot attacks and key extraction from HSMs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Potting (HSM)",
+      "back": "The process of embedding an HSM's core components in a solid block of hard, opaque material such as epoxy. Any physical attack (drilling, cutting) is intended to be detectable and likely to destroy the keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tamper-Sensing Membrane / Barrier",
+      "back": "A conductive mesh or pattern of conducting ink embedded around an HSM's core. Any penetration breaks a conducting path, triggering key erasure. High-end versions (e.g. IBM 4758) use overlapping zig-zag patterns doped into a urethane sheet."
+    },
+    {
+      "type": "flashcard",
+      "front": "Differential Power Analysis (DPA)",
+      "back": "A non-invasive side-channel attack announced by Paul Kocher in 1998. By measuring the current drawn by a crypto chip across many operations and applying statistical signal processing, an attacker can extract secret keys. All smartcards on the market in 1998 were highly vulnerable."
+    },
+    {
+      "type": "flashcard",
+      "front": "Memory Linearization Attack",
+      "back": "A fault induction attack where the chip's instruction decoder is damaged (e.g. by a grounded microprobe on the control line) so that jumps and calls are disabled. The CPU then executes memory contents sequentially, allowing the full memory to be read off the bus."
+    },
+    {
+      "type": "flashcard",
+      "front": "FIB (Focused Ion Beam) Workstation",
+      "back": "A device similar to a scanning electron microscope but using an ion beam. At different currents it acts as a precision microscope or milling machine with sub-10nm resolution. Used to bypass tamper-sensing meshes by cutting and rewiring conductors with a few-tens-of-nanometer precision."
+    },
+    {
+      "type": "flashcard",
+      "front": "PUF (Physical Unclonable Function)",
+      "back": "A mechanism that generates a unique identifier from natural manufacturing variations in a chip (e.g. SRAM power-up state, ring oscillator timing). Hard to clone because the variation is an uncontrolled by-product of fabrication. Used as a hardware root of identity or to encrypt stored keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "Glue Logic",
+      "back": "A randomised place-and-route chip layout that makes it extremely difficult to identify functional blocks (bus lines, CPU, instruction decoder) by visual or microscopic inspection. Used as a defence against probing and reverse engineering."
+    },
+    {
+      "type": "flashcard",
+      "front": "Semi-Invasive Analysis",
+      "back": "An attack technique (developed by Sergei Skorobogatov) between invasive and non-invasive attacks. It removes the epoxy encapsulation but does not break the passivation layer. Includes optical techniques such as laser fault induction and optical memory read-out."
+    },
+    {
+      "type": "flashcard",
+      "front": "Optical Fault Induction (OFI)",
+      "back": "A technique using a focused laser to inject precisely targeted, controlled faults into individual transistors of a chip. Can cause single-event upsets in memory or flip protection-state flip-flops. Has been demonstrated down to 28nm silicon."
+    },
+    {
+      "type": "flashcard",
+      "front": "Passive Voltage Contrast (PVC)",
+      "back": "A scanning electron microscope technique that enables direct read-out of Flash and EEPROM memory cell contents by detecting whether charge is present in floating gates — without using the chip's own circuits. Can read 256K of Flash from a smartcard with only a handful of bit errors."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hardware Trojan",
+      "back": "Extra circuitry secretly introduced into a chip during manufacturing (e.g. at an overseas fab) designed to facilitate later attack — such as a kill switch triggered by a specific pair of inputs to a multiply unit. A major national security concern for defence systems using overseas fabs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Third Shift Problem",
+      "back": "The risk that a contracted hardware manufacturer runs two legitimate shifts producing authorised devices and a secret third shift producing unauthorised copies for grey-market sale. Mitigated by TPMs, cloud-based credential systems, or tamper-resistant FPGAs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Lemons Market (Security)",
+      "back": "A market condition where most buyers cannot distinguish high-quality from low-quality security products, driving them to buy the cheapest certified option. Leads to a race to the bottom and evaluators competing to offer easy certification rides."
+    },
+    {
+      "type": "flashcard",
+      "front": "FIPS 140 Standard",
+      "back": "US government standard for cryptographic module security, with four levels (1–4), Level 4 being highest. FIPS 140-1 (1994), FIPS 140-2 (2001), FIPS 140-3 (2019, which refers to ISO 19790:2012 and 24759:2017). Testing under FIPS 140-2 ceased in 2021."
+    },
+    {
+      "type": "flashcard",
+      "front": "Attacker Classes (IBM Classification)",
+      "back": "Class 1: Clever outsiders — intelligent but limited knowledge/equipment. Class 2: Knowledgeable insiders — specialised technical training, sophisticated tools. Class 3: Funded organisations — teams of specialists with major resources, able to use Class 2 members."
+    },
+    {
+      "type": "flashcard",
+      "front": "JavaCard",
+      "back": "A subset of the Java language designed to run on smartcards, enabling custom apps to be written and installed. One of the most widely deployed operating systems in the world, with over 6 billion cards sold."
+    },
+    {
+      "type": "flashcard",
+      "front": "Smartcard Architecture",
+      "back": "A self-contained single-chip microcontroller with: CPU (8-bit or 32-bit ARM), ROM/Flash (program and immutable data), EEPROM/Flash (customer data, keys, counters), RAM (transient computation), serial I/O, and optionally hardware crypto/RNG — all in a die up to 25mm²."
+    },
+    {
+      "type": "flashcard",
+      "front": "Optical Emission Analysis",
+      "back": "A side-channel technique that detects near-infrared photons emitted by semiconductor junctions when they switch. Can be used to locate cryptographic operations and read key material, even from chips with multiple metal shielding layers."
+    },
+    {
+      "type": "flashcard",
+      "front": "VPP Attack (Smartcard)",
+      "back": "An early smartcard attack where the EEPROM programming voltage (VPP) is removed by covering the VPP contact, freezing memory state and preventing a value counter from being decremented — e.g. giving infinite phone-card units."
+    },
+    {
+      "type": "flashcard",
+      "front": "IBM 4758 Cryptoprocessor",
+      "back": "The leading commercial cryptographic processor of the early 2000s. The first commercial product certified to FIPS 140-1 Level 4. Despite its hardware security, it was broken through logical/API vulnerabilities in the CCA banking software rather than any physical attack."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fault Induction Attack",
+      "back": "A class of attacks that inject errors into a running chip — via hardware probing, power transients, laser illumination or electromagnetic pulses — to extract keys or bypass security checks. Example: one laser shot can cause RSA to produce a faulty signature that allows key factorisation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Probing Station",
+      "back": "A semiconductor test instrument consisting of a microscope with micromanipulators for landing fine probes on the chip surface. Used in legitimate semiconductor testing and by attackers to read bus traffic or inject signals. Can be bought second-hand."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the OECD, what fraction of world trade is estimated to involve counterfeit goods?",
+      "options": ["More than 1%", "More than 5%", "More than 10%", "More than 15%"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Tamper-evident packaging physically prevents an attacker from accessing the contents of a device.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does SBOM stand for?",
+      "options": ["Secure Binary Object Manifest", "Software Bill of Materials", "System Build Operations Manual", "Signed Binary Output Module"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An SBOM is statically produced once and remains fixed for the lifetime of a software package.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is 'Trust on First Use' (TOFU) considered a security weakness in software distribution?",
+      "answer": "TOFU trusts a key or resource the very first time it is encountered without any prior verification. If an attacker can intercept or replace the software at that first contact (e.g., a download site serving malicious software), the user has no way to know they received a tampered version."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which company's operating system inspired the Ring/Segment/Gate protection model found in x86 processors?",
+      "options": ["Microsoft Windows NT", "UNIX", "MULTICS", "IBM OS/360"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Ring/Segment/Gate protection model from MULTICS is actively used in modern 64-bit operating systems such as Windows and Linux.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the x86 ring model, which ring is the most privileged?",
+      "options": ["Ring 3", "Ring 2", "Ring 1", "Ring 0"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the x86 ring model, which ring do typical user applications run in?",
+      "options": ["Ring 0", "Ring 1", "Ring 2", "Ring 3"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is a purely software-based reference monitor insufficient for enforcing memory protection in a multi-user OS running on a flat memory space?",
+      "answer": "A user program could directly access any memory address, bypassing the reference monitor entirely. It could also overwrite the reference monitor's own code in memory, permanently subverting it. Hardware support is needed to enforce that all memory accesses are mediated and that the monitor's integrity is preserved."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Emulation is a viable approach to enforce memory isolation for user programs, but it runs programs at native CPU speed.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main security benefit of hardware-enforced memory protection (paging + rings)?",
+      "options": [
+        "It allows running any user program on the main CPU at native speed while preserving OS integrity and mediating resource access",
+        "It prevents all forms of code injection permanently",
+        "It eliminates the need for encryption",
+        "It makes the OS invisible to user programs"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which flag in page descriptor entries prevents execution of code stored in a given memory page, protecting against stack/heap injection?",
+      "options": ["U/S flag", "WRITE flag", "XD flag", "TLB flag"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In x86 virtual memory, only Ring 0 (supervisor) code can change the page table base register.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the Cold Boot Attack and what makes it particularly dangerous for cryptographic systems.",
+      "answer": "A Cold Boot Attack exploits the physical persistence of data in RAM after power is removed. Rather than being immediately erased, memory contents decay over time — a process slowed by keeping the chips cold. An attacker can remove RAM, keep it cold, and boot it in a different machine to dump the contents. This is dangerous for cryptographic systems because encryption keys stored in RAM (e.g., by full-disk encryption software) can be recovered, compromising all protected data."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is Direct Memory Access (DMA)?",
+      "options": [
+        "A mechanism for the OS to directly write to disk without buffering",
+        "A mechanism allowing hardware devices to read/write memory directly without CPU involvement for each transfer",
+        "A special CPU mode for accessing supervisor memory pages",
+        "A cryptographic protocol for memory authentication"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "System Management Mode (SMM) is visible to Ring 0 processes and can be monitored by the operating system.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the core physical principle exploited by the Rowhammer attack?",
+      "options": [
+        "Overheating memory chips causes bit flips",
+        "Writing to one memory bank has a tiny probability of flipping bits in neighbouring banks",
+        "Reading memory too quickly corrupts the data bus",
+        "Memory chips lose their state when exposed to electromagnetic pulses"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What lesson does the Rowhammer attack teach us about the relationship between software security and hardware security?",
+      "answer": "Even if software policies are perfectly designed and implemented, security can still be broken if the underlying hardware has physical vulnerabilities. Security must be considered at every layer of the stack — perfect software is not sufficient if the hardware it runs on can be exploited."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Windows, which key combination is guaranteed to transfer I/O control to the Windows kernel, enabling a trusted login path?",
+      "options": ["Ctrl-Shift-Esc", "Ctrl-Alt-Del", "Windows-L", "Alt-F4"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the 'Trusted Path Out' problem and give one concrete example.",
+      "answer": "Trusted Path Out refers to ensuring that when the OS or a trusted application displays sensitive information to the user, no other rogue process can intercept or mask that output. For example, a malicious application could hijack the screen buffer to overlay an innocuous-looking dialog, tricking the user into clicking 'yes' on a dangerous security prompt they never actually saw. Windows Vista's UAC attempted to address this."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Windows User Account Control (UAC) was introduced in Windows Vista and remained unchanged in Windows 7 and 8.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT listed as a typical method for hacking HSMs?",
+      "options": [
+        "Stealing keys while in plaintext",
+        "Side channel attacks",
+        "Supply chain attacks",
+        "Brute-forcing the encryption key"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is an Evil Maid attack, and what makes it particularly hard to defend against?",
+      "answer": "An Evil Maid attack occurs when an adversary gains brief, undetected physical access to a device — for example, while a user is away from their laptop in a hotel room. The attacker can install malicious firmware or hardware (e.g., a keylogger or tampered bootloader) without leaving obvious signs. It is hard to defend against because it bypasses software security entirely, requires physical access rather than remote exploitation, and the victim has no reason to suspect the device has been compromised."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is listed as a key worry with counterfeit hardware?",
+      "options": [
+        "Hardware that runs software 10% slower than advertised",
+        "Random number generators tweaked to produce predictable output",
+        "Hardware with incorrect labelling but correct functionality",
+        "Chips that consume more power than the genuine version"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Counterfeit software always involves creating a fake copy of the software itself.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are reproducible builds, and why are they important for software supply chain security?",
+      "answer": "Reproducible builds involve an exact specification of the build environment so that compiling the source code always produces a bit-for-bit identical binary. Distributed hashes allow anyone to verify that a compiled binary matches what others produced from the same source. This matters for supply chain security because it ensures that even if one build server is compromised, the tampering can be detected by comparing hashes."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to Rice's Theorem, why is it impossible to perfectly verify a program is 'safe' before running it?",
+      "options": [
+        "Programs are too large to analyse in reasonable time",
+        "For any non-trivial property of partial functions, no general effective decision method exists",
+        "Safe programs cannot be distinguished from malware at compile time",
+        "All Turing-complete languages are equivalent and equally unsafe"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Virtual memory allows each process to believe it has its own private memory space, even though multiple processes share physical RAM.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the granularity at which x86 page-based memory access controls operate?",
+      "options": ["1 byte", "1 KB", "4 KB", "1 MB"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is paging preferred over segmentation as a memory protection mechanism in modern operating systems?",
+      "answer": "Paging offers a uniform, fixed-size (4KB) granularity that is easy to manage in bulk using hierarchical page tables cached in hardware (TLB). Checks are performed at hardware speed on every memory access. Good hiding of pages not belonging to user space (they are simply not mapped into virtual address space). Segmentation is more complex and was phased out in 64-bit architectures."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "DMA allows peripheral devices to bypass the CPU's memory management unit entirely, posing a potential security risk.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following correctly describes the purpose of an SBOM?",
+      "options": [
+        "It encrypts software at rest to prevent tampering",
+        "It lists all component parts and dependencies, providing transparency and enabling rapid response to known vulnerabilities",
+        "It physically signs a hardware chip during manufacturing",
+        "It replaces the need for antivirus software"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is given as a correct countermeasure against counterfeit hardware?",
+      "options": [
+        "Refusing to use any third-party hardware",
+        "Only using open-source hardware designs",
+        "Verifying manufacturers, safe shipping, verifying distributors, and testing expected behaviour",
+        "Encrypting all firmware before shipment"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "System Management Mode (SMM) code is open source and can be audited by the operating system.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the three main approaches to running user programs safely on a CPU without hardware memory protection, and what is the key drawback of each?",
+      "answer": "1. Emulation: Simulate all memory accesses in software to prevent illegal writes. Drawback: extremely slow — no native CPU speed. 2. Virtualisation/JIT: Rewrite safe parts to run directly and unsafe parts dynamically. Drawback: complex to implement correctly; some unsafe operations still need emulation. 3. Typing: Use a restricted language with a rich type system to statically verify memory safety. Drawback: users must write all code in the restricted language, severely limiting flexibility."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary reason hardware support is needed for security rather than relying on purely software-based solutions?",
+      "options": [
+        "Software is too slow to enforce security policies",
+        "Hardware allows running any user program at native speed while enforcing access control dynamically",
+        "Software cannot implement encryption algorithms",
+        "Hardware prevents all forms of physical attack"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Keeping RAM modules physically cold after shutdown can extend the time that data remains readable during a Cold Boot Attack.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is a valid protection measure against hardware tampering listed in the lecture?",
+      "options": [
+        "Storing encryption keys in plaintext for fast access",
+        "Encrypting data at rest and verifying software/firmware",
+        "Disabling all hardware logging",
+        "Using only domestically manufactured chips"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the anti-trust concern associated with code signing requirements enforced by Apple and Google.",
+      "answer": "When platforms like Apple's App Store or Google Play Store require all software to be signed by them, they act as gatekeepers controlling which software can run on users' devices. This can stifle competition by giving the platform owner the power to exclude rival software or services, raise barriers to entry for developers, and extract fees — raising antitrust concerns about monopolistic control over software distribution."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A user-level process in x86 can access supervisor-level memory pages if those pages have the WRITE flag set.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the review scenario where NHS London performs hourly backups in-house rather than paying a third party, which security framework concept does this best illustrate?",
+      "options": [
+        "Deterrence",
+        "Risk transfer vs. risk retention trade-off",
+        "Intrusion detection",
+        "Least privilege"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is the XD (Execute Disable) flag not a complete defence against all memory-based attacks?",
+      "answer": "The XD flag prevents code injection attacks where an attacker places shellcode in the stack or heap and tries to execute it — the CPU refuses to execute non-executable pages. However, it does not protect against return-oriented programming (ROP) attacks, where an attacker reuses existing executable code gadgets already in memory. It also does not protect against data-only attacks, logic bugs, or hardware-level attacks like Rowhammer."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the first commercial cryptographic processor to be evaluated to FIPS 140-1 Level 4?",
+      "options": ["IBM 4753", "IBM 4758", "Chrysalis-ITS Luna CA3", "Gemalto SafeNet PSI-E2"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The IBM 4758 was ultimately broken by physical penetration of its tamper-sensing hardware barrier.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How was the IBM 4758 broken, given that its hardware resisted all known physical attacks?",
+      "answer": "Researchers found logical (software/API) vulnerabilities in the CCA banking application that ran on the 4758. By sending a crafted series of commands to the security module from the host, a programmer with access to the host could cause the device to leak PINs or keys. These flaws were largely legacy compatibility issues inherited from older encryption devices."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the IBM attacker classification, which class describes a 'funded organisation' capable of assembling teams of specialists?",
+      "options": ["Class 1", "Class 2", "Class 3", "Class 4"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "FIPS 140-3, which came into force in September 2019, is an entirely new standard that does not reference any ISO documents.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which attack on HSMs exploits the fact that static RAM contents can 'burn in' the values of long-stored keys?",
+      "options": ["Cold boot attack", "Memory remanence attack", "DPA attack", "Fault induction attack"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does memory remanence make HSM design particularly challenging?",
+      "answer": "Memory remanence means that even after power is removed, SRAM and DRAM can retain traces of previously stored data — including cryptographic master keys — for seconds, minutes or longer if kept cold. This means an attacker who can access the RAM chips after power-off (e.g. by freezing them) may recover keys. Designers must add temperature/radiation alarms and zero memory on power-down, but remanence properties vary unpredictably between chip batches and manufacturers, so testing a specific SRAM chip may not guarantee the same behaviour in future purchases."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the approximate temperature below which early static RAM was found to retain contents for several seconds after power removal?",
+      "options": ["-5°C", "-20°C", "-40°C", "-100°C"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A high-end HSM that zeroises keys on power-down is immune to cold boot attacks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Who announced the cold boot attack on encryption keys in PCs in 2008?",
+      "options": ["Paul Kocher", "Sergei Skorobogatov", "Alex Halderman", "Ross Anderson"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the primary application that first motivated serious investment in breaking smartcard security?",
+      "options": ["Bank card cloning", "SIM card hacking", "Satellite pay-TV piracy", "Transport ticketing fraud"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Differential power analysis (DPA) requires physical invasive access to the chip surface (breaking the passivation layer).",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which famous attack was announced by Paul Kocher in 1998, shaking the entire smartcard industry?",
+      "options": ["Memory linearization", "Cold boot attack", "Differential Power Analysis (DPA)", "Optical fault induction"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the memory linearization attack and why it was so effective against pay-TV smartcards that rotated keys.",
+      "answer": "In a memory linearization attack, the attacker damages the chip's instruction decoder — typically by grounding a control line with a microprobe — so that branch instructions (jumps, calls) are disabled and the CPU executes memory contents linearly. This allows the full ROM and EEPROM contents to be read off the bus, bypassing any key-rotation scheme since all keys stored in memory are exposed at once rather than only those currently active."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The Hitachi H8/300 architecture had a specific vulnerability where forcing the MSB bus line to 1 would do what?",
+      "options": [
+        "Cause the chip to execute single-cycle instructions without any branches",
+        "Reset the chip immediately",
+        "Activate the test mode and dump all memory",
+        "Prevent any memory writes"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A Focused Ion Beam (FIB) workstation can both image a chip at nanometre resolution AND deposit new conductive or insulating material on its surface.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Approximately how much did Chinese reverse engineering services charge per gate for reconstructing a chip as of the time of writing?",
+      "options": ["1 cent", "30 cents", "$1", "$3"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is passive voltage contrast (PVC) and why was its application to Flash/EEPROM readout significant for smartcard security?",
+      "answer": "Passive voltage contrast is a scanning electron microscope technique that detects the charge state of floating gate transistors in Flash and EEPROM cells, allowing their stored bit values to be read without using the chip's own circuits. Its significance is that the entire memory of a smartcard — all keys, code and data — can now be read out with minimal errors, making reverse engineering a matter of understanding the CPU's instruction set and any memory encryption, rather than the fundamental barrier it once was."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is 'semi-invasive analysis' as defined by Sergei Skorobogatov?",
+      "options": [
+        "Attacks that use timing measurements without touching the device",
+        "Attacks that remove the epoxy but do not break the passivation layer",
+        "Attacks that require full decapsulation and contact probing of the bus",
+        "Attacks conducted purely through the device's serial port"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Glue logic (randomised place-and-route) makes it easy for an attacker to locate bus lines and the CPU by visual inspection of a chip micrograph.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following correctly describes a Physical Unclonable Function (PUF)?",
+      "options": [
+        "A hardware module that generates a certified random number on demand",
+        "A mechanism that derives a unique identifier from uncontrolled manufacturing variations in a chip",
+        "A tamper-sensing mesh that destroys keys when penetrated",
+        "A software function that maps device serial numbers to cryptographic keys"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the main limitations of PUFs as a security mechanism according to the chapter?",
+      "answer": "First, machine-learning techniques can model the underlying delay circuits of many PUF designs (e.g. XOR arbiter PUFs), enabling cloning without physical access. Second, laser fault induction can disable some arbiters to simplify learning remaining ones. Third, any routine on the chip that reads the PUF (e.g. the bootloader) creates a probing attack surface. Fourth, PUF strength depends on manufacturing variation that fabs actively try to eliminate, meaning a process change can suddenly make a design insecure."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "JavaCard has over 6 billion cards deployed worldwide, making it one of the most widely deployed operating systems in the world.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is RSA particularly fragile in the presence of fault induction attacks?",
+      "options": [
+        "RSA decryption requires more power than AES, making it easier to induce faults",
+        "A single laser shot causing one wrong computation can enable an attacker to factor the RSA key",
+        "RSA does not check the validity of its inputs, so any fault corrupts the output unpredictably",
+        "RSA is computed in RAM, which is the most vulnerable memory type"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the 'trusted interface problem' for tamper-resistant processors and give an example.",
+      "answer": "Tamper-resistant processors protect secrets inside the device, but they cannot guarantee that the interface through which users interact with them is trustworthy. For example, a PC driving a crypto smartcard might display 'Please pay amazon.com $67.99' while actually sending a message for signature that remortgages the user's house. The physical tamper resistance of the device is irrelevant if the instruction given to it is malicious. Hardware wallets with no trusted display are a modern example of this problem."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What was the fundamental protocol flaw in the Clipper chip that Matt Blaze discovered?",
+      "options": [
+        "The Skipjack cipher could be broken in polynomial time",
+        "The LEAF family key was stored in plaintext in the chip",
+        "The 16-bit MAC on the LEAF was short enough to find a colliding key by brute force",
+        "The chip did not authenticate the host computer before operating"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The FIPS 140 standard was criticised for not covering non-invasive vulnerabilities such as buffer overflows and API attacks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the 'third shift problem' in hardware manufacturing?",
+      "options": [
+        "The risk that a third-party distributor modifies firmware during shipping",
+        "The risk that a contract manufacturer runs extra production shifts to make unauthorised copies of a device for grey-market sale",
+        "The problem of managing three different cryptographic key ceremonies",
+        "The difficulty of testing hardware at three different security levels"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the 'lemons market' problem in the context of hardware security module procurement?",
+      "answer": "Most buyers of HSMs cannot distinguish between high-quality and low-quality products, so they are tempted to purchase the cheapest option that meets minimum certification requirements (e.g. FIPS level 3). Vendors can exploit this by finding lenient testing labs and gaming the evaluation process. The result is a market where better security commands no premium and inferior products dominate — similar to Akerlof's lemons market for used cars."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which country is cited as having very low SIM swap fraud because it requires phone companies to verify customers' fingerprints against a national database before issuing a SIM?",
+      "options": ["China", "Germany", "India", "South Korea"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "GCHQ reportedly hacked the mechanisms used by Gemalto to personalise SIM cards, obtaining cryptographic keys for millions of SIMs.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What technique did Sergei Skorobogatov use to read the FBI-contested iPhone 5c's NAND Flash memory?",
+      "options": [
+        "Passive voltage contrast SEM readout",
+        "NAND mirroring — desoldering and cloning the Flash chip to reset the PIN retry counter",
+        "Optical fault induction on the embedded AES key",
+        "Side-channel power analysis of the secure enclave"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the six main applications for tamper-resistant chips listed in the chapter?",
+      "answer": "1. Tying information processing to a single physical token (e.g. pay-TV cards that cannot be profitably copied). 2. Maintaining value counters to limit loss if a device is stolen (e.g. postal meters, prepayment electricity). 3. Reducing the need to trust human operators by keeping key material street-value zero. 4. Protecting a physical root of trust for secure boot against persistent malware. 5. Controlling the risk of overproduction/third-shift fraud by untrusted manufacturers. 6. Controlling the risk from counterfeit electronic parts and hardware Trojans."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does optical emission analysis detect to extract cryptographic keys from a chip?",
+      "options": [
+        "Infrared heat patterns from active transistors",
+        "Near-infrared photons emitted when semiconductor junctions switch",
+        "Electromagnetic signals leaking through the chip's power rails",
+        "Ultraviolet fluorescence from the chip's passivation layer"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A device whose full-disk encryption key is stored in a TPM is completely immune to cold boot attacks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why are hardware random number generators (RNGs) in crypto chips described as difficult to verify?",
+      "options": [
+        "They are too fast to measure accurately",
+        "They produce output that is statistically indistinguishable from a PRNG",
+        "They are proprietary and obscure designs, often specific to a single fab, making backdoors hard to detect and testing unreliable under noise/temperature/voltage variation",
+        "They require dedicated hardware that cannot be integrated into a smartcard"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the VPP attack on early smartcards and how the industry responded.",
+      "answer": "Early smartcards received their EEPROM programming voltage (VPP) from the card reader on a dedicated contact. By covering this contact with sticky tape, a user could freeze the EEPROM state and prevent a value counter from being decremented — effectively giving infinite value (e.g. phone units). The fix was to generate VPP internally using a voltage multiplier, removing the externally accessible contact. However, the multiplier circuit itself can be destroyed by a laser shot, opening other attacks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What characterises a 'strong PUF' as opposed to a 'weak PUF'?",
+      "options": [
+        "A strong PUF uses more SRAM cells and is therefore more unique",
+        "A strong PUF acts as a hardware challenge-response mechanism with many distinct input-output pairs usable as a cryptographic primitive",
+        "A strong PUF is physically larger and harder to probe",
+        "A strong PUF uses a tamper-sensing mesh in addition to process variation"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Probing stations used by attackers to read smartcard bus traffic are exotic research instruments unavailable outside government labs.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is security-by-obscurity in the context of smartcard design, and why does the chapter argue it tends to backfire?",
+      "answer": "Security-by-obscurity means relying on the secrecy of the design (chip masks, instruction set, NDAs for development tools, proprietary algorithms) rather than publicly scrutinised mechanisms. The chapter argues this tends to backfire because almost none of the major smartcard attacks used inside information — most began with a probing or side-channel attack on a card bought at retail. Obscurity raises costs for the industry but does not stop capable attackers, and also conceals deliberate vulnerabilities (e.g. weak RNGs, NSA-influenced standards). Openness, as with IBM's CCA and Intel's SGX, has ultimately improved security through responsible disclosure."
+    }
+  ]
+}
