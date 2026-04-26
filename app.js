@@ -141,8 +141,23 @@ function buildSidebar() {
     const filesDiv = document.createElement('div');
     filesDiv.className = 'theme-files';
 
-    for (const filename of theme.files) {
-      filesDiv.appendChild(buildFileItem(theme, filename));
+    const numberAtStartSortKey = (filename) =>
+      filename.replace(/^(.*?)(\d+)(.*)$/, "$2$1$3");
+
+    const sortedFiles = theme.files
+      .map((filename) => ({
+        filename,
+        sortName: numberAtStartSortKey(filename),
+      }))
+      .sort((a, b) =>
+        a.sortName.localeCompare(b.sortName, undefined, {
+          numeric: true,
+          sensitivity: "base",
+        })
+      );
+
+    for (const file of sortedFiles) {
+      filesDiv.appendChild(buildFileItem(theme, file.filename));
     }
 
     header.addEventListener('click', () => {
