@@ -1,0 +1,1096 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is TLS?",
+      "back": "Transport Layer Security — the standard protocol for secure communication on the Internet today."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is SSL?",
+      "back": "Secure Socket Layer — the predecessor to TLS."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is HTTPS?",
+      "back": "Secure HTTP — running the HTTP protocol over TLS."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a digital certificate?",
+      "back": "A signed statement about a verification (public) key, used to authenticate the identity of a party in a secure communication."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three algorithms that make up an electronic (digital) signature scheme?",
+      "back": "1. Generate key pair (produces a signature key and a verification key). 2. Sign (Alice uses her signature key to sign message M, producing signature S). 3. Verify (anyone uses the verification key and S to confirm Alice signed M)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a certificate chain?",
+      "back": "A sequence of certificates where each certificate is signed by the next authority in the chain, allowing trust to propagate from a root CA down to an end-entity certificate."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is AEAD?",
+      "back": "Authenticated Encryption with Associated Data — a symmetric encryption mode that simultaneously provides confidentiality, integrity, and authenticity. Used in TLS for bulk data encryption."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a TLS downgrade attack?",
+      "back": "An attack that forces a modern browser/server to negotiate using older, insecure cryptographic cipher suites by modifying the list of accepted ciphers on the client side."
+    },
+    {
+      "type": "flashcard",
+      "front": "Name three TLS downgrade attacks.",
+      "back": "FREAK, Logjam, and DROWN."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Heartbleed?",
+      "back": "A bug in the heartbeat extension of the OpenSSL implementation of TLS that allowed attackers to read memory from affected servers, potentially stealing private keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the mitigation for Heartbleed?",
+      "back": "Update TLS/OpenSSL. If unable to update, disable the heartbeat extension."
+    },
+    {
+      "type": "flashcard",
+      "front": "What steps occur in the SSL/TLS handshake (simplified)?",
+      "back": "1. Agree on connection parameters including cipher suite. 2. Validate the SSL X.509 certificate. 3. Establish a session key. 4. Use the session key for AEAD encryption. 5. Terminate the connection (FIN)."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does TLS 1.3 differ from earlier TLS versions in the handshake?",
+      "back": "In TLS 1.3, the session key establishment (step 3) is sent in step 1, and steps 2 and 3 are swapped so the certificate can be encrypted."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does validating an SSL X.509 certificate involve?",
+      "back": "Checking that H(certificate) equals the fingerprint, and verifying Verify(pkCA, sig, pkservice) — i.e., that the CA's signature on the service's public key is valid."
+    },
+    {
+      "type": "flashcard",
+      "front": "What cryptographic standards are used in TLS? (list four categories seen in a certificate)",
+      "back": "Public key encryption (e.g., RSA), digital signatures (e.g., FDH, DSA, ECDSA), hash functions (e.g., SHA-256, SHA-3), and AEAD (e.g., TLS_AES_128_GCM_SHA256)."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the padlock icon in a browser's address bar indicate?",
+      "options": [
+        "The website is safe and trustworthy",
+        "The connection is encrypted using HTTPS/TLS",
+        "The website has no malware",
+        "The user is logged in securely"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is the predecessor to TLS?",
+      "options": ["HTTPS", "SSH", "SSL", "IPSec"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In TLS 1.3, the client sends the session key establishment data in step 1 of the handshake rather than waiting until after certificate validation.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "TLS downgrade attacks work by modifying the server's cipher suite list.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The Heartbleed vulnerability was found in which component?",
+      "options": [
+        "The TLS handshake negotiation protocol",
+        "The heartbeat extension of OpenSSL",
+        "The X.509 certificate parsing code",
+        "The AEAD encryption module"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the security property of a digital signature scheme.",
+      "answer": "One cannot produce a valid signature that would pass the Verify algorithm without knowing the private signature key. This ensures that only the legitimate key holder can sign messages."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "HTTPS means HTTP is running directly without any encryption layer.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is it dangerous to support old cipher suites in a TLS server?",
+      "answer": "Old cipher suites often use weak or broken cryptography. Attackers can exploit downgrade attacks (like FREAK or Logjam) to force modern clients into using these weak suites, compromising the security of the connection."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the simplified TLS handshake, what does the client send to establish the session key (pre-TLS 1.3)?",
+      "options": [
+        "The session key sk in plaintext",
+        "c = Enc(pkservice, sk) — the session key encrypted with the server's public key",
+        "A hash of the session key",
+        "A signed session key using the client's private key"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a pseudorandom number generator (PRNG)?",
+      "back": "An algorithm that, given a seed, deterministically produces a sequence of numbers that appear random. It is periodic and efficient but not truly random."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three characteristics that distinguish pseudorandom from truly random sequences?",
+      "back": "Pseudorandom: efficient, deterministic, and periodic. Truly random: poor efficiency, nondeterministic, and aperiodic."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is /dev/urandom?",
+      "back": "A Linux device file that provides access to the kernel's entropy pool, collecting randomness from hardware events (keyboard timings, mouse movements, thermal noise, etc.) to supply cryptographically useful random bytes."
+    },
+    {
+      "type": "flashcard",
+      "front": "List four accessible entropy sources used to feed /dev/urandom.",
+      "back": "Thermal noise in electronic circuits, clock variations, keyboard timings, mouse movements, air movement, and cryptographic processors."
+    },
+    {
+      "type": "flashcard",
+      "front": "What was the Netscape PRNG vulnerability?",
+      "back": "Netscape seeded its PRNG using predictable values: the time of day (seconds and microseconds since 1970), the process ID (pid), and the parent process ID (ppid). Because these values are easily guessable or observable (e.g., via ps), the seed space was too small to be secure."
+    },
+    {
+      "type": "flashcard",
+      "front": "What three specific cryptographic issues did Netscape's implementation have?",
+      "back": "1. Only 40-bit encryption keys. 2. PRNG seeded with time (predictable). 3. Process information (pid, ppid) obtainable with the ps command."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Benford's Law?",
+      "back": "An empirical observation that in many naturally occurring numerical datasets, the leading digit is 1 about 30% of the time, with higher digits occurring with decreasing frequency. It can be used to detect fabricated data."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the 'Mining Your Ps and Qs' paper about?",
+      "back": "A 2012 paper by Heninger et al. that performed a large-scale survey of TLS and SSH public keys on the Internet and found widespread weak keys caused by insufficient entropy during key generation, including the ability to factor RSA keys by computing pairwise GCDs."
+    },
+    {
+      "type": "flashcard",
+      "front": "What percentage of TLS certificates were found to share keys due to insufficient entropy (2012 study)?",
+      "back": "0.75% of TLS certificates shared keys due to bad entropy during key generation."
+    },
+    {
+      "type": "flashcard",
+      "front": "What percentage of TLS hosts used default keys (2012 study)?",
+      "back": "At least 5.23% of TLS hosts used default keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "What technique did the 2012 study use to factor RSA keys?",
+      "back": "Pairwise GCD of all distinct RSA moduli. If two moduli N1 = p1*q1 and N2 = p2*q2 share a prime (e.g., p1 = p2), then GCD(N1, N2) = p1, immediately factoring both keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "Basic RSA: how is the public key formed?",
+      "back": "Choose two large distinct primes p and q. Compute n = p*q and φ(n) = (p-1)*(q-1). Pick e coprime to φ(n) and less than φ(n). The public key is (n, e)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Basic RSA: how is the private key formed?",
+      "back": "Determine d such that d*e ≡ 1 (mod φ(n)). The private key is (n, d)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does φ(n) represent in RSA?",
+      "back": "Euler's totient function φ(n) — the number of integers less than n that are coprime to n. For RSA, φ(n) = (p-1)*(q-1)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does 'coprime' mean?",
+      "back": "Two numbers x and y are coprime if the only positive integer that divides both of them is 1 (i.e., gcd(x, y) = 1)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why is generating keys immediately at boot dangerous?",
+      "back": "At boot, the system's entropy pool may not yet have accumulated enough unpredictable data. Keys generated with low entropy can be weak or shared with other devices that booted similarly."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is a TRUE random entropy source?",
+      "options": [
+        "A linear congruential PRNG",
+        "Atmospheric noise (e.g., random.org)",
+        "The rand() function in C",
+        "A seeded MD5-based generator"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A pseudorandom number generator is nondeterministic.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Netscape PRNG, the seed was derived partly from the process ID and parent process ID, which can be observed using the ps command.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the 2012 'Mining Your Ps and Qs' study, what was the primary mathematical technique used to compromise RSA keys?",
+      "options": [
+        "Brute-force factoring of individual moduli",
+        "Pairwise GCD computation across all collected moduli",
+        "Birthday attack on SHA-1 fingerprints",
+        "Side-channel timing analysis"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How long did it take to compute pairwise GCDs over 11 million RSA keys in the 2012 study?",
+      "options": ["5.5 minutes", "5.5 hours", "5.5 days", "5.5 weeks"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Benford's Law states that in naturally occurring datasets, the digit 1 appears as the first digit far more often than digit 9.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which election was analysed for a first-digit anomaly using Benford's Law?",
+      "options": [
+        "2002 Swedish parliamentary election",
+        "2003 Nigerian presidential election",
+        "2009 Iranian presidential election",
+        "2012 French presidential election"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why generating SSH keys immediately at system boot on an embedded device can lead to weak keys.",
+      "answer": "At boot, the entropy pool has had little time to accumulate unpredictable inputs from hardware events. If the SSH daemon seeds from /dev/urandom before sufficient entropy is gathered, the generated keys will have low entropy, potentially matching keys generated by other devices that booted in the same low-entropy state."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Where were the majority of weak/repeated RSA keys found in the 2012 study?",
+      "options": [
+        "Web servers running Apache",
+        "Desktop operating systems",
+        "Embedded systems (routers, firewalls, etc.)",
+        "Cloud computing virtual machines"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does the 'What the Numbers Say' paper look at last digits rather than first digits to detect election fraud?",
+      "answer": "In fair elections, last digits of vote counts should occur with roughly equal frequency (each ~10%). Humans fabricating numbers tend to favour certain digits and avoid repeated or distant digit pairs, creating detectable non-uniform distributions in the last digits of fraudulent tallies."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Netscape PRNG used only 40-bit encryption keys, making it vulnerable to brute-force attacks.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Netscape PRNG, what hash function was used to generate random bytes?",
+      "options": ["SHA-256", "SHA-1", "MD5", "BLAKE2"],
+      "answer": 2
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the basic role of an operating system?",
+      "back": "It sits between the user and hardware, runs programs, and manages all system resources."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Unix's basic security philosophy?",
+      "back": "Everything is a file. Every file has an access control list (ACL). Files are organised in hierarchical directory trees. The system enforces discretionary access control."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Discretionary Access Control (DAC)?",
+      "back": "An access control model where each user owns a set of files and can themselves decide who else has access to them. Used in Unix."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three levels of access control per asset in Unix?",
+      "back": "User (owner of the file), Group (the group the file belongs to), and Other/World (anyone else on the system)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three permission rights in Unix?",
+      "back": "Read (view contents), Write (alter contents), and Execute (run a program or enter a directory)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the root user in Unix?",
+      "back": "A special administrative user with user ID 0 who can access anything on the system. Root is in the Trusted Computing Base (TCB) of everything in basic Unix."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does 'sudo' stand for and what does it do?",
+      "back": "'Super user do' — it allows a permitted user to execute a command as the superuser (root) or another user."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does 'su' do in Unix?",
+      "back": "'Switch user' — allows a user to switch to another account. Without arguments, it switches to root."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the three subjects in Unix's protection state?",
+      "back": "Users, groups, and processes (which make accesses on behalf of users belonging to particular groups)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the objects and operations in Unix's protection state?",
+      "back": "Objects: files and directories. Operations: read, write, and execute."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the four user IDs associated with a Unix process?",
+      "back": "Real user ID (from parent/logged-in user), Effective user ID (inherited from parent or executed file), Saved user ID (temporary store), and the process can choose between all three."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the SUID bit in Unix?",
+      "back": "A special permission flag. When set on an executable, the program runs with the permissions of the file's owner rather than the user who executes it. Shown as 's' in the user execute position (e.g., -rws--x--x)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the SGID bit in Unix?",
+      "back": "Analogous to SUID but for groups. When set, the program runs with the permissions of the file's group owner. Shown as 's' in the group execute position (e.g., -rwxr-s--x)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a 'Confused Deputy' problem?",
+      "back": "A security vulnerability where a program with elevated privileges (e.g., SUID root) is tricked by another less-privileged party into misusing its authority to perform actions the requester could not do directly."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is 'ambient authority' in Unix?",
+      "back": "The property that all user processes automatically run with the full set of permissions of that user, without needing to explicitly request them."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the user ID of the root account in Unix?",
+      "options": ["1", "0", "255", "1000"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Unix, the SUID bit causes a program to run with the permissions of the user who executes it.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Unix permission notation, which string represents a SUID executable owned by root?",
+      "options": ["-rwx--x--x", "-rws--x--x", "-rwxr-s--x", "-rwsr-xr-x"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Given permissions 'r--rwx--x' with owner alice and group alice, what can charlie (who is in group alice) do with the file?",
+      "options": [
+        "Read only",
+        "Read, write, and execute",
+        "Execute only",
+        "Nothing"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In basic Unix, root is part of the Trusted Computing Base (TCB) of every program.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why setting a Python interpreter as SUID root is dangerous.",
+      "answer": "If the Python interpreter has the SUID root bit set, any user who runs it will execute Python with root privileges. An attacker could run arbitrary Python code with root-level access, completely compromising the system. SUID root programs are in the TCB and must be minimised and carefully audited."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Unix, the owner of a file can change its permissions.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Unix messaging system design example, why is using the SUID flag on the message-delivery program a solution?",
+      "options": [
+        "It allows any user to read all messages",
+        "It allows the program to write to alice's file by running with alice's permissions",
+        "It prevents bob from reading alice's messages by encrypting them",
+        "It grants root permissions to the messaging program"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the subjects, objects, and operations in Unix's access control model?",
+      "answer": "Subjects: users, groups, and processes (acting on behalf of users in groups). Objects: files and directories. Operations: read, write, and execute."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Given permissions 'rws--x--x' with owner root and group root, and the SUID bit set, what happens when alice runs this file?",
+      "options": [
+        "The file runs with alice's permissions",
+        "The file runs with root's permissions",
+        "The file cannot be executed by alice",
+        "The file runs with the group root's permissions"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Given permissions 'rw--w----' with owner charlie and group alice, which user can write to the file?",
+      "options": [
+        "Only charlie",
+        "charlie and members of group alice",
+        "Only root",
+        "charlie and root"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Android's global market share (as stated in the lecture)?",
+      "back": "71% worldwide (49% in the United Kingdom)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the sandboxing mechanism in Android?",
+      "back": "Each app runs in isolation from the system and other apps' data. Apps have no permissions by default, and permissions must be explicitly granted by the user."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does 'chroot' relate to in Android security?",
+      "back": "Android's sandboxing is related to the Unix chroot mechanism, which restricts a process's view of the filesystem."
+    },
+    {
+      "type": "flashcard",
+      "front": "What permission model does Android use?",
+      "back": "An allow-list model: minimal accesses are allowed by default, and apps must request additional permissions, which users grant."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are some examples of Android 'normal' permissions that do NOT require user approval?",
+      "back": "Bluetooth, Internet access, NFC, setwallpaper, and vibrate."
+    },
+    {
+      "type": "flashcard",
+      "front": "What changed about Android permissions between Lollipop (5.1) and Marshmallow (6.0)?",
+      "back": "Pre-Marshmallow: users agreed to all permissions at install time, with no option to reject individual ones. From Marshmallow (6.0, Oct 2015): permissions are requested at runtime, and users can approve or reject individual permissions."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Android's Binder IPC mechanism?",
+      "back": "A remote procedure call (RPC) mechanism implemented as a custom Linux driver, used for in-process and cross-process communication in Android."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the four Android IPC mechanisms?",
+      "back": "1. Binder (RPC via custom Linux driver). 2. Services (interfaces accessible through Binder). 3. Intents (messages representing an intent to perform an action). 4. Content Providers (data storehouses)."
+    },
+    {
+      "type": "flashcard",
+      "front": "How are Android applications signed?",
+      "back": "Apps are digitally signed by their publishers using self-signing — no certification authority is required. The signature ties identity to a developer account and enables self-updates."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why does Android use self-signing for app signing rather than a CA?",
+      "back": "It ties identity to a developer account without needing a single trusted third party (CA) to vouch for the app's goodness. There is no single central authority to trust."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are Android's signature-level permissions?",
+      "back": "Permissions that an app can request only if it is signed with the same certificate as the app that declared those permissions. Apps with the same signature can even share a UID."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Shared UID feature in Android?",
+      "back": "If two packages share the same signing certificate, they can share the same Linux UID, allowing them to read and write each other's files."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the key difference between Android's security model and classic Unix?",
+      "back": "Classic Unix uses ambient authority (processes inherit all user permissions). Android ditches ambient authority — apps have no permissions by default and must be explicitly granted, providing stronger sandboxing and isolation."
+    },
+    {
+      "type": "flashcard",
+      "front": "What change to app visibility did Android 11 (Red Velvet Cake) introduce?",
+      "back": "Most apps are hidden by default. Apps must pre-declare which packages they intend to interact with, and can specify QUERY_ALL_PACKAGES if broad access is needed."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does each Android package receive at install time?",
+      "back": "A distinct Linux UID. Files created by a package are owned by this UID. The UID may differ between devices."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Android version introduced runtime permission requests (permissions asked at runtime rather than install time)?",
+      "options": [
+        "Lollipop (5.1)",
+        "KitKat (4.4)",
+        "Marshmallow (6.0)",
+        "Nougat (7.0)"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "By default, Android apps have no permissions and must explicitly request them.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Internet access is a dangerous permission in Android that always requires explicit user approval.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is Android's Binder?",
+      "options": [
+        "A file permission system replacing Unix ACLs",
+        "An RPC mechanism for in-process and cross-process calls via a custom Linux driver",
+        "A sandboxing technology based on chroot",
+        "A digital signing scheme for APK files"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What determines an Android app's ability to read or write another app's files without special permissions?",
+      "options": [
+        "Both apps having the same package name",
+        "Both apps being installed by the same user",
+        "Both apps sharing the same signing certificate (and thus the same UID)",
+        "Both apps requesting the READ_EXTERNAL_STORAGE permission"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare Android's permission model with classic Unix in terms of ambient authority.",
+      "answer": "Classic Unix uses ambient authority: processes automatically inherit all permissions of the user who runs them. Android ditches ambient authority: apps have no permissions by default and must explicitly request them from the user, resulting in finer-grained isolation between apps and the system."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Android requires apps to be signed by a recognised Certificate Authority (CA).",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Before Lollipop (5.1), what happened if a user did not want to grant an Android app a requested permission?",
+      "options": [
+        "The specific permission was denied and the app installed normally",
+        "The user could deny the permission at runtime",
+        "The user had to reject installing the app entirely",
+        "The permission was granted temporarily"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Who are the four types of stakeholders who might make decisions about Android app permissions, and what is each one's key limitation?",
+      "answer": "1. Users: own the device and assets but may not be well-informed. 2. App developers: know what the app requires but may be malicious or uninformed. 3. The system: can group permissions by expected functionality but doesn't know individual user preferences. 4. Government: may not represent users', apps', or systems' interests equally."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Android version introduced the ability for app developers to grant signature-level permissions to specific apps with specified certificates?",
+      "options": [
+        "Marshmallow (6.0)",
+        "Pie (9.0)",
+        "Snow Cone (12.0)",
+        "Red Velvet Cake (11.0)"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Android, a package's Linux UID is always the same across all devices.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is NOT a valid Android IPC mechanism described in the lecture?",
+      "options": ["Binder", "Intents", "Content Providers", "Unix Sockets with SUID"],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is there more than 200 Android permissions, and what is the trade-off in the number of permissions offered?",
+      "answer": "More permissions provide finer-grained control over what apps can access, improving security. However, more permissions also mean users face more decisions, making informed consent harder. Fewer permissions are more understandable but may grant unnecessarily broad access."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does Android's app sandboxing isolate apps from?",
+      "options": [
+        "The Internet",
+        "The system and other apps' data",
+        "The device's GPU",
+        "Background services only"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "flashcard",
+      "front": "What is mandatory access control (MAC)?",
+      "back": "An access control model where the system enforces access policies that users cannot override. Android's permission system is an example of MAC, contrasted with Unix's discretionary access control (DAC)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is an Intent in Android?",
+      "back": "A special IPC message in Android that represents an intent to perform an action, used to communicate between components (e.g., activities, services, broadcast receivers)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Content Provider in Android?",
+      "back": "An Android IPC component that acts as a data storehouse, allowing apps to share structured data with one another in a controlled way."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the four randomness beacons mentioned in the lecture?",
+      "back": "Atmospheric noise (random.org), radioactive decay (hotbits, retired 2022), lava lamps (Cloudflare), and thunderstorms."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does entropy enter the /dev/urandom pool on Linux?",
+      "back": "Various sources of hardware unpredictability (keyboard timings, mouse movements, thermal noise, interrupt timings, etc.) feed into a kernel entropy pool. Processes read from this pool to obtain random bytes."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Unix, every file type — including devices, network sockets, and FIFOs — is treated as a file from an access control perspective.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the 'Effective user ID' of a Unix process?",
+      "options": [
+        "The ID of the user who originally logged in",
+        "The ID inherited from the parent process or the executed file's owner (used when SUID is set)",
+        "A temporary stored copy of the user ID for later use",
+        "Always the same as the real user ID"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the dilemma that the SUID/SGID mechanism solves in Unix.",
+      "answer": "Normal users need to access system services that require elevated (system/root) privileges to function correctly (e.g., writing to system files). But running those services as the user gives insufficient privileges, and running them always as root is too dangerous. SUID lets an executable run with the permissions of its owner (e.g., root) regardless of who invokes it, granting just the needed elevated access."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The 'Mining Your Ps and Qs' study found that DSA can fail catastrophically when used with malfunctioning random number generators.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is Cloudflare's source of entropy?",
+      "options": [
+        "Atmospheric noise from radio receivers",
+        "Lava lamps",
+        "Radioactive decay",
+        "Thunderstorms"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the DJB 'watch that basket' principle as it applies to cryptographic randomness?",
+      "answer": "Rather than spreading entropy across many different pools or sources (scatter your eggs), it is better to concentrate all entropy into one well-guarded pool and carefully protect it — put all your eggs in one basket and watch that basket. This reduces the risk of any individual pool being weak."
+    },
+    {
+      "type": "flashcard",
+      "front": "How many monthly active Android devices were there as of the chapter's writing?",
+      "back": "Over 2 billion monthly active devices, found in phones, tablets, watches, TVs, cars, and other devices."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the three-party consent model in Android?",
+      "back": "Actions in the Android ecosystem require consent from three parties: the user, the developer, and Google — all must agree for an action to proceed."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does Android assign user IDs differently from a conventional Unix system?",
+      "back": "Rather than assigning a user ID to the end user, Android assigns a separate user ID to each individual app. Files in private app directories are controlled by the app; files in shared storage are controlled by the end user."
+    },
+    {
+      "type": "flashcard",
+      "front": "What percentage of mobile internet access globally came from mobile devices by 2019?",
+      "back": "56% of all Internet access globally came from mobile devices (63% in the USA, 80% in India)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What cut does Google take from app revenue in the Play Store?",
+      "back": "Google takes 30% of revenues from sales of apps and in-app purchases."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why did some app vendors move away from the Play Store to less secure channels?",
+      "back": "Google refuses to host adult apps and takes 30% of revenues. This pushed vendors of paid and adult apps to use OEM deals, third-party stores, and their own websites — which are often less secure."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the overlay attack used in Android banking Trojans?",
+      "back": "Malware tricks the user into enabling Android Accessibility Services, then builds an invisible overlay on top of a legitimate banking app to capture screen content and input data under the control of a remote command server."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is repackaging in the context of Android malware?",
+      "back": "The malware developer takes a legitimate app (the 'carrier') and injects malicious code (the 'rider') into it, then republishes the modified app. This became the dominant Android malware strategy from around 2012."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Cerberus banking malware notable for?",
+      "back": "It is a banking Trojan that, as of 2020, could steal Google Authenticator cookies in addition to banking SMS one-time passwords."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is an Advertising and Tracking Service (ATS)?",
+      "back": "A third-party service embedded in mobile apps that tracks users across multiple apps and/or the web, often for advertising and analytics purposes — typically without explicit user awareness."
+    },
+    {
+      "type": "flashcard",
+      "front": "What did the 2018 Suarez-Tanguil and Stringhini Android malware survey find?",
+      "back": "Analysing 1.2 million samples collected over 2010–2017 and categorising them into over 1,000 families. Since 2012, most malware uses repackaging; riders often attempt to root the phone and install a RAT. Monetisation shifted from premium-rate calls (2010) to ad fraud and data exfiltration (2018)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is factory reset failure on Android, and why does it occur?",
+      "back": "When a factory reset fails to erase all personal data from a device, due to the complexity of Flash memory organisation (eMMC, virtual SD cards, wear-levelling). A buyer of a second-hand phone may recover the Google master cookie and access the previous owner's Gmail account."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Android's KeyStore?",
+      "back": "An Android facility that lets an app store cryptographic keys in TrustZone, a Secure Element, or another cryptoprocessor if available, preventing other apps from accessing those keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is TrustZone?",
+      "back": "An ARM hardware security feature launched in 2004 that creates a Trusted Execution Environment (TEE) isolated from the main OS, used to protect sensitive operations like key storage and secure boot."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is CamScanner and why is it a security case study?",
+      "back": "An app downloaded by over 100 million users for document scanning. At some point it was updated with a new advertising network containing a malicious module that dropped Trojans on users' phones — an example of supply-chain compromise via third-party SDKs."
+    },
+    {
+      "type": "flashcard",
+      "front": "What did the US Children's Online Privacy Protection Act (COPPA) violation research on children's apps find?",
+      "back": "A scan of 5,855 popular free children's apps found most potentially violated COPPA due to third-party SDKs. 19% collected personally identifiable information using SDKs that banned this practice in children's apps."
+    },
+    {
+      "type": "flashcard",
+      "front": "What did Julien Gamba et al.'s pre-installed app study find?",
+      "back": "They studied firmware from 200+ vendors and found: pre-installed apps often come via OEM-MNO partnerships with poor control; 74% of non-public pre-installed apps do not get updated; 41% remained unpatched for 5+ years; many can access and disseminate user data, identifiers, and location."
+    },
+    {
+      "type": "flashcard",
+      "front": "What was the 2015 Android security survey finding?",
+      "back": "87% of active Android devices were insecure on average over 2011–15 because they were running OS versions with known, unpatched vulnerabilities — largely due to OEMs not providing updates."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Apple's App Store revenue share?",
+      "back": "Apple demands 30% of software revenues and 30% of in-app purchases of online goods and services — the same model as gaming consoles."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does Apple require of developers to publish on the App Store?",
+      "back": "Developers must pay $99 per year for a licence. Apps undergo extensive automated security testing followed by manual review to ensure compliance with Apple's policies. Apps may only use publicly documented APIs."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is an Apple 'enterprise certificate'?",
+      "back": "A certificate sold by Apple to large firms that allows iOS developers to bypass the standard App Store review process for distributing internal apps — which has been abused to distribute unapproved or malicious apps."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Checkra1n / Checkm8 jailbreak?",
+      "back": "Jailbreaks exploiting the boot ROM of iPhones up to the X (pre-2017 devices). Because they exploit read-only memory, they cannot be patched by software updates. They are widely used by forensics firms. Checkra1n liberates most devices sold before 2017."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is SIMjacking?",
+      "back": "Exploiting features in SIM cards (originally intended for over-the-air software updates) to remotely hijack a SIM. Karsten Nohl warned about it in 2013; in 2019 it emerged that governments had been using it for surveillance."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is SIM-swap fraud?",
+      "back": "An attack where a fraudster convinces a mobile network operator to transfer a victim's phone number to a SIM card the attacker controls, allowing interception of SMS-based two-factor authentication codes."
+    },
+    {
+      "type": "flashcard",
+      "front": "What EU directive requires vendors of goods with digital components to maintain those components?",
+      "back": "The EU Sales of Goods Directive (2019) requires maintenance of digital components for at least two years (or longer if reasonably expected). From January 2022, apps bundled with durable goods (e.g., cars, appliances) must be maintained for ten years after the last product leaves the showroom."
+    },
+    {
+      "type": "flashcard",
+      "front": "What change did iOS 14 (September 2020) make to advertiser tracking?",
+      "back": "iOS 14 changed Identification for Advertisers (IDFA) from opt-out to opt-in, essentially eliminating advertisers' ability to track campaign effectiveness on iOS without explicit user consent."
+    },
+    {
+      "type": "flashcard",
+      "front": "What percentage of Android apps in the 2012 study paid attention to permissions during installation?",
+      "back": "Only 17% of users paid attention during installation, and only 3% could answer basic questions about what permissions the app was requesting."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What share of global Internet access in 2019 came from mobile devices?",
+      "options": ["40%", "56%", "63%", "80%"],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Google scans all apps uploaded to the Play Store for malware, and this scanning is perfectly effective.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is 'repackaging' in Android malware?",
+      "options": [
+        "Disguising malware as a system update package",
+        "Taking a legitimate app and injecting malicious code into it before redistribution",
+        "Re-signing a legitimate app with a fake certificate",
+        "Wrapping malware in an encrypted container to evade antivirus"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The largest single source of Android malware has been third-party app stores outside the Play Store.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What technique does the overlay attack use to steal banking credentials on Android?",
+      "options": [
+        "Keylogging via a malicious keyboard app",
+        "Exploiting Accessibility Services to place a hidden layer over banking apps",
+        "Intercepting HTTPS traffic via a rogue certificate",
+        "Rooting the phone to read app memory directly"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A factory reset on an Android phone always securely erases all personal data from the device.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What percentage of active Android devices were found to be insecure in a 2015 survey (averaged 2011–15)?",
+      "options": ["47%", "63%", "87%", "74%"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why the update process for Android OS security patches is so slow compared to app updates.",
+      "answer": "A vulnerability fix must propagate through multiple steps: the original library (e.g., OpenSSL), then Linux, then Android, then each OEM, then often each mobile network operator (who controls updates for locked phones). Each step can take months and may be skipped entirely for commercial reasons."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Apple's App Store app review process includes both automated security testing and manual review.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is an Apple enterprise certificate used for?",
+      "options": [
+        "Encrypting data on enterprise-managed iPhones",
+        "Allowing large firms to distribute iOS apps without going through the App Store review",
+        "Granting apps elevated system-level permissions on iOS",
+        "Enabling cross-platform development for iOS and Android"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "iOS 14 changed the Identification for Advertisers (IDFA) from an opt-in to an opt-out model.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following correctly describes the Checkm8 jailbreak?",
+      "options": [
+        "A software exploit patched by Apple in iOS 14",
+        "A boot ROM exploit affecting iPhones from the 4S to the X that cannot be patched via software",
+        "A jailbreak that only works on Android devices",
+        "An exploit of the Apple Secure Enclave introduced in the iPhone X"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does Android not support user control of Internet access for apps, and what are the consequences?",
+      "answer": "Android does not support denying Internet access on a per-app basis largely because advertising companies benefit from all apps having Internet access — disabling it for a game or utility would prevent ad networks from harvesting data. The consequence is that ad ecosystems can collect user data from almost any app, and users who want to block this must use firewall apps that masquerade as VPNs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Razaghpanah et al. study using a VPN app with 11,000 volunteers, what percentage of the top 20 Advertising and Tracking Services had a presence on both the web and in the app ecosystem?",
+      "options": ["9 out of 20", "14 out of 20", "17 out of 20", "20 out of 20"],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Paid apps in both the Android and iOS ecosystems are reliably free of user tracking and data collection.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the FordPass security problem, and what does it illustrate?",
+      "answer": "FordPass is an app that lets users control a rental car (track it, lock/unlock it, start the engine) — but continued to work even several months after the car was returned to the rental lot. It illustrates that poorly designed apps can expose safety-critical systems and that revocation of access must be carefully engineered."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why did Apple remove a protest safety app during the 2019 Hong Kong demonstrations?",
+      "options": [
+        "The app used undocumented APIs",
+        "Apple claimed it allowed users to evade law enforcement",
+        "The app contained a malicious advertising SDK",
+        "It violated Apple's in-app purchase policies"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "SIMjacking exploits features originally intended for over-the-air SIM software updates.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What did the Reardon et al. study of 88,000 Android apps in an instrumented environment find?",
+      "options": [
+        "Over half of apps rooted the device to steal data",
+        "Two large Chinese companies used the SD card as a covert channel to share the phone's IMEI between apps",
+        "All banking apps used overlay attacks to harvest credentials",
+        "The majority of ads were delivered via HTTPS"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What business model drove Apple's decision to create a semi-closed App Store platform?",
+      "answer": "Apple monetised the platform by taking 30% of music downloads and software sales, requiring apps to go through its App Store. This shifted power from mobile network operators to Apple, ensured a revenue stream, and gave Apple the incentive to maintain device security for longer than typical Android OEMs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the EU Sales of Goods Directive (2019) require for apps bundled with durable goods such as cars?",
+      "options": [
+        "A minimum of 2 years of updates",
+        "A minimum of 5 years of updates",
+        "A minimum of 10 years of updates after the last product leaves the showroom",
+        "Updates must be provided for the lifetime of the product"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Google's strategy with Android was to make a platform as open as possible to replicate the network effects that helped Microsoft beat Apple in the PC market.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the security risks associated with Qualcomm's Trusted Execution Environment (TEE) as described in the chapter?",
+      "answer": "Qualcomm's TEE lets a Trusted App (TA) map memory regions of the host OS, meaning any insecure TA can allow an adversary to root the device. More broadly, TEE software security lags the state of the art by several years, with weak or absent ASLR, large TCBs, information leaks through debug channels, no execution prevention, side channels, and no good revocation mechanisms for compromised TAs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the chapter, for how long are iPhones typically patched, compared to Android products?",
+      "options": [
+        "iPhones: 2 years; Android: 5 years",
+        "iPhones: 3 years; Android: 5 years",
+        "iPhones: at least 5 years; Android: 3 years or less",
+        "iPhones and Android are patched for the same duration"
+      ],
+      "answer": 2
+    }
+  ]
+}
