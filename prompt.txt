@@ -9,6 +9,9 @@ Rules for coverage:
 - Use true_false for common misconceptions or statements that are clearly true or false
 - Aim for at least 10-20 entries per major section or topic
 - Do not skip minor but examinable details
+- Do not add questinos or flashcards regarding specific dates / months
+- Do not add questions or flashcards regarding specific numbers (i.e., how much did x cost)
+- Do not add questions or flashcards regarding specific id/number of standards (i.e., True/False: article 25 in MiCA says ...)
 
 Output format rules:
 - Output ONLY valid JSON, no preamble, no explanation, no markdown code fences
