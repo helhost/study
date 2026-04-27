@@ -1,0 +1,1010 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What is war (Wikipedia definition)?",
+      "back": "A state of armed conflict between states or societies, generally characterized by extreme aggression, destruction, and mortality, using regular or irregular military force."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is cyberwar?",
+      "back": "An ill-defined topic that cuts across the boundaries between cyber-espionage, criminal cyber attacks and activity, information security, economic espionage, 'traditional' kinetic conflict, and kinetic war with electronic weapons and targeting systems."
+    },
+    {
+      "type": "flashcard",
+      "front": "What was the Estonia cyberattack (2007)?",
+      "back": "A series of DDoS attacks and website defacements on Estonian organizations, carried out by Russia in response to Estonia relocating the Bronze Soldier of Tallinn. It triggered a NATO response."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Stuxnet?",
+      "back": "A computer worm targeting SCADA systems, first released around 2010, built by the US and Israeli governments as part of operation GOSSIPGIRL, targeting Iranian nuclear facilities."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is GOSSIPGIRL?",
+      "back": "A covert US/Israeli cyber operation of which Stuxnet was a part, targeting Iranian nuclear infrastructure."
+    },
+    {
+      "type": "flashcard",
+      "front": "What happened in the HBGary hack (2011)?",
+      "back": "HBGary, a US government federal contractor in computer security, was hacked by Anonymous. Emails were dumped and bad configurations were released."
+    },
+    {
+      "type": "flashcard",
+      "front": "What was the Arab Spring in terms of cyber activity?",
+      "back": "Starting in December 2010, governments in Tunisia, Libya, Egypt, Yemen, Syria, and Bahrain elevated Internet censorship. Egypt, Libya, and Syria shut off the Internet entirely. Iran developed a 'domestic internet'."
+    },
+    {
+      "type": "flashcard",
+      "front": "What cyber activities is China known for according to the lecture?",
+      "back": "State-sponsored cyber espionage to steal corporate secrets, the OPM data breach (stealing background check information and fingerprints), and Internet censorship/targeting dissidents. China pledged to stop corporate espionage in 2016."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Hacking Team?",
+      "back": "A private company that buys and sells zero-day exploits and licenses a Remote Access Trojan. Its client list includes many countries and it has been used to target opposition parties, dissidents, criminals, and purportedly to rig elections."
+    },
+    {
+      "type": "flashcard",
+      "front": "What happened in the Sony hack (November 2014)?",
+      "back": "In response to the Sony Pictures movie 'The Interview' (a comedy about assassinating Kim Jong-un), attackers installed a worm on Sony's systems, stole data, and hijacked Twitter accounts."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Russian Election Interference?",
+      "back": "Russia hacked into the DNC (a major US political party) and leaked emails, and spread weaponized information over social media about the Brexit referendum, US elections, COVID, and more."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is economics?",
+      "back": "A social science that studies the behaviour of individuals and firms to predict outcomes. It models behaviours based on systematic observation and studies trade-offs between conflicting interests."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are analytical models in economics?",
+      "back": "Models that state plausible assumptions about agent behaviour and examine the implications. Good for theoretical analysis of individual behaviour, but when models disagree, ground truth is elusive."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are empirical models in economics?",
+      "back": "Models that observe relationships in aggregate without explaining underlying individual decisions. Ground truth is achievable but they can oversimplify and cannot explain underlying mechanisms."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are measurement models in economics?",
+      "back": "Models that collect data to compare deviations from predictions made by analytical models, offering feedback to validate analytical model predictions."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Occam's Razor?",
+      "back": "'Entities must not be multiplied beyond necessity' — the principle that simpler models/explanations are preferred over unnecessarily complex ones."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Rational Choice Theory?",
+      "back": "A model for decision-making in economics that assumes individuals act in their perceived best interest. It is used to model the decisions people make when faced with multiple choices and strategic agents."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Game Theory (lecture definition)?",
+      "back": "An extension of rational choice theory that models strategic interactions between agents."
+    },
+    {
+      "type": "flashcard",
+      "front": "What does 'rationality' mean in economics?",
+      "back": "A rational individual acts in their perceived best interest. It motivates a focus on incentives. Formally, it uses rational choice theory to state available outcomes, articulate preferences, and decide accordingly."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Completeness axiom in rational choice theory?",
+      "back": "For each pair of outcomes o1 and o2, exactly one of the following holds: o1 ≻ o2, o1 ∼ o2, or o2 ≻ o1. Outcomes can always be compared."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Transitivity axiom in rational choice theory?",
+      "back": "For each triple of outcomes o1, o2, and o3, if o1 ≻ o2 and o2 ≻ o3, then o1 ≻ o3. People make choices among many outcomes in a consistent manner."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a utility function?",
+      "back": "A function U that maps a set of outcomes onto real-valued numbers (U: O → ℝ), defined such that U(o1) > U(o2) ⟺ o1 ≻ o2. Agents make rational decisions by picking the outcome with the highest utility."
+    },
+    {
+      "type": "flashcard",
+      "front": "What utility function is used for substitute outcomes?",
+      "back": "U(o1, o2) = u·o1 + v·o2. Useful when outcomes are substitutes (e.g., tea and coffee, processor speed and RAM)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What utility function is used for complementary outcomes?",
+      "back": "U(o1, o2) = min{u·o1, v·o2}. Useful when outcomes are complements (e.g., tea and milk, operating systems and third-party software)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are indifference curves?",
+      "back": "Graphical representations of all combinations of outcomes between which an agent is indifferent (equal utility). In the confidentiality/availability example, the curves show trade-offs where the agent values both equally."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why is utility theory alone insufficient for decision-making?",
+      "back": "Because only rarely do actions directly determine outcomes. There is uncertainty about which outcome will occur, so a more realistic model associates outcomes with a probability distribution."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Jeremy Bentham's concept of utility?",
+      "back": "Bentham, the founder of utilitarianism, defined utility as preferring 'pleasure' over 'pain', with the greatest happiness of the greatest number as the measure of right and wrong."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is information security risk management?",
+      "back": "A process that includes Risk Analysis (identification and quantification), Risk Management (acceptance, mitigation, avoidance, transfer), and Risk Monitoring (validation and documentation)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is risk acceptance?",
+      "back": "The decision to do nothing about an identified risk. It is prudent when the worst-case loss is small enough to be covered from reserves, or when the probability of occurrence is smaller than other risks threatening the organisation's survival."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is risk mitigation?",
+      "back": "Reducing the probability and severity of a loss when the risk is too large to accept. The optimal level of investment leaves residual risk that must be dealt with through acceptance, avoidance, or transfer."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is risk avoidance?",
+      "back": "Forgoing risky activities to reduce the probability and severity of loss. Unlike mitigation, it does not use technology but introduces opportunity costs of lost business opportunities."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is risk transfer?",
+      "back": "Buying an insurance contract to recover future losses. It is only available in limited circumstances and the cyber-insurance market has remained small due to difficulties in quantifying losses, correlated risk, and externalities."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why has the cyber-insurance market remained small?",
+      "back": "Because of difficulty in quantifying losses, firms preferring not to share details with insurers, externalities where costs of insecurity are borne by others, and the prevalence of correlated risk."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the Saltzer & Schroeder (1973) design principles for security?",
+      "back": "Least privilege, Separation of responsibilities, Complete mediation, Fail-safe default, Defence in depth, Open design, Psychological acceptability, Economy of mechanisms."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Risk Management Model cycle?",
+      "back": "A continuous cycle between attack and defence, moving a system along a spectrum from secure to insecure. Its advantage is that it is adaptive; its disadvantages are that it creates an arms race and is difficult to evaluate."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the bias-variance tradeoff in model complexity?",
+      "back": "As model complexity increases, bias decreases but variance increases. Total prediction error is minimised at an intermediate complexity — too simple leads to underfitting; too complex leads to overfitting."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is an externality in economics?",
+      "back": "A side-effect of a transaction not captured by the available property rights. Positive externalities (e.g., scientific research) benefit others; negative externalities (e.g., pollution, insecure machines on the Internet) impose costs on others."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Pareto improvement?",
+      "back": "Any change that makes at least one person better off without making anyone else worse off. An allocation is Pareto efficient if no further Pareto improvement is possible."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a price-discriminating monopolist?",
+      "back": "A monopolist who charges each buyer a different price equal to the maximum they are prepared to pay, thereby extracting all consumer surplus. Examples include haggling carpet sellers and airline fare classes."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is consumer surplus?",
+      "back": "The difference between the maximum price a consumer is willing to pay and the actual price they pay. A price-discriminating monopolist aims to extract all consumer surplus."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is market power?",
+      "back": "A measure of how close a merchant is to being a monopolist. Under monopoly the merchant is a price setter; under perfect competition they are a price taker who must accept whatever price the market establishes."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is information asymmetry?",
+      "back": "When some principals know more than others, or can find it out more cheaply. It is a source of market power and failure — e.g., a carpet seller knows more about local prices than a tourist, or sellers of used cars know whether they have a 'lemon'."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the 'market for lemons' (Akerlof)?",
+      "back": "Akerlof's insight that when sellers know quality but buyers don't (e.g., used cars), good-quality products are driven from the market because buyers will only pay an average price, which only sellers of bad products ('lemons') are willing to accept."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is adverse selection (hidden information)?",
+      "back": "A market failure where asymmetric information causes the wrong participants to be selected. Example: people who know they are bad drivers buying Volvos because they know the car is safer — the hidden information is driver quality."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is moral hazard (hidden action)?",
+      "back": "When having protection or insurance changes a party's behaviour in a way that increases risk. Example: people driving faster because they feel safer in a Volvo — the hidden action is the adjusted driving behaviour."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a public good in economics?",
+      "back": "A good that is non-rivalrous (one person's use does not reduce availability to others) and non-excludable (there is no practical way to stop people consuming it). Examples: national defence, scientific research, air quality. Uncoordinated markets cannot provide these in socially optimal quantities."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are network externalities (network effects)?",
+      "back": "The phenomenon whereby the value of a network grows more than linearly with the number of users. Examples include telephone networks, email, social media, and eBay — a user gets more value when more other users are present."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is technical lock-in?",
+      "back": "When switching costs (technical and human) make it expensive for customers to move to a competing platform. Switching costs include converting files, retraining staff, and losing access to complementary products."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Shapiro-Varian result about software company value?",
+      "back": "The value of a software company equals the total lock-in (due to technical and network effects) of all its customers — i.e., the total switching costs across its entire user base."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the four features that make information markets prone to monopoly?",
+      "back": "1) Low marginal costs (near zero for copying information). 2) Network externalities (value grows with users). 3) Supply-side scale economies (better data, A/B testing). 4) Technical lock-in (switching costs deter migration). Together they strongly favour dominant-firm outcomes."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a two-sided market?",
+      "back": "A market that brings together two types of user, each benefiting from the presence of the other. Examples: newspapers (readers and advertisers), IBM mainframes (users and software developers), social media platforms (users and advertisers)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is game theory (chapter definition)?",
+      "back": "The study of problems of cooperation and conflict among independent decision makers. It provides a common language for economists, biologists, political scientists, and computer scientists to analyse strategic interaction."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a zero-sum game?",
+      "back": "A game in which one player's gain is exactly another player's loss — the total payoff always sums to zero. Example: matching pennies."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a dominant strategy?",
+      "back": "A strategy that is optimal for a player regardless of what the other player does. When both players have a dominant strategy, the outcome is a dominant strategy equilibrium."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Nash equilibrium?",
+      "back": "A strategy profile where each player's choice is optimal given the other player's choice, and vice versa. Unlike a dominant strategy equilibrium, it may be a local rather than global optimum, and a game can have multiple Nash equilibria."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Prisoners' Dilemma?",
+      "back": "A game where two players each have a dominant strategy (defect/confess) that leads to a worse outcome for both than if they had cooperated. The dominant strategy equilibrium (both confess) is not Pareto efficient compared to mutual cooperation (both deny)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is tit-for-tat strategy?",
+      "back": "A strategy in repeated games: cooperate in the first round, then do whatever the opponent did in the previous round. Found by Axelrod to be one of the best-performing strategies in repeated prisoners' dilemma tournaments."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the hawk-dove game?",
+      "back": "An evolutionary game modelling populations of aggressive (hawk) and cooperative (dove) individuals. If the cost of fighting c exceeds food value v, a stable mixed equilibrium exists where the proportion of hawks equals v/c."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is tacit collusion in economics?",
+      "back": "Cartel-like pricing behaviour that emerges in oligopoly markets without any explicit agreement. Firms learn through repeated interaction that cutting prices triggers retaliation, so they maintain high prices — seen with ISPs and airlines."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are the five traditional types of auction?",
+      "back": "1) English (ascending-bid). 2) Dutch (descending-bid). 3) First-price sealed-bid. 4) Second-price sealed-bid (Vickrey). 5) All-pay auction (model for war, litigation, or winner-take-all races)."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is a Vickrey (second-price sealed-bid) auction?",
+      "back": "An auction where all bidders submit sealed bids, the highest bid wins, but the winner pays the second-highest bid price. The dominant strategy is to bid truthfully. Used by eBay and online ad platforms."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the Revenue Equivalence Theorem?",
+      "back": "Under ideal conditions (risk-neutral bidders, no collusion, Pareto efficiency, independent valuations), all standard auction formats yield the same expected revenue to the seller."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is strategic equivalence in auction theory?",
+      "back": "Two auctions are strategically equivalent if they produce the same outcome and optimal bidding strategy. The Dutch auction and first-price sealed-bid are equivalent; the English auction and Vickrey auction are equivalent."
+    },
+    {
+      "type": "flashcard",
+      "front": "How does Google's ad auction work?",
+      "back": "It is a second-price auction based on 'ad rank' (ai = bi × ei), where bi is the bid and ei is ad quality (relevance and clickthrough rate). The highest ad rank wins and pays just enough to beat the next ranked bidder, rewarding high-quality ads with lower effective prices."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the weakest-link model of security?",
+      "back": "A security model where overall system security depends on its least secure component — like a flood wall where the worst-maintained section determines the island's protection. Adding more agents makes systems less reliable."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the best-shot model of security?",
+      "back": "A security model where overall protection depends on the single best effort — like a missile defence system or a software security architect. Most participants free-ride on the champion."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the sum-of-efforts model of security?",
+      "back": "A security model where security improves with the total combined effort of all participants — like a modern army funded by collective taxes. Adding more agents increases reliability. It is more efficient than best-shot, which is more efficient than weakest-link."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is responsible/coordinated disclosure?",
+      "back": "The practice of reporting software vulnerabilities to vendors or trusted third parties, keeping them confidential until a patch is available, then publicly crediting the discoverer. It balances user exposure risk against the risk of vendors ignoring unreported bugs."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the privacy paradox?",
+      "back": "The observed gap between people's stated high valuation of privacy and their actual behaviour of readily giving away personal information for little benefit. Driven by behavioural factors, context effects, and industry practices that suppress the salience of privacy risks."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is Digital Rights Management (DRM)?",
+      "back": "Technical mechanisms that control how digital content can be copied, shared, or used. Used by vendors to enforce lock-in by tying content to specific devices or platforms and restricting interoperability."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is 'perversely motivated guards' in security economics?",
+      "back": "The phenomenon where the party responsible for detecting a security failure has an incentive not to detect it. Examples: police deterring crime reporting; banks avoiding fraud research to dodge liability; ad platforms doing minimal click-fraud detection because detection reduces ad revenue."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the economic rationale for Microsoft's 'ship it Tuesday and get it right by version 3' approach?",
+      "back": "In a platform race with high fixed costs, low marginal costs, and network effects, being first to dominate the market is more valuable than shipping secure software. Security is a lemons market, so the rational vendor prioritises speed and attracting complementers over security until market dominance is secure."
+    },
+    {
+      "type": "flashcard",
+      "front": "What are 'moats' in business strategy?",
+      "back": "Structural barriers to competition that protect a firm's market position. Examples include network effects, technical lock-in, patents, regulatory capture, and control of data. The term is associated with Warren Buffett's investment philosophy."
+    },
+    {
+      "type": "flashcard",
+      "front": "What is the economics of cybercrime approach associated with Gary Becker?",
+      "back": "Analysing crime in terms of expected rewards and punishments: rational offenders commit crimes when the expected benefit exceeds the expected cost (probability of detection × punishment). It provides insights but does not fully explain why crime clusters geographically or why some individuals become persistent offenders."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What triggered the 2007 DDoS cyberattack on Estonia?",
+      "options": [
+        "Estonia joined NATO",
+        "Estonia relocated the Bronze Soldier of Tallinn",
+        "Estonia imposed sanctions on Russia",
+        "Estonia conducted a cyberattack on Russia first"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which systems did Stuxnet specifically target?",
+      "options": [
+        "Banking systems",
+        "Military command networks",
+        "SCADA systems",
+        "DNS infrastructure"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "During the Arab Spring, which countries shut off Internet access entirely?",
+      "options": [
+        "Tunisia, Syria, and Yemen",
+        "Egypt, Libya, and Syria",
+        "Egypt, Tunisia, and Bahrain",
+        "Libya, Yemen, and Iran"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What did Russia hack in relation to US election interference?",
+      "options": [
+        "The US Federal Election Commission",
+        "The Republican National Committee (RNC)",
+        "The Democratic National Committee (DNC)",
+        "The US State Department"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What type of data did China steal in the OPM data breach?",
+      "options": [
+        "Nuclear launch codes and military plans",
+        "Background check information and fingerprints",
+        "Electoral roll data and social security numbers",
+        "Patent filings and trade secrets"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the correct interpretation of o1 ≻ o2 in rational choice theory?",
+      "options": [
+        "The agent is indifferent between o1 and o2",
+        "The agent weakly prefers o1 to o2",
+        "The agent strictly prefers o1 to o2",
+        "The agent strictly prefers o2 to o1"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which utility function is appropriate when outcomes are complements?",
+      "options": [
+        "U(o1, o2) = u·o1 + v·o2",
+        "U(o1, o2) = u·o1 × v·o2",
+        "U(o1, o2) = min{u·o1, v·o2}",
+        "U(o1, o2) = max{u·o1, v·o2}"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the cryptography trade-off example, what utility function was used?",
+      "options": [
+        "U(a,c) = min{u·a, v·c}",
+        "U(a,c) = u·a + v·c",
+        "U(a,c) = u·a × v·c",
+        "U(a,c) = max{u·a, v·c}"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the cryptography utility example, which agent weights confidentiality more heavily (v=3, u=1)?",
+      "options": [
+        "First responders",
+        "Intelligence agency",
+        "Online merchants",
+        "Credit card issuers"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which risk management strategy involves buying an insurance contract?",
+      "options": [
+        "Risk acceptance",
+        "Risk mitigation",
+        "Risk avoidance",
+        "Risk transfer"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which risk management strategy involves forgoing risky activities rather than using technology?",
+      "options": [
+        "Risk acceptance",
+        "Risk mitigation",
+        "Risk avoidance",
+        "Risk transfer"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is risk acceptance prudent for start-ups compared to entrenched firms?",
+      "options": [
+        "Start-ups face fewer cyber threats",
+        "Start-ups have stronger technical defences",
+        "Start-up worst-case losses are smaller relative to other survival risks",
+        "Start-ups are exempt from regulations"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following is a reason the cyber-insurance market has remained small?",
+      "options": [
+        "Cyberattacks are rare",
+        "Firms are legally prohibited from buying cyber insurance",
+        "Correlated risk is prevalent and losses are hard to quantify",
+        "Insurance companies are not interested in technology sectors"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How do credit card issuers practise risk acceptance?",
+      "options": [
+        "They disconnect high-risk cardholders from the system",
+        "They pay fraud losses from merchant payment fees",
+        "They sell credit risk on secondary markets",
+        "They install anti-fraud technology"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which type of economic model directly applies empirical analysis to validate analytical model predictions?",
+      "options": [
+        "Analytical models",
+        "Empirical models",
+        "Measurement models",
+        "Normative models"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does Occam's Razor recommend in the context of model building?",
+      "options": [
+        "Always use the most complex model available",
+        "Entities must not be multiplied beyond necessity — prefer simpler models",
+        "Prioritise empirical models over analytical ones",
+        "Use multiple models simultaneously for best accuracy"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Prisoners' Dilemma, what is the dominant strategy for each player?",
+      "options": [
+        "Deny (cooperate), because mutual denial gives the best joint outcome",
+        "Confess (defect), regardless of what the other player does",
+        "Match whatever the other player is expected to do",
+        "Randomly choose to confess or deny"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the hawk-dove game, when does a stable mixed-population equilibrium exist?",
+      "options": [
+        "When the value of food v exceeds the cost of fighting c",
+        "When the cost of fighting c exceeds the value of food v",
+        "When all individuals are hawks",
+        "When all individuals are doves"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which auction type is strategically equivalent to the Dutch (descending-bid) auction?",
+      "options": [
+        "English (ascending-bid) auction",
+        "Vickrey (second-price sealed-bid) auction",
+        "First-price sealed-bid auction",
+        "All-pay auction"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Google's ad auction, what is 'ad rank' calculated as?",
+      "options": [
+        "The bid price alone",
+        "Ad quality alone (clickthrough rate)",
+        "Bid price multiplied by ad quality (bi × ei)",
+        "Bid price divided by ad quality"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "According to the Shapiro-Varian result, what determines the value of a software company?",
+      "options": [
+        "Its annual revenue from license sales",
+        "The total switching costs (lock-in) of all its customers",
+        "The number of active users on its platform",
+        "The size of its engineering workforce"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Hal Varian's model of information system dependability, which security model becomes less reliable as more agents are added?",
+      "options": [
+        "Sum-of-efforts",
+        "Best-shot",
+        "Weakest-link",
+        "Nash equilibrium"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the key problem the 'market for lemons' insight reveals for cybersecurity product markets?",
+      "options": [
+        "Attackers always know more than defenders",
+        "When users cannot distinguish good from bad security products, they buy the cheapest, driving good products out of the market",
+        "Open-source software is always less secure than proprietary software",
+        "Vulnerabilities in software are always independent of each other"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the equilibrium outcome of a single-shot Prisoners' Dilemma?",
+      "options": [
+        "Both players cooperate (deny)",
+        "One cooperates and one defects",
+        "Both players defect (confess), even though mutual cooperation would be better",
+        "Players randomise their strategies"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which security model did medieval Venice exemplify due to its flood risk?",
+      "options": [
+        "Best-shot",
+        "Sum-of-efforts",
+        "Weakest-link",
+        "Tit-for-tat"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the privacy paradox?",
+      "options": [
+        "People overestimate how much data companies collect about them",
+        "People say they value privacy highly but give away personal information readily for little benefit",
+        "Privacy-enhancing technologies are too expensive for ordinary users",
+        "Governments collect more data than corporations"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does Adam Smith's insight about the butcher, brewer, and baker illustrate?",
+      "options": [
+        "Firms should cooperate to maximise social welfare",
+        "Rational self-interest in a free market leads to progress even without altruism",
+        "Food markets are natural monopolies",
+        "Specialisation always reduces quality"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why were Windows systems insecure in the 1990s from a security economics perspective?",
+      "options": [
+        "Microsoft lacked technical expertise to write secure software",
+        "In a platform race, shipping quickly and attracting complementers was more rational than investing in security, which is a lemons market",
+        "Security was not technically possible on 1990s hardware",
+        "Microsoft intentionally wanted users to suffer security failures"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is an all-pay auction a model of?",
+      "options": [
+        "Online advertising markets",
+        "Government procurement",
+        "War, litigation, or winner-take-all market races",
+        "Second-hand goods markets"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is adverse selection in the context of security markets?",
+      "options": [
+        "Vendors ship insecure products because they are cheaper to produce",
+        "Buyers who know they face higher risk are more likely to purchase insurance or security products, raising prices for everyone",
+        "Attackers select the weakest targets first",
+        "Security managers select the wrong controls for their threat environment"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Cyberwar is a clearly and universally defined term in international law.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Stuxnet was built by the US and Israeli governments to target Iranian nuclear facilities.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Hacking Team's client list was limited exclusively to Western democratic governments.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Iran created a 'domestic internet' during the Arab Spring period.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Economics is solely concerned with interactions involving money.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "According to rational choice theory, the transitivity axiom states that if o1 ≻ o2 and o2 ≻ o3, then o1 ≻ o3.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Utility theory alone is a fully sufficient model for decision-making because actions always directly determine outcomes.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "All models are a perfect representation of reality.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Risk mitigation aims to completely eliminate all residual risk.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Risk avoidance introduces opportunity costs because it involves forgoing potentially profitable activities.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Risk Management Model cycle (attack-defence) is considered fully static and does not adapt over time.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In rational choice theory, completeness means every pair of outcomes can always be compared.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Jeremy Bentham is the founder of utilitarianism.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Stuxnet stole two public key certificates to sign device drivers.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Empirical models in economics can fully explain the underlying mechanisms of individual decisions.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a competitive market, the equilibrium price of a good equals its marginal cost of production.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A simple monopolist (non-price-discriminating) achieves a Pareto-efficient outcome.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Both perfect communism and perfect dictatorship are Pareto efficient.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Network externalities mean that the value of a network grows linearly with the number of users.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the Vickrey (second-price sealed-bid) auction, the dominant strategy is to bid truthfully.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Revenue Equivalence Theorem states that all standard auctions yield identical revenue under ideal conditions.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the weakest-link model of security, adding more agents to a system makes it more reliable.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Tit-for-tat cooperates on the first move and then copies the opponent's previous move.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The dominant strategy equilibrium in the Prisoners' Dilemma is also Pareto efficient.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Scientific research is a public good because it is non-rivalrous and non-excludable once published.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Adverse selection refers to hidden actions that change risk behaviour after a contract is signed.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Tacit collusion between firms requires an explicit, secret agreement to fix prices.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In the sum-of-efforts model of security, adding more agents increases overall reliability.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "DRM (Digital Rights Management) primarily benefits end users by protecting their content.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the key debate around whether cyberattacks constitute 'war'. What are the main definitional challenges?",
+      "answer": "The debate centres on whether cyberattacks meet the traditional definition of war (armed conflict causing aggression, destruction, and mortality). Key challenges include: cyberattacks may cause no direct deaths, the boundary between espionage, criminal activity, and warfare is blurred, attribution is difficult, and there is no agreed international legal framework. Questions arise such as whether a cyberweapon causing infrastructure damage without fatalities counts as an act of war."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe three debate propositions about cyberwar raised in the lecture and explain why each is controversial.",
+      "answer": "1) 'Hacker tools are cyberweapons and should be licensed or banned' — controversial because the same tools are used for defence and offence, and banning them could hinder security research. 2) 'People should be able to shed their name/citizenship when participating online' — raises issues of anonymity vs. accountability. 3) 'Cyberwar can be effectively regulated through multilateral treaties' — difficult because attribution is hard, nations have conflicting interests, and enforcement is nearly impossible."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the difference between analytical, empirical, and measurement models in economics, and what are the limitations of each?",
+      "answer": "Analytical models state assumptions and derive implications — good for theory but elusive when models disagree. Empirical models observe aggregate relationships without explaining individual mechanisms — ground truth is achievable but they oversimplify. Measurement models collect data to compare with analytical predictions — they bridge the two but directly applying empirical analysis to analytical models usually fails."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the trade-off between confidentiality and availability using indifference curves.",
+      "answer": "Confidentiality and availability are competing security properties. An indifference curve represents all combinations of the two where the agent derives equal utility. Moving up a higher indifference curve represents a strictly preferred outcome. The curve's shape shows that to maintain the same utility, sacrificing availability requires gaining confidentiality, and vice versa. When the two are perfectly substitutable for the agent, they are indifferent between (high availability, low confidentiality) and (low availability, high confidentiality)."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is rational choice theory insufficient on its own for modelling real-world security decisions?",
+      "answer": "Rational choice theory assumes agents can directly choose outcomes, but in reality there is uncertainty — actions only probabilistically determine outcomes. A more realistic model must associate actions with probability distributions over outcomes. Additionally, rationality assumes completeness and transitivity in preferences, which humans often violate in practice."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Using the credit card issuer example, explain how all four risk management strategies can be applied to a single domain.",
+      "answer": "Credit card issuers apply: (1) Risk acceptance — fraud losses are absorbed and paid from merchant payment fees. (2) Risk mitigation — anti-fraud technology is installed to detect and prevent fraudulent transactions. (3) Risk avoidance — high-risk cardholders are downgraded to debit cards or required to use additional verification, at the cost of lost business. (4) Risk transfer — consumer credit risk is structured and sold on financial markets, shifting exposure to third parties."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the strengths and weaknesses of the Risk Management Model (the attack-defence cycle) as a framework for information security?",
+      "answer": "Strength: The model is adaptive — defences can be updated in response to new attacks. Weaknesses: It creates an arms race where attackers continually evolve; it is difficult to evaluate whether investments are sufficient; and it views security as a moving target, making assurance challenging."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the bias-variance tradeoff in model complexity and how it relates to the principle in Occam's Razor.",
+      "answer": "As model complexity increases, bias (error from wrong assumptions) decreases but variance (sensitivity to data fluctuations) increases. Total prediction error is minimised at an intermediate complexity — too simple causes underfitting (high bias), too complex causes overfitting (high variance). Occam's Razor reinforces this: do not add complexity beyond what is necessary, as unnecessary complexity raises variance without reducing bias."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is Hacking Team, and why is its existence ethically and legally controversial?",
+      "answer": "Hacking Team is a private company that buys and sells zero-day exploits and licenses a Remote Access Trojan to governments and other clients. It is controversial because its tools have been used to target opposition parties, dissidents, journalists, and criminals, and purportedly to rig elections. Its clients include countries with poor human rights records, raising questions about whether offensive cyber tools should be regulated as weapons."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the eight design principles for secure systems from Saltzer and Schroeder (1973)?",
+      "answer": "Least privilege, Separation of responsibilities, Complete mediation, Fail-safe default, Defence in depth, Open design, Psychological acceptability, Economy of mechanisms."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the 'market for lemons' concept and how it applies to the market for security products.",
+      "answer": "Akerlof showed that when sellers know quality but buyers cannot distinguish good from bad products, only bad ('lemon') products remain — good sellers withdraw because buyers only pay an average price. In security markets, when users cannot evaluate antivirus or security product quality, they buy the cheapest option. Poor products dominate and good products cannot recoup development costs. Asymmetric information thus depresses security quality across the market."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the four features that make information markets prone to monopoly, and how do they reinforce each other?",
+      "answer": "1) Low marginal costs: copying software is nearly free, so competitive pricing drives revenues toward zero and only large firms survive. 2) Network externalities: users prefer platforms with more users, creating positive feedback that entrenches the leader. 3) Supply-side scale economies: large firms have better data and can run more optimisation tests. 4) Technical lock-in: high switching costs (retraining, file conversion, complementary assets) deter migration. Together, these features make users prefer the expected winner, creating a self-reinforcing cycle that strongly favours a single dominant firm."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the Prisoners' Dilemma, its equilibrium, and why it matters for cybersecurity cooperation problems.",
+      "answer": "Two players each have a dominant strategy (defect), leading to mutual defection that is worse for both than mutual cooperation, yet is a Nash equilibrium. This matters for security because many cooperation problems — from nations sharing threat intelligence to ISPs filtering spam — have the same structure: each actor benefits from free-riding on others' efforts rather than contributing. The result is under-provision of collective security goods. Solutions include laws, repeated interaction, reputation systems, or altering the payoff structure."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare the weakest-link, best-shot, and sum-of-efforts models of security. Give an example of each.",
+      "answer": "Weakest-link: security depends on the least-secure component — e.g., a flood wall where the worst-maintained section determines total protection. Adding agents reduces reliability. Best-shot: security depends on the single best effort — e.g., a missile defence system or a software security architect; most agents free-ride. Sum-of-efforts: security improves with total combined effort — e.g., a national army funded by collective taxes; adding agents increases reliability. Sum-of-efforts is most efficient at scale, weakest-link the least."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why did security economics identify Windows' insecurity in the 1990s as a rational rather than irrational outcome?",
+      "answer": "In a platform race with high fixed costs, low marginal costs, and network effects, enormous first-mover advantages made it rational to ship quickly and attract complementers (app developers) rather than invest in security — a lemons market where buyers cannot evaluate quality. Security got in the way of attracting developers, so the rational strategy was to enable all apps to run and defer security until market dominance was secure. Once dominant, Microsoft could add security, but partly engineered it to reinforce lock-in rather than purely to protect users."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the privacy paradox, and what are the main factors that explain why it occurs?",
+      "answer": "The privacy paradox is the gap between people's stated high valuation of privacy and their actual behaviour of readily giving away personal data. Three main factors explain it: (1) Behavioural/context effects — making privacy salient reduces disclosure; gamified or playful contexts dramatically increase it. (2) Many different types of privacy harm exist, making it hard for individuals to reason about aggregate risk. (3) Industry practices — privacy policies bury unpleasant content, cookie warnings are designed to be anodyne, and the illusion of control reassures users without truly protecting them."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is 'perversely motivated guards', and give three examples from the chapter?",
+      "answer": "Perversely motivated guards are parties responsible for detecting a security failure who have an incentive not to detect it. Examples: (1) Police deterring crime reporting so they can claim crime is falling, even as it moves online. (2) Banks not investigating new fraud patterns because recognising fraud means they must own the loss rather than blaming the customer. (3) Ad platforms doing minimal click-fraud detection because identifying fake clicks means they cannot charge advertisers for them, reducing revenue for the dominant platform."
+    }
+  ]
+}
