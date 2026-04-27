@@ -85,7 +85,36 @@ function normalizeFileStateForEntries(fileState, entries) {
   }
 }
 
+function migrateDevMessageState() {
+  const legacyKey = 'dev_msg_idx';
+  const lastSeenKey = 'dev_msg_last_seen_id';
+
+  if (localStorage.getItem(lastSeenKey) !== null) {
+    return;
+  }
+
+  const raw = localStorage.getItem(legacyKey);
+  const legacyIdx = Number(raw);
+
+  if (!Number.isFinite(legacyIdx) || legacyIdx <= 0) {
+    localStorage.setItem(lastSeenKey, '0');
+    return;
+  }
+
+  /*
+    Legacy behavior used dev_msg_idx = 2 after the original report-button
+    notice was acknowledged. The new system uses stable message IDs, so
+    that legacy value should mean message ID 1 has been seen.
+
+    This deliberately allows message ID 2, Endless Mode, to appear even
+    for users who already had dev_msg_idx = 2 from the old implementation.
+  */
+  localStorage.setItem(lastSeenKey, '1');
+}
+
 async function migrateFlashAppState() {
+  migrateDevMessageState();
+
   let state;
 
   try {

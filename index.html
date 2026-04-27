@@ -93,19 +93,17 @@
 
       <!-- Quiz tab -->
       <div id="tab-quiz">
-        <div class="quiz-nav-bar">
-          <button class="nav-btn" id="quiz-prev" title="Previous question (←)">‹</button>
-          <div class="progress-text-quiz" id="quiz-progress-inline"></div>
-          <button class="nav-btn" id="quiz-next" title="Next question (→)">›</button>
-          <button class="finish-btn" id="quiz-finish" style="display:none">Finish Quiz</button>
-        </div>
         <div class="quiz-scene">
+          <div class="progress-text-quiz" id="quiz-progress-inline"></div>
           <div class="quiz-card" id="quiz-card">
             <div class="quiz-question" id="quiz-question"></div>
             <div id="quiz-answer-area"></div>
             <div class="feedback-row" id="quiz-feedback" style="display:none"></div>
           </div>
-          <div class="report-inline-wrap">
+          <div class="quiz-controls">
+            <button class="nav-btn" id="quiz-prev" title="Previous question (←)">‹</button>
+            <button class="nav-btn" id="quiz-next" title="Next question (→)">›</button>
+            <button class="finish-btn" id="quiz-finish" style="display:none">Finish Quiz</button>
             <button id="btn-report-quiz" class="btn-report-inline" title="Report an issue" aria-label="Report an issue">Report 🚩</button>
           </div>
         </div>
@@ -149,24 +147,7 @@
   </div>
 </div>
 
-<div id="dev-message-modal" class="modal-backdrop" aria-hidden="true">
-  <div class="modal-card dev-message-card" role="dialog" aria-modal="true" aria-labelledby="dev-message-title">
-    <div class="modal-head">
-      <h2 id="dev-message-title">Dev Message</h2>
-      <button id="btn-dev-message-close" title="Close">×</button>
-    </div>
-
-    <p class="dev-message-content">
-      Hi, I’ve added a report button. Please use it if you find any errors with any quiz question or flashcard, and I’ll get it fixed ASAP.
-    </p>
-
-    <div class="modal-actions">
-      <button type="button" id="btn-dev-message-ok">Got it</button>
-    </div>
-  </div>
-</div>
-
 <script src="migrate.js"></script>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

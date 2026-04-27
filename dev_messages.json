@@ -1,0 +1,14 @@
+{
+  "messages": [
+    {
+      "id": 1,
+      "title": "Report Button Added",
+      "body": "Hi, I\u2019ve added a report button. Please use it if you find any errors with any quiz question or flashcard, and I\u2019ll get it fixed ASAP."
+    },
+    {
+      "id": 2,
+      "title": "Endless Mode Added",
+      "body": "Endless Mode is now available at the top of each folder in the sidebar. It gives you random quiz questions from all files in that folder and tracks your current streak and best streak locally on this device."
+    },
+  ]
+}

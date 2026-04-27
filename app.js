@@ -19,6 +19,8 @@ let quizQs = [];
 let quizIndex = 0;
 let quizAnswers = {};  // index → { given, correct }
 
+let endlessMode = null;
+
 /* ── Persistence ─────────────────────────────────────────────── */
 function loadAppState() {
   try {
@@ -46,6 +48,45 @@ function getFileState(theme, filename) {
   return appState.files[k];
 }
 
+function endlessKey(theme, field) {
+  return `study:endless:${theme}:${field}`;
+}
+
+function getEndlessStreak(theme) {
+  return Number(localStorage.getItem(endlessKey(theme, 'streak')) || '0');
+}
+
+function getEndlessBest(theme) {
+  return Number(localStorage.getItem(endlessKey(theme, 'best')) || '0');
+}
+
+function setEndlessStreak(theme, value) {
+  localStorage.setItem(endlessKey(theme, 'streak'), String(value));
+}
+
+function setEndlessBest(theme, value) {
+  localStorage.setItem(endlessKey(theme, 'best'), String(value));
+}
+
+function updateEndlessScore(theme, correct) {
+  let streak = getEndlessStreak(theme);
+
+  if (correct) {
+    streak += 1;
+    setEndlessStreak(theme, streak);
+
+    const best = getEndlessBest(theme);
+    if (streak > best) {
+      setEndlessBest(theme, streak);
+    }
+  } else {
+    streak = 0;
+    setEndlessStreak(theme, 0);
+  }
+
+  refreshEndlessItem(theme);
+}
+
 /* ── Utility ──────────────────────────────────────────────────── */
 function shuffle(arr) {
   const a = [...arr];
@@ -58,6 +99,15 @@ function shuffle(arr) {
 
 function loading(on) {
   document.getElementById('loading-overlay').classList.toggle('visible', on);
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
 }
 
 /* ── Theme ────────────────────────────────────────────────────── */
@@ -141,6 +191,8 @@ function buildSidebar() {
     const filesDiv = document.createElement('div');
     filesDiv.className = 'theme-files';
 
+    filesDiv.appendChild(buildEndlessItem(theme));
+
     const numberAtStartSortKey = (filename) =>
       filename.replace(/^(.*?)(\d+)(.*)$/, "$2$1$3");
 
@@ -166,13 +218,57 @@ function buildSidebar() {
       filesDiv.style.maxHeight = isOpen ? filesDiv.scrollHeight + 'px' : '0';
     });
 
-    // Start open
-    filesDiv.style.maxHeight = '500px';
-
     group.appendChild(header);
     group.appendChild(filesDiv);
     tree.appendChild(group);
+
+    // Start open
+    filesDiv.style.maxHeight = filesDiv.scrollHeight + 'px';
   }
+}
+
+function buildEndlessItem(theme) {
+  const item = document.createElement('div');
+  item.className = 'file-item endless-item';
+  item.dataset.theme = theme.folder;
+  item.dataset.endless = 'true';
+
+  const top = document.createElement('div');
+  top.className = 'file-item-top';
+
+  const nameEl = document.createElement('span');
+  nameEl.className = 'file-name endless-name';
+  nameEl.textContent = 'Endless Mode';
+
+  const scoreEl = document.createElement('span');
+  scoreEl.className = 'file-score endless-score';
+  scoreEl.textContent = endlessScoreText(theme.folder);
+
+  top.appendChild(nameEl);
+  top.appendChild(scoreEl);
+
+  const sub = document.createElement('div');
+  sub.className = 'endless-sub';
+  sub.textContent = 'Random questions from this folder';
+
+  item.appendChild(top);
+  item.appendChild(sub);
+
+  item.addEventListener('click', () => openEndlessMode(theme, item));
+
+  return item;
+}
+
+function endlessScoreText(theme) {
+  return `🔥 ${getEndlessStreak(theme)}  🏆 ${getEndlessBest(theme)}`;
+}
+
+function refreshEndlessItem(theme) {
+  const item = document.querySelector(`.endless-item[data-theme="${theme}"]`);
+  if (!item) return;
+
+  const scoreEl = item.querySelector('.endless-score');
+  if (scoreEl) scoreEl.textContent = endlessScoreText(theme);
 }
 
 function buildFileItem(theme, filename) {
@@ -261,6 +357,7 @@ async function openFile(theme, filename, itemEl) {
   // Highlight active
   document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
   itemEl.classList.add('active');
+  endlessMode = null;
 
   loading(true);
   try {
@@ -279,8 +376,91 @@ async function openFile(theme, filename, itemEl) {
   }
 }
 
+/* ── Open Endless Mode ──────────────────────────────────────── */
+async function openEndlessMode(theme, itemEl) {
+  document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
+  itemEl.classList.add('active');
+
+  currentFile = null;
+  quizAnswers = {};
+  loading(true);
+
+  try {
+    const questions = [];
+
+    for (const filename of theme.files) {
+      const r = await fetch(`material/${theme.folder}/${filename}`);
+      if (!r.ok) continue;
+
+      const data = await r.json();
+      const entries = Array.isArray(data.entries) ? data.entries : [];
+
+      entries.forEach((entry, idx) => {
+        if (entry.type !== 'quiz') return;
+
+        questions.push({
+          ...entry,
+          _sourceFilename: filename,
+          _sourceLabel: fileToLabel(filename),
+          _origIdx: idx
+        });
+      });
+    }
+
+    if (questions.length === 0) {
+      alert(`No quiz questions found for ${theme.label}.`);
+      return;
+    }
+
+    endlessMode = {
+      theme: theme.folder,
+      label: theme.label,
+      questions,
+      deck: shuffle(questions),
+      current: null,
+      currentSource: null,
+      answered: false
+    };
+
+    showEndlessPanel();
+    nextEndlessQuestion();
+  } catch (e) {
+    alert(`Error loading Endless Mode: ${e.message}`);
+  } finally {
+    loading(false);
+  }
+}
+
+function showEndlessPanel() {
+  document.getElementById('welcome').style.display = 'none';
+  document.getElementById('content-panel').classList.add('visible');
+
+  document.getElementById('tab-btn-flashcards').style.display = 'none';
+  document.getElementById('tab-btn-quiz').style.display = '';
+  document.getElementById('quiz-finish').style.display = 'none';
+
+  currentTab = 'quiz';
+
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-btn-quiz').classList.add('active');
+
+  document.getElementById('tab-flashcards').classList.remove('active');
+  document.getElementById('tab-results').classList.remove('active');
+  document.getElementById('tab-quiz').classList.add('active');
+
+  document.getElementById('quiz-prev').style.visibility = '';
+  document.getElementById('quiz-next').style.visibility = '';
+}
+
+function exitEndlessPanelDefaults() {
+  document.getElementById('quiz-prev').style.visibility = '';
+  document.getElementById('quiz-next').style.visibility = '';
+}
+
 /* ── Init content for a loaded file ─────────────────────────── */
 function initContent(data, theme, filename) {
+  exitEndlessPanelDefaults();
+
   const hasFc = data.entries.some(e => e.type === 'flashcard');
   const hasQz = data.entries.some(e => e.type === 'quiz');
   const fs = getFileState(theme, filename);
@@ -314,7 +494,10 @@ function switchTab(tab) {
   document.getElementById('tab-results').classList.toggle('active', tab === 'results');
 
   if (tab === 'flashcards') initFlashcards();
-  else if (tab === 'quiz') initQuiz();
+  else if (tab === 'quiz') {
+    if (endlessMode) renderEndlessQuestion();
+    else initQuiz();
+  }
 }
 
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -333,7 +516,14 @@ btnShuffle.addEventListener('click', () => {
   saveAppState();
   // Re-init current tab
   if (currentTab === 'flashcards') initFlashcards();
-  else if (currentTab === 'quiz') initQuiz();
+  else if (currentTab === 'quiz') {
+    if (endlessMode) {
+      endlessMode.deck = shuffle(endlessMode.questions);
+      nextEndlessQuestion();
+    } else {
+      initQuiz();
+    }
+  }
 });
 
 /* ══════════════════════════════════════════════════════════════
@@ -384,6 +574,207 @@ document.getElementById('fc-prev').addEventListener('click', () => {
 document.getElementById('fc-next').addEventListener('click', () => {
   if (fcIndex < fcCards.length - 1) { fcIndex++; renderCard(); }
 });
+
+/* ══════════════════════════════════════════════════════════════
+   ENDLESS MODE
+   ══════════════════════════════════════════════════════════════ */
+function nextEndlessQuestion() {
+  if (!endlessMode) return;
+
+  if (endlessMode.deck.length === 0) {
+    endlessMode.deck = shuffle(endlessMode.questions);
+  }
+
+  endlessMode.current = endlessMode.deck.pop();
+  endlessMode.currentSource = endlessMode.current._sourceLabel;
+  endlessMode.answered = false;
+
+  renderEndlessQuestion();
+}
+
+function renderEndlessQuestion() {
+  const q = endlessMode.current;
+  if (!q) return;
+
+  const streak = getEndlessStreak(endlessMode.theme);
+  const best = getEndlessBest(endlessMode.theme);
+
+  document.getElementById('quiz-progress-inline').textContent =
+    `${endlessMode.label} Endless Mode    🔥 ${streak}    🏆 ${best}`;
+
+  document.getElementById('quiz-question').innerHTML = `
+    <div class="endless-source">Question from ${escapeHtml(endlessMode.currentSource)}</div>
+    <div>${escapeHtml(q.question)}</div>
+  `;
+
+  const fb = document.getElementById('quiz-feedback');
+  fb.style.display = 'none';
+  fb.className = 'feedback-row';
+  fb.innerHTML = '';
+
+  const area = document.getElementById('quiz-answer-area');
+  area.innerHTML = '';
+
+  if (q.subtype === 'multiple_choice') renderEndlessMC(q, area);
+  else if (q.subtype === 'true_false') renderEndlessTF(q, area);
+  else if (q.subtype === 'text_answer') renderEndlessTA(q, area);
+
+  document.getElementById('quiz-prev').disabled = true;
+  document.getElementById('quiz-next').disabled = false;
+  document.getElementById('quiz-finish').style.display = 'none';
+}
+
+function renderEndlessMC(q, area) {
+  const list = document.createElement('div');
+  list.className = 'options-list';
+
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = opt;
+    btn.addEventListener('click', () => submitEndlessMC(q, i));
+    list.appendChild(btn);
+  });
+
+  area.appendChild(list);
+}
+
+function submitEndlessMC(q, chosen) {
+  if (endlessMode.answered) return;
+
+  endlessMode.answered = true;
+  const correct = chosen === q.answer;
+  updateEndlessScore(endlessMode.theme, correct);
+
+  const btns = document.querySelectorAll('.option-btn');
+  btns.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.answer) btn.classList.add('correct');
+    else if (i === chosen && !correct) btn.classList.add('wrong');
+  });
+
+  showEndlessFeedback(correct, q);
+}
+
+function renderEndlessTF(q, area) {
+  const row = document.createElement('div');
+  row.className = 'tf-row';
+
+  ['True', 'False'].forEach(label => {
+    const btn = document.createElement('button');
+    btn.className = 'tf-btn';
+    btn.textContent = label;
+    btn.addEventListener('click', () => submitEndlessTF(q, label === 'True'));
+    row.appendChild(btn);
+  });
+
+  area.appendChild(row);
+}
+
+function submitEndlessTF(q, chosen) {
+  if (endlessMode.answered) return;
+
+  endlessMode.answered = true;
+  const correct = chosen === q.answer;
+  updateEndlessScore(endlessMode.theme, correct);
+
+  const btns = document.querySelectorAll('.tf-btn');
+  btns.forEach(btn => {
+    btn.disabled = true;
+    const val = btn.textContent === 'True';
+    if (val === q.answer) btn.classList.add('correct');
+    else if (val === chosen && !correct) btn.classList.add('wrong');
+  });
+
+  showEndlessFeedback(correct, q);
+}
+
+function renderEndlessTA(q, area) {
+  const wrap = document.createElement('div');
+  wrap.className = 'text-answer-wrap';
+
+  const ta = document.createElement('textarea');
+  ta.className = 'text-input text-area';
+  ta.placeholder = 'Type your answer…';
+  ta.rows = 4;
+  ta.id = 'endless-ta-input';
+
+  const btn = document.createElement('button');
+  btn.className = 'submit-btn';
+  btn.textContent = 'Reveal answer';
+  btn.addEventListener('click', () => revealEndlessTA(q));
+
+  wrap.appendChild(ta);
+  wrap.appendChild(btn);
+  area.appendChild(wrap);
+}
+
+function revealEndlessTA(q) {
+  if (endlessMode.answered) return;
+
+  endlessMode.answered = true;
+
+  const ta = document.getElementById('endless-ta-input');
+  if (ta) ta.disabled = true;
+
+  const btn = document.querySelector('.submit-btn');
+  if (btn) btn.disabled = true;
+
+  const fb = document.getElementById('quiz-feedback');
+  fb.style.display = 'flex';
+  fb.className = 'feedback-row neutral';
+  fb.innerHTML = `
+    <span class="feedback-ref-answer">Model answer: ${escapeHtml(String(q.answer))}</span>
+    <div class="self-grade-row">
+      <button class="self-grade-btn correct-grade" id="endless-self-correct">I got it right</button>
+      <button class="self-grade-btn wrong-grade" id="endless-self-wrong">I missed it</button>
+    </div>
+  `;
+
+  document.getElementById('endless-self-correct').addEventListener('click', () => {
+    updateEndlessScore(endlessMode.theme, true);
+    disableSelfGradeButtons();
+  });
+
+  document.getElementById('endless-self-wrong').addEventListener('click', () => {
+    updateEndlessScore(endlessMode.theme, false);
+    disableSelfGradeButtons();
+  });
+}
+
+function disableSelfGradeButtons() {
+  document.querySelectorAll('.self-grade-btn').forEach(btn => {
+    btn.disabled = true;
+  });
+
+  const streak = getEndlessStreak(endlessMode.theme);
+  const best = getEndlessBest(endlessMode.theme);
+  document.getElementById('quiz-progress-inline').textContent =
+    `${endlessMode.label} Endless Mode    🔥 ${streak}    🏆 ${best}`;
+}
+
+function showEndlessFeedback(correct, q) {
+  const fb = document.getElementById('quiz-feedback');
+  fb.style.display = 'flex';
+
+  const streak = getEndlessStreak(endlessMode.theme);
+  const best = getEndlessBest(endlessMode.theme);
+  document.getElementById('quiz-progress-inline').textContent =
+    `${endlessMode.label} Endless Mode    🔥 ${streak}    🏆 ${best}`;
+
+  if (correct) {
+    fb.className = 'feedback-row correct';
+    fb.textContent = '✓ Correct!';
+    return;
+  }
+
+  let correctText = '';
+  if (q.subtype === 'multiple_choice') correctText = q.options[q.answer];
+  else if (q.subtype === 'true_false') correctText = q.answer ? 'True' : 'False';
+
+  fb.className = 'feedback-row wrong';
+  fb.innerHTML = `✗ Wrong — <span class="feedback-correct-reveal">Correct answer: ${escapeHtml(correctText)}</span>`;
+}
 
 /* ══════════════════════════════════════════════════════════════
    QUIZ
@@ -565,6 +956,11 @@ document.getElementById('quiz-prev').addEventListener('click', () => {
   if (quizIndex > 0) { quizIndex--; renderQuestion(); }
 });
 document.getElementById('quiz-next').addEventListener('click', () => {
+  if (endlessMode) {
+    nextEndlessQuestion();
+    return;
+  }
+
   if (quizIndex < quizQs.length - 1) { quizIndex++; renderQuestion(); }
 });
 document.getElementById('quiz-finish').addEventListener('click', showResults);
@@ -680,6 +1076,20 @@ function getReportContext() {
   let entry = null;
   let entryIndex = null;
 
+  if (endlessMode && endlessMode.current) {
+    const cleanEntry = { ...endlessMode.current };
+    delete cleanEntry._origIdx;
+    delete cleanEntry._sourceFilename;
+    delete cleanEntry._sourceLabel;
+
+    return {
+      theme: endlessMode.theme,
+      filename: endlessMode.current._sourceFilename,
+      entryIndex: endlessMode.current._origIdx,
+      entry: cleanEntry
+    };
+  }
+
   if (currentFile && currentTab === 'flashcards' && fcCards.length > 0) {
     entry = fcCards[fcIndex];
     entryIndex = entry._origIdx;
@@ -772,23 +1182,105 @@ document.getElementById('report-form').addEventListener('submit', async e => {
   }
 });
 
-/* ── Dev message migration notice ───────────────────────────── */
+/* ── Dev messages ───────────────────────────────────────────── */
 
-const DEV_MSG_IDX = 2;
+const DEV_MESSAGES_URL = 'dev_messages.json';
+const DEV_MESSAGE_LAST_SEEN_KEY = 'dev_msg_last_seen_id';
+const DEV_MESSAGE_BACKLOG_LIMIT = 3;
+let devMessages = [];
 
-function getDevMessageIdx() {
-  const raw = localStorage.getItem('dev_msg_idx');
+function getDevMessageLastSeenId() {
+  const newestId = devMessages.length > 0
+    ? Math.max(...devMessages.map(msg => msg.id))
+    : 0;
+
+  const oldestAllowedId = Math.max(0, newestId - DEV_MESSAGE_BACKLOG_LIMIT);
+
+  const raw = localStorage.getItem(DEV_MESSAGE_LAST_SEEN_KEY);
   const parsed = Number(raw);
-  return Number.isFinite(parsed) ? parsed : 0;
+
+  if (!Number.isFinite(parsed)) {
+    return oldestAllowedId;
+  }
+
+  return Math.max(parsed, oldestAllowedId);
 }
 
-function setDevMessageIdx(value) {
-  localStorage.setItem('dev_msg_idx', String(value));
+function setDevMessageLastSeenId(value) {
+  localStorage.setItem(DEV_MESSAGE_LAST_SEEN_KEY, String(value));
+}
+
+async function loadDevMessages() {
+  try {
+    const res = await fetch(`${DEV_MESSAGES_URL}?v=1`);
+    if (!res.ok) throw new Error('Could not load dev messages');
+
+    const data = await res.json();
+    const messages = Array.isArray(data.messages) ? data.messages : [];
+
+    devMessages = messages
+      .filter(msg =>
+        Number.isInteger(msg.id) &&
+        msg.id > 0 &&
+        typeof msg.title === 'string' &&
+        typeof msg.body === 'string'
+      )
+      .sort((a, b) => a.id - b.id);
+  } catch {
+    devMessages = [];
+  }
+}
+
+function getNextDevMessage() {
+  const lastSeenId = getDevMessageLastSeenId();
+  return devMessages.find(msg => msg.id > lastSeenId) || null;
+}
+
+function ensureDevMessageModal() {
+  let modal = document.getElementById('dev-message-modal');
+  if (modal) return modal;
+
+  modal = document.createElement('div');
+  modal.id = 'dev-message-modal';
+  modal.className = 'modal-backdrop';
+  modal.setAttribute('aria-hidden', 'true');
+
+  modal.innerHTML = `
+    <div class="modal-card dev-message-card" role="dialog" aria-modal="true" aria-labelledby="dev-message-title">
+      <div class="modal-head">
+        <h2 id="dev-message-title">Dev Message</h2>
+        <button id="btn-dev-message-close" title="Close">×</button>
+      </div>
+
+      <p class="dev-message-content" id="dev-message-content"></p>
+
+      <div class="modal-actions">
+        <button type="button" id="btn-dev-message-ok">Got it</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  document.getElementById('btn-dev-message-close').addEventListener('click', closeDevMessageModal);
+  document.getElementById('btn-dev-message-ok').addEventListener('click', closeDevMessageModal);
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeDevMessageModal();
+  });
+
+  return modal;
 }
 
 function openDevMessageModal() {
-  const modal = document.getElementById('dev-message-modal');
-  if (!modal) return;
+  const msg = getNextDevMessage();
+  if (!msg) return;
+
+  const modal = ensureDevMessageModal();
+
+  modal.dataset.messageId = String(msg.id);
+  document.getElementById('dev-message-title').textContent = msg.title;
+  document.getElementById('dev-message-content').textContent = msg.body;
 
   modal.classList.add('visible');
   modal.setAttribute('aria-hidden', 'false');
@@ -798,22 +1290,25 @@ function closeDevMessageModal() {
   const modal = document.getElementById('dev-message-modal');
   if (!modal) return;
 
+  const messageId = Number(modal.dataset.messageId || '0');
+  if (Number.isFinite(messageId) && messageId > 0) {
+    setDevMessageLastSeenId(messageId);
+  }
+
   modal.classList.remove('visible');
   modal.setAttribute('aria-hidden', 'true');
-  setDevMessageIdx(DEV_MSG_IDX);
+
+  if (getNextDevMessage()) {
+    window.setTimeout(openDevMessageModal, 250);
+  }
 }
 
-function maybeShowDevMessage() {
-  if (getDevMessageIdx() >= DEV_MSG_IDX) return;
+async function maybeShowDevMessage() {
+  await loadDevMessages();
+
+  if (!getNextDevMessage()) return;
 
   window.setTimeout(openDevMessageModal, 350);
 }
-
-document.getElementById('btn-dev-message-close').addEventListener('click', closeDevMessageModal);
-document.getElementById('btn-dev-message-ok').addEventListener('click', closeDevMessageModal);
-
-document.getElementById('dev-message-modal').addEventListener('click', e => {
-  if (e.target.id === 'dev-message-modal') closeDevMessageModal();
-});
 
 maybeShowDevMessage();
