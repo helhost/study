@@ -104,42 +104,72 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which register holds the system call number when invoking a Linux x86 syscall via int $0x80?",
-      "options": ["%ebx", "%ecx", "%eax", "%edx"],
+      "options": [
+        "%ebx",
+        "%ecx",
+        "%eax",
+        "%edx"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the syscall number for execve on Linux x86?",
-      "options": ["0x1", "0xa", "0xb", "0x80"],
+      "options": [
+        "0x1",
+        "0xa",
+        "0xb",
+        "0x80"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the execve syscall on Linux x86, which register holds the filename argument?",
-      "options": ["%eax", "%ebx", "%ecx", "%edx"],
+      "options": [
+        "%eax",
+        "%ebx",
+        "%ecx",
+        "%edx"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the execve syscall on Linux x86, which register holds the argv argument?",
-      "options": ["%eax", "%ebx", "%ecx", "%edx"],
+      "options": [
+        "%eax",
+        "%ebx",
+        "%ecx",
+        "%edx"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the execve syscall on Linux x86, which register holds the envp argument?",
-      "options": ["%eax", "%ebx", "%ecx", "%edx"],
+      "options": [
+        "%eax",
+        "%ebx",
+        "%ecx",
+        "%edx"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which instruction is used to invoke a system call in Linux x86?",
-      "options": ["syscall", "sysenter", "int $0x80", "call $0x80"],
+      "options": [
+        "syscall",
+        "sysenter",
+        "int $0x80",
+        "call $0x80"
+      ],
       "answer": 2
     },
     {
@@ -206,42 +236,72 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What byte value represents a NOP instruction on x86?",
-      "options": ["0x00", "0xff", "0x90", "0xcc"],
+      "options": [
+        "0x00",
+        "0xff",
+        "0x90",
+        "0xcc"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is written to /proc/sys/kernel/randomize_va_space to disable ASLR?",
-      "options": ["1", "0", "-1", "2"],
+      "options": [
+        "1",
+        "0",
+        "-1",
+        "2"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the example exploit, the buf array in the exploit program is how large?",
-      "options": ["512 bytes", "256 bytes", "1024 bytes", "768 bytes"],
+      "options": [
+        "512 bytes",
+        "256 bytes",
+        "1024 bytes",
+        "768 bytes"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which compiler flag disables stack canary protection?",
-      "options": ["-m32", "-z execstack", "-fno-stack-protector", "-mpreferred-stack-boundary=2"],
+      "options": [
+        "-m32",
+        "-z execstack",
+        "-fno-stack-protector",
+        "-mpreferred-stack-boundary=2"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which compiler flag makes the stack executable?",
-      "options": ["-m32", "-z execstack", "-fno-stack-protector", "-mpreferred-stack-boundary=2"],
+      "options": [
+        "-m32",
+        "-z execstack",
+        "-fno-stack-protector",
+        "-mpreferred-stack-boundary=2"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the vulnerable program, which unsafe function causes the buffer overflow?",
-      "options": ["gets()", "sprintf()", "strcpy()", "scanf()"],
+      "options": [
+        "gets()",
+        "sprintf()",
+        "strcpy()",
+        "scanf()"
+      ],
       "answer": 2
     },
     {

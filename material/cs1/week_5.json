@@ -254,7 +254,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "According to the OECD, what fraction of world trade is estimated to involve counterfeit goods?",
-      "options": ["More than 1%", "More than 5%", "More than 10%", "More than 15%"],
+      "options": [
+        "More than 1%",
+        "More than 5%",
+        "More than 10%",
+        "More than 15%"
+      ],
       "answer": 1
     },
     {
@@ -267,7 +272,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What does SBOM stand for?",
-      "options": ["Secure Binary Object Manifest", "Software Bill of Materials", "System Build Operations Manual", "Signed Binary Output Module"],
+      "options": [
+        "Secure Binary Object Manifest",
+        "Software Bill of Materials",
+        "System Build Operations Manual",
+        "Signed Binary Output Module"
+      ],
       "answer": 1
     },
     {
@@ -286,7 +296,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which company's operating system inspired the Ring/Segment/Gate protection model found in x86 processors?",
-      "options": ["Microsoft Windows NT", "UNIX", "MULTICS", "IBM OS/360"],
+      "options": [
+        "Microsoft Windows NT",
+        "UNIX",
+        "MULTICS",
+        "IBM OS/360"
+      ],
       "answer": 2
     },
     {
@@ -299,14 +314,24 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the x86 ring model, which ring is the most privileged?",
-      "options": ["Ring 3", "Ring 2", "Ring 1", "Ring 0"],
+      "options": [
+        "Ring 3",
+        "Ring 2",
+        "Ring 1",
+        "Ring 0"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the x86 ring model, which ring do typical user applications run in?",
-      "options": ["Ring 0", "Ring 1", "Ring 2", "Ring 3"],
+      "options": [
+        "Ring 0",
+        "Ring 1",
+        "Ring 2",
+        "Ring 3"
+      ],
       "answer": 3
     },
     {
@@ -337,7 +362,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which flag in page descriptor entries prevents execution of code stored in a given memory page, protecting against stack/heap injection?",
-      "options": ["U/S flag", "WRITE flag", "XD flag", "TLB flag"],
+      "options": [
+        "U/S flag",
+        "WRITE flag",
+        "XD flag",
+        "TLB flag"
+      ],
       "answer": 2
     },
     {
@@ -392,7 +422,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In Windows, which key combination is guaranteed to transfer I/O control to the Windows kernel, enabling a trusted login path?",
-      "options": ["Ctrl-Shift-Esc", "Ctrl-Alt-Del", "Windows-L", "Alt-F4"],
+      "options": [
+        "Ctrl-Shift-Esc",
+        "Ctrl-Alt-Del",
+        "Windows-L",
+        "Alt-F4"
+      ],
       "answer": 1
     },
     {
@@ -471,7 +506,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the granularity at which x86 page-based memory access controls operate?",
-      "options": ["1 byte", "1 KB", "4 KB", "1 MB"],
+      "options": [
+        "1 byte",
+        "1 KB",
+        "4 KB",
+        "1 MB"
+      ],
       "answer": 2
     },
     {
@@ -586,7 +626,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What was the first commercial cryptographic processor to be evaluated to FIPS 140-1 Level 4?",
-      "options": ["IBM 4753", "IBM 4758", "Chrysalis-ITS Luna CA3", "Gemalto SafeNet PSI-E2"],
+      "options": [
+        "IBM 4753",
+        "IBM 4758",
+        "Chrysalis-ITS Luna CA3",
+        "Gemalto SafeNet PSI-E2"
+      ],
       "answer": 1
     },
     {
@@ -605,7 +650,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the IBM attacker classification, which class describes a 'funded organisation' capable of assembling teams of specialists?",
-      "options": ["Class 1", "Class 2", "Class 3", "Class 4"],
+      "options": [
+        "Class 1",
+        "Class 2",
+        "Class 3",
+        "Class 4"
+      ],
       "answer": 2
     },
     {
@@ -618,7 +668,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which attack on HSMs exploits the fact that static RAM contents can 'burn in' the values of long-stored keys?",
-      "options": ["Cold boot attack", "Memory remanence attack", "DPA attack", "Fault induction attack"],
+      "options": [
+        "Cold boot attack",
+        "Memory remanence attack",
+        "DPA attack",
+        "Fault induction attack"
+      ],
       "answer": 1
     },
     {
@@ -631,7 +686,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What was the approximate temperature below which early static RAM was found to retain contents for several seconds after power removal?",
-      "options": ["-5°C", "-20°C", "-40°C", "-100°C"],
+      "options": [
+        "-5°C",
+        "-20°C",
+        "-40°C",
+        "-100°C"
+      ],
       "answer": 1
     },
     {
@@ -644,14 +704,24 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Who announced the cold boot attack on encryption keys in PCs in 2008?",
-      "options": ["Paul Kocher", "Sergei Skorobogatov", "Alex Halderman", "Ross Anderson"],
+      "options": [
+        "Paul Kocher",
+        "Sergei Skorobogatov",
+        "Alex Halderman",
+        "Ross Anderson"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What was the primary application that first motivated serious investment in breaking smartcard security?",
-      "options": ["Bank card cloning", "SIM card hacking", "Satellite pay-TV piracy", "Transport ticketing fraud"],
+      "options": [
+        "Bank card cloning",
+        "SIM card hacking",
+        "Satellite pay-TV piracy",
+        "Transport ticketing fraud"
+      ],
       "answer": 2
     },
     {
@@ -664,7 +734,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which famous attack was announced by Paul Kocher in 1998, shaking the entire smartcard industry?",
-      "options": ["Memory linearization", "Cold boot attack", "Differential Power Analysis (DPA)", "Optical fault induction"],
+      "options": [
+        "Memory linearization",
+        "Cold boot attack",
+        "Differential Power Analysis (DPA)",
+        "Optical fault induction"
+      ],
       "answer": 2
     },
     {
@@ -695,7 +770,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Approximately how much did Chinese reverse engineering services charge per gate for reconstructing a chip as of the time of writing?",
-      "options": ["1 cent", "30 cents", "$1", "$3"],
+      "options": [
+        "1 cent",
+        "30 cents",
+        "$1",
+        "$3"
+      ],
       "answer": 1
     },
     {
@@ -804,7 +884,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which country is cited as having very low SIM swap fraud because it requires phone companies to verify customers' fingerprints against a national database before issuing a SIM?",
-      "options": ["China", "Germany", "India", "South Korea"],
+      "options": [
+        "China",
+        "Germany",
+        "India",
+        "South Korea"
+      ],
       "answer": 2
     },
     {

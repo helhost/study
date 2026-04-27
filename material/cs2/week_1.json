@@ -209,35 +209,60 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which layer of the TCP/IP stack does HTTP operate at?",
-      "options": ["Transport Layer", "Network Layer", "Application Layer", "Data-Link Layer"],
+      "options": [
+        "Transport Layer",
+        "Network Layer",
+        "Application Layer",
+        "Data-Link Layer"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How many bits long is an IPv4 address?",
-      "options": ["16", "32", "64", "128"],
+      "options": [
+        "16",
+        "32",
+        "64",
+        "128"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How many bits long is an IPv6 address?",
-      "options": ["32", "64", "96", "128"],
+      "options": [
+        "32",
+        "64",
+        "96",
+        "128"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the IPv4 loopback address?",
-      "options": ["0.0.0.0", "255.255.255.255", "127.0.0.1", "192.168.0.1"],
+      "options": [
+        "0.0.0.0",
+        "255.255.255.255",
+        "127.0.0.1",
+        "192.168.0.1"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What does NAT stand for?",
-      "options": ["Network Authentication Token", "Network Address Translation", "Node Allocation Table", "Null Address Transfer"],
+      "options": [
+        "Network Authentication Token",
+        "Network Address Translation",
+        "Node Allocation Table",
+        "Null Address Transfer"
+      ],
       "answer": 1
     },
     {
@@ -256,21 +281,36 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which protocol does Traceroute exploit to map the route to a destination?",
-      "options": ["TCP SYN packets only", "UDP only", "Incrementally increasing TTL values to trigger ICMP Time Exceeded responses", "ARP broadcasts"],
+      "options": [
+        "TCP SYN packets only",
+        "UDP only",
+        "Incrementally increasing TTL values to trigger ICMP Time Exceeded responses",
+        "ARP broadcasts"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the maximum size of an IPv4 packet?",
-      "options": ["1,500 bytes", "9,000 bytes", "32,767 bytes", "65,535 bytes"],
+      "options": [
+        "1,500 bytes",
+        "9,000 bytes",
+        "32,767 bytes",
+        "65,535 bytes"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the maximum Ethernet frame payload (MTU)?",
-      "options": ["576 bytes", "1,500 bytes", "4,096 bytes", "65,535 bytes"],
+      "options": [
+        "576 bytes",
+        "1,500 bytes",
+        "4,096 bytes",
+        "65,535 bytes"
+      ],
       "answer": 1
     },
     {
@@ -289,14 +329,24 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which field in the IPv4 header is used to reassemble fragmented packets?",
-      "options": ["Protocol", "Header Checksum", "Flags and Fragment Offset", "Time To Live"],
+      "options": [
+        "Protocol",
+        "Header Checksum",
+        "Flags and Fragment Offset",
+        "Time To Live"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What protocol maps IPv4 addresses to MAC addresses on a local network?",
-      "options": ["DNS", "DHCP", "ARP", "RARP"],
+      "options": [
+        "DNS",
+        "DHCP",
+        "ARP",
+        "RARP"
+      ],
       "answer": 2
     },
     {
@@ -315,14 +365,24 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which IPSec mode is most commonly used for VPNs?",
-      "options": ["Transport Mode", "Tunnel Mode", "Bridge Mode", "Host Mode"],
+      "options": [
+        "Transport Mode",
+        "Tunnel Mode",
+        "Bridge Mode",
+        "Host Mode"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What does IPSec ESP provide that AH does not?",
-      "options": ["Integrity", "Authentication", "Encryption (confidentiality)", "Anti-replay protection via timestamps"],
+      "options": [
+        "Integrity",
+        "Authentication",
+        "Encryption (confidentiality)",
+        "Anti-replay protection via timestamps"
+      ],
       "answer": 2
     },
     {
@@ -341,14 +401,24 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which private IP range is commonly assigned to hosts behind NAT?",
-      "options": ["10.0.0.0/8 and 192.168.x.y", "128.16.0.0/16", "166.111.0.0/16", "217.16.0.0/16"],
+      "options": [
+        "10.0.0.0/8 and 192.168.x.y",
+        "128.16.0.0/16",
+        "166.111.0.0/16",
+        "217.16.0.0/16"
+      ],
       "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What standard provides host authentication in a switched Ethernet environment?",
-      "options": ["802.11", "802.3", "802.1X", "802.1Q"],
+      "options": [
+        "802.11",
+        "802.3",
+        "802.1X",
+        "802.1Q"
+      ],
       "answer": 2
     },
     {
@@ -367,7 +437,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the countermeasure to BGP hijacking that uses cryptographic authentication of route advertisements?",
-      "options": ["IPSec AH", "DNSSEC", "RPKI (Resource Public Key Infrastructure)", "TLS"],
+      "options": [
+        "IPSec AH",
+        "DNSSEC",
+        "RPKI (Resource Public Key Infrastructure)",
+        "TLS"
+      ],
       "answer": 2
     },
     {

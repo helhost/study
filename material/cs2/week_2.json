@@ -259,21 +259,36 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which TCP/IP layer does UDP operate at?",
-      "options": ["Application Layer", "Transport Layer", "Network Layer", "Data-Link Layer"],
+      "options": [
+        "Application Layer",
+        "Transport Layer",
+        "Network Layer",
+        "Data-Link Layer"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How many possible ports does UDP allow?",
-      "options": ["1,024", "32,767", "65,535", "65,536"],
+      "options": [
+        "1,024",
+        "32,767",
+        "65,535",
+        "65,536"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which protocol uses QUIC for transport, running over UDP?",
-      "options": ["HTTP/1.1", "HTTP/2", "HTTP/3", "HTTPS"],
+      "options": [
+        "HTTP/1.1",
+        "HTTP/2",
+        "HTTP/3",
+        "HTTPS"
+      ],
       "answer": 2
     },
     {
@@ -304,7 +319,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Approximately how long can a full UDP portscan of all 65,535 ports take on a Linux host that rate-limits ICMP errors to 80 per 20 seconds?",
-      "options": ["About 1 minute", "About 10 minutes", "About 1 hour", "About 24 hours"],
+      "options": [
+        "About 1 minute",
+        "About 10 minutes",
+        "About 1 hour",
+        "About 24 hours"
+      ],
       "answer": 2
     },
     {
@@ -323,7 +343,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which TCP flag is used to request a graceful connection shutdown?",
-      "options": ["RST", "SYN", "FIN", "URG"],
+      "options": [
+        "RST",
+        "SYN",
+        "FIN",
+        "URG"
+      ],
       "answer": 2
     },
     {
@@ -342,7 +367,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which TCP flag set is used in an XMAS scan?",
-      "options": ["SYN + ACK", "FIN + PSH + URG", "FIN + RST", "SYN + FIN"],
+      "options": [
+        "SYN + ACK",
+        "FIN + PSH + URG",
+        "FIN + RST",
+        "SYN + FIN"
+      ],
       "answer": 1
     },
     {
@@ -373,21 +403,36 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What initial IP Time-To-Live value does Linux set by default?",
-      "options": ["32", "64", "128", "255"],
+      "options": [
+        "32",
+        "64",
+        "128",
+        "255"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What initial IP TTL value does Windows use?",
-      "options": ["32", "64", "128", "255"],
+      "options": [
+        "32",
+        "64",
+        "128",
+        "255"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which tool is described as the tool of choice for performing portscans?",
-      "options": ["Wireshark", "Metasploit", "nmap", "tcpdump"],
+      "options": [
+        "Wireshark",
+        "Metasploit",
+        "nmap",
+        "tcpdump"
+      ],
       "answer": 2
     },
     {
@@ -406,7 +451,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "On average, how many guesses does the Kaminsky attack require when only the 16-bit DNS transaction ID needs to be guessed?",
-      "options": ["About 80", "About 160", "About 320", "About 65,535"],
+      "options": [
+        "About 80",
+        "About 160",
+        "About 320",
+        "About 65,535"
+      ],
       "answer": 2
     },
     {
@@ -437,7 +487,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which passive OS fingerprinting tool is mentioned in the slides?",
-      "options": ["nmap", "Wireshark", "p0f", "Zmap"],
+      "options": [
+        "nmap",
+        "Wireshark",
+        "p0f",
+        "Zmap"
+      ],
       "answer": 2
     },
     {

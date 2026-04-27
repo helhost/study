@@ -144,154 +144,264 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is Bitcoin's approximate throughput?",
-      "options": ["4–7 tx/sec", "30 tx/sec", "100 tx/sec", "2000 tx/sec"],
+      "options": [
+        "4–7 tx/sec",
+        "30 tx/sec",
+        "100 tx/sec",
+        "2000 tx/sec"
+      ],
       "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is Ethereum's approximate throughput?",
-      "options": ["7 tx/sec", "30 tx/sec", "100 tx/sec", "2000 tx/sec"],
+      "options": [
+        "7 tx/sec",
+        "30 tx/sec",
+        "100 tx/sec",
+        "2000 tx/sec"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is Visa's average transaction throughput?",
-      "options": ["500 tx/sec", "1000 tx/sec", "2000 tx/sec", "10000 tx/sec"],
+      "options": [
+        "500 tx/sec",
+        "1000 tx/sec",
+        "2000 tx/sec",
+        "10000 tx/sec"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is Visa's peak transaction throughput?",
-      "options": ["10000 tx/sec", "30000 tx/sec", "56000 tx/sec", "100000 tx/sec"],
+      "options": [
+        "10000 tx/sec",
+        "30000 tx/sec",
+        "56000 tx/sec",
+        "100000 tx/sec"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "According to the 2016 'On Scaling Decentralized Blockchains' paper, what is the maximum feasible block size with a 10-minute block rate while maintaining reasonable propagation?",
-      "options": ["1 MB", "2 MB", "4 MB", "10 MB"],
+      "options": [
+        "1 MB",
+        "2 MB",
+        "4 MB",
+        "10 MB"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "According to the 2016 scaling paper, what is the minimum recommended block rate?",
-      "options": ["5 seconds", "12 seconds", "30 seconds", "60 seconds"],
+      "options": [
+        "5 seconds",
+        "12 seconds",
+        "30 seconds",
+        "60 seconds"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "A 1 MB block takes how long for the top 90% of nodes to receive it?",
-      "options": ["1.5 sec", "15.7 sec", "2.4 min", "10 min"],
+      "options": [
+        "1.5 sec",
+        "15.7 sec",
+        "2.4 min",
+        "10 min"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What was the maximum transaction fee during the worst of the Bitcoin block size debate?",
-      "options": ["$5", "$10", "$55", "$100"],
+      "options": [
+        "$5",
+        "$10",
+        "$55",
+        "$100"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "When was Bitcoin originally launched with no block size limit?",
-      "options": ["2007", "2008", "2009", "2010"],
+      "options": [
+        "2007",
+        "2008",
+        "2009",
+        "2010"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Compact blocks reduce bandwidth by sending block headers and transaction hints instead of full blocks. Approximately what size are compact blocks?",
-      "options": ["1 KB–3 KB", "9 KB–20 KB", "100 KB–200 KB", "500 KB"],
+      "options": [
+        "1 KB–3 KB",
+        "9 KB–20 KB",
+        "100 KB–200 KB",
+        "500 KB"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In Bitcoin-NG, what determines how fast micro-blocks can be created?",
-      "options": ["Proof-of-work difficulty", "Block size limit", "Signing speed and network propagation", "Number of transactions in mempool"],
+      "options": [
+        "Proof-of-work difficulty",
+        "Block size limit",
+        "Signing speed and network propagation",
+        "Number of transactions in mempool"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What fraction of consensus nodes must co-sign a block in ByzCoin for it to be valid?",
-      "options": ["More than 1/2", "At least 2/3", "At least 3/4", "All nodes"],
+      "options": [
+        "More than 1/2",
+        "At least 2/3",
+        "At least 3/4",
+        "All nodes"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is ByzCoin's approximate throughput with 32 MB blocks?",
-      "options": ["100 tx/sec", "500 tx/sec", "1000 tx/sec", "10000 tx/sec"],
+      "options": [
+        "100 tx/sec",
+        "500 tx/sec",
+        "1000 tx/sec",
+        "10000 tx/sec"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "OmniLedger uses which protocol to assign validators to shards in a bias-resistant way?",
-      "options": ["ByzCoin", "Atomix", "RandHound", "PBFT"],
+      "options": [
+        "ByzCoin",
+        "Atomix",
+        "RandHound",
+        "PBFT"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "OmniLedger uses which protocol for cross-shard transaction consistency?",
-      "options": ["ByzCoin", "Atomix", "RandHound", "PBFT"],
+      "options": [
+        "ByzCoin",
+        "Atomix",
+        "RandHound",
+        "PBFT"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "With 16 shards, OmniLedger achieves approximately how many transactions per second?",
-      "options": ["439 tx/sec", "1674 tx/sec", "3240 tx/sec", "5860 tx/sec"],
+      "options": [
+        "439 tx/sec",
+        "1674 tx/sec",
+        "3240 tx/sec",
+        "5860 tx/sec"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In a one-way payment channel, what condition allows Alice to reclaim her deposit if Bob is unresponsive?",
-      "options": ["Alice can publish any signed transaction at any time", "Alice is refunded after t blocks pass", "Bob must return the funds manually", "The blockchain automatically refunds Alice after 10 confirmations"],
+      "options": [
+        "Alice can publish any signed transaction at any time",
+        "Alice is refunded after t blocks pass",
+        "Bob must return the funds manually",
+        "The blockchain automatically refunds Alice after 10 confirmations"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In an HTLC, who initially creates and sends the hash h = H(R)?",
-      "options": ["Alice (the payer)", "Bob (the payee)", "A trusted third party", "The blockchain itself"],
+      "options": [
+        "Alice (the payer)",
+        "Bob (the payee)",
+        "A trusted third party",
+        "The blockchain itself"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "If Alice refuses to release a payment in an HTLC, how can Bob claim his funds?",
-      "options": ["Bob cannot claim funds once Alice refuses", "Bob appeals to a trusted arbitrator", "Bob publishes h, R, t, and the amount on-chain to prove pre-image revelation", "Bob must wait for the timeout to expire"],
+      "options": [
+        "Bob cannot claim funds once Alice refuses",
+        "Bob appeals to a trusted arbitrator",
+        "Bob publishes h, R, t, and the amount on-chain to prove pre-image revelation",
+        "Bob must wait for the timeout to expire"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In OmniLedger with 1 shard (70 nodes), throughput is 439 tx/sec. With 4 shards, it is approximately:",
-      "options": ["439 tx/sec", "869 tx/sec", "1674 tx/sec", "3240 tx/sec"],
+      "options": [
+        "439 tx/sec",
+        "869 tx/sec",
+        "1674 tx/sec",
+        "3240 tx/sec"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which Ethereum upgrade in 2024 introduced blobs?",
-      "options": ["The Merge", "Proto-danksharding", "EIP-1559", "The Surge"],
+      "options": [
+        "The Merge",
+        "Proto-danksharding",
+        "EIP-1559",
+        "The Surge"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How many blobs per block were originally allowed after blob introduction in Ethereum?",
-      "options": ["1", "3", "6", "10"],
+      "options": [
+        "1",
+        "3",
+        "6",
+        "10"
+      ],
       "answer": 1
     },
     {
@@ -508,49 +618,84 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the following best describes OmniLedger's scale-out result with 8 shards (70 nodes each)?",
-      "options": ["1674 tx/sec", "3240 tx/sec", "5860 tx/sec", "10000 tx/sec"],
+      "options": [
+        "1674 tx/sec",
+        "3240 tx/sec",
+        "5860 tx/sec",
+        "10000 tx/sec"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What does 'weak consistency' mean in the context of Nakamoto consensus?",
-      "options": ["Transactions are never truly confirmed", "You cannot be certain a transaction is committed until after about 1 hour of confirmations", "Blocks are not cryptographically linked", "Miners do not validate transactions"],
+      "options": [
+        "Transactions are never truly confirmed",
+        "You cannot be certain a transaction is committed until after about 1 hour of confirmations",
+        "Blocks are not cryptographically linked",
+        "Miners do not validate transactions"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the following is NOT a concern for on-chain scalability resource cost?",
-      "options": ["Bandwidth", "Compute", "Storage", "Interest rates"],
+      "options": [
+        "Bandwidth",
+        "Compute",
+        "Storage",
+        "Interest rates"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the 'fair exchange' problem, why does the naive approach of one party going first fail?",
-      "options": ["The blockchain can't process the transaction fast enough", "Whoever moves first risks losing — the counterparty can take the asset and not reciprocate", "Smart contracts are required to enable any exchange", "Both parties must sign simultaneously, which is technically impossible"],
+      "options": [
+        "The blockchain can't process the transaction fast enough",
+        "Whoever moves first risks losing — the counterparty can take the asset and not reciprocate",
+        "Smart contracts are required to enable any exchange",
+        "Both parties must sign simultaneously, which is technically impossible"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What event famously congested the Ethereum network and highlighted its low performance around 2017?",
-      "options": ["The DAO hack", "CryptoKitties NFT trading", "The Ethereum ICO boom", "Uniswap launch"],
+      "options": [
+        "The DAO hack",
+        "CryptoKitties NFT trading",
+        "The Ethereum ICO boom",
+        "Uniswap launch"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "SegWit is what type of change to the Bitcoin protocol?",
-      "options": ["Hard fork", "Soft fork", "New chain", "Off-chain solution"],
+      "options": [
+        "Hard fork",
+        "Soft fork",
+        "New chain",
+        "Off-chain solution"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Bitcoin's block size limit of 1 MB was originally introduced to:",
-      "options": ["Increase mining difficulty", "Limit the impact of spam transactions consuming block space", "Ensure faster block propagation from the start", "Prepare for the Lightning Network"],
+      "options": [
+        "Increase mining difficulty",
+        "Limit the impact of spam transactions consuming block space",
+        "Ensure faster block propagation from the start",
+        "Prepare for the Lightning Network"
+      ],
       "answer": 1
     },
     {

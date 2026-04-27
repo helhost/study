@@ -91,7 +91,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the following is the predecessor to TLS?",
-      "options": ["HTTPS", "SSH", "SSL", "IPSec"],
+      "options": [
+        "HTTPS",
+        "SSH",
+        "SSL",
+        "IPSec"
+      ],
       "answer": 2
     },
     {
@@ -268,7 +273,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How long did it take to compute pairwise GCDs over 11 million RSA keys in the 2012 study?",
-      "options": ["5.5 minutes", "5.5 hours", "5.5 days", "5.5 weeks"],
+      "options": [
+        "5.5 minutes",
+        "5.5 hours",
+        "5.5 days",
+        "5.5 weeks"
+      ],
       "answer": 1
     },
     {
@@ -323,7 +333,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the Netscape PRNG, what hash function was used to generate random bytes?",
-      "options": ["SHA-256", "SHA-1", "MD5", "BLAKE2"],
+      "options": [
+        "SHA-256",
+        "SHA-1",
+        "MD5",
+        "BLAKE2"
+      ],
       "answer": 2
     },
     {
@@ -405,7 +420,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the user ID of the root account in Unix?",
-      "options": ["1", "0", "255", "1000"],
+      "options": [
+        "1",
+        "0",
+        "255",
+        "1000"
+      ],
       "answer": 1
     },
     {
@@ -418,7 +438,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In Unix permission notation, which string represents a SUID executable owned by root?",
-      "options": ["-rwx--x--x", "-rws--x--x", "-rwxr-s--x", "-rwsr-xr-x"],
+      "options": [
+        "-rwx--x--x",
+        "-rws--x--x",
+        "-rwxr-s--x",
+        "-rwsr-xr-x"
+      ],
       "answer": 1
     },
     {
@@ -668,7 +693,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the following is NOT a valid Android IPC mechanism described in the lecture?",
-      "options": ["Binder", "Intents", "Content Providers", "Unix Sockets with SUID"],
+      "options": [
+        "Binder",
+        "Intents",
+        "Content Providers",
+        "Unix Sockets with SUID"
+      ],
       "answer": 3
     },
     {
@@ -901,7 +931,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What share of global Internet access in 2019 came from mobile devices?",
-      "options": ["40%", "56%", "63%", "80%"],
+      "options": [
+        "40%",
+        "56%",
+        "63%",
+        "80%"
+      ],
       "answer": 1
     },
     {
@@ -950,7 +985,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What percentage of active Android devices were found to be insecure in a 2015 survey (averaged 2011–15)?",
-      "options": ["47%", "63%", "87%", "74%"],
+      "options": [
+        "47%",
+        "63%",
+        "87%",
+        "74%"
+      ],
       "answer": 2
     },
     {
@@ -1005,7 +1045,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the Razaghpanah et al. study using a VPN app with 11,000 volunteers, what percentage of the top 20 Advertising and Tracking Services had a presence on both the web and in the app ecosystem?",
-      "options": ["9 out of 20", "14 out of 20", "17 out of 20", "20 out of 20"],
+      "options": [
+        "9 out of 20",
+        "14 out of 20",
+        "17 out of 20",
+        "20 out of 20"
+      ],
       "answer": 2
     },
     {

@@ -259,42 +259,72 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which property of a smart contract guarantees that code execution is ALL or NOTHING?",
-      "options": ["Immutability", "Atomicity", "Authentication", "No Privacy"],
+      "options": [
+        "Immutability",
+        "Atomicity",
+        "Authentication",
+        "No Privacy"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the word size of the Ethereum Virtual Machine?",
-      "options": ["64 bits", "128 bits", "256 bits", "512 bits"],
+      "options": [
+        "64 bits",
+        "128 bits",
+        "256 bits",
+        "512 bits"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which Ethereum smart contract language is described as 'Python-like but designed to avoid basic mistakes'?",
-      "options": ["Serpent", "Solidity", "Vyper", "LLL"],
+      "options": [
+        "Serpent",
+        "Solidity",
+        "Vyper",
+        "LLL"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How much gas does a CALL opcode cost?",
-      "options": ["2–10", "21,000", "700", "32,000"],
+      "options": [
+        "2–10",
+        "21,000",
+        "700",
+        "32,000"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How much gas is the overhead for any Ethereum transaction?",
-      "options": ["700", "2,300", "21,000", "32,000"],
+      "options": [
+        "700",
+        "2,300",
+        "21,000",
+        "32,000"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Writing a value from zero to non-zero using SSTORE costs:",
-      "options": ["5,000 gas", "20,000 gas", "15,000 gas", "32,000 gas"],
+      "options": [
+        "5,000 gas",
+        "20,000 gas",
+        "15,000 gas",
+        "32,000 gas"
+      ],
       "answer": 1
     },
     {
@@ -313,28 +343,48 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which opcode is used to create a new smart contract on the EVM?",
-      "options": ["CALL", "JUMP", "CREATE", "DEPLOY"],
+      "options": [
+        "CALL",
+        "JUMP",
+        "CREATE",
+        "DEPLOY"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which Solidity value represents the address of the immediate caller of a function?",
-      "options": ["tx.origin", "msg.sender", "block.coinbase", "address(this)"],
+      "options": [
+        "tx.origin",
+        "msg.sender",
+        "block.coinbase",
+        "address(this)"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How much gas do .send() and .transfer() forward to the recipient?",
-      "options": ["700", "2,300", "5,000", "21,000"],
+      "options": [
+        "700",
+        "2,300",
+        "5,000",
+        "21,000"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In a reentrancy attack, which function in the attacker's contract is exploited to re-enter the victim?",
-      "options": ["constructor()", "modifier", "fallback()", "receive()"],
+      "options": [
+        "constructor()",
+        "modifier",
+        "fallback()",
+        "receive()"
+      ],
       "answer": 2
     },
     {
@@ -353,14 +403,24 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which Solidity keyword prevents a shared contract from having its own storage and from being destroyed via selfdestruct?",
-      "options": ["abstract", "interface", "library", "immutable"],
+      "options": [
+        "abstract",
+        "interface",
+        "library",
+        "immutable"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Approximately how much does it cost to store 1 MB of data on Ethereum at 100 gwei gas price and ETH at $4,000?",
-      "options": ["$26", "$260", "$2,600", "$26,000"],
+      "options": [
+        "$26",
+        "$260",
+        "$2,600",
+        "$26,000"
+      ],
       "answer": 2
     },
     {
@@ -415,7 +475,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the gas refund for setting a non-zero storage value back to zero?",
-      "options": ["0 gas", "5,000 gas", "15,000 gas", "20,000 gas"],
+      "options": [
+        "0 gas",
+        "5,000 gas",
+        "15,000 gas",
+        "20,000 gas"
+      ],
       "answer": 2
     },
     {

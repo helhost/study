@@ -144,63 +144,108 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the following C functions is the most dangerous source of stack-based buffer overflows because it performs NO boundary checking at all?",
-      "options": ["strncpy()", "gets()", "fgets()", "snprintf()"],
+      "options": [
+        "strncpy()",
+        "gets()",
+        "fgets()",
+        "snprintf()"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the vulnerable program example, the buffer is 100 bytes. How many 'A' characters does the injection vector use in total (including EBP and return address)?",
-      "options": ["100", "104", "108", "112"],
+      "options": [
+        "100",
+        "104",
+        "108",
+        "112"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the Linux software interrupt number used to invoke system calls in x86 shellcode?",
-      "options": ["0x7f", "0x80", "0x81", "0xff"],
+      "options": [
+        "0x7f",
+        "0x80",
+        "0x81",
+        "0xff"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the syscall number for execve in x86 Linux?",
-      "options": ["0x1", "0x5", "0xb", "0x80"],
+      "options": [
+        "0x1",
+        "0x5",
+        "0xb",
+        "0x80"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which register holds the syscall number when invoking a Linux system call via int 0x80?",
-      "options": ["%ebx", "%ecx", "%edx", "%eax"],
+      "options": [
+        "%ebx",
+        "%ecx",
+        "%edx",
+        "%eax"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the execve syscall for shellcode, which register holds the address of the filename string (/bin/sh)?",
-      "options": ["%eax", "%ebx", "%ecx", "%edx"],
+      "options": [
+        "%eax",
+        "%ebx",
+        "%ecx",
+        "%edx"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the injection vector construction example, what are the sizes (in bytes) of the NOP sled, shellcode, and shellcode address respectively?",
-      "options": ["64, 40, 4", "59, 45, 4", "50, 55, 4", "64, 45, 8"],
+      "options": [
+        "64, 40, 4",
+        "59, 45, 4",
+        "50, 55, 4",
+        "64, 45, 8"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which ELF section stores destructor function addresses that are called after main() exits?",
-      "options": [".ctors", ".dtors", ".got", ".bss"],
+      "options": [
+        ".ctors",
+        ".dtors",
+        ".got",
+        ".bss"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the following is NOT a writable code pointer that can be targeted in a buffer overflow attack?",
-      "options": ["Saved return address on the stack", "GOT entry", ".dtors entry", "Read-only text segment (.text)"],
+      "options": [
+        "Saved return address on the stack",
+        "GOT entry",
+        ".dtors entry",
+        "Read-only text segment (.text)"
+      ],
       "answer": 3
     },
     {
@@ -255,14 +300,24 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What GCC flag disables the stack canary (stack protector) when compiling a vulnerable program for demonstration?",
-      "options": ["-z execstack", "-fno-stack-protector", "-m32", "-mpreferred-stack-boundary=2"],
+      "options": [
+        "-z execstack",
+        "-fno-stack-protector",
+        "-m32",
+        "-mpreferred-stack-boundary=2"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What GCC flag is required to allow shellcode to execute on the stack?",
-      "options": ["-fno-stack-protector", "-m32", "-z execstack", "-O0"],
+      "options": [
+        "-fno-stack-protector",
+        "-m32",
+        "-z execstack",
+        "-O0"
+      ],
       "answer": 2
     },
     {
@@ -281,7 +336,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What tool is used in the lecture examples to display the opcodes of a shellcode binary file?",
-      "options": ["objdump", "gdb", "ndisasm", "strace"],
+      "options": [
+        "objdump",
+        "gdb",
+        "ndisasm",
+        "strace"
+      ],
       "answer": 2
     },
     {

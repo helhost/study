@@ -358,7 +358,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What percentage of local UNIX vulnerabilities involve exploiting SUID-root programs?",
-      "options": ["50%", "75%", "90%", "99%"],
+      "options": [
+        "50%",
+        "75%",
+        "90%",
+        "99%"
+      ],
       "answer": 3
     },
     {
@@ -569,7 +574,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In two's complement, what is the 32-bit representation of -1?",
-      "options": ["0x80000000", "0x00000001", "0xFFFFFFFF", "0xFFFFFFFE"],
+      "options": [
+        "0x80000000",
+        "0x00000001",
+        "0xFFFFFFFF",
+        "0xFFFFFFFE"
+      ],
       "answer": 2
     },
     {
@@ -672,7 +682,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which ELF section holds the program's executable machine code?",
-      "options": [".data", ".bss", ".text", ".rodata"],
+      "options": [
+        ".data",
+        ".bss",
+        ".text",
+        ".rodata"
+      ],
       "answer": 2
     },
     {

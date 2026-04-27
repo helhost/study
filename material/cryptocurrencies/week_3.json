@@ -1,102 +1,633 @@
 {
   "entries": [
-    {"type":"flashcard","front":"Byzantine fault-tolerant (BFT) consensus","back":"A consensus protocol that allows a distributed system to reach agreement even when some nodes act arbitrarily maliciously — not just crash or go offline."},
-    {"type":"flashcard","front":"Safety (consensus property)","back":"All honest nodes have a consistent view of the system state — they agree on which transactions occurred and in what order."},
-    {"type":"flashcard","front":"Liveness (consensus property)","back":"Honest nodes can always make progress and update the system state — the blockchain keeps growing and transactions eventually confirm."},
-    {"type":"flashcard","front":"Fairness (consensus property)","back":"Nodes are rewarded according to their contributions. Specific to incentive-driven systems and relevant against rational (not just Byzantine) adversaries."},
-    {"type":"flashcard","front":"Byzantine adversary","back":"An adversary who can corrupt f of n nodes, gaining full access to their secrets and controlling their actions arbitrarily. Can observe all honest messages before acting (rushing) and send messages in any order."},
-    {"type":"flashcard","front":"Rational adversary","back":"A relaxation of the Byzantine model — an adversary that acts to maximise utility/profit rather than purely to disrupt. Will not destroy the system if doing so is against their interest."},
-    {"type":"flashcard","front":"Sybil attack","back":"An adversary creates a large number of pseudonymous identities (sockpuppets) to gain disproportionate influence in a networked system. The cheaper identity creation is, the easier Sybil attacks become."},
-    {"type":"flashcard","front":"BFT security threshold (< 50% corrupt)","back":"n = 2f + 1, where f is the number of corrupt nodes and n is the total number of nodes. Fewer than half the nodes may be corrupt."},
-    {"type":"flashcard","front":"BFT security threshold (< 33% corrupt)","back":"n = 3f + 1, where f is the number of corrupt nodes. Fewer than one third of nodes may be corrupt. Required for stronger guarantees."},
-    {"type":"flashcard","front":"Proof-of-Work (PoW)","back":"A mechanism where miners brute-force search a nonce such that H(Block) < t, where H is a cryptographic hash function and t is a target value. Serves as Sybil-resistant identity — creating fake identities costs proportional resources."},
-    {"type":"flashcard","front":"Puzzle-friendliness (hash function property)","back":"A hash function H is puzzle-friendly if, for any target t and high-entropy input k, there is no strategy to find x such that H(k||x) = t in significantly less than 2ⁿ time — i.e., the only approach is trying random inputs."},
-    {"type":"flashcard","front":"Bitcoin's hash function for PoW","back":"H(·) = SHA-256(SHA-256(·)) — double SHA-256. Chosen because it is puzzle-friendly."},
-    {"type":"flashcard","front":"Mining target formula","back":"t = 2²⁵⁶ / (2³² × d) − 1, where d is the difficulty. The higher the difficulty, the lower the target, and the more hashing power required."},
-    {"type":"flashcard","front":"Bitcoin difficulty adjustment","back":"Recalibrated automatically every 2,016 blocks (approximately 2 weeks) to maintain an average block time of 10 minutes."},
-    {"type":"flashcard","front":"Nakamoto consensus","back":"PoW mining combined with the longest chain rule. Miners include a hash pointer to the current longest chain and brute-force a nonce. Nodes accept only valid-PoW blocks. Forks resolve by miners extending the longest chain."},
-    {"type":"flashcard","front":"Longest chain rule","back":"Miners always extend one of the longest known chains. When a new longest chain appears, all honest miners switch to it, orphaning shorter competing branches. Fork survival probability drops exponentially with each new block."},
-    {"type":"flashcard","front":"Eventual consistency (Bitcoin)","back":"Bitcoin provides probabilistic, not absolute, finality. The convention is to wait for 6 confirmations (~1 hour) before treating a transaction as final — by this point, reversing it is computationally prohibitive."},
-    {"type":"flashcard","front":"Hardness accumulation","back":"Each block in the chain inherits the computational effort of all its predecessors' PoWs. Modifying a block deep in the chain requires recomputing PoW for all subsequent blocks — exponentially expensive."},
-    {"type":"flashcard","front":"Progress-free property (PoW)","back":"Each hash computation is independent of all previous ones. Finding one PoW gives no advantage in finding the next. This makes mining a fair lottery regardless of prior effort."},
-    {"type":"flashcard","front":"Unintended blockchain fork","back":"A fork caused by two miners finding valid blocks near-simultaneously due to probabilistic mining and network propagation delays. Resolved by the longest chain rule."},
-    {"type":"flashcard","front":"Intended blockchain fork","back":"A deliberate fork used to upgrade the blockchain protocol — e.g. to introduce new features or fix bugs. Can be hard or soft."},
-    {"type":"flashcard","front":"Hard fork","back":"A backwards-incompatible protocol change. Old-rule nodes reject new-rule blocks and vice versa. If adoption is incomplete, the chain permanently splits into two currencies."},
-    {"type":"flashcard","front":"Soft fork","back":"A backwards-compatible tightening of the rules. Old nodes still accept new-rule blocks (e.g. reducing block size from 1 MB to 0.5 MB). Still requires a majority of hash power to avoid a split."},
-    {"type":"flashcard","front":"CPU mining throughput","back":"~2²⁴ H/s. At January 2021 difficulty, would take approximately 167 million years to mine a single block."},
-    {"type":"flashcard","front":"GPU mining throughput","back":"~2²⁷ H/s. First used for Bitcoin in October 2010. Implemented in OpenCL. ~8× faster than CPU."},
-    {"type":"flashcard","front":"FPGA mining throughput","back":"~2³⁰ H/s. First used in Bitcoin in June 2011. Implemented in Verilog. Better cooling than GPU but higher expertise and cost required."},
-    {"type":"flashcard","front":"ASIC mining throughput (ANT Miner S19 Pro)","back":"110 TH/s ≈ 2⁴⁶ H/s. Cost ~$3,769. Power draw: 3,250 W. Purpose-built for SHA-256 — useless for any other task."},
-    {"type":"flashcard","front":"Mining pool","back":"A group of miners who combine hash power and split block rewards proportionally to submitted shares (partial PoWs). Makes revenue predictable and enables smaller miners to participate."},
-    {"type":"flashcard","front":"Per-share mining pool reward","back":"A flat reward per submitted share minus a fee. Risk: miners could theoretically never submit valid blocks (only partial proofs)."},
-    {"type":"flashcard","front":"Proportional mining pool reward","back":"Rewards based on shares contributed since the last valid block. Lower risk for the pool manager than flat per-share."},
-    {"type":"flashcard","front":"Per-last-n-shares (PPLNS) pool reward","back":"Rewards based on shares in a sliding window of the last n shares. Minimises pool-hopping — joining only when a block is near."},
-    {"type":"flashcard","front":"51% attack","back":"An attacker controlling >50% of hash power can: double-spend, reject other miners' blocks, censor transactions, demand high fees. Cannot steal from addresses they don't control."},
-    {"type":"flashcard","front":"Selfish mining","back":"A miner withholds a found block and mines on top privately. If they build a longer chain before the network catches up, they release it to orphan honest miners' work — profitable with as little as ~25% hash power."},
-    {"type":"flashcard","front":"Goldfinger attack","back":"Deliberately crashing Bitcoin's value, even at personal loss, to harm the ecosystem. A 2.0 variant hedges losses using a second chain (e.g. Ethereum contracts) to profit while crashing Bitcoin."},
-    {"type":"flashcard","front":"Proof-of-Stake (PoS)","back":"Validators lock up (stake) cryptocurrency to gain voting power. Dishonest behaviour destroys their stake via slashing. Pioneered by Peercoin (2012). Ethereum switched to PoS in 2022, cutting energy use by ~99%."},
-    {"type":"flashcard","front":"Ethereum PoS: slot and epoch","back":"One slot = 12 seconds; 32 slots = 1 epoch. The first block of each epoch is the checkpoint block. Leader (block proposer) is randomly selected each slot."},
-    {"type":"flashcard","front":"Ethereum PoS: minimum stake","back":"32 ETH required to run a validator node. If dishonest, this stake can be destroyed (slashed) by the network."},
-    {"type":"flashcard","front":"Nothing-at-stake problem","back":"In naive PoS, block production is nearly free. Validators can vote on every fork simultaneously to maximise reward regardless of which chain wins — breaks safety since there is no incentive to commit to one chain."},
-    {"type":"flashcard","front":"Slashing (Ethereum PoS)","back":"Penalties for provably dishonest validator behaviour: proposing/signing two different blocks for the same slot, contradictory attestations, or double-voting. Includes stake reduction, ejection, and escalating day-18 penalties."},
-    {"type":"flashcard","front":"Inactivity leak (Ethereum PoS)","back":"If no supermajority finality is reached after 4 epochs (many validators offline or adversarial), offline validators face quadratic penalties until the minority chain loses enough stake for the majority to finalise."},
-    {"type":"flashcard","front":"Long-range attack (PoS)","back":"An attacker acquires old private keys cheaply and uses them to rewrite blockchain history from far back, creating a valid alternative fork that is hard to detect."},
-    {"type":"flashcard","front":"Grinding attack (PoS)","back":"Exploiting the cheapness of block production to try many block variations and bias the randomness used in future leader (validator) selection."},
-    {"type":"flashcard","front":"Scrypt (Litecoin)","back":"A memory-hard password-based key derivation function. Forces miners to keep a large pseudorandom string in RAM and access it in pseudorandom order. Designed to make CPUs more competitive. First scrypt ASICs appeared in 2014."},
-    {"type":"flashcard","front":"Proof-of-Useful-Work","back":"PoW variants where the puzzle solves a real-world problem instead of meaningless hashing. Examples: Primecoin (prime chains, 2013), Permacoin (distributed archival storage, 2014), Filecoin (proof-of-space-time, 2020)."},
-    {"type":"flashcard","front":"Proof-of-Personhood","back":"Uses physical co-presence (your body can only be in one location) to create Sybil-resistant human identities, enabling one-person-one-vote. Aims to democratise consensus beyond those with capital. Pseudonym parties are a concrete mechanism."},
-    {"type":"flashcard","front":"Proof-of-Burn","back":"Miners send coins to a provably unspendable address. Either receive equivalent coins in the new chain, or burning increases the probability of mining the next block. No energy waste, but destroys real economic value."},
-    {"type":"flashcard","front":"Bitcoin Cash","back":"A hard fork of Bitcoin resulting from the block size debate — whether to raise the 1 MB block size limit. The community split permanently, resulting in two currencies."},
-    {"type":"flashcard","front":"Ethereum Classic","back":"A hard fork caused by The DAO hack. Ethereum reversed the hack via a contentious chain rewrite; a portion of the community refused, continuing the original chain as Ethereum Classic."},
-    {"type":"flashcard","front":"Rushing adversary","back":"A Byzantine adversary who can observe all messages sent by honest nodes before taking their own actions — i.e., acts last in any communication round. Represents a stronger adversary model."},
-
-    {"type":"quiz","subtype":"multiple_choice","question":"What is the minimum fraction of nodes that must be honest for standard BFT consensus to hold under the n = 2f+1 condition?","options":["More than 25%","More than 33%","More than 50%","More than 66%"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"What does Bitcoin use as its proof-of-work hash function?","options":["SHA-256 once","SHA-256 applied twice","scrypt","BLAKE2b"],"answer":1},
-    {"type":"quiz","subtype":"multiple_choice","question":"How often does Bitcoin automatically recalibrate mining difficulty?","options":["Every 1,008 blocks","Every 2,016 blocks","Every 4,032 blocks","Every 144 blocks"],"answer":1},
-    {"type":"quiz","subtype":"multiple_choice","question":"Which hardware type was first used for Bitcoin mining in October 2010?","options":["FPGA","CPU","GPU","ASIC"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"Approximately what fraction of Bitcoin mining was pool-based by 2014?","options":["30%","60%","75%","90%"],"answer":3},
-    {"type":"quiz","subtype":"multiple_choice","question":"What is the minimum stake required to operate an Ethereum validator node?","options":["16 ETH","32 ETH","64 ETH","100 ETH"],"answer":1},
-    {"type":"quiz","subtype":"multiple_choice","question":"How many slots are in one Ethereum epoch?","options":["12","16","32","64"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"Which of the following was the first cryptocurrency to pioneer Proof-of-Stake?","options":["Ethereum","Litecoin","Peercoin","Monero"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"What approximate hash rate throughput does an ASIC (ANT Miner S19 Pro) achieve?","options":["2³⁰ H/s","2³⁷ H/s","2⁴⁶ H/s","2⁵⁶ H/s"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"In selfish mining, approximately what percentage of hash power is needed for a 50% probability of success?","options":["10%","25%","40%","51%"],"answer":1},
-    {"type":"quiz","subtype":"multiple_choice","question":"What type of fork is backwards-compatible — old nodes still accept new-rule blocks?","options":["Hard fork","Soft fork","User-activated fork","Unintended fork"],"answer":1},
-    {"type":"quiz","subtype":"multiple_choice","question":"Litecoin uses which alternative PoW function to try to resist ASIC dominance?","options":["Ethash","Equihash","scrypt","X11"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"Which real-world event triggered the Ethereum / Ethereum Classic hard fork?","options":["A 51% attack on Ethereum","The DAO hack and subsequent chain rollback","A dispute over block size","A failed upgrade to Proof-of-Stake"],"answer":1},
-    {"type":"quiz","subtype":"multiple_choice","question":"What does the 'inactivity leak' in Ethereum PoS trigger?","options":["Immediate chain halt","Quadratic penalties for offline validators until supermajority finality is restored","Automatic rollback of recent blocks","Validator rewards being doubled for honest nodes"],"answer":1},
-    {"type":"quiz","subtype":"multiple_choice","question":"The longest chain rule resolves forks by having miners:","options":["Always wait for network consensus before mining","Extend the chain with the most transactions","Extend one of the longest currently known chains","Pick the chain with the lowest difficulty"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"Filecoin is an example of which consensus alternative?","options":["Proof-of-Personhood","Proof-of-Burn","Proof-of-Useful-Work","Delegated Proof-of-Stake"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"Which property of PoW means that finding one valid hash gives no advantage in finding the next?","options":["Puzzle-friendliness","Hardness accumulation","Progress-free property","Parameterizability"],"answer":2},
-    {"type":"quiz","subtype":"multiple_choice","question":"In the Ethereum PoS slashing mechanism, on which day after ejection do additional escalating penalties apply?","options":["Day 7","Day 14","Day 18","Day 32"],"answer":2},
-
-    {"type":"quiz","subtype":"true_false","question":"A Byzantine adversary is strictly more powerful than a rational adversary.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"In Bitcoin, once a block has been mined, its contents are immediately and permanently finalised.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"The progress-free property of PoW means that a miner who has already computed many hashes has a higher probability of finding the next valid nonce than a miner who just started.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"GPU mining for Bitcoin was first introduced in 2010.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"Bitcoin's original design vision was 'one-CPU-one-vote'.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"In a soft fork, nodes that do not upgrade will reject all blocks produced by upgraded nodes.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"A hard fork always results in a permanent split into two currencies.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"Litecoin successfully prevented ASIC mining from ever developing for its scrypt algorithm.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"In Ethereum PoS, a validator requires staking exactly 32 ETH — staking more ETH does not change their rewards.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"Selfish mining requires more than 51% of hash power to be profitable.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"In a Sybil attack, the attacker's goal is to gain disproportionate influence by creating many fake identities.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"Bitcoin's difficulty target is recalibrated every 2,016 blocks to maintain a 10-minute average block time.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"ASIC miners can be repurposed to mine multiple different cryptocurrencies.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"Ethereum's switch from PoW to PoS in 2022 is estimated to have cut its energy consumption by approximately 99%.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"Mining pools cause centralisation because the pool manager effectively directs all members' hash power.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"The nothing-at-stake problem primarily affects Proof-of-Work systems.","answer":false},
-    {"type":"quiz","subtype":"true_false","question":"A long-range attack in PoS involves an attacker acquiring old private keys to rewrite blockchain history from far back.","answer":true},
-    {"type":"quiz","subtype":"true_false","question":"The fairness property of consensus is essential in all distributed systems, not just incentive-driven ones.","answer":false},
-
-    {"type":"quiz","subtype":"text_answer","question":"Explain why Proof-of-Work provides Sybil resistance in a permissionless blockchain network.","answer":"PoW requires real computational resources (electricity, hardware) to produce a valid block. A valid PoW is a temporary, resource-backed identity entitling the holder to propose exactly one block. Creating many fake identities (Sybil nodes) costs proportionally more resources — you cannot cheaply manufacture consensus power. This is unlike traditional identity systems where signing up is free."},
-    {"type":"quiz","subtype":"text_answer","question":"What is puzzle-friendliness and why is it a necessary property for a PoW hash function?","answer":"A hash function H is puzzle-friendly if, for any target t and high-entropy input k, there is no strategy to find x with H(k||x) = t in significantly less than 2ⁿ time — i.e., random trial is the best possible approach. This is necessary for PoW because if a shortcut existed, miners with knowledge of the shortcut would have an unfair hardware-independent advantage, undermining the resource-backed identity model and enabling efficient Sybil attacks."},
-    {"type":"quiz","subtype":"text_answer","question":"Describe what happens when two Bitcoin miners find valid blocks at approximately the same time, and how the network resolves the resulting situation.","answer":"Both miners broadcast their blocks. Different parts of the network will receive one block first and begin extending that branch, creating a temporary fork. All miners apply the longest chain rule: they extend whichever branch they see as longest. When one branch has a new block mined on top, it becomes longer — all honest miners switch to it, orphaning the competing branch. The probability of a fork persisting drops exponentially with each subsequent block. This is why Bitcoin recommends waiting for 6 confirmations before treating a transaction as final."},
-    {"type":"quiz","subtype":"text_answer","question":"Why does the evolution from CPU to GPU to FPGA to ASIC mining undermine Bitcoin's founding principle?","answer":"Bitcoin was designed with a 'one-CPU-one-vote' ethos, expecting broad, decentralised participation. Each hardware generation concentrates mining power with those able to afford specialised equipment. ASICs — purpose-built SHA-256 chips — provide ~2²² times more hash power than a CPU. They require large capital investment in chip manufacturing and cheap electricity, making it impossible for ordinary users to compete. The result is that a handful of large mining pools and farms control most global hash rate, recreating the very centralisation Bitcoin was designed to avoid."},
-    {"type":"quiz","subtype":"text_answer","question":"Explain the nothing-at-stake problem in Proof-of-Stake and describe how Ethereum's slashing mechanism addresses it.","answer":"In naive PoS, producing and attesting to blocks costs almost nothing (no significant energy or capital is consumed per vote). Validators can therefore vote on every fork simultaneously to maximise their expected reward, regardless of which chain eventually wins. This breaks safety — consistent single-chain commitment is not incentivised. Ethereum's slashing mechanism penalises provably dishonest behaviour: signing two different blocks for the same slot, attesting to a block that contradicts a prior attestation, or double-voting. Penalties include stake reduction, ejection from the validator set, no new rewards, and escalating day-18 penalties scaled to the total recently slashed — making double-voting economically irrational."},
-    {"type":"quiz","subtype":"text_answer","question":"What is selfish mining and why can it be profitable with significantly less than 51% of hash power?","answer":"In selfish mining, a miner withholds a found block rather than broadcasting it immediately, and keeps mining on top of it privately. If they extend their private chain before the network catches up, they release it — honest miners who were extending the shorter public chain have their work orphaned and wasted. This reduces honest miners' effective share of total blocks. With good network connectivity, as little as ~25% hash power can yield a 50% probability of success, because honest miners' wasted work effectively amplifies the attacker's relative contribution."},
-    {"type":"quiz","subtype":"text_answer","question":"Describe the difference between a hard fork and a soft fork. Under what conditions can each lead to a permanent chain split?","answer":"A hard fork is a backwards-incompatible rule change: old-rule nodes reject new-rule blocks and vice versa. If a significant portion of miners or full nodes does not upgrade, the chain permanently splits into two independent currencies. A soft fork is a backwards-compatible tightening of rules: old-rule nodes still accept new-rule blocks (since the new rules only restrict previously valid behaviour, e.g. smaller blocks). A soft fork can still cause a split if a majority of hash power does not adopt it — the minority chain remains valid for old nodes but is unlikely to dominate. In both cases, coordination and hash power majority are critical."},
-    {"type":"quiz","subtype":"text_answer","question":"What are three challenges unique to achieving BFT consensus in a fully decentralised (permissionless) network, compared to a federated or centralised setting?","answer":"(1) Unknown participants: In a federated system, validators are known and accountable. In a permissionless network, the full participant list is unknown and constantly changing, making it impossible to enumerate nodes for a vote. (2) Sybil resistance: Without a fixed participant set, an adversary can create unlimited fake identities to dominate consensus cheaply — a mechanism like PoW is needed to make identity creation costly. (3) Churn: Participants join and leave constantly. Classical BFT protocols assume a stable validator set and communication channels; handling dynamic membership while maintaining safety and liveness requires fundamentally different designs."},
-    {"type":"quiz","subtype":"text_answer","question":"Why does mining pool centralisation represent a security threat to Bitcoin, and what historical event illustrated this risk?","answer":"Mining pools aggregate hash power under a single pool manager who directs all members' mining. This creates entities controlling a large fraction of global hash rate, potentially approaching or exceeding the 51% threshold needed for a takeover. The security model n = 2f+1 assumes no single entity controls more than 50% — pools directly threaten this. In 2014, ghash.io approached the 51% threshold, at which point it could have double-spent, censored transactions, or orphaned all other miners' blocks. The community responded by encouraging miners to leave the pool voluntarily, highlighting that Bitcoin's security relies partly on social norms rather than pure cryptographic guarantees."},
-    {"type":"quiz","subtype":"text_answer","question":"Compare Proof-of-Useful-Work and Proof-of-Personhood as alternatives to standard PoW. What problem does each aim to solve, and what are their limitations?","answer":"Proof-of-Useful-Work (e.g. Primecoin, Filecoin) replaces meaningless hash grinding with computations that solve real problems (prime number chains, distributed file storage). It aims to eliminate the criticism that PoW wastes energy. Limitation: the useful computation must also be puzzle-friendly and hard to optimise, which is difficult — most useful problems are either too structured (shortcuts exist) or too slow to verify. Proof-of-Personhood aims to replace wealth-based influence with one-person-one-vote by using physical co-presence at pseudonym parties to create Sybil-resistant human identities. Limitation: scalability is the fundamental challenge — coordinating billions of simultaneous physical gatherings is currently infeasible."}
+    {
+      "type": "flashcard",
+      "front": "Byzantine fault-tolerant (BFT) consensus",
+      "back": "A consensus protocol that allows a distributed system to reach agreement even when some nodes act arbitrarily maliciously — not just crash or go offline."
+    },
+    {
+      "type": "flashcard",
+      "front": "Safety (consensus property)",
+      "back": "All honest nodes have a consistent view of the system state — they agree on which transactions occurred and in what order."
+    },
+    {
+      "type": "flashcard",
+      "front": "Liveness (consensus property)",
+      "back": "Honest nodes can always make progress and update the system state — the blockchain keeps growing and transactions eventually confirm."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fairness (consensus property)",
+      "back": "Nodes are rewarded according to their contributions. Specific to incentive-driven systems and relevant against rational (not just Byzantine) adversaries."
+    },
+    {
+      "type": "flashcard",
+      "front": "Byzantine adversary",
+      "back": "An adversary who can corrupt f of n nodes, gaining full access to their secrets and controlling their actions arbitrarily. Can observe all honest messages before acting (rushing) and send messages in any order."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rational adversary",
+      "back": "A relaxation of the Byzantine model — an adversary that acts to maximise utility/profit rather than purely to disrupt. Will not destroy the system if doing so is against their interest."
+    },
+    {
+      "type": "flashcard",
+      "front": "Sybil attack",
+      "back": "An adversary creates a large number of pseudonymous identities (sockpuppets) to gain disproportionate influence in a networked system. The cheaper identity creation is, the easier Sybil attacks become."
+    },
+    {
+      "type": "flashcard",
+      "front": "BFT security threshold (< 50% corrupt)",
+      "back": "n = 2f + 1, where f is the number of corrupt nodes and n is the total number of nodes. Fewer than half the nodes may be corrupt."
+    },
+    {
+      "type": "flashcard",
+      "front": "BFT security threshold (< 33% corrupt)",
+      "back": "n = 3f + 1, where f is the number of corrupt nodes. Fewer than one third of nodes may be corrupt. Required for stronger guarantees."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proof-of-Work (PoW)",
+      "back": "A mechanism where miners brute-force search a nonce such that H(Block) < t, where H is a cryptographic hash function and t is a target value. Serves as Sybil-resistant identity — creating fake identities costs proportional resources."
+    },
+    {
+      "type": "flashcard",
+      "front": "Puzzle-friendliness (hash function property)",
+      "back": "A hash function H is puzzle-friendly if, for any target t and high-entropy input k, there is no strategy to find x such that H(k||x) = t in significantly less than 2ⁿ time — i.e., the only approach is trying random inputs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitcoin's hash function for PoW",
+      "back": "H(·) = SHA-256(SHA-256(·)) — double SHA-256. Chosen because it is puzzle-friendly."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mining target formula",
+      "back": "t = 2²⁵⁶ / (2³² × d) − 1, where d is the difficulty. The higher the difficulty, the lower the target, and the more hashing power required."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitcoin difficulty adjustment",
+      "back": "Recalibrated automatically every 2,016 blocks (approximately 2 weeks) to maintain an average block time of 10 minutes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Nakamoto consensus",
+      "back": "PoW mining combined with the longest chain rule. Miners include a hash pointer to the current longest chain and brute-force a nonce. Nodes accept only valid-PoW blocks. Forks resolve by miners extending the longest chain."
+    },
+    {
+      "type": "flashcard",
+      "front": "Longest chain rule",
+      "back": "Miners always extend one of the longest known chains. When a new longest chain appears, all honest miners switch to it, orphaning shorter competing branches. Fork survival probability drops exponentially with each new block."
+    },
+    {
+      "type": "flashcard",
+      "front": "Eventual consistency (Bitcoin)",
+      "back": "Bitcoin provides probabilistic, not absolute, finality. The convention is to wait for 6 confirmations (~1 hour) before treating a transaction as final — by this point, reversing it is computationally prohibitive."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hardness accumulation",
+      "back": "Each block in the chain inherits the computational effort of all its predecessors' PoWs. Modifying a block deep in the chain requires recomputing PoW for all subsequent blocks — exponentially expensive."
+    },
+    {
+      "type": "flashcard",
+      "front": "Progress-free property (PoW)",
+      "back": "Each hash computation is independent of all previous ones. Finding one PoW gives no advantage in finding the next. This makes mining a fair lottery regardless of prior effort."
+    },
+    {
+      "type": "flashcard",
+      "front": "Unintended blockchain fork",
+      "back": "A fork caused by two miners finding valid blocks near-simultaneously due to probabilistic mining and network propagation delays. Resolved by the longest chain rule."
+    },
+    {
+      "type": "flashcard",
+      "front": "Intended blockchain fork",
+      "back": "A deliberate fork used to upgrade the blockchain protocol — e.g. to introduce new features or fix bugs. Can be hard or soft."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hard fork",
+      "back": "A backwards-incompatible protocol change. Old-rule nodes reject new-rule blocks and vice versa. If adoption is incomplete, the chain permanently splits into two currencies."
+    },
+    {
+      "type": "flashcard",
+      "front": "Soft fork",
+      "back": "A backwards-compatible tightening of the rules. Old nodes still accept new-rule blocks (e.g. reducing block size from 1 MB to 0.5 MB). Still requires a majority of hash power to avoid a split."
+    },
+    {
+      "type": "flashcard",
+      "front": "CPU mining throughput",
+      "back": "~2²⁴ H/s. At January 2021 difficulty, would take approximately 167 million years to mine a single block."
+    },
+    {
+      "type": "flashcard",
+      "front": "GPU mining throughput",
+      "back": "~2²⁷ H/s. First used for Bitcoin in October 2010. Implemented in OpenCL. ~8× faster than CPU."
+    },
+    {
+      "type": "flashcard",
+      "front": "FPGA mining throughput",
+      "back": "~2³⁰ H/s. First used in Bitcoin in June 2011. Implemented in Verilog. Better cooling than GPU but higher expertise and cost required."
+    },
+    {
+      "type": "flashcard",
+      "front": "ASIC mining throughput (ANT Miner S19 Pro)",
+      "back": "110 TH/s ≈ 2⁴⁶ H/s. Cost ~$3,769. Power draw: 3,250 W. Purpose-built for SHA-256 — useless for any other task."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mining pool",
+      "back": "A group of miners who combine hash power and split block rewards proportionally to submitted shares (partial PoWs). Makes revenue predictable and enables smaller miners to participate."
+    },
+    {
+      "type": "flashcard",
+      "front": "Per-share mining pool reward",
+      "back": "A flat reward per submitted share minus a fee. Risk: miners could theoretically never submit valid blocks (only partial proofs)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proportional mining pool reward",
+      "back": "Rewards based on shares contributed since the last valid block. Lower risk for the pool manager than flat per-share."
+    },
+    {
+      "type": "flashcard",
+      "front": "Per-last-n-shares (PPLNS) pool reward",
+      "back": "Rewards based on shares in a sliding window of the last n shares. Minimises pool-hopping — joining only when a block is near."
+    },
+    {
+      "type": "flashcard",
+      "front": "51% attack",
+      "back": "An attacker controlling >50% of hash power can: double-spend, reject other miners' blocks, censor transactions, demand high fees. Cannot steal from addresses they don't control."
+    },
+    {
+      "type": "flashcard",
+      "front": "Selfish mining",
+      "back": "A miner withholds a found block and mines on top privately. If they build a longer chain before the network catches up, they release it to orphan honest miners' work — profitable with as little as ~25% hash power."
+    },
+    {
+      "type": "flashcard",
+      "front": "Goldfinger attack",
+      "back": "Deliberately crashing Bitcoin's value, even at personal loss, to harm the ecosystem. A 2.0 variant hedges losses using a second chain (e.g. Ethereum contracts) to profit while crashing Bitcoin."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proof-of-Stake (PoS)",
+      "back": "Validators lock up (stake) cryptocurrency to gain voting power. Dishonest behaviour destroys their stake via slashing. Pioneered by Peercoin (2012). Ethereum switched to PoS in 2022, cutting energy use by ~99%."
+    },
+    {
+      "type": "flashcard",
+      "front": "Ethereum PoS: slot and epoch",
+      "back": "One slot = 12 seconds; 32 slots = 1 epoch. The first block of each epoch is the checkpoint block. Leader (block proposer) is randomly selected each slot."
+    },
+    {
+      "type": "flashcard",
+      "front": "Ethereum PoS: minimum stake",
+      "back": "32 ETH required to run a validator node. If dishonest, this stake can be destroyed (slashed) by the network."
+    },
+    {
+      "type": "flashcard",
+      "front": "Nothing-at-stake problem",
+      "back": "In naive PoS, block production is nearly free. Validators can vote on every fork simultaneously to maximise reward regardless of which chain wins — breaks safety since there is no incentive to commit to one chain."
+    },
+    {
+      "type": "flashcard",
+      "front": "Slashing (Ethereum PoS)",
+      "back": "Penalties for provably dishonest validator behaviour: proposing/signing two different blocks for the same slot, contradictory attestations, or double-voting. Includes stake reduction, ejection, and escalating day-18 penalties."
+    },
+    {
+      "type": "flashcard",
+      "front": "Inactivity leak (Ethereum PoS)",
+      "back": "If no supermajority finality is reached after 4 epochs (many validators offline or adversarial), offline validators face quadratic penalties until the minority chain loses enough stake for the majority to finalise."
+    },
+    {
+      "type": "flashcard",
+      "front": "Long-range attack (PoS)",
+      "back": "An attacker acquires old private keys cheaply and uses them to rewrite blockchain history from far back, creating a valid alternative fork that is hard to detect."
+    },
+    {
+      "type": "flashcard",
+      "front": "Grinding attack (PoS)",
+      "back": "Exploiting the cheapness of block production to try many block variations and bias the randomness used in future leader (validator) selection."
+    },
+    {
+      "type": "flashcard",
+      "front": "Scrypt (Litecoin)",
+      "back": "A memory-hard password-based key derivation function. Forces miners to keep a large pseudorandom string in RAM and access it in pseudorandom order. Designed to make CPUs more competitive. First scrypt ASICs appeared in 2014."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proof-of-Useful-Work",
+      "back": "PoW variants where the puzzle solves a real-world problem instead of meaningless hashing. Examples: Primecoin (prime chains, 2013), Permacoin (distributed archival storage, 2014), Filecoin (proof-of-space-time, 2020)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proof-of-Personhood",
+      "back": "Uses physical co-presence (your body can only be in one location) to create Sybil-resistant human identities, enabling one-person-one-vote. Aims to democratise consensus beyond those with capital. Pseudonym parties are a concrete mechanism."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proof-of-Burn",
+      "back": "Miners send coins to a provably unspendable address. Either receive equivalent coins in the new chain, or burning increases the probability of mining the next block. No energy waste, but destroys real economic value."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitcoin Cash",
+      "back": "A hard fork of Bitcoin resulting from the block size debate — whether to raise the 1 MB block size limit. The community split permanently, resulting in two currencies."
+    },
+    {
+      "type": "flashcard",
+      "front": "Ethereum Classic",
+      "back": "A hard fork caused by The DAO hack. Ethereum reversed the hack via a contentious chain rewrite; a portion of the community refused, continuing the original chain as Ethereum Classic."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rushing adversary",
+      "back": "A Byzantine adversary who can observe all messages sent by honest nodes before taking their own actions — i.e., acts last in any communication round. Represents a stronger adversary model."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the minimum fraction of nodes that must be honest for standard BFT consensus to hold under the n = 2f+1 condition?",
+      "options": [
+        "More than 25%",
+        "More than 33%",
+        "More than 50%",
+        "More than 66%"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does Bitcoin use as its proof-of-work hash function?",
+      "options": [
+        "SHA-256 once",
+        "SHA-256 applied twice",
+        "scrypt",
+        "BLAKE2b"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How often does Bitcoin automatically recalibrate mining difficulty?",
+      "options": [
+        "Every 1,008 blocks",
+        "Every 2,016 blocks",
+        "Every 4,032 blocks",
+        "Every 144 blocks"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which hardware type was first used for Bitcoin mining in October 2010?",
+      "options": [
+        "FPGA",
+        "CPU",
+        "GPU",
+        "ASIC"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Approximately what fraction of Bitcoin mining was pool-based by 2014?",
+      "options": [
+        "30%",
+        "60%",
+        "75%",
+        "90%"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the minimum stake required to operate an Ethereum validator node?",
+      "options": [
+        "16 ETH",
+        "32 ETH",
+        "64 ETH",
+        "100 ETH"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How many slots are in one Ethereum epoch?",
+      "options": [
+        "12",
+        "16",
+        "32",
+        "64"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which of the following was the first cryptocurrency to pioneer Proof-of-Stake?",
+      "options": [
+        "Ethereum",
+        "Litecoin",
+        "Peercoin",
+        "Monero"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What approximate hash rate throughput does an ASIC (ANT Miner S19 Pro) achieve?",
+      "options": [
+        "2³⁰ H/s",
+        "2³⁷ H/s",
+        "2⁴⁶ H/s",
+        "2⁵⁶ H/s"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In selfish mining, approximately what percentage of hash power is needed for a 50% probability of success?",
+      "options": [
+        "10%",
+        "25%",
+        "40%",
+        "51%"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What type of fork is backwards-compatible — old nodes still accept new-rule blocks?",
+      "options": [
+        "Hard fork",
+        "Soft fork",
+        "User-activated fork",
+        "Unintended fork"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Litecoin uses which alternative PoW function to try to resist ASIC dominance?",
+      "options": [
+        "Ethash",
+        "Equihash",
+        "scrypt",
+        "X11"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which real-world event triggered the Ethereum / Ethereum Classic hard fork?",
+      "options": [
+        "A 51% attack on Ethereum",
+        "The DAO hack and subsequent chain rollback",
+        "A dispute over block size",
+        "A failed upgrade to Proof-of-Stake"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the 'inactivity leak' in Ethereum PoS trigger?",
+      "options": [
+        "Immediate chain halt",
+        "Quadratic penalties for offline validators until supermajority finality is restored",
+        "Automatic rollback of recent blocks",
+        "Validator rewards being doubled for honest nodes"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The longest chain rule resolves forks by having miners:",
+      "options": [
+        "Always wait for network consensus before mining",
+        "Extend the chain with the most transactions",
+        "Extend one of the longest currently known chains",
+        "Pick the chain with the lowest difficulty"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Filecoin is an example of which consensus alternative?",
+      "options": [
+        "Proof-of-Personhood",
+        "Proof-of-Burn",
+        "Proof-of-Useful-Work",
+        "Delegated Proof-of-Stake"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which property of PoW means that finding one valid hash gives no advantage in finding the next?",
+      "options": [
+        "Puzzle-friendliness",
+        "Hardness accumulation",
+        "Progress-free property",
+        "Parameterizability"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the Ethereum PoS slashing mechanism, on which day after ejection do additional escalating penalties apply?",
+      "options": [
+        "Day 7",
+        "Day 14",
+        "Day 18",
+        "Day 32"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A Byzantine adversary is strictly more powerful than a rational adversary.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bitcoin, once a block has been mined, its contents are immediately and permanently finalised.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The progress-free property of PoW means that a miner who has already computed many hashes has a higher probability of finding the next valid nonce than a miner who just started.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "GPU mining for Bitcoin was first introduced in 2010.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bitcoin's original design vision was 'one-CPU-one-vote'.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a soft fork, nodes that do not upgrade will reject all blocks produced by upgraded nodes.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A hard fork always results in a permanent split into two currencies.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Litecoin successfully prevented ASIC mining from ever developing for its scrypt algorithm.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Ethereum PoS, a validator requires staking exactly 32 ETH — staking more ETH does not change their rewards.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Selfish mining requires more than 51% of hash power to be profitable.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In a Sybil attack, the attacker's goal is to gain disproportionate influence by creating many fake identities.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bitcoin's difficulty target is recalibrated every 2,016 blocks to maintain a 10-minute average block time.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ASIC miners can be repurposed to mine multiple different cryptocurrencies.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Ethereum's switch from PoW to PoS in 2022 is estimated to have cut its energy consumption by approximately 99%.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Mining pools cause centralisation because the pool manager effectively directs all members' hash power.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The nothing-at-stake problem primarily affects Proof-of-Work systems.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A long-range attack in PoS involves an attacker acquiring old private keys to rewrite blockchain history from far back.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The fairness property of consensus is essential in all distributed systems, not just incentive-driven ones.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why Proof-of-Work provides Sybil resistance in a permissionless blockchain network.",
+      "answer": "PoW requires real computational resources (electricity, hardware) to produce a valid block. A valid PoW is a temporary, resource-backed identity entitling the holder to propose exactly one block. Creating many fake identities (Sybil nodes) costs proportionally more resources — you cannot cheaply manufacture consensus power. This is unlike traditional identity systems where signing up is free."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is puzzle-friendliness and why is it a necessary property for a PoW hash function?",
+      "answer": "A hash function H is puzzle-friendly if, for any target t and high-entropy input k, there is no strategy to find x with H(k||x) = t in significantly less than 2ⁿ time — i.e., random trial is the best possible approach. This is necessary for PoW because if a shortcut existed, miners with knowledge of the shortcut would have an unfair hardware-independent advantage, undermining the resource-backed identity model and enabling efficient Sybil attacks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe what happens when two Bitcoin miners find valid blocks at approximately the same time, and how the network resolves the resulting situation.",
+      "answer": "Both miners broadcast their blocks. Different parts of the network will receive one block first and begin extending that branch, creating a temporary fork. All miners apply the longest chain rule: they extend whichever branch they see as longest. When one branch has a new block mined on top, it becomes longer — all honest miners switch to it, orphaning the competing branch. The probability of a fork persisting drops exponentially with each subsequent block. This is why Bitcoin recommends waiting for 6 confirmations before treating a transaction as final."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does the evolution from CPU to GPU to FPGA to ASIC mining undermine Bitcoin's founding principle?",
+      "answer": "Bitcoin was designed with a 'one-CPU-one-vote' ethos, expecting broad, decentralised participation. Each hardware generation concentrates mining power with those able to afford specialised equipment. ASICs — purpose-built SHA-256 chips — provide ~2²² times more hash power than a CPU. They require large capital investment in chip manufacturing and cheap electricity, making it impossible for ordinary users to compete. The result is that a handful of large mining pools and farms control most global hash rate, recreating the very centralisation Bitcoin was designed to avoid."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the nothing-at-stake problem in Proof-of-Stake and describe how Ethereum's slashing mechanism addresses it.",
+      "answer": "In naive PoS, producing and attesting to blocks costs almost nothing (no significant energy or capital is consumed per vote). Validators can therefore vote on every fork simultaneously to maximise their expected reward, regardless of which chain eventually wins. This breaks safety — consistent single-chain commitment is not incentivised. Ethereum's slashing mechanism penalises provably dishonest behaviour: signing two different blocks for the same slot, attesting to a block that contradicts a prior attestation, or double-voting. Penalties include stake reduction, ejection from the validator set, no new rewards, and escalating day-18 penalties scaled to the total recently slashed — making double-voting economically irrational."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is selfish mining and why can it be profitable with significantly less than 51% of hash power?",
+      "answer": "In selfish mining, a miner withholds a found block rather than broadcasting it immediately, and keeps mining on top of it privately. If they extend their private chain before the network catches up, they release it — honest miners who were extending the shorter public chain have their work orphaned and wasted. This reduces honest miners' effective share of total blocks. With good network connectivity, as little as ~25% hash power can yield a 50% probability of success, because honest miners' wasted work effectively amplifies the attacker's relative contribution."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Describe the difference between a hard fork and a soft fork. Under what conditions can each lead to a permanent chain split?",
+      "answer": "A hard fork is a backwards-incompatible rule change: old-rule nodes reject new-rule blocks and vice versa. If a significant portion of miners or full nodes does not upgrade, the chain permanently splits into two independent currencies. A soft fork is a backwards-compatible tightening of rules: old-rule nodes still accept new-rule blocks (since the new rules only restrict previously valid behaviour, e.g. smaller blocks). A soft fork can still cause a split if a majority of hash power does not adopt it — the minority chain remains valid for old nodes but is unlikely to dominate. In both cases, coordination and hash power majority are critical."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are three challenges unique to achieving BFT consensus in a fully decentralised (permissionless) network, compared to a federated or centralised setting?",
+      "answer": "(1) Unknown participants: In a federated system, validators are known and accountable. In a permissionless network, the full participant list is unknown and constantly changing, making it impossible to enumerate nodes for a vote. (2) Sybil resistance: Without a fixed participant set, an adversary can create unlimited fake identities to dominate consensus cheaply — a mechanism like PoW is needed to make identity creation costly. (3) Churn: Participants join and leave constantly. Classical BFT protocols assume a stable validator set and communication channels; handling dynamic membership while maintaining safety and liveness requires fundamentally different designs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does mining pool centralisation represent a security threat to Bitcoin, and what historical event illustrated this risk?",
+      "answer": "Mining pools aggregate hash power under a single pool manager who directs all members' mining. This creates entities controlling a large fraction of global hash rate, potentially approaching or exceeding the 51% threshold needed for a takeover. The security model n = 2f+1 assumes no single entity controls more than 50% — pools directly threaten this. In 2014, ghash.io approached the 51% threshold, at which point it could have double-spent, censored transactions, or orphaned all other miners' blocks. The community responded by encouraging miners to leave the pool voluntarily, highlighting that Bitcoin's security relies partly on social norms rather than pure cryptographic guarantees."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare Proof-of-Useful-Work and Proof-of-Personhood as alternatives to standard PoW. What problem does each aim to solve, and what are their limitations?",
+      "answer": "Proof-of-Useful-Work (e.g. Primecoin, Filecoin) replaces meaningless hash grinding with computations that solve real problems (prime number chains, distributed file storage). It aims to eliminate the criticism that PoW wastes energy. Limitation: the useful computation must also be puzzle-friendly and hard to optimise, which is difficult — most useful problems are either too structured (shortcuts exist) or too slow to verify. Proof-of-Personhood aims to replace wealth-based influence with one-person-one-vote by using physical co-presence at pseudonym parties to create Sybil-resistant human identities. Limitation: scalability is the fundamental challenge — coordinating billions of simultaneous physical gatherings is currently infeasible."
+    }
   ]
 }

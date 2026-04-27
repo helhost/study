@@ -144,28 +144,48 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In a client puzzle, for n=16, approximately how long does it take to solve on a 1 GHz machine?",
-      "options": ["0.003 seconds", "0.03 seconds", "0.3 seconds", "3 seconds"],
+      "options": [
+        "0.003 seconds",
+        "0.03 seconds",
+        "0.3 seconds",
+        "3 seconds"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the approximate CPU power ratio between a high-end server and a low-end cell phone?",
-      "options": ["200", "800", "2000", "8000"],
+      "options": [
+        "200",
+        "800",
+        "2000",
+        "8000"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the approximate main memory access time ratio between a high-end server and a low-end cell phone?",
-      "options": ["2", "20", "200", "2000"],
+      "options": [
+        "2",
+        "20",
+        "200",
+        "2000"
+      ],
       "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which paper proposed memory-bound functions as fairer puzzles for low-end devices?",
-      "options": ["Dwork-Goldberg-Naor, Crypto 2003", "RSA 1999", "Killbots 2005", "SD 2003"],
+      "options": [
+        "Dwork-Goldberg-Naor, Crypto 2003",
+        "RSA 1999",
+        "Killbots 2005",
+        "SD 2003"
+      ],
       "answer": 0
     },
     {
@@ -184,14 +204,24 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which existing IP header field is repurposed in edge sampling to store traceback data?",
-      "options": ["Time to Live", "Protocol", "Identification", "Fragment Offset"],
+      "options": [
+        "Time to Live",
+        "Protocol",
+        "Identification",
+        "Fragment Offset"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which OWASP 2017 Top 10 vulnerability involves browsers automatically submitting stored credentials with forged requests?",
-      "options": ["Injection", "Broken Authentication", "Cross-Site Scripting (XSS)", "Broken Access Control"],
+      "options": [
+        "Injection",
+        "Broken Authentication",
+        "Cross-Site Scripting (XSS)",
+        "Broken Access Control"
+      ],
       "answer": 1
     },
     {
@@ -210,7 +240,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which CSRF defence requires no secrets and has no synchronisation issues with load balancing?",
-      "options": ["Secret Validation Token", "Challenge-Response (CAPTCHA)", "Referer Validation", "Custom HTTP Header via XMLHttpRequest"],
+      "options": [
+        "Secret Validation Token",
+        "Challenge-Response (CAPTCHA)",
+        "Referer Validation",
+        "Custom HTTP Header via XMLHttpRequest"
+      ],
       "answer": 3
     },
     {
@@ -241,7 +276,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the browser security model, what is the equivalent of 'Users' in an operating system?",
-      "options": ["Cookies", "Frames", "Origins", "Scripts"],
+      "options": [
+        "Cookies",
+        "Frames",
+        "Origins",
+        "Scripts"
+      ],
       "answer": 2
     },
     {
@@ -260,7 +300,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "A TCP connection flood client puzzle was proposed by which group/year?",
-      "options": ["SD, 2003", "RSA, 1999", "Killbots, 2005", "Dwork-Goldberg-Naor, 2003"],
+      "options": [
+        "SD, 2003",
+        "RSA, 1999",
+        "Killbots, 2005",
+        "Dwork-Goldberg-Naor, 2003"
+      ],
       "answer": 1
     },
     {
@@ -279,7 +324,12 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which web vulnerability is listed in the OWASP 2017 Top 10 and involves inserting malicious client-side scripts into pages viewed by other users?",
-      "options": ["Injection", "Insecure Deserialization", "Cross-Site Scripting (XSS)", "XML External Entities (XXE)"],
+      "options": [
+        "Injection",
+        "Insecure Deserialization",
+        "Cross-Site Scripting (XSS)",
+        "XML External Entities (XXE)"
+      ],
       "answer": 2
     },
     {

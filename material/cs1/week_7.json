@@ -249,154 +249,264 @@
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "According to Anderson (2001), which of the following is NOT cited as a microeconomic factor explaining information security failures?",
-      "options": ["Moral hazard", "Adverse selection", "Formal proof of cryptographic protocols", "Tragedy of the commons"],
+      "options": [
+        "Moral hazard",
+        "Adverse selection",
+        "Formal proof of cryptographic protocols",
+        "Tragedy of the commons"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "According to Woods & Seymour (2023), what is the most important factor regarding security controls?",
-      "options": ["Whether the control is implemented at all", "How the control is implemented", "The cost of the control", "Whether the control is audited annually"],
+      "options": [
+        "Whether the control is implemented at all",
+        "How the control is implemented",
+        "The cost of the control",
+        "Whether the control is audited annually"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In a maturity model, what does 'Practices (p_i)' describe?",
-      "options": ["The developmental state of objectives", "A structured set of security practices grouped by area", "Single security activities — the 'how' of achieving maturity", "What the organisation must do for a practice to be deemed met"],
+      "options": [
+        "The developmental state of objectives",
+        "A structured set of security practices grouped by area",
+        "Single security activities — the 'how' of achieving maturity",
+        "What the organisation must do for a practice to be deemed met"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "How many total practices does the CMMC contain across both levels?",
-      "options": ["93", "17", "110", "127"],
+      "options": [
+        "93",
+        "17",
+        "110",
+        "127"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which CMMC domain has the highest total number of practices?",
-      "options": ["System and Communications Protection (SC)", "Identification and Authentication (IA)", "System and Information Integrity (SI)", "Access Control (AC)"],
+      "options": [
+        "System and Communications Protection (SC)",
+        "Identification and Authentication (IA)",
+        "System and Information Integrity (SI)",
+        "Access Control (AC)"
+      ],
       "answer": 3
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What was the password publicly exposed in the SolarWinds GitHub repository?",
-      "options": ["solarwinds2019", "solarwinds123", "admin123", "SolarW1nds!"],
+      "options": [
+        "solarwinds2019",
+        "solarwinds123",
+        "admin123",
+        "SolarW1nds!"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the SolarWinds (2019) internal assessment, how many 'Identification and Authentication' controls were rated as 'in place'?",
-      "options": ["Seven", "Twenty", "Zero", "Three"],
+      "options": [
+        "Seven",
+        "Twenty",
+        "Zero",
+        "Three"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What was the primary initial attack vector in the LastPass (2022) breach?",
-      "options": ["A phishing email sent to a LastPass employee", "Exploitation of an unpatched vulnerability on a developer's personal Plex server", "A supply chain attack on a third-party software provider", "Brute-forcing of LastPass admin credentials"],
+      "options": [
+        "A phishing email sent to a LastPass employee",
+        "Exploitation of an unpatched vulnerability on a developer's personal Plex server",
+        "A supply chain attack on a third-party software provider",
+        "Brute-forcing of LastPass admin credentials"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "When was the terminal services server installed that was exploited in the British Library breach?",
-      "options": ["October 2023", "February 2020", "January 2022", "March 2019"],
+      "options": [
+        "October 2023",
+        "February 2020",
+        "January 2022",
+        "March 2019"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Why was the British Library particularly vulnerable to the ransomware attack?",
-      "options": ["It had no MFA anywhere in the organisation", "It had MFA on cloud applications but not on the BL domain, and the server estate ran older defensive software", "It had no incident response plan in place", "The terminal services server was connected directly to the internet with no firewall"],
+      "options": [
+        "It had no MFA anywhere in the organisation",
+        "It had MFA on cloud applications but not on the BL domain, and the server estate ran older defensive software",
+        "It had no incident response plan in place",
+        "The terminal services server was connected directly to the internet with no firewall"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the following is typically covered under a cyber insurance policy's 'First Party Loss'?",
-      "options": ["Costs to restore a system beyond its pre-incident state", "Losses from power outages not under the insured's control", "Cyber Extortion Loss (e.g. ransomware demands)", "Seizure of data by government authority"],
+      "options": [
+        "Costs to restore a system beyond its pre-incident state",
+        "Losses from power outages not under the insured's control",
+        "Cyber Extortion Loss (e.g. ransomware demands)",
+        "Seizure of data by government authority"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Under a typical cyber insurance policy, what does 'Regulatory Defense & Penalties' cover?",
-      "options": ["First-party costs of notifying regulators", "Third-party liability — the costs of defending regulatory actions and penalties arising from a breach", "Fines imposed by the insured organisation's board", "Criminal proceedings against the insured's employees"],
+      "options": [
+        "First-party costs of notifying regulators",
+        "Third-party liability — the costs of defending regulatory actions and penalties arising from a breach",
+        "Fines imposed by the insured organisation's board",
+        "Criminal proceedings against the insured's employees"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In Beazley's preferred war exclusion (Type 3), what must be true for a harmful act to constitute 'Cyber War'?",
-      "options": ["It must be carried out by a non-state hacker group", "It must be committed by or under the control of a sovereign state AND be part of a War or cause major detrimental impact on another state", "It must cause financial losses exceeding $1 billion", "It must involve malware that spreads to at least 10 countries"],
+      "options": [
+        "It must be carried out by a non-state hacker group",
+        "It must be committed by or under the control of a sovereign state AND be part of a War or cause major detrimental impact on another state",
+        "It must cause financial losses exceeding $1 billion",
+        "It must involve malware that spreads to at least 10 countries"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What is the key practical difference between the Type 3 (preferred) and Type 4 (non-preferred) war exclusions?",
-      "options": ["Type 3 excludes all state-sponsored attacks; Type 4 only excludes attacks by named adversary states", "Type 4 does not exclude cyber-attacks as part of war that affect companies outside the warring/impacted states, creating more coverage exposure for the insurer", "Type 4 requires the insurer to prove intent before applying the exclusion", "Type 3 applies to all policies globally; Type 4 only applies in the London Market"],
+      "options": [
+        "Type 3 excludes all state-sponsored attacks; Type 4 only excludes attacks by named adversary states",
+        "Type 4 does not exclude cyber-attacks as part of war that affect companies outside the warring/impacted states, creating more coverage exposure for the insurer",
+        "Type 4 requires the insurer to prove intent before applying the exclusion",
+        "Type 3 applies to all policies globally; Type 4 only applies in the London Market"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the three cyber modelling stages corresponds to the insurance concept of 'Severity'?",
-      "options": ["Cause of Loss", "Likelihood of Loss", "Impact of Loss", "Frequency of Loss"],
+      "options": [
+        "Cause of Loss",
+        "Likelihood of Loss",
+        "Impact of Loss",
+        "Frequency of Loss"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which Beazley/Munich Re/Gallagher Re scenario has the HIGHEST footprint but only MODERATE per-insured loss?",
-      "options": ["Autolycus (WSSC)", "Lernaen Hydra (SPM)", "Demeter's Curse (TILE)", "None — all scenarios have equal footprint"],
+      "options": [
+        "Autolycus (WSSC)",
+        "Lernaen Hydra (SPM)",
+        "Demeter's Curse (TILE)",
+        "None — all scenarios have equal footprint"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which scenario results in the HIGHEST per-insured loss but a CONCENTRATED footprint?",
-      "options": ["Autolycus (WSSC)", "Lernaen Hydra (SPM)", "Demeter's Curse (TILE)", "Autolycus and Demeter's Curse equally"],
+      "options": [
+        "Autolycus (WSSC)",
+        "Lernaen Hydra (SPM)",
+        "Demeter's Curse (TILE)",
+        "Autolycus and Demeter's Curse equally"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "What type of malware is at the heart of the 'Lernaen Hydra' scenario?",
-      "options": ["Targeted destructive wiperware", "A self-replicating wormable ransomware strain", "A supply chain backdoor", "A banking trojan"],
+      "options": [
+        "Targeted destructive wiperware",
+        "A self-replicating wormable ransomware strain",
+        "A supply chain backdoor",
+        "A banking trojan"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "The Autolycus scenario's attack is described as driven by which combination of threat actors?",
-      "options": ["Exclusively a nation-state", "Hacktivist groups acting alone", "A combination of an organised crime group and malicious insiders", "Script kiddies exploiting a known public vulnerability"],
+      "options": [
+        "Exclusively a nation-state",
+        "Hacktivist groups acting alone",
+        "A combination of an organised crime group and malicious insiders",
+        "Script kiddies exploiting a known public vulnerability"
+      ],
       "answer": 2
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "In the Demeter's Curse (TILE) scenario, what type of systems may be damaged beyond standard IT?",
-      "options": ["Cloud storage systems", "Operational technology (OT) systems", "Consumer IoT devices", "Mobile device management (MDM) platforms"],
+      "options": [
+        "Cloud storage systems",
+        "Operational technology (OT) systems",
+        "Consumer IoT devices",
+        "Mobile device management (MDM) platforms"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "According to the Beazley/Munich Re/Gallagher Re modelling, which category of companies is MOST exposed to the SPM (Event 2) scenario?",
-      "options": ["Large multinationals (above $1bn revenue)", "SMEs (small and medium enterprises)", "Public sector organisations", "Financial institutions exclusively"],
+      "options": [
+        "Large multinationals (above $1bn revenue)",
+        "SMEs (small and medium enterprises)",
+        "Public sector organisations",
+        "Financial institutions exclusively"
+      ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
       "question": "Which of the following infrastructure events is explicitly listed as NOT covered by cyber insurance?",
-      "options": ["Ransomware attack on a cloud provider", "Double-extortion ransomware", "DNS infrastructure failures", "Accidental data exposure"],
+      "options": [
+        "Ransomware attack on a cloud provider",
+        "Double-extortion ransomware",
+        "DNS infrastructure failures",
+        "Accidental data exposure"
+      ],
       "answer": 2
     },
     {

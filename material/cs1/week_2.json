@@ -3,7 +3,7 @@
     {
       "type": "flashcard",
       "front": "Group vs Role (OS access control)",
-      "back": "A group is a list of principals. A role is a fixed set of access permissions that one or more principals may assume for a period of time (e.g. the officer of the watch on a ship \u2014 exactly one at a time, with a formal handover procedure)."
+      "back": "A group is a list of principals. A role is a fixed set of access permissions that one or more principals may assume for a period of time (e.g. the officer of the watch on a ship — exactly one at a time, with a formal handover procedure)."
     },
     {
       "type": "flashcard",
@@ -38,7 +38,7 @@
     {
       "type": "flashcard",
       "front": "Container (vs VM)",
-      "back": "A container is an isolated guest process that shares a kernel with other containers \u2014 not a full OS. Containers virtualise a subset of OS mechanisms (process IDs, namespaces, IPC) and use sandboxing/syscall filtering. Lighter than VMs but with fewer security guarantees."
+      "back": "A container is an isolated guest process that shares a kernel with other containers — not a full OS. Containers virtualise a subset of OS mechanisms (process IDs, namespaces, IPC) and use sandboxing/syscall filtering. Lighter than VMs but with fewer security guarantees."
     },
     {
       "type": "flashcard",
@@ -48,7 +48,7 @@
     {
       "type": "flashcard",
       "front": "Rings of Protection",
-      "back": "A hardware mechanism expressing differing levels of privilege. Ring 0 = highest privilege (kernel); higher ring numbers = less privilege (user code). Introduced by Multics. Modern Intel CPUs have 9 rings: ring 0\u20133 for normal code, ring 0\u20133 VMX root mode for the hypervisor, and SMM at the bottom."
+      "back": "A hardware mechanism expressing differing levels of privilege. Ring 0 = highest privilege (kernel); higher ring numbers = less privilege (user code). Introduced by Multics. Modern Intel CPUs have 9 rings: ring 0–3 for normal code, ring 0–3 VMX root mode for the hypervisor, and SMM at the bottom."
     },
     {
       "type": "flashcard",
@@ -58,7 +58,7 @@
     {
       "type": "flashcard",
       "front": "ARM TrustZone",
-      "back": "An ARM CPU security extension (available 2004) supporting an 'open world' for a normal OS and a 'closed world' (TEE \u2014 Trusted Execution Environment) for sensitive operations such as cryptography and critical I/O. The two worlds are orthogonal to user/supervisor modes."
+      "back": "An ARM CPU security extension (available 2004) supporting an 'open world' for a normal OS and a 'closed world' (TEE — Trusted Execution Environment) for sensitive operations such as cryptography and critical I/O. The two worlds are orthogonal to user/supervisor modes."
     },
     {
       "type": "flashcard",
@@ -88,7 +88,7 @@
     {
       "type": "flashcard",
       "front": "Return-Oriented Programming (ROP)",
-      "back": "An attack technique bypassing DEP by chaining existing 'gadgets' \u2014 short instruction sequences ending in a return \u2014 from code already in memory. Assembles Turing-powerful computation without injecting any new code. Defeats DEP; mitigated by ASLR and Control Flow Integrity."
+      "back": "An attack technique bypassing DEP by chaining existing 'gadgets' — short instruction sequences ending in a return — from code already in memory. Assembles Turing-powerful computation without injecting any new code. Defeats DEP; mitigated by ASLR and Control Flow Integrity."
     },
     {
       "type": "flashcard",
@@ -148,7 +148,7 @@
     {
       "type": "flashcard",
       "front": "Trusted Computing Base (TCB)",
-      "back": "The set of components (hardware, software, procedures) whose correct functioning is sufficient to ensure the security policy is enforced \u2014 equivalently, whose failure could cause a breach. From the Anderson Report (1972). Must be kept small enough to verify."
+      "back": "The set of components (hardware, software, procedures) whose correct functioning is sufficient to ensure the security policy is enforced — equivalently, whose failure could cause a breach. From the Anderson Report (1972). Must be kept small enough to verify."
     },
     {
       "type": "flashcard",
@@ -158,12 +158,12 @@
     {
       "type": "flashcard",
       "front": "Bell-LaPadula: Simple Security Property",
-      "back": "No process may read data at a higher classification level than its clearance \u2014 also called No Read Up (NRU). Prevents unauthorised access to classified data."
+      "back": "No process may read data at a higher classification level than its clearance — also called No Read Up (NRU). Prevents unauthorised access to classified data."
     },
     {
       "type": "flashcard",
       "front": "Bell-LaPadula: *-Property (Star Property)",
-      "back": "No process may write data to a lower classification level than its current level \u2014 also called No Write Down (NWD). Bell and LaPadula's critical innovation, preventing Trojan horse programs from leaking data downward."
+      "back": "No process may write data to a lower classification level than its current level — also called No Write Down (NWD). Bell and LaPadula's critical innovation, preventing Trojan horse programs from leaking data downward."
     },
     {
       "type": "flashcard",
@@ -178,17 +178,17 @@
     {
       "type": "flashcard",
       "front": "Noninterference",
-      "back": "A security property (Goguen and Meseguer, 1982): High's actions have no observable effect on what Low can see. Stronger than Bell-LaPadula. Ensures no covert channel of any form \u2014 not just formal information-flow channels."
+      "back": "A security property (Goguen and Meseguer, 1982): High's actions have no observable effect on what Low can see. Stronger than Bell-LaPadula. Ensures no covert channel of any form — not just formal information-flow channels."
     },
     {
       "type": "flashcard",
       "front": "Nondeducibility",
-      "back": "A security property (Sutherland, 1986) weaker than noninterference: Low cannot deduce High's inputs from its observations. Introduced to model encrypted traffic on shared LANs. Found to be too weak \u2014 allows deductions with near-certainty."
+      "back": "A security property (Sutherland, 1986) weaker than noninterference: Low cannot deduce High's inputs from its observations. Introduced to model encrypted traffic on shared LANs. Found to be too weak — allows deductions with near-certainty."
     },
     {
       "type": "flashcard",
       "front": "Type Enforcement (TE) / Domain and Type Enforcement (DTE)",
-      "back": "A MAC model assigning subjects to domains and objects to types, with matrices of permitted interactions. Used in SELinux. More general than BLP \u2014 handles integrity as well as confidentiality, can enforce trusted pipelines and role-based constraints."
+      "back": "A MAC model assigning subjects to domains and objects to types, with matrices of permitted interactions. Used in SELinux. More general than BLP — handles integrity as well as confidentiality, can enforce trusted pipelines and role-based constraints."
     },
     {
       "type": "flashcard",
@@ -203,12 +203,12 @@
     {
       "type": "flashcard",
       "front": "SCOMP and Orange Book",
-      "back": "SCOMP (1983) was the first system evaluated at A1 (highest) under the Orange Book \u2014 the US Trusted Computer Systems Evaluation Criteria (1985). Defined evaluation levels C1/C2, B1/B2/B3, A1. Hugely influential internationally; replaced by the Common Criteria."
+      "back": "SCOMP (1983) was the first system evaluated at A1 (highest) under the Orange Book — the US Trusted Computer Systems Evaluation Criteria (1985). Defined evaluation levels C1/C2, B1/B2/B3, A1. Hugely influential internationally; replaced by the Common Criteria."
     },
     {
       "type": "flashcard",
       "front": "Data Diode",
-      "back": "A device enforcing strictly one-way information flow \u2014 Low to High only, with no path back. Allows simpler 'system high' machines to be connected securely without running MLS on a single machine. Simple mail guards and the NRL Pump are examples."
+      "back": "A device enforcing strictly one-way information flow — Low to High only, with no path back. Allows simpler 'system high' machines to be connected securely without running MLS on a single machine. Simple mail guards and the NRL Pump are examples."
     },
     {
       "type": "flashcard",
@@ -223,7 +223,7 @@
     {
       "type": "flashcard",
       "front": "Cascade Problem",
-      "back": "A MLS composition vulnerability: two separately-secure systems connected together can violate a span-limit rule. E.g., system 1 spans Unclassified\u2013Secret, system 2 spans Secret\u2013Top Secret; combined they span Unclassified\u2013Top Secret, which is forbidden."
+      "back": "A MLS composition vulnerability: two separately-secure systems connected together can violate a span-limit rule. E.g., system 1 spans Unclassified–Secret, system 2 spans Secret–Top Secret; combined they span Unclassified–Top Secret, which is forbidden."
     },
     {
       "type": "flashcard",
@@ -549,19 +549,19 @@
       "type": "quiz",
       "subtype": "text_answer",
       "question": "Why does the Unix suid mechanism create security problems, and how does this relate to the confused deputy problem?",
-      "answer": "suid reduces a 3-dimensional access control problem (user, program, file) to a 2-dimensional one, making it error-prone. Programmers often take shortcuts by setting programs suid root, giving them unrestricted access rather than carefully crafting minimal privileges. This creates a confused deputy situation: the suid program runs with the file owner's authority (e.g., root), but its behaviour can be influenced by the invoking user's environment (arguments, PATH, environment variables). A malicious user can manipulate this environment to exploit the elevated privilege \u2014 the deputy's own power is turned against the system. The canonical fix is ensuring '.' (current directory) is never in a privileged user's PATH."
+      "answer": "suid reduces a 3-dimensional access control problem (user, program, file) to a 2-dimensional one, making it error-prone. Programmers often take shortcuts by setting programs suid root, giving them unrestricted access rather than carefully crafting minimal privileges. This creates a confused deputy situation: the suid program runs with the file owner's authority (e.g., root), but its behaviour can be influenced by the invoking user's environment (arguments, PATH, environment variables). A malicious user can manipulate this environment to exploit the elevated privilege — the deputy's own power is turned against the system. The canonical fix is ensuring '.' (current directory) is never in a privileged user's PATH."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
       "question": "Explain the difference between a VM and a container, and why containers may offer weaker security isolation.",
-      "answer": "A VM has a complete operating system insulated from the hardware by a hypervisor. A container is an isolated guest process sharing the host kernel with other containers; it virtualises only a subset of OS mechanisms (namespaces, PID spaces, IPC) and uses sandboxing/syscall filtering. Containers offer weaker isolation because a kernel vulnerability \u2014 for example, a TOCTTOU attack on a syscall wrapper \u2014 can escape the container. Additionally, Meltdown/Spectre-type side-channel attacks exploit shared CPU microarchitecture and can cross container boundaries, since all containers share the same CPU pipelines and caches."
+      "answer": "A VM has a complete operating system insulated from the hardware by a hypervisor. A container is an isolated guest process sharing the host kernel with other containers; it virtualises only a subset of OS mechanisms (namespaces, PID spaces, IPC) and uses sandboxing/syscall filtering. Containers offer weaker isolation because a kernel vulnerability — for example, a TOCTTOU attack on a syscall wrapper — can escape the container. Additionally, Meltdown/Spectre-type side-channel attacks exploit shared CPU microarchitecture and can cross container boundaries, since all containers share the same CPU pipelines and caches."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
       "question": "What is Return-Oriented Programming (ROP) and why does it defeat Data Execution Prevention (DEP)?",
-      "answer": "ROP chains together 'gadgets' \u2014 short sequences of existing, legitimately-loaded instructions ending in a return \u2014 to implement arbitrary computation without injecting new code. DEP prevents the execution of memory marked as data, stopping traditional shellcode injection. But ROP only uses code already in executable memory (e.g., from libc or the main binary), so DEP has nothing new to block. The attacker only needs to control the call stack to chain gadgets. ASLR makes it harder to locate gadgets, and Control Flow Integrity (CFI) aims to restrict which control-flow transfers are valid at runtime."
+      "answer": "ROP chains together 'gadgets' — short sequences of existing, legitimately-loaded instructions ending in a return — to implement arbitrary computation without injecting new code. DEP prevents the execution of memory marked as data, stopping traditional shellcode injection. But ROP only uses code already in executable memory (e.g., from libc or the main binary), so DEP has nothing new to block. The attacker only needs to control the call stack to chain gadgets. ASLR makes it harder to locate gadgets, and Control Flow Integrity (CFI) aims to restrict which control-flow transfers are valid at runtime."
     },
     {
       "type": "quiz",
@@ -573,19 +573,19 @@
       "type": "quiz",
       "subtype": "text_answer",
       "question": "Describe the covert channel problem in MLS, give a concrete modern example, and explain why it is hard to eliminate.",
-      "answer": "A covert channel is a mechanism not designed for communication that can be used to signal information from High to Low, bypassing BLP's no-write-down rule. Modern example: Spectre exploits speculative execution \u2014 a High process speculatively accesses memory it is not supposed to, loading data into CPU caches; a Low process measures cache access timing to infer the High data, achieving large bandwidth. Covert channels are hard to eliminate because they exploit any shared physical resource (CPU cache, memory bus, power consumption, clock frequency) \u2014 not only formal information-flow channels. Mitigations typically limit bandwidth (DoD target: 1 bit/second) or add noise, but cannot eliminate the channel without sacrificing performance-critical CPU optimisations."
+      "answer": "A covert channel is a mechanism not designed for communication that can be used to signal information from High to Low, bypassing BLP's no-write-down rule. Modern example: Spectre exploits speculative execution — a High process speculatively accesses memory it is not supposed to, loading data into CPU caches; a Low process measures cache access timing to infer the High data, achieving large bandwidth. Covert channels are hard to eliminate because they exploit any shared physical resource (CPU cache, memory bus, power consumption, clock frequency) — not only formal information-flow channels. Mitigations typically limit bandwidth (DoD target: 1 bit/second) or add noise, but cannot eliminate the channel without sacrificing performance-critical CPU optimisations."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
       "question": "What is environmental creep, using Unix as the main example, and what does it illustrate about security design?",
-      "answer": "Environmental creep occurs when a security model designed for a narrow, benign context is iteratively extended to broader, more hostile environments without fundamentally re-designing the protection mechanisms. Unix was designed for a small group of trusted, skilled lab users sharing one machine; its security mechanisms were primarily about containing mistakes. It was then extended \u2014 without redesign \u2014 to networked machines (Berkeley), to the Internet (SMTP, FTP, DNS), to cloud servers, and finally to billions of smartphones running apps from millions of potentially malicious authors. At each step, duct-tape mechanisms (Kerberos, TLS, SSH, SELinux) were retrofitted. This illustrates that threat models must be revisited as systems scale, and that retrofitting security is always more expensive and less effective than building it in from the start."
+      "answer": "Environmental creep occurs when a security model designed for a narrow, benign context is iteratively extended to broader, more hostile environments without fundamentally re-designing the protection mechanisms. Unix was designed for a small group of trusted, skilled lab users sharing one machine; its security mechanisms were primarily about containing mistakes. It was then extended — without redesign — to networked machines (Berkeley), to the Internet (SMTP, FTP, DNS), to cloud servers, and finally to billions of smartphones running apps from millions of potentially malicious authors. At each step, duct-tape mechanisms (Kerberos, TLS, SSH, SELinux) were retrofitted. This illustrates that threat models must be revisited as systems scale, and that retrofitting security is always more expensive and less effective than building it in from the start."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
       "question": "What are the main practical problems with classical MLS systems, and why has MILS replaced them?",
-      "answer": "Key problems: (1) TCB bloat \u2014 applications requiring policy exceptions force more components into the TCB, making formal verification infeasible; (2) label explosion / overclassification \u2014 the high water mark causes objects to accumulate all labels seen, eventually making them inaccessible; (3) applications must be rewritten to handle real-time classification changes; (4) polyinstantiation creates hard database integrity problems; (5) covert channels can only be limited, not eliminated; (6) MLS administration requires specialised training; (7) proper declassification requires trusted subjects that BLP cannot formally bound. MILS replaces this with separate system-high machines at each level, connected by data diodes and mail guards at the network boundary. Falling hardware costs and virtualisation made running separate machines for each level cheaper than solving all MLS complexity on one machine."
+      "answer": "Key problems: (1) TCB bloat — applications requiring policy exceptions force more components into the TCB, making formal verification infeasible; (2) label explosion / overclassification — the high water mark causes objects to accumulate all labels seen, eventually making them inaccessible; (3) applications must be rewritten to handle real-time classification changes; (4) polyinstantiation creates hard database integrity problems; (5) covert channels can only be limited, not eliminated; (6) MLS administration requires specialised training; (7) proper declassification requires trusted subjects that BLP cannot formally bound. MILS replaces this with separate system-high machines at each level, connected by data diodes and mail guards at the network boundary. Falling hardware costs and virtualisation made running separate machines for each level cheaper than solving all MLS complexity on one machine."
     }
   ]
 }
