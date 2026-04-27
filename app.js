@@ -648,11 +648,19 @@ document.getElementById('btn-back-study').addEventListener('click', () => {
 });
 
 /* ── Init ────────────────────────────────────────────────────── */
-applyTheme(appState.theme || 'dark');
-shuffleOn = appState.shuffle || false;
-document.getElementById('btn-shuffle').classList.toggle('on', shuffleOn);
-discoverMaterial();
+async function initApp() {
+  if (window.flashAppMigrationReady) {
+    await window.flashAppMigrationReady;
+    appState = loadAppState();
+  }
 
+  applyTheme(appState.theme || 'dark');
+  shuffleOn = appState.shuffle || false;
+  document.getElementById('btn-shuffle').classList.toggle('on', shuffleOn);
+  discoverMaterial();
+}
+
+initApp();
 /* ── Keyboard navigation ─────────────────────────────────────── */
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
