@@ -101,13 +101,29 @@ function loading(on) {
   document.getElementById('loading-overlay').classList.toggle('visible', on);
 }
 
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
+function domEl(tag, options = {}, children = []) {
+  const node = document.createElement(tag);
+
+  if (options.className !== undefined) node.className = options.className;
+  if (options.id !== undefined) node.id = options.id;
+  if (options.text !== undefined) node.textContent = options.text;
+  if (options.title !== undefined) node.title = options.title;
+  if (options.type !== undefined) node.type = options.type;
+  if (options.rows !== undefined) node.rows = options.rows;
+  if (options.placeholder !== undefined) node.placeholder = options.placeholder;
+  if (options.role !== undefined) node.setAttribute('role', options.role);
+  if (options.ariaModal !== undefined) node.setAttribute('aria-modal', options.ariaModal);
+  if (options.ariaLabelledby !== undefined) node.setAttribute('aria-labelledby', options.ariaLabelledby);
+
+  for (const child of children) {
+    if (child) node.appendChild(child);
+  }
+
+  return node;
+}
+
+function clearNode(node) {
+  node.replaceChildren();
 }
 
 /* ── Theme ────────────────────────────────────────────────────── */
@@ -163,31 +179,43 @@ async function discoverMaterial() {
     }
 
     if (themes.length === 0) {
-      document.getElementById('sidebar-tree').innerHTML =
-        `<div style="padding:16px 14px;font-size:13px;color:var(--color-muted);">No study sets found in material/</div>`;
+      showSidebarMessage('No study sets found in material/', 'var(--color-muted)');
       return;
     }
 
     manifest = { themes };
     buildSidebar();
   } catch (e) {
-    document.getElementById('sidebar-tree').innerHTML =
-      `<div style="padding:16px 14px;font-size:13px;color:var(--color-wrong);">⚠ ${e.message}</div>`;
+    showSidebarMessage(`⚠ ${e.message}`, 'var(--color-wrong)');
   } finally {
     loading(false);
   }
 }
 
+function showSidebarMessage(text, color) {
+  const tree = document.getElementById('sidebar-tree');
+  clearNode(tree);
+
+  const msg = domEl('div', { text });
+  msg.style.padding = '16px 14px';
+  msg.style.fontSize = '13px';
+  msg.style.color = color;
+  tree.appendChild(msg);
+}
+
 function buildSidebar() {
   const tree = document.getElementById('sidebar-tree');
-  tree.innerHTML = '';
+  clearNode(tree);
   for (const theme of manifest.themes) {
     const group = document.createElement('div');
     group.className = 'theme-group';
 
     const header = document.createElement('div');
     header.className = 'theme-header';
-    header.innerHTML = `<span class="theme-icon open">▶</span><span class="theme-label">${theme.label}</span>`;
+    header.append(
+      domEl('span', { className: 'theme-icon open', text: '▶' }),
+      domEl('span', { className: 'theme-label', text: theme.label })
+    );
     const filesDiv = document.createElement('div');
     filesDiv.className = 'theme-files';
 
@@ -602,18 +630,18 @@ function renderEndlessQuestion() {
   document.getElementById('quiz-progress-inline').textContent =
     `${endlessMode.label} Endless Mode    🔥 ${streak}    🏆 ${best}`;
 
-  document.getElementById('quiz-question').innerHTML = `
-    <div class="endless-source">Question from ${escapeHtml(endlessMode.currentSource)}</div>
-    <div>${escapeHtml(q.question)}</div>
-  `;
+  document.getElementById('quiz-question').replaceChildren(
+    domEl('div', { className: 'endless-source', text: `Question from ${endlessMode.currentSource}` }),
+    domEl('div', { text: q.question })
+  );
 
   const fb = document.getElementById('quiz-feedback');
   fb.style.display = 'none';
   fb.className = 'feedback-row';
-  fb.innerHTML = '';
+  clearNode(fb);
 
   const area = document.getElementById('quiz-answer-area');
-  area.innerHTML = '';
+  clearNode(area);
 
   if (q.subtype === 'multiple_choice') renderEndlessMC(q, area);
   else if (q.subtype === 'true_false') renderEndlessTF(q, area);
@@ -723,20 +751,30 @@ function revealEndlessTA(q) {
   const fb = document.getElementById('quiz-feedback');
   fb.style.display = 'flex';
   fb.className = 'feedback-row neutral';
-  fb.innerHTML = `
-    <span class="feedback-ref-answer">Model answer: ${escapeHtml(String(q.answer))}</span>
-    <div class="self-grade-row">
-      <button class="self-grade-btn correct-grade" id="endless-self-correct">I got it right</button>
-      <button class="self-grade-btn wrong-grade" id="endless-self-wrong">I missed it</button>
-    </div>
-  `;
+  const modelAnswer = domEl('span', {
+    className: 'feedback-ref-answer',
+    text: `Model answer: ${String(q.answer)}`
+  });
+  const correctBtn = domEl('button', {
+    id: 'endless-self-correct',
+    className: 'self-grade-btn correct-grade',
+    text: 'I got it right'
+  });
+  const wrongBtn = domEl('button', {
+    id: 'endless-self-wrong',
+    className: 'self-grade-btn wrong-grade',
+    text: 'I missed it'
+  });
+  const row = domEl('div', { className: 'self-grade-row' }, [correctBtn, wrongBtn]);
 
-  document.getElementById('endless-self-correct').addEventListener('click', () => {
+  fb.replaceChildren(modelAnswer, row);
+
+  correctBtn.addEventListener('click', () => {
     updateEndlessScore(endlessMode.theme, true);
     disableSelfGradeButtons();
   });
 
-  document.getElementById('endless-self-wrong').addEventListener('click', () => {
+  wrongBtn.addEventListener('click', () => {
     updateEndlessScore(endlessMode.theme, false);
     disableSelfGradeButtons();
   });
@@ -773,7 +811,13 @@ function showEndlessFeedback(correct, q) {
   else if (q.subtype === 'true_false') correctText = q.answer ? 'True' : 'False';
 
   fb.className = 'feedback-row wrong';
-  fb.innerHTML = `✗ Wrong — <span class="feedback-correct-reveal">Correct answer: ${escapeHtml(correctText)}</span>`;
+  fb.replaceChildren(
+    document.createTextNode('✗ Wrong '),
+    domEl('span', {
+      className: 'feedback-correct-reveal',
+      text: `Correct answer: ${correctText}`
+    })
+  );
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -799,11 +843,11 @@ function renderQuestion() {
   const fb = document.getElementById('quiz-feedback');
   fb.style.display = 'none';
   fb.className = 'feedback-row';
-  fb.innerHTML = '';
+  clearNode(fb);
 
   // Render answer area
   const area = document.getElementById('quiz-answer-area');
-  area.innerHTML = '';
+  clearNode(area);
 
   if (q.subtype === 'multiple_choice') renderMC(q, area);
   else if (q.subtype === 'true_false') renderTF(q, area);
@@ -933,7 +977,13 @@ function restoreAnswerUI(q, idx) {
   fb.style.display = 'flex';
   if (q.subtype === 'text_answer') {
     fb.className = 'feedback-row neutral';
-    fb.innerHTML = `✎ Submitted<br><span class="feedback-ref-answer">Model answer: ${q.answer}</span>`;
+    fb.replaceChildren(
+      document.createTextNode('✎ Submitted'),
+      domEl('span', {
+        className: 'feedback-ref-answer',
+        text: `Model answer: ${q.answer}`
+      })
+    );
   } else if (ans.correct) {
     fb.className = 'feedback-row correct';
     fb.textContent = '✓ Correct!';
@@ -942,7 +992,13 @@ function restoreAnswerUI(q, idx) {
     let correctText = '';
     if (q.subtype === 'multiple_choice') correctText = q.options[q.answer];
     else if (q.subtype === 'true_false') correctText = q.answer ? 'True' : 'False';
-    fb.innerHTML = `✗ Wrong — <span class="feedback-correct-reveal">Correct answer: ${correctText}</span>`;
+    fb.replaceChildren(
+      document.createTextNode('✗ Wrong '),
+      domEl('span', {
+        className: 'feedback-correct-reveal',
+        text: `Correct answer: ${correctText}`
+      })
+    );
   }
 }
 
@@ -968,6 +1024,45 @@ document.getElementById('quiz-finish').addEventListener('click', showResults);
 /* ══════════════════════════════════════════════════════════════
    RESULTS
    ══════════════════════════════════════════════════════════════ */
+function appendLabelValue(parent, label, value) {
+  parent.append(
+    document.createTextNode(label),
+    domEl('span', { text: value })
+  );
+}
+
+function renderReviewItem(item, q, givenDisplay, correctDisplay, isOpen, isCorrect) {
+  const indicatorState = isOpen ? 'open' : isCorrect ? 'ok' : 'bad';
+  const indicatorText = isOpen ? '✎' : isCorrect ? '✓' : '✗';
+
+  const qRow = domEl('div', { className: 'review-q' }, [
+    domEl('span', { className: `review-indicator ${indicatorState}`, text: indicatorText }),
+    domEl('span', { text: q.question })
+  ]);
+
+  const answers = domEl('div', { className: 'review-answers' });
+
+  const userRow = domEl('div', {
+    className: `review-ans-row ${isOpen ? 'user-open' : isCorrect ? 'user-correct' : 'user-wrong'}`
+  });
+  appendLabelValue(userRow, 'Your answer: ', givenDisplay);
+  answers.appendChild(userRow);
+
+  if (isOpen) {
+    const refRow = domEl('div', { className: 'review-ans-row ref-ans' });
+    appendLabelValue(refRow, 'Reference: ', correctDisplay);
+    answers.appendChild(refRow);
+  }
+
+  if (!isOpen && !isCorrect) {
+    const correctRow = domEl('div', { className: 'review-ans-row correct-ans' });
+    appendLabelValue(correctRow, 'Correct answer: ', correctDisplay);
+    answers.appendChild(correctRow);
+  }
+
+  item.replaceChildren(qRow, answers);
+}
+
 function showResults() {
   const gradable = quizQs.filter(q => q.subtype !== 'text_answer');
   const score = gradable.filter((q, i) => {
@@ -993,7 +1088,7 @@ function showResults() {
 
   // Review list
   const reviewList = document.getElementById('review-list');
-  reviewList.innerHTML = '';
+  clearNode(reviewList);
   quizQs.forEach((q, i) => {
     const ans = quizAnswers[i];
     const item = document.createElement('div');
@@ -1014,16 +1109,7 @@ function showResults() {
     const isOpen = q.subtype === 'text_answer';
     const isCorrect = !isOpen && ans && ans.correct;
     item.className = 'review-item ' + (isOpen ? 'open-item' : isCorrect ? 'correct-item' : 'wrong-item');
-    item.innerHTML = `
-      <div class="review-q">
-        <span class="review-indicator ${isOpen ? 'open' : isCorrect ? 'ok' : 'bad'}">${isOpen ? '✎' : isCorrect ? '✓' : '✗'}</span>
-        <span>${q.question}</span>
-      </div>
-      <div class="review-answers">
-        <div class="review-ans-row ${isOpen ? 'user-open' : isCorrect ? 'user-correct' : 'user-wrong'}">Your answer: <span>${givenDisplay}</span></div>
-        ${isOpen ? `<div class="review-ans-row ref-ans">Reference: <span>${correctDisplay}</span></div>` : ''}
-        ${!isOpen && !isCorrect ? `<div class="review-ans-row correct-ans">Correct answer: <span>${correctDisplay}</span></div>` : ''}
-      </div>`;
+    renderReviewItem(item, q, givenDisplay, correctDisplay, isOpen, isCorrect);
     reviewList.appendChild(item);
   });
 
@@ -1245,25 +1331,28 @@ function ensureDevMessageModal() {
   modal.className = 'modal-backdrop';
   modal.setAttribute('aria-hidden', 'true');
 
-  modal.innerHTML = `
-    <div class="modal-card dev-message-card" role="dialog" aria-modal="true" aria-labelledby="dev-message-title">
-      <div class="modal-head">
-        <h2 id="dev-message-title">Dev Message</h2>
-        <button id="btn-dev-message-close" title="Close">×</button>
-      </div>
+  const closeBtn = domEl('button', { id: 'btn-dev-message-close', title: 'Close', text: '×' });
+  const okBtn = domEl('button', { id: 'btn-dev-message-ok', type: 'button', text: 'Got it' });
 
-      <p class="dev-message-content" id="dev-message-content"></p>
+  const card = domEl('div', {
+    className: 'modal-card dev-message-card',
+    role: 'dialog',
+    ariaModal: 'true',
+    ariaLabelledby: 'dev-message-title'
+  }, [
+    domEl('div', { className: 'modal-head' }, [
+      domEl('h2', { id: 'dev-message-title', text: 'Dev Message' }),
+      closeBtn
+    ]),
+    domEl('p', { className: 'dev-message-content', id: 'dev-message-content' }),
+    domEl('div', { className: 'modal-actions' }, [okBtn])
+  ]);
 
-      <div class="modal-actions">
-        <button type="button" id="btn-dev-message-ok">Got it</button>
-      </div>
-    </div>
-  `;
-
+  modal.appendChild(card);
   document.body.appendChild(modal);
 
-  document.getElementById('btn-dev-message-close').addEventListener('click', closeDevMessageModal);
-  document.getElementById('btn-dev-message-ok').addEventListener('click', closeDevMessageModal);
+  closeBtn.addEventListener('click', closeDevMessageModal);
+  okBtn.addEventListener('click', closeDevMessageModal);
 
   modal.addEventListener('click', e => {
     if (e.target === modal) closeDevMessageModal();

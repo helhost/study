@@ -22,6 +22,7 @@
   <script>
     async function loadReports() {
       const list = document.getElementById('reports-list');
+      list.replaceChildren();
 
       try {
         const res = await fetch('/reports');
@@ -37,78 +38,93 @@
         });
 
         if (!reports.length) {
-          list.innerHTML = '<div class="report-card">No reports yet.</div>';
+          const empty = document.createElement('div');
+          empty.className = 'report-card';
+          empty.textContent = 'No reports yet.';
+          list.appendChild(empty);
           return;
         }
 
-        list.innerHTML = reports.map(r => {
-          let struct = '';
-          if (r.struct) {
-            try {
-              struct = JSON.stringify(JSON.parse(r.struct), null, 2);
-            } catch {
-              struct = r.struct;
-            }
-          }
-
-          const isResolved = Boolean(r.resolved);
-
-          return `
-            <article class="report-card ${isResolved ? 'resolved' : ''}">
-              <div class="report-meta">
-                <span>#${r.id}</span>
-                <span>${isResolved ? 'Fixed' : 'Open'}</span>
-                <span>${new Date(r.created_at).toLocaleString()}</span>
-                <button
-                  class="report-resolve-btn"
-                  data-id="${r.id}"
-                  data-resolved="${isResolved ? '0' : '1'}"
-                >
-                  ${isResolved ? 'Mark open' : 'Mark fixed'}
-                </button>
-              </div>
-
-              <p>${escapeHtml(r.report || '')}</p>
-
-              ${struct ? `<pre>${escapeHtml(struct)}</pre>` : ''}
-            </article>
-          `;
-        }).join('');
-
-        document.querySelectorAll('.report-resolve-btn').forEach(btn => {
-          btn.addEventListener('click', async () => {
-            const id = btn.dataset.id;
-            const resolved = btn.dataset.resolved === '1';
-
-            btn.disabled = true;
-            btn.textContent = resolved ? 'Marking fixed...' : 'Reopening...';
-
-            try {
-              const res = await fetch(`/reports/${id}/resolved?resolved=${resolved}`, {
-                method: 'PATCH'
-              });
-
-              if (!res.ok) throw new Error('Could not update report');
-
-              await loadReports();
-            } catch (err) {
-              alert(err.message);
-              btn.disabled = false;
-            }
-          });
+        reports.forEach(report => {
+          list.appendChild(renderReportCard(report));
         });
       } catch (err) {
-        list.innerHTML = `<div class="report-card error">${escapeHtml(err.message)}</div>`;
+        const error = document.createElement('div');
+        error.className = 'report-card error';
+        error.textContent = err.message;
+        list.replaceChildren(error);
       }
     }
 
-    function escapeHtml(value) {
-      return String(value)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#039;');
+    function renderReportCard(report) {
+      let struct = '';
+      if (report.struct) {
+        try {
+          struct = JSON.stringify(JSON.parse(report.struct), null, 2);
+        } catch {
+          struct = report.struct;
+        }
+      }
+
+      const isResolved = Boolean(report.resolved);
+
+      const card = document.createElement('article');
+      card.className = `report-card ${isResolved ? 'resolved' : ''}`;
+
+      const meta = document.createElement('div');
+      meta.className = 'report-meta';
+
+      const id = document.createElement('span');
+      id.textContent = `#${report.id}`;
+
+      const status = document.createElement('span');
+      status.textContent = isResolved ? 'Fixed' : 'Open';
+
+      const createdAt = document.createElement('span');
+      createdAt.textContent = new Date(report.created_at).toLocaleString();
+
+      const button = document.createElement('button');
+      button.className = 'report-resolve-btn';
+      button.dataset.id = String(report.id);
+      button.dataset.resolved = isResolved ? '0' : '1';
+      button.textContent = isResolved ? 'Mark open' : 'Mark fixed';
+      button.addEventListener('click', () => toggleResolved(button));
+
+      meta.append(id, status, createdAt, button);
+
+      const body = document.createElement('p');
+      body.textContent = report.report || '';
+
+      card.append(meta, body);
+
+      if (struct) {
+        const pre = document.createElement('pre');
+        pre.textContent = struct;
+        card.appendChild(pre);
+      }
+
+      return card;
+    }
+
+    async function toggleResolved(btn) {
+      const id = btn.dataset.id;
+      const resolved = btn.dataset.resolved === '1';
+
+      btn.disabled = true;
+      btn.textContent = resolved ? 'Marking fixed...' : 'Reopening...';
+
+      try {
+        const res = await fetch(`/reports/${id}/resolved?resolved=${resolved}`, {
+          method: 'PATCH'
+        });
+
+        if (!res.ok) throw new Error('Could not update report');
+
+        await loadReports();
+      } catch (err) {
+        alert(err.message);
+        btn.disabled = false;
+      }
     }
 
     loadReports();
