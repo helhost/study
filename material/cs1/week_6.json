@@ -195,16 +195,6 @@
     },
     {
       "type": "flashcard",
-      "front": "What percentage of TLS certificates were found to share keys due to insufficient entropy (2012 study)?",
-      "back": "0.75% of TLS certificates shared keys due to bad entropy during key generation."
-    },
-    {
-      "type": "flashcard",
-      "front": "What percentage of TLS hosts used default keys (2012 study)?",
-      "back": "At least 5.23% of TLS hosts used default keys."
-    },
-    {
-      "type": "flashcard",
       "front": "What technique did the 2012 study use to factor RSA keys?",
       "back": "Pairwise GCD of all distinct RSA moduli. If two moduli N1 = p1*q1 and N2 = p2*q2 share a prime (e.g., p1 = p2), then GCD(N1, N2) = p1, immediately factoring both keys."
     },
@@ -286,18 +276,6 @@
       "subtype": "true_false",
       "question": "Benford's Law states that in naturally occurring datasets, the digit 1 appears as the first digit far more often than digit 9.",
       "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which election was analysed for a first-digit anomaly using Benford's Law?",
-      "options": [
-        "2002 Swedish parliamentary election",
-        "2003 Nigerian presidential election",
-        "2009 Iranian presidential election",
-        "2012 French presidential election"
-      ],
-      "answer": 2
     },
     {
       "type": "quiz",
@@ -517,11 +495,6 @@
         "charlie and root"
       ],
       "answer": 1
-    },
-    {
-      "type": "flashcard",
-      "front": "What is Android's global market share (as stated in the lecture)?",
-      "back": "71% worldwide (49% in the United Kingdom)."
     },
     {
       "type": "flashcard",
@@ -869,21 +842,6 @@
     },
     {
       "type": "flashcard",
-      "front": "What did the US Children's Online Privacy Protection Act (COPPA) violation research on children's apps find?",
-      "back": "A scan of 5,855 popular free children's apps found most potentially violated COPPA due to third-party SDKs. 19% collected personally identifiable information using SDKs that banned this practice in children's apps."
-    },
-    {
-      "type": "flashcard",
-      "front": "What did Julien Gamba et al.'s pre-installed app study find?",
-      "back": "They studied firmware from 200+ vendors and found: pre-installed apps often come via OEM-MNO partnerships with poor control; 74% of non-public pre-installed apps do not get updated; 41% remained unpatched for 5+ years; many can access and disseminate user data, identifiers, and location."
-    },
-    {
-      "type": "flashcard",
-      "front": "What was the 2015 Android security survey finding?",
-      "back": "87% of active Android devices were insecure on average over 2011–15 because they were running OS versions with known, unpatched vulnerabilities — largely due to OEMs not providing updates."
-    },
-    {
-      "type": "flashcard",
       "front": "What is Apple's App Store revenue share?",
       "back": "Apple demands 30% of software revenues and 30% of in-app purchases of online goods and services — the same model as gaming consoles."
     },
@@ -983,18 +941,6 @@
     },
     {
       "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What percentage of active Android devices were found to be insecure in a 2015 survey (averaged 2011–15)?",
-      "options": [
-        "47%",
-        "63%",
-        "87%",
-        "74%"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
       "subtype": "text_answer",
       "question": "Explain why the update process for Android OS security patches is so slow compared to app updates.",
       "answer": "A vulnerability fix must propagate through multiple steps: the original library (e.g., OpenSSL), then Linux, then Android, then each OEM, then often each mobile network operator (who controls updates for locked phones). Each step can take months and may be skipped entirely for commercial reasons."
@@ -1040,18 +986,6 @@
       "subtype": "text_answer",
       "question": "Why does Android not support user control of Internet access for apps, and what are the consequences?",
       "answer": "Android does not support denying Internet access on a per-app basis largely because advertising companies benefit from all apps having Internet access — disabling it for a game or utility would prevent ad networks from harvesting data. The consequence is that ad ecosystems can collect user data from almost any app, and users who want to block this must use firewall apps that masquerade as VPNs."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the Razaghpanah et al. study using a VPN app with 11,000 volunteers, what percentage of the top 20 Advertising and Tracking Services had a presence on both the web and in the app ecosystem?",
-      "options": [
-        "9 out of 20",
-        "14 out of 20",
-        "17 out of 20",
-        "20 out of 20"
-      ],
-      "answer": 2
     },
     {
       "type": "quiz",

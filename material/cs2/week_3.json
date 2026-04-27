@@ -204,18 +204,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the IDS evaluation scenario where 100 actual attacks exist, IDS3 detected 94 events of which 90 are real attacks. What is IDS3's Precision?",
-      "options": [
-        "90%",
-        "94%",
-        "~95.7%",
-        "~96.8%"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "Where are Network IDS sensors typically connected in order to observe all network traffic?",
       "options": [
         "The default gateway's WAN port",
@@ -284,18 +272,6 @@
         "It moved all services to Akamai's CDN"
       ],
       "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "The MS Blaster worm (2003) carried out a SYN flood against which target?",
-      "options": [
-        "microsoft.com port 443",
-        "windowsupdate.com port 80",
-        "windows.com port 8080",
-        "update.microsoft.com port 22"
-      ],
-      "answer": 1
     },
     {
       "type": "quiz",

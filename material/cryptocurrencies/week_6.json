@@ -227,30 +227,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What was the maximum transaction fee during the worst of the Bitcoin block size debate?",
-      "options": [
-        "$5",
-        "$10",
-        "$55",
-        "$100"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "When was Bitcoin originally launched with no block size limit?",
-      "options": [
-        "2007",
-        "2008",
-        "2009",
-        "2010"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "Compact blocks reduce bandwidth by sending block headers and transaction hints instead of full blocks. Approximately what size are compact blocks?",
       "options": [
         "1 KB–3 KB",

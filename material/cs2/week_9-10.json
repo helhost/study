@@ -77,11 +77,6 @@
     },
     {
       "type": "flashcard",
-      "front": "'On the Effectiveness of Address-Space Layout Randomization' – authors and venue",
-      "back": "Hovav Shacham et al., published at CCS 2004."
-    },
-    {
-      "type": "flashcard",
       "front": "'Exploiting Format String Vulnerabilities' – authors",
       "back": "scut / team teso — the required reading for Week 10 on format string vulnerabilities."
     },
@@ -145,18 +140,6 @@
         "2",
         "4",
         "8"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which mitigation was evaluated for effectiveness by Shacham et al. at CCS 2004?",
-      "options": [
-        "StackGuard",
-        "Control Flow Integrity",
-        "Address Space Layout Randomisation",
-        "Non-executable stack"
       ],
       "answer": 2
     },
@@ -309,12 +292,6 @@
       "subtype": "true_false",
       "question": "Static analysis involves executing the program to observe its runtime behaviour.",
       "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The paper 'On the Effectiveness of Address-Space Layout Randomization' was published at CCS 2004.",
-      "answer": true
     },
     {
       "type": "quiz",

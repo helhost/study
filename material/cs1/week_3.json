@@ -466,18 +466,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to Anderson's textbook, what percentage of users in one UK bank study never shielded their PIN at an ATM?",
-      "options": [
-        "5%",
-        "10%",
-        "20%",
-        "35%"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "In the Anderson textbook study of three student groups and password choice, which group performed best at resisting the 'Crack' password-cracking software?",
       "options": [
         "The red (control) group given standard advice",
@@ -486,18 +474,6 @@
         "The green (passphrase mnemonic) group only"
       ],
       "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What percentage of the control (red) group's passwords could be guessed by the 'Crack' software in Anderson's student study?",
-      "options": [
-        "About 10%",
-        "About 20%",
-        "About 30%",
-        "About 50%"
-      ],
-      "answer": 2
     },
     {
       "type": "quiz",

@@ -261,18 +261,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which real-world breach involved approximately 134 million credit card accounts compromised via SQL injection?",
-      "options": [
-        "CardSystems (2005)",
-        "Yahoo! (2012)",
-        "HeartLand (2008)",
-        "CyberVor (2014)"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "Which breach resulted in approximately 1.2 billion accounts stolen from 420,000 websites?",
       "options": [
         "HeartLand",

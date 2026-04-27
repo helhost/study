@@ -155,36 +155,12 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What is the approximate CPU power ratio between a high-end server and a low-end cell phone?",
-      "options": [
-        "200",
-        "800",
-        "2000",
-        "8000"
-      ],
-      "answer": 3
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "What is the approximate main memory access time ratio between a high-end server and a low-end cell phone?",
       "options": [
         "2",
         "20",
         "200",
         "2000"
-      ],
-      "answer": 0
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which paper proposed memory-bound functions as fairer puzzles for low-end devices?",
-      "options": [
-        "Dwork-Goldberg-Naor, Crypto 2003",
-        "RSA 1999",
-        "Killbots 2005",
-        "SD 2003"
       ],
       "answer": 0
     },
@@ -293,18 +269,6 @@
         "Mandatory access control (MAC)",
         "Role-based access control (RBAC)",
         "Attribute-based access control (ABAC)"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "A TCP connection flood client puzzle was proposed by which group/year?",
-      "options": [
-        "SD, 2003",
-        "RSA, 1999",
-        "Killbots, 2005",
-        "Dwork-Goldberg-Naor, 2003"
       ],
       "answer": 1
     },

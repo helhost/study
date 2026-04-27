@@ -670,12 +670,6 @@
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The Saltzer & Schroeder principles were first published in 1973.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
       "question": "The 'Economy of Mechanism' principle is essentially the KISS principle applied to security design.",
       "answer": true
     },

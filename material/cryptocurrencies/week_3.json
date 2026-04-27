@@ -117,26 +117,6 @@
     },
     {
       "type": "flashcard",
-      "front": "CPU mining throughput",
-      "back": "~2²⁴ H/s. At January 2021 difficulty, would take approximately 167 million years to mine a single block."
-    },
-    {
-      "type": "flashcard",
-      "front": "GPU mining throughput",
-      "back": "~2²⁷ H/s. First used for Bitcoin in October 2010. Implemented in OpenCL. ~8× faster than CPU."
-    },
-    {
-      "type": "flashcard",
-      "front": "FPGA mining throughput",
-      "back": "~2³⁰ H/s. First used in Bitcoin in June 2011. Implemented in Verilog. Better cooling than GPU but higher expertise and cost required."
-    },
-    {
-      "type": "flashcard",
-      "front": "ASIC mining throughput (ANT Miner S19 Pro)",
-      "back": "110 TH/s ≈ 2⁴⁶ H/s. Cost ~$3,769. Power draw: 3,250 W. Purpose-built for SHA-256 — useless for any other task."
-    },
-    {
-      "type": "flashcard",
       "front": "Mining pool",
       "back": "A group of miners who combine hash power and split block rewards proportionally to submitted shares (partial PoWs). Makes revenue predictable and enables smaller miners to participate."
     },
@@ -280,30 +260,6 @@
         "Every 144 blocks"
       ],
       "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which hardware type was first used for Bitcoin mining in October 2010?",
-      "options": [
-        "FPGA",
-        "CPU",
-        "GPU",
-        "ASIC"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Approximately what fraction of Bitcoin mining was pool-based by 2014?",
-      "options": [
-        "30%",
-        "60%",
-        "75%",
-        "90%"
-      ],
-      "answer": 3
     },
     {
       "type": "quiz",
@@ -478,12 +434,6 @@
       "subtype": "true_false",
       "question": "The progress-free property of PoW means that a miner who has already computed many hashes has a higher probability of finding the next valid nonce than a miner who just started.",
       "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "GPU mining for Bitcoin was first introduced in 2010.",
-      "answer": true
     },
     {
       "type": "quiz",

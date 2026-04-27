@@ -47,11 +47,6 @@
     },
     {
       "type": "flashcard",
-      "front": "Van Eck Attack",
-      "back": "A 1985 attack published by Wim van Eck showing that the VDU screen of a computer could be reconstructed at a distance using a modified TV set by intercepting RF emissions from the monitor."
-    },
-    {
-      "type": "flashcard",
       "front": "Nonstop (Emsec)",
       "back": "US military term for the exploitation of RF emanations accidentally induced in sensitive equipment by nearby RF sources (e.g., a mobile phone), which are then modulated with sensitive data by the nonlinear junction effect and re-radiated."
     },
@@ -74,11 +69,6 @@
       "type": "flashcard",
       "front": "Laser Microphone",
       "back": "A surveillance device that shines a laser at a reflective surface (e.g., a window pane) in a room; sound waves induce vibrations that modulate the reflected light, which can be decoded at a distance."
-    },
-    {
-      "type": "flashcard",
-      "front": "Lamphone Attack",
-      "back": "A 2020 passive optical side channel discovered by Ben Nassi et al.: speech or music in a room causes vibrations in a hanging lightbulb that can be read from across the street using a telescope and photodiode."
     },
     {
       "type": "flashcard",
@@ -357,18 +347,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Who discovered Differential Power Analysis (DPA) and in what year was it brought publicly to the industry's attention?",
-      "options": [
-        "Ross Anderson, 1996",
-        "Paul Kocher, 1998",
-        "Markus Kuhn, 2001",
-        "Brumley and Boneh, 2003"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "In a DPA attack against DES, what does the 'differential trace' for the correct S-box input value look like compared to incorrect guesses?",
       "options": [
         "A flat line with no variation",
@@ -441,18 +419,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "The Rowhammer attack was first documented by Kim et al. on DRAM manufactured in which years?",
-      "options": [
-        "2008 and 2009",
-        "2010 and 2011",
-        "2012 and 2013",
-        "2015 and 2016"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "What is the CLKscrew attack and which processor did it target?",
       "options": [
         "A voltage-glitching attack on Intel SGX enclaves",
@@ -513,48 +479,12 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In Brumley and Boneh's 2003 timing attack against Apache/OpenSSL, approximately how many decryptions were timed to extract the private key?",
-      "options": [
-        "About 1,000",
-        "About 100,000",
-        "About 1 million",
-        "About 1 billion"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which study showed that typing on a smartphone causes finger motions that interfere with Wi-Fi RF signals enough for a rogue hotspot to infer keystroke information?",
-      "options": [
-        "Asonov and Agrawal, 2004",
-        "Mengyuan Li et al., 2016",
-        "Ilia Shumailov, 2017",
-        "Adam Aviv, 2012"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "Which researchers demonstrated that a smartwatch can reconstruct text typed at a normal keyboard, with higher accuracy for letters typed by the hand wearing the watch?",
       "options": [
         "Aviv et al.",
         "Xiangyu Liu et al.",
         "Liang Cai and Hao Chen",
         "Philip Marquardt et al."
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What fraction of the 88,000 Google Play apps studied by Reardon et al. (2019) were found to actually exploit side channels, despite over 12,000 having the means to do so?",
-      "options": [
-        "None — the capability existed but no apps used it",
-        "About 61 apps",
-        "About 1,200 apps",
-        "About 6,000 apps"
       ],
       "answer": 1
     },

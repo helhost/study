@@ -294,42 +294,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "How much gas does a CALL opcode cost?",
-      "options": [
-        "2–10",
-        "21,000",
-        "700",
-        "32,000"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "How much gas is the overhead for any Ethereum transaction?",
-      "options": [
-        "700",
-        "2,300",
-        "21,000",
-        "32,000"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Writing a value from zero to non-zero using SSTORE costs:",
-      "options": [
-        "5,000 gas",
-        "20,000 gas",
-        "15,000 gas",
-        "32,000 gas"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "DELEGATECALL differs from CALL in that it:",
       "options": [
         "Creates a new context with new storage and new msg.sender",
@@ -470,18 +434,6 @@
         "The EVM switches to delegated storage"
       ],
       "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What is the gas refund for setting a non-zero storage value back to zero?",
-      "options": [
-        "0 gas",
-        "5,000 gas",
-        "15,000 gas",
-        "20,000 gas"
-      ],
-      "answer": 2
     },
     {
       "type": "quiz",

@@ -207,11 +207,6 @@
     },
     {
       "type": "flashcard",
-      "front": "FIPS 140 Standard",
-      "back": "US government standard for cryptographic module security, with four levels (1–4), Level 4 being highest. FIPS 140-1 (1994), FIPS 140-2 (2001), FIPS 140-3 (2019, which refers to ISO 19790:2012 and 24759:2017). Testing under FIPS 140-2 ceased in 2021."
-    },
-    {
-      "type": "flashcard",
       "front": "Attacker Classes (IBM Classification)",
       "back": "Class 1: Clever outsiders — intelligent but limited knowledge/equipment. Class 2: Knowledgeable insiders — specialised technical training, sophisticated tools. Class 3: Funded organisations — teams of specialists with major resources, able to use Class 2 members."
     },
@@ -249,18 +244,6 @@
       "type": "flashcard",
       "front": "Probing Station",
       "back": "A semiconductor test instrument consisting of a microscope with micromanipulators for landing fine probes on the chip surface. Used in legitimate semiconductor testing and by attackers to read bus traffic or inject signals. Can be bought second-hand."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "According to the OECD, what fraction of world trade is estimated to involve counterfeit goods?",
-      "options": [
-        "More than 1%",
-        "More than 5%",
-        "More than 10%",
-        "More than 15%"
-      ],
-      "answer": 1
     },
     {
       "type": "quiz",
@@ -703,18 +686,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Who announced the cold boot attack on encryption keys in PCs in 2008?",
-      "options": [
-        "Paul Kocher",
-        "Sergei Skorobogatov",
-        "Alex Halderman",
-        "Ross Anderson"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "What was the primary application that first motivated serious investment in breaking smartcard security?",
       "options": [
         "Bank card cloning",
@@ -765,18 +736,6 @@
       "subtype": "true_false",
       "question": "A Focused Ion Beam (FIB) workstation can both image a chip at nanometre resolution AND deposit new conductive or insulating material on its surface.",
       "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Approximately how much did Chinese reverse engineering services charge per gate for reconstructing a chip as of the time of writing?",
-      "options": [
-        "1 cent",
-        "30 cents",
-        "$1",
-        "$3"
-      ],
-      "answer": 1
     },
     {
       "type": "quiz",

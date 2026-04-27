@@ -375,18 +375,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "When a bookstore purchases £500 worth of books with cash, how are the entries recorded?",
-      "options": [
-        "Debit inventory £500, Credit cash £500",
-        "Debit cash £500, Credit inventory £500",
-        "Debit equity £500, Credit cash £500",
-        "Debit cash £500, Credit equity £500"
-      ],
-      "answer": 0
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "Which security principle in accounting splits responsibility so different people tally debits and credits?",
       "options": [
         "Defence in Depth",
@@ -503,18 +491,6 @@
         "Digital signatures using RSA"
       ],
       "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the Bank of Bangladesh hack, how much did the attackers attempt to wire, and how much was actually stolen?",
-      "options": [
-        "Attempted $100m, stolen $63m",
-        "Attempted $951m, stolen $63m",
-        "Attempted $951m, stolen $200m",
-        "Attempted $500m, stolen $10m"
-      ],
-      "answer": 1
     },
     {
       "type": "quiz",
@@ -758,18 +734,6 @@
     },
     {
       "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Approximately what percentage of UK card fraud losses at one point were attributed to mail theft of cards and PINs?",
-      "options": [
-        "10%",
-        "30%",
-        "50%",
-        "70%"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
       "subtype": "true_false",
       "question": "Simple processing errors in ATMs account for a significant number of disputes, with an error rate between 1 in 10,000 and 1 in 100,000 transactions.",
       "answer": true
@@ -851,18 +815,6 @@
       "subtype": "text_answer",
       "question": "Why did the lecture state that 'things fail at the interfaces' in banking?",
       "answer": "Banking systems involve many boundaries — between technical systems (e.g. between the bank's internal network and SWIFT, between an ATM and an HSM) and between humans and systems (e.g. bank employees, customers, maintenance staff). Security controls are often designed for the core of each system, but the points where two systems or a human and a system interact are harder to fully control and audit. Attacks like the Bangladesh Bank hack and UNC2891 both exploited these interfaces rather than breaking the cryptographic core."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In what year was the Clark-Wilson security policy model introduced, and who created it?",
-      "options": [
-        "1975, by Bell and LaPadula",
-        "1987, by Dave Clark and Dave Wilson",
-        "1992, by NIST",
-        "2002, following the Sarbanes-Oxley Act"
-      ],
-      "answer": 1
     },
     {
       "type": "quiz",
@@ -989,18 +941,6 @@
       "subtype": "text_answer",
       "question": "What was the significance of the Post Office Horizon case for accounting system security?",
       "answer": "It is the first and only case (as of the book's writing) where an accounting system was subjected to thorough adversarial examination in litigation. Many legal systems presume accounting systems are working correctly unless evidence to the contrary is produced. The case exposed how difficult it is to obtain access to the software and documentation needed to challenge a system, and the judge found the Horizon system 'was not remotely robust'. It illustrates that accounting systems need to be able to withstand scrutiny by hostile experts — not just satisfy internal auditors."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the McKesson and Robbins collapse of 1938, what percentage of recorded assets did not actually exist?",
-      "options": [
-        "5%",
-        "10%",
-        "20%",
-        "50%"
-      ],
-      "answer": 2
     },
     {
       "type": "quiz",
@@ -1331,18 +1271,6 @@
       "subtype": "true_false",
       "question": "In APP fraud, the UK Parliament's Treasury committee noted that rapid irrevocable payments were simply the wrong default.",
       "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "M-Pesa is operated by which company and in which country did it launch?",
-      "options": [
-        "Alibaba, China, 2010",
-        "Vodafone/Safaricom, Kenya, 2007",
-        "Western Union, Nigeria, 2009",
-        "PayPal, South Africa, 2005"
-      ],
-      "answer": 1
     },
     {
       "type": "quiz",

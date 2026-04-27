@@ -320,36 +320,12 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the SolarWinds (2019) internal assessment, how many 'Identification and Authentication' controls were rated as 'in place'?",
-      "options": [
-        "Seven",
-        "Twenty",
-        "Zero",
-        "Three"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "What was the primary initial attack vector in the LastPass (2022) breach?",
       "options": [
         "A phishing email sent to a LastPass employee",
         "Exploitation of an unpatched vulnerability on a developer's personal Plex server",
         "A supply chain attack on a third-party software provider",
         "Brute-forcing of LastPass admin credentials"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "When was the terminal services server installed that was exploited in the British Library breach?",
-      "options": [
-        "October 2023",
-        "February 2020",
-        "January 2022",
-        "March 2019"
       ],
       "answer": 1
     },
@@ -604,12 +580,6 @@
       "subtype": "true_false",
       "question": "In the Beazley risk category model, RC1 represents organisations with the weakest security controls.",
       "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The lecture states that the British Library's review of third-party security provisions was scheduled for 2024.",
-      "answer": true
     },
     {
       "type": "quiz",

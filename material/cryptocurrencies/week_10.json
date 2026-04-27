@@ -276,18 +276,6 @@
     },
     {
       "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "When was Tornado Cash banned in the United States?",
-      "options": [
-        "2019",
-        "2020",
-        "2021",
-        "2022"
-      ],
-      "answer": 3
-    },
-    {
-      "type": "quiz",
       "subtype": "text_answer",
       "question": "Explain what 'tainted coins' means and give two examples of how coins can become tainted.",
       "answer": "Tainted coins are coins that have interacted with illicit activity or have been identified and can be traced. Examples include coins that were involved in a theft (e.g., from an exchange hack), coins used in ransomware payments, coins transacted on darknet markets like Silk Road, or coins that have passed through a flagged address. Identifiable coins (where the owner is known) can also be considered tainted."

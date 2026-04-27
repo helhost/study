@@ -157,16 +157,6 @@
     },
     {
       "type": "flashcard",
-      "front": "Verizon DBIR 2024 — Human Element Statistic",
-      "back": "68% of breaches in 2024 involved a human element."
-    },
-    {
-      "type": "flashcard",
-      "front": "Verizon DBIR 2024 — Social Engineering Incidents",
-      "back": "3,661 social engineering incidents recorded, with 3,032 confirmed data disclosures. 100% external threat actors, 95% financially motivated, 5% espionage."
-    },
-    {
-      "type": "flashcard",
       "front": "Protecting against Pretexting — Four Measures",
       "back": "1. Operational security (opsec), 2. Rules limiting access, 3. Staff training and explaining rules, 4. Incorporating risk into your risk budget (some people are hard to change; insuring against risk may be easier)."
     },
@@ -214,11 +204,6 @@
       "type": "flashcard",
       "front": "Asch Conformity Experiment (1951)",
       "back": "Solomon Asch showed that people could be induced to deny the evidence of their own eyes to conform to a group. Only 29% of subjects resisted a bogus majority opinion about the lengths of lines."
-    },
-    {
-      "type": "flashcard",
-      "front": "Milgram Obedience Experiment",
-      "back": "Inspired by the 1961 Eichmann trial, Milgram found that consistently over 60% of subjects would administer severe (fake) electric shocks to another person if told to by an authority figure."
     },
     {
       "type": "flashcard",
@@ -387,23 +372,8 @@
     },
     {
       "type": "flashcard",
-      "front": "Mifare Classic — Security Failure",
-      "back": "A widely used contactless smartcard whose proprietary Crypto-1 cipher was limited to 48-bit keys due to 1990s export controls. Reverse-engineered by Nohl et al. (2007) and Garcia et al. (2008), making card cloning trivial."
-    },
-    {
-      "type": "flashcard",
-      "front": "Defensible Space (Newman, 1972)",
-      "back": "Buildings should release the latent sense of territoriality and community of residents. Small courtyards are better than large parks — intruders are more likely to be identified and challenged by residents."
-    },
-    {
-      "type": "flashcard",
       "front": "Broken Windows Theory (Kelling and Coles)",
       "back": "If a broken window is not repaired, soon more will be broken and disorder escalates. Problems should be fixed when still small. Inspired zero-tolerance policing under NYPD Chief William Bratton."
-    },
-    {
-      "type": "flashcard",
-      "front": "Lojack Effect",
-      "back": "A radio tag invisibly embedded in cars. Ayres and Levitt found that in towns where many cars have Lojack, car thieves are caught quickly and chop-shops closed down. The social benefit ($1,500 per installation) far exceeds the private cost ($100/year)."
     },
     {
       "type": "flashcard",
@@ -479,18 +449,6 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the Verizon DBIR 2024, what percentage of breaches involved a human element?",
-      "options": [
-        "52%",
-        "60%",
-        "68%",
-        "75%"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "What was the primary motivation of threat actors in social engineering breaches according to Verizon DBIR 2024?",
       "options": [
         "Espionage (95%)",
@@ -523,18 +481,6 @@
         "Pretexting requires technical skills; phishing is purely social"
       ],
       "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the HP Boardroom Spying Scandal (2005), who was HP Chairman at the time and faced charges?",
-      "options": [
-        "Carly Fiorina",
-        "Meg Whitman",
-        "Patricia Dunn",
-        "Mark Hurd"
-      ],
-      "answer": 2
     },
     {
       "type": "quiz",
@@ -647,36 +593,12 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the Asch conformity experiment, what percentage of subjects RESISTED the bogus majority opinion?",
-      "options": [
-        "71%",
-        "29%",
-        "50%",
-        "15%"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
       "question": "Which of Cialdini's six principles does the phishing message 'Your PayPal account has been frozen' most directly exploit?",
       "options": [
         "Scarcity",
         "Social proof",
         "Prospect theory loss framing",
         "Reciprocity"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What year did phishing attacks against banks first begin according to the textbook?",
-      "options": [
-        "1996",
-        "2000",
-        "2003",
-        "2008"
       ],
       "answer": 2
     },
@@ -713,18 +635,6 @@
         "Linus Yale",
         "Barry Wels",
         "Rop Gonggrijp"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which Dutch lockpicking group published the 2005 white paper that popularised bump key attacks?",
-      "options": [
-        "Mifare Research Group",
-        "The Open Organization Of Lockpickers (TOOOL)",
-        "MIT Lock Picking Society",
-        "Evva Security Research"
       ],
       "answer": 1
     },
@@ -797,42 +707,6 @@
         "Using credentials stolen from one breached system to attack accounts on other systems",
         "Installing keyloggers to capture passwords at entry",
         "Sending phishing emails with credential-harvesting links"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the IRS audit of 2007, what fraction of IRS employees complied with a social engineering request to reveal their user IDs and reset passwords?",
-      "options": [
-        "About 20 out of 102",
-        "About 62 out of 102",
-        "About 90 out of 102",
-        "About 40 out of 102"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "According to Google research, SMS-based two-factor authentication stops what percentage of bulk phishing attempts?",
-      "options": [
-        "50%",
-        "76%",
-        "96%",
-        "100%"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "The social intelligence hypothesis was proposed by whom, and in what year?",
-      "options": [
-        "Andy Whiten, 1988",
-        "Nick Humphrey, 1976",
-        "David Premack, 1978",
-        "Robert Trivers, 1971"
       ],
       "answer": 1
     },
