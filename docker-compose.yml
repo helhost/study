@@ -1,10 +1,9 @@
 services:
   flashapp:
-    image: nginx:alpine
+    build: .
     container_name: flashapp
     ports:
       - "8080:80"
     volumes:
-      - ./:/usr/share/nginx/html:ro
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./data:/data
     restart: unless-stopped

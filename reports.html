@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="icons/memo.png">
+</head>
+<body class="dark reports-body">
+  <main class="reports-page">
+    <div class="reports-header">
+      <h1>Reports</h1>
+      <a href="/">Back to Study</a>
+    </div>
+
+    <div id="reports-list" class="reports-list">
+      Loading reports...
+    </div>
+  </main>
+
+  <script>
+    async function loadReports() {
+      const list = document.getElementById('reports-list');
+
+      try {
+        const res = await fetch('/reports');
+        if (!res.ok) throw new Error('Could not load reports');
+
+        const reports = await res.json();
+
+        reports.sort((a, b) => {
+          if (Number(a.resolved) !== Number(b.resolved)) {
+            return Number(a.resolved) - Number(b.resolved);
+          }
+          return Number(b.id) - Number(a.id);
+        });
+
+        if (!reports.length) {
+          list.innerHTML = '<div class="report-card">No reports yet.</div>';
+          return;
+        }
+
+        list.innerHTML = reports.map(r => {
+          let struct = '';
+          if (r.struct) {
+            try {
+              struct = JSON.stringify(JSON.parse(r.struct), null, 2);
+            } catch {
+              struct = r.struct;
+            }
+          }
+
+          const isResolved = Boolean(r.resolved);
+
+          return `
+            <article class="report-card ${isResolved ? 'resolved' : ''}">
+              <div class="report-meta">
+                <span>#${r.id}</span>
+                <span>${isResolved ? 'Fixed' : 'Open'}</span>
+                <span>${new Date(r.created_at).toLocaleString()}</span>
+                <button
+                  class="report-resolve-btn"
+                  data-id="${r.id}"
+                  data-resolved="${isResolved ? '0' : '1'}"
+                >
+                  ${isResolved ? 'Mark open' : 'Mark fixed'}
+                </button>
+              </div>
+
+              <p>${escapeHtml(r.report || '')}</p>
+
+              ${struct ? `<pre>${escapeHtml(struct)}</pre>` : ''}
+            </article>
+          `;
+        }).join('');
+
+        document.querySelectorAll('.report-resolve-btn').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const id = btn.dataset.id;
+            const resolved = btn.dataset.resolved === '1';
+
+            btn.disabled = true;
+            btn.textContent = resolved ? 'Marking fixed...' : 'Reopening...';
+
+            try {
+              const res = await fetch(`/reports/${id}/resolved?resolved=${resolved}`, {
+                method: 'PATCH'
+              });
+
+              if (!res.ok) throw new Error('Could not update report');
+
+              await loadReports();
+            } catch (err) {
+              alert(err.message);
+              btn.disabled = false;
+            }
+          });
+        });
+      } catch (err) {
+        list.innerHTML = `<div class="report-card error">${escapeHtml(err.message)}</div>`;
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    loadReports();
+  </script>
+</body>
+</html>

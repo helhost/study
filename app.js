@@ -602,7 +602,6 @@ function showResults() {
     const ans = quizAnswers[i];
     const item = document.createElement('div');
 
-
     let correctDisplay = '';
     let givenDisplay = '';
     if (q.subtype === 'multiple_choice') {
@@ -661,6 +660,7 @@ async function initApp() {
 }
 
 initApp();
+
 /* ── Keyboard navigation ─────────────────────────────────────── */
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
@@ -671,5 +671,103 @@ document.addEventListener('keydown', e => {
   } else if (currentTab === 'quiz') {
     if (e.key === 'ArrowLeft') document.getElementById('quiz-prev').click();
     if (e.key === 'ArrowRight') document.getElementById('quiz-next').click();
+  }
+});
+
+/* ── Reports ───────────────────────────────────────────────── */
+
+function getReportContext() {
+  let entry = null;
+  let entryIndex = null;
+
+  if (currentFile && currentTab === 'flashcards' && fcCards.length > 0) {
+    entry = fcCards[fcIndex];
+    entryIndex = entry._origIdx;
+  }
+
+  if (currentFile && currentTab === 'quiz' && quizQs.length > 0) {
+    entry = quizQs[quizIndex];
+    entryIndex = entry._origIdx;
+  }
+
+  if (!entry) {
+    return {
+      theme: currentFile ? currentFile.theme : null,
+      filename: currentFile ? currentFile.filename : null,
+      entryIndex: null,
+      entry: null
+    };
+  }
+
+  const cleanEntry = { ...entry };
+  delete cleanEntry._origIdx;
+
+  return {
+    theme: currentFile.theme,
+    filename: currentFile.filename,
+    entryIndex,
+    entry: cleanEntry
+  };
+}
+
+const reportModal = document.getElementById('report-modal');
+const reportText = document.getElementById('report-text');
+const reportStatus = document.getElementById('report-status');
+
+function openReportModal() {
+  reportModal.classList.add('visible');
+  reportModal.setAttribute('aria-hidden', 'false');
+  reportText.focus();
+}
+
+function closeReportModal() {
+  reportModal.classList.remove('visible');
+  reportModal.setAttribute('aria-hidden', 'true');
+  reportText.value = '';
+  reportStatus.textContent = '';
+  reportStatus.className = '';
+}
+
+document.getElementById('btn-report-fab').addEventListener('click', openReportModal);
+document.getElementById('btn-report-quiz').addEventListener('click', openReportModal);
+document.getElementById('btn-report-close').addEventListener('click', closeReportModal);
+document.getElementById('btn-report-cancel').addEventListener('click', closeReportModal);
+
+reportModal.addEventListener('click', e => {
+  if (e.target === reportModal) closeReportModal();
+});
+
+document.getElementById('report-form').addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const report = reportText.value.trim();
+  if (!report) return;
+
+  const submitBtn = document.getElementById('btn-report-submit');
+  submitBtn.disabled = true;
+  reportStatus.textContent = 'Submitting...';
+  reportStatus.className = '';
+
+  try {
+    const res = await fetch('/reports', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        report,
+        struct: getReportContext()
+      })
+    });
+
+    if (!res.ok) throw new Error('Could not submit report');
+
+    reportStatus.textContent = 'Report submitted.';
+    reportStatus.className = 'ok';
+
+    setTimeout(closeReportModal, 600);
+  } catch (err) {
+    reportStatus.textContent = err.message;
+    reportStatus.className = 'error';
+  } finally {
+    submitBtn.disabled = false;
   }
 });

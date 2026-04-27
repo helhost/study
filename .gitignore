@@ -1,3 +1,6 @@
 # Dependencies & tooling
 node_modules/
 .DS_Store
+
+data/
+*.db
