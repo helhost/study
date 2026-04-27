@@ -2,439 +2,533 @@
   "entries": [
     {
       "type": "flashcard",
-      "front": "What is the distinction between safety and security?",
-      "back": "Safety protects against accidents and natural events, modelled with historical probability data. Security protects against intentional malice from intelligent adversaries whose strategy must be modelled."
+      "front": "Safety vs security",
+      "back": "Safety deals with accidents, natural events, and failures that can often be modelled from historical probabilities. Security deals with intentional adversaries who choose strategies to violate a policy."
     },
     {
       "type": "flashcard",
-      "front": "CIA Triangle — Confidentiality",
-      "back": "Keeping data private; ensuring information is accessible only to those authorised to see it."
+      "front": "Confidentiality",
+      "back": "Confidentiality means information is accessible only to authorised principals. It is one part of the CIA triad."
     },
     {
       "type": "flashcard",
-      "front": "CIA Triangle — Integrity",
-      "back": "The system and data have not been improperly altered."
+      "front": "Integrity",
+      "back": "Integrity means data or system state has not been improperly altered, deleted, or corrupted."
     },
     {
       "type": "flashcard",
-      "front": "CIA Triangle — Availability",
-      "back": "The ability to use the system as anticipated; ensuring authorised users can access resources when needed."
+      "front": "Availability",
+      "back": "Availability means authorised users can access and use systems, services, or data when needed."
     },
     {
       "type": "flashcard",
-      "front": "Binary Model of Security",
-      "back": "A view of security as absolute: a system is either secure or insecure. Used in cryptography: define attacker limitations X and policy Y; the system is secure if Y cannot be violated without X."
+      "front": "Binary model of security",
+      "back": "The binary model treats security as a precise guarantee: given attacker limitations X and policy Y, the system is secure if Y cannot be violated by an attacker limited to X."
     },
     {
       "type": "flashcard",
-      "front": "Risk Management Model of Security",
-      "back": "A view of security as a spectrum. Risks, costs, and likelihoods are assessed and quantified; protection decisions are made where costs of protection are justified by expected losses."
+      "front": "Risk management model of security",
+      "back": "The risk management model treats security as a spectrum. It weighs likelihood, impact, and protection cost to decide which risks to reduce, accept, transfer, or avoid."
     },
     {
       "type": "flashcard",
-      "front": "What is a Threat Model?",
-      "back": "A structured analysis of Threats, Vulnerabilities, Likelihood, Impact, and Protection costs that produces security objectives for a system."
+      "front": "Threat model",
+      "back": "A threat model identifies likely adversaries, their capabilities and motivations, vulnerabilities, likelihood, impact, and protection costs, then uses these to derive security objectives."
     },
     {
       "type": "flashcard",
-      "front": "Threat (in security)",
-      "back": "An adversary who may attack a system. Defined by their motivation and capabilities (what they can observe, corrupt, influence, modify, or control)."
+      "front": "Threat",
+      "back": "A threat is an adversary or source of attack, described by motivation and capabilities such as what they can observe, corrupt, modify, influence, or control."
     },
     {
       "type": "flashcard",
-      "front": "Vulnerability (in security)",
-      "back": "A weakness in a system where it can break or be exploited — the place through which a threat could cause harm."
+      "front": "Vulnerability",
+      "back": "A vulnerability is a weakness in a system that a threat could exploit to cause harm or violate a security policy."
     },
     {
       "type": "flashcard",
-      "front": "Likelihood (in threat modelling)",
-      "back": "The probability that a given threat will actually exploit a vulnerability — may be zero if conditions for exploitation never arise."
+      "front": "Likelihood in threat modelling",
+      "back": "Likelihood is the probability that a threat will exploit a vulnerability. It can be zero even when a vulnerability exists, if the conditions for exploitation never arise."
     },
     {
       "type": "flashcard",
-      "front": "Impact (in threat modelling)",
-      "back": "The harm caused if a threat successfully exploits a vulnerability. Depends on what assets are at risk and the scale of the attack."
+      "front": "Impact in threat modelling",
+      "back": "Impact is the harm caused if a threat successfully exploits a vulnerability. It depends on the asset affected, the scale of compromise, and the consequences."
     },
     {
       "type": "flashcard",
-      "front": "Strategic Adversary",
-      "back": "An adversary who chooses the optimal way to use their resources to mount an attack and violate a security policy."
+      "front": "Strategic adversary",
+      "back": "A strategic adversary chooses how best to use their resources and capabilities to violate a security policy."
     },
     {
       "type": "flashcard",
-      "front": "Attack (formal definition)",
-      "back": "Some series of actions that allow the adversary to violate a given security policy."
+      "front": "Attack",
+      "back": "An attack is a sequence of actions by which an adversary violates a security policy."
     },
     {
       "type": "flashcard",
-      "front": "Security Policy",
-      "back": "A specific set of rules that defines what a secure system must guarantee, derived from the threat model (threats, vulnerabilities, likelihood, impact, cost)."
+      "front": "Security policy",
+      "back": "A security policy states what the system must guarantee. It should be derived from the threat model and express the rules that must not be violated."
     },
     {
       "type": "flashcard",
-      "front": "Security Mechanism",
-      "back": "A technical mechanism (software, hardware, cryptography, people, or procedures) used to ensure that the security policy is not violated by an adversary operating within the threat model."
+      "front": "Security mechanism",
+      "back": "A security mechanism is the technical, procedural, human, software, hardware, or cryptographic means used to enforce a security policy."
     },
     {
       "type": "flashcard",
-      "front": "Security Argument",
-      "back": "A rigorous argument that the security mechanisms are maintaining the security policy, subject to the assumptions of the threat model."
+      "front": "Security argument",
+      "back": "A security argument explains why the mechanisms enforce the policy, given the assumptions and attacker capabilities in the threat model."
     },
     {
       "type": "flashcard",
-      "front": "Trusted Computing Base (TCB)",
-      "back": "Every component of a system upon which the security policy relies (hardware, software, etc.). If any TCB component fails, the security policy may be violated. It should be kept as small as possible."
+      "front": "Trusted Computing Base",
+      "back": "The Trusted Computing Base is every component whose failure could violate the security policy. It should be kept small because each trusted component must be relied upon."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Least Privilege",
-      "back": "Every user and process should have the minimum privileges needed to perform their function — no more."
+      "front": "Trusted vs trustworthy",
+      "back": "A trusted component is one whose failure can break the security policy. A trustworthy component is one that is unlikely to fail. A system can be trusted without being trustworthy."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Separation of Privilege",
-      "back": "No single person or process should be able to destroy the system's security alone; important actions should require cooperation of multiple principals."
+      "front": "Least privilege",
+      "back": "Each user, process, or component should have only the privileges needed for its function, and no more."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Complete Mediation",
-      "back": "Every access to every object must be checked for authorisation; there should be no side-channel or bypass around access control."
+      "front": "Separation of privilege",
+      "back": "No single person, process, or component should be able to destroy security alone. Critical actions should require cooperation or independent checks."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Fail-safe Defaults",
-      "back": "Default settings should be secure; access should be denied unless explicitly granted, so that system failures default to the safe state."
+      "front": "Complete mediation",
+      "back": "Every access to every object should be checked for authorisation, with no unchecked path or side channel around the control."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Open Design",
-      "back": "The security of a system should not depend on the secrecy of its design ('security by obscurity'). Security should rely on the secrecy of keys/credentials, not on hiding the algorithm."
+      "front": "Fail-safe defaults",
+      "back": "Access should be denied unless explicitly granted. If a system fails or lacks information, it should fail into a secure state."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Psychological Acceptability",
-      "back": "Security mechanisms must be usable enough that users are willing and able to follow them. Overly complex rules lead to workarounds."
+      "front": "Open design",
+      "back": "Security should not depend on hiding the design or algorithm. It should depend on well-managed secrets such as keys or credentials."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Economy of Mechanism",
-      "back": "Keep security mechanisms as simple as possible (KISS principle). Complexity increases the chance of flaws."
+      "front": "Psychological acceptability",
+      "back": "Security mechanisms should be usable enough that users can and will follow them. Unusable controls often cause workarounds."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Least Common Mechanism",
-      "back": "Minimise shared resources between users or processes, as shared resources create potential channels for information leakage or interference."
+      "front": "Economy of mechanism",
+      "back": "Security mechanisms should be as simple as possible. Complexity increases the chance of design, implementation, and operational flaws."
     },
     {
       "type": "flashcard",
-      "front": "Principle: Defence in Depth",
-      "back": "Use more than one security measure. Layered defences mean a single failure does not compromise the whole system."
+      "front": "Least common mechanism",
+      "back": "Shared mechanisms and resources should be minimised because sharing can create channels for leakage, interference, or unexpected coupling."
     },
     {
       "type": "flashcard",
-      "front": "Security Mindset (Bruce Schneier)",
-      "back": "Good engineering thinks about how things can be made to work; the security mindset thinks about how things can be made to fail — thinking like an attacker or adversary."
+      "front": "Defence in depth",
+      "back": "Security should use multiple layers of protection so that one failed mechanism does not compromise the whole system."
     },
     {
       "type": "flashcard",
-      "front": "Implications of Digital Information for Security",
-      "back": "Digital information: (1) can be perfectly copied at no cost, (2) transmitted anywhere instantly, (3) remembered indefinitely, (4) lacks provenance — making it hard to verify origin or authenticity."
+      "front": "Security mindset",
+      "back": "The security mindset asks how a system can be made to fail, not only how it can be made to work. It means thinking like an adversary."
     },
     {
       "type": "flashcard",
-      "front": "Saltzer & Schroeder (SS'73)",
-      "back": "A seminal 1973 paper by J. Saltzer and M. Schroeder ('The Protection of Information in Computer Systems') that laid out the foundational design principles for secure systems."
+      "front": "Why digital information changes security",
+      "back": "Digital information can be copied perfectly, transmitted instantly, retained indefinitely, and may lack reliable provenance, making origin and authenticity hard to verify."
     },
     {
       "type": "flashcard",
-      "front": "Security Engineering (definition)",
-      "back": "Building systems to remain dependable in the face of malice, error, or mischance. Focuses on tools, processes, and methods needed to design, implement, and test complete systems, and to adapt them as their environment evolves."
+      "front": "Security engineering",
+      "back": "Security engineering is building systems that remain dependable despite malice, error, and mischance, including design, implementation, testing, operation, and adaptation."
     },
     {
       "type": "flashcard",
-      "front": "Security Engineering Framework — four elements",
-      "back": "Policy (what you're supposed to achieve), Mechanism (ciphers, access controls, hardware used to implement policy), Assurance (how much reliance you can place on each mechanism), and Incentive (motives of guards, maintainers, and attackers)."
+      "front": "Security engineering framework",
+      "back": "The framework consists of policy, mechanism, assurance, and incentive: what must be achieved, how it is implemented, how much reliance can be placed on it, and why people behave as they do."
     },
     {
       "type": "flashcard",
-      "front": "Security Theatre",
-      "back": "Term coined by Bruce Schneier for security measures designed to produce a feeling of security rather than the reality. Example: billions spent on passenger screening (ineffective) vs. $100m on reinforced cockpit doors (removed most of the risk)."
+      "front": "Security theatre",
+      "back": "Security theatre is a measure that creates the appearance or feeling of security more than real risk reduction."
     },
     {
       "type": "flashcard",
-      "front": "Policy failure vs. mechanism failure",
-      "back": "A policy failure is when the rules themselves are wrong (e.g., knives under 3 inches were permitted on 9/11 flights). A mechanism failure is when a correct policy is implemented badly. Many security failures are policy failures, not mechanism failures."
+      "front": "Policy failure vs mechanism failure",
+      "back": "A policy failure means the rule being enforced is wrong. A mechanism failure means the right rule is enforced badly or incompletely."
     },
     {
       "type": "flashcard",
-      "front": "Principal (security definition)",
-      "back": "An entity that participates in a security system. Can be a subject (physical person), a legal person, a role, a piece of equipment (laptop, smartcard), a communications channel, or a compound of other principals."
+      "front": "Principal",
+      "back": "A principal is an entity that participates in a security system, such as a person, organisation, role, device, channel, or compound entity."
     },
     {
       "type": "flashcard",
-      "front": "Subject vs. Person (security definitions)",
-      "back": "A subject is a physical person in any role (operator, principal, victim). A person is either a physical person or a legal person such as a company or government."
+      "front": "Subject vs person",
+      "back": "A subject is a physical person acting in a role. A person can be a physical person or a legal person such as a company or government."
     },
     {
       "type": "flashcard",
-      "front": "Group vs. Role (security definitions)",
-      "back": "A group is a set of principals (e.g., 'Alice or Bob'). A role is a set of functions assumed by different persons in succession (e.g., 'the officer of the watch on the USS Nimitz'). Groups and roles are not the same."
+      "front": "Group vs role",
+      "back": "A group is a set of principals. A role is a set of functions that different people may assume over time. They are not interchangeable."
     },
     {
       "type": "flashcard",
-      "front": "Identity (security definition)",
-      "back": "A correspondence between the names of two principals signifying that they refer to the same person or equipment. Often abused to mean simply 'name'."
+      "front": "Identity",
+      "back": "Identity is a correspondence between names of principals showing that they refer to the same person, device, or entity."
     },
     {
       "type": "flashcard",
-      "front": "Trusted vs. Trustworthy (NSA definitions)",
-      "back": "A trusted system or component is one whose failure can break the security policy. A trustworthy system or component is one that won't fail. Something can be trusted but not trustworthy (e.g., a compromised insider)."
+      "front": "Secrecy",
+      "back": "Secrecy is an engineering property of mechanisms that limit which principals can access information."
     },
     {
       "type": "flashcard",
-      "front": "Secrecy (engineering definition)",
-      "back": "An engineering term referring to the effect of mechanisms (cryptography, access controls) that limit the number of principals who can access information."
+      "front": "Confidentiality vs privacy",
+      "back": "Confidentiality is an obligation to protect another party's secrets. Privacy is an individual's ability or right to protect personal information and personal space."
     },
     {
       "type": "flashcard",
-      "front": "Confidentiality (definition)",
-      "back": "An obligation to protect some other person's or organisation's secrets if you know them. Example: doctors have a duty of confidence towards patients."
+      "front": "Secrecy, confidentiality, and privacy",
+      "back": "Secrecy is the technical mechanism, confidentiality is the duty to protect another party's secrets, and privacy is the individual's interest or right being protected."
     },
     {
       "type": "flashcard",
-      "front": "Privacy (definition)",
-      "back": "The ability and/or right to protect your personal information and to prevent invasions of your personal space. Applies to individuals and families, not to legal persons like corporations."
+      "front": "Authenticity vs integrity",
+      "back": "Integrity means data has not been altered. Authenticity adds assurance about the genuine principal and freshness, so an old valid message is not mistaken for a current one."
     },
     {
       "type": "flashcard",
-      "front": "Secrecy vs. Confidentiality vs. Privacy",
-      "back": "Secrecy is the technical mechanism. Confidentiality is the organisational duty (secrecy for the benefit of the organisation). Privacy is secrecy for the benefit of the individual. E.g., a hospital implements secrecy mechanisms; staff have a duty of confidentiality; patients have a right to privacy."
+      "front": "Hack",
+      "back": "A hack is behaviour that the system's rules technically permit but which was unanticipated and unwanted by the designers."
     },
     {
       "type": "flashcard",
-      "front": "Authenticity vs. Integrity",
-      "back": "Integrity means data has not been altered. Authenticity means integrity plus freshness — you've established you're speaking to a genuine principal and not replaying old messages. A seven-month-old uncashed cheque has integrity but is no longer authentic/valid."
+      "front": "Security failure",
+      "back": "A security failure is a breach of the security policy, typically caused when a threat exploits a vulnerability."
     },
     {
       "type": "flashcard",
-      "front": "Hack (Bruce Schneier definition)",
-      "back": "Something a system's rules permit, but which was unanticipated and unwanted by its designers. Analogous to tax attorneys finding legal loopholes. Can target computer systems, markets, elections, or human cognition."
-    },
-    {
-      "type": "flashcard",
-      "front": "Security Failure",
-      "back": "A breach of the system's security policy, resulting from a vulnerability being exploited by a threat."
-    },
-    {
-      "type": "flashcard",
-      "front": "Security Target",
-      "back": "A detailed specification setting out the means by which a security policy will be implemented in a particular product — encryption, access controls, audit logs, etc. Used as a yardstick for evaluation."
-    },
-    {
-      "type": "flashcard",
-      "front": "Protection Profile",
-      "back": "Like a security target, but written in a sufficiently device-independent way to allow comparative evaluations among different products and versions."
-    },
-    {
-      "type": "flashcard",
-      "front": "Safety Terminology — Hazard, Danger, Risk",
-      "back": "A hazard is a set of internal conditions or external circumstances. Danger is the probability that a hazard will lead to an accident. Risk is overall probability of an accident — hazard level combined with danger and latency (exposure and duration)."
+      "front": "Security target vs protection profile",
+      "back": "A security target specifies how a particular product implements a policy. A protection profile is more device-independent and supports comparison across products."
     },
     {
       "type": "flashcard",
       "front": "Metadata privacy",
-      "back": "It is often not sufficient to protect data alone; metadata (e.g., logs of who communicated with whom) must also be protected. Example: a model won a UK privacy case because a tabloid photographed her leaving a Narcotics Anonymous meeting — no content was revealed, but context was."
+      "back": "Metadata can reveal sensitive facts even when content is hidden. Who communicated with whom, when, or in what context can be privacy-sensitive."
     },
     {
       "type": "flashcard",
-      "front": "Anonymity in privacy",
-      "back": "Being anonymous requires a 'crowd to hide in' — it is difficult to be anonymous alone. Anonymity can be as important as secrecy in privacy contexts. Legal systems typically find it easier to obtain metadata (e.g., itemised phone billing) than content wiretaps."
+      "front": "Anonymity",
+      "back": "Anonymity requires a crowd to hide in. It is hard to be anonymous alone, and anonymity may be as important as secrecy in privacy contexts."
     },
     {
       "type": "flashcard",
-      "front": "The six definitions of 'system' in security engineering",
-      "back": "(1) A product/component; (2) product + OS/infrastructure; (3) the above + applications; (4) any of the above + IT staff; (5) the above + internal users and management; (6) the above + customers and external users. Security engineers typically use definition 6."
+      "front": "Security engineering meaning of system",
+      "back": "Security engineers often treat the system broadly: product, infrastructure, applications, IT staff, internal users, management, customers, and external users."
     },
     {
       "type": "flashcard",
-      "front": "Bank security — bookkeeping controls",
-      "back": "Each debit must be matched by a credit; money can only move within the bank, never be created or destroyed. Large transfers require two people to authorise. Staff must take regular vacations with no system access. Alarms detect unusual transaction patterns."
+      "front": "Bank bookkeeping controls",
+      "back": "Bank controls enforce consistency and reduce insider risk: debits match credits, large transfers may require two people, staff take vacations without access, and unusual patterns trigger alarms."
     },
     {
       "type": "flashcard",
-      "front": "ATM security significance",
-      "back": "ATMs were the first large-scale commercial use of cryptography, helping establish crypto standards. Mechanisms were extended to point-of-sale terminals and prepayment utility meters."
-    },
-    {
-      "type": "flashcard",
-      "front": "Phishing (bank context)",
-      "back": "An attack where customers are directed to bogus websites to enter their passwords. Standard 1990s security mechanisms were ineffective once criminals targeted customers rather than banks. Led to SMS authentication codes — which attackers countered by SIM-swapping at phone shops."
-    },
-    {
-      "type": "flashcard",
-      "front": "Low-Probability-of-Intercept (LPI) radio",
-      "back": "A military communications technique that uses frequency-hopping or spread-spectrum tricks to make signals hard to detect or intercept. Now adopted in everyday communications such as Bluetooth."
-    },
-    {
-      "type": "flashcard",
-      "front": "Hospital — Wannacry (2017)",
-      "back": "In May 2017, Wannacry malware infected NHS hospitals. Hospitals shut down networks to limit infection, then found they had to close A&E departments because X-rays travel via a server, not physically. A network failure stopped operations that a power failure would not. There were standby generators but no standby network."
-    },
-    {
-      "type": "flashcard",
-      "front": "Patient record anonymisation challenge",
-      "back": "Simply removing or encrypting names is insufficient. A query such as 'all males born in 1953 treated for atrial fibrillation on October 19th 2003' could identify a specific individual (former PM Tony Blair). Re-identification risk grows as social and genetic data proliferates."
-    },
-    {
-      "type": "flashcard",
-      "front": "Car key relay attack",
-      "back": "Keyless entry cars (no button press needed) work by the car sending a challenge to the key. If a key is left near a front door, thieves can use a radio relay to extend the key's signal to a car parked on the street, unlocking and starting it. Car thefts rose sharply after this technology was introduced."
-    },
-    {
-      "type": "flashcard",
-      "front": "Software sustainability (EU law)",
-      "back": "A 2019 EU law requires that goods with digital components be maintained for two years, or longer if the customer's reasonable expectation demands it — e.g., ~10 years for cars. A car sold for seven years must be maintained for nearly twenty years."
+      "front": "Named examples as security lessons",
+      "back": "Examples such as phishing, relay attacks, patient record re-identification, and hospital ransomware are useful because they illustrate general lessons about threat models, assumptions, incentives, and failure modes."
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which of the following best distinguishes security from safety?",
+      "question": "A designer estimates component failure rates from historical accident data. An attacker then changes strategy after seeing the defence. Which distinction is most relevant?",
       "options": [
-        "Security uses probabilistic models; safety does not",
-        "Safety protects against intentional malice; security against accidents",
-        "Security must model adversary strategy; safety models probability of accidents",
-        "Safety is more expensive to implement than security"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the CIA Triangle, which property ensures that data has not been improperly altered?",
-      "options": [
-        "Confidentiality",
-        "Availability",
-        "Integrity",
-        "Authenticity"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the Binary Model of security, a system is considered secure if:",
-      "options": [
-        "The risk of attack is below a set threshold",
-        "Policy Y cannot be violated without attacker capability X",
-        "All vulnerabilities have been patched",
-        "The system has passed a penetration test"
+        "Confidentiality vs integrity",
+        "Safety vs security",
+        "Secrecy vs privacy",
+        "Policy vs mechanism"
       ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which is cited as a pro of the Binary Model?",
+      "question": "A hospital record system prevents unauthorised users from reading patient notes but allows authorised clinicians to access them during treatment. Which CIA properties are most directly involved?",
       "options": [
-        "Adaptive to new threats",
-        "Cheap to implement",
-        "Longevity — 'right' answer gives strong guarantees",
-        "Easy to define 'right'"
+        "Confidentiality and availability",
+        "Integrity and authenticity",
+        "Availability and open design",
+        "Privacy and separation of privilege"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which is cited as a con of the Risk Management Model?",
+      "question": "A cryptographic proof states that no attacker with capability X can violate policy Y. Which security model is being used?",
       "options": [
-        "It is not adaptive",
-        "It leads to an arms race and is hard to evaluate",
-        "It only works with cryptographic systems",
-        "It requires binary definitions of security"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "The Risk Management Model is analogous to which industry practice?",
-      "options": [
-        "Law enforcement",
-        "Insurance",
-        "Software testing",
-        "Cryptography"
+        "Risk management model",
+        "Binary model",
+        "Security theatre model",
+        "Safety hazard model"
       ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the threat landscape diagram, which adversary type has the highest capabilities?",
+      "question": "A company decides not to protect a low-value asset because the protection cost exceeds the expected loss. Which model best fits this reasoning?",
       "options": [
-        "Script kiddy",
-        "Vandal",
-        "Expert specialist",
-        "Trespasser"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What does a 'strategic adversary' do?",
-      "options": [
-        "Attacks randomly hoping to get lucky",
-        "Only uses publicly known exploits",
-        "Chooses the optimal way to use their resources to mount an attack",
-        "Focuses exclusively on software vulnerabilities"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "According to the design principles, what does 'Least Privilege' mean?",
-      "options": [
-        "Users should share as few resources as possible",
-        "Processes should have the minimum privileges needed to function",
-        "The security design should be as simple as possible",
-        "Defaults should deny access unless explicitly granted"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which design principle is violated when a single employee can modify all copies of an audit log?",
-      "options": [
-        "Economy of mechanism",
-        "Fail-safe defaults",
-        "Separation of privilege",
-        "Open design"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which design principle is violated by relying on keeping an algorithm secret rather than a key?",
-      "options": [
-        "Least privilege",
+        "Binary security",
+        "Risk management",
         "Open design",
-        "Psychological acceptability",
-        "Defence in depth"
+        "Complete mediation"
       ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "The UCL password policy shown in the lecture (10-30 characters, many rules, banned symbols) is an example of violating which principle?",
+      "question": "Which item is a vulnerability rather than a threat?",
+      "options": [
+        "A criminal group with access to stolen credentials",
+        "A malicious insider with administrator access",
+        "An unchecked input field that can corrupt system state",
+        "A competitor motivated to steal data"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A software flaw exists in an offline system that is never connected to users, networks, or removable media. What does this best illustrate?",
+      "options": [
+        "A vulnerability can exist even if exploitation likelihood is zero",
+        "A threat and a vulnerability are the same thing",
+        "Impact is always independent of system context",
+        "A flaw is not a vulnerability unless it is exploited"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A security objective should primarily be derived from:",
+      "options": [
+        "The most fashionable security controls",
+        "The threat model and security policy",
+        "The cheapest available mechanism",
+        "The number of users in the system"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best describes a security mechanism?",
+      "options": [
+        "The rule that says what must be protected",
+        "The adversary's motivation and capability",
+        "The means used to enforce the security policy",
+        "The harm caused after a compromise"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A system relies on a single logging server to prove that audit records cannot be changed. Which concern is most directly about the TCB?",
+      "options": [
+        "The logging server is part of the TCB because its failure can break the policy",
+        "The logging server is outside the TCB because it only stores evidence",
+        "Only cryptographic algorithms can be in the TCB",
+        "The TCB includes only users, not hardware or software"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "An employee can perform a sensitive transfer only when a second employee independently approves it. Which principle is most directly applied?",
       "options": [
         "Least common mechanism",
-        "Psychological acceptability",
+        "Separation of privilege",
+        "Open design",
+        "Psychological acceptability"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A service account has permission to read every database table, although it only needs one table. Which principle is violated?",
+      "options": [
+        "Least privilege",
+        "Defence in depth",
+        "Open design",
+        "Security theatre"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A cache shared by mutually distrustful users leaks information through timing differences. Which design principle is most relevant?",
+      "options": [
         "Fail-safe defaults",
+        "Least common mechanism",
+        "Separation of privilege",
+        "Security target"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A program checks access only when a file is opened, then continues to allow use after permissions have been revoked. Which principle is most at risk?",
+      "options": [
+        "Complete mediation",
+        "Open design",
+        "Economy of mechanism",
+        "Psychological acceptability"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A product ships with all external access disabled until an administrator explicitly enables it. Which principle is illustrated?",
+      "options": [
+        "Open design",
+        "Fail-safe defaults",
+        "Least common mechanism",
+        "Security theatre"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A vendor claims its system is secure because attackers do not know the proprietary algorithm. Which principle does this most clearly conflict with?",
+      "options": [
+        "Open design",
+        "Availability",
+        "Separation of privilege",
+        "Risk transfer"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A password policy is so complicated that users write passwords on notes or reuse predictable patterns. Which principle explains the failure?",
+      "options": [
+        "Psychological acceptability",
+        "Least common mechanism",
+        "Binary security",
+        "Protection profile"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A security design adds independent monitoring, access control, and audit logs so that one failed control is not catastrophic. Which principle is applied?",
+      "options": [
+        "Defence in depth",
+        "Fail-safe defaults",
+        "Open design",
+        "Identity"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which option best distinguishes policy from mechanism?",
+      "options": [
+        "Policy is the adversary's goal; mechanism is the attack path",
+        "Policy states what must be achieved; mechanism is how it is enforced",
+        "Policy is technical; mechanism is legal",
+        "Policy is always correct; mechanism is always flawed"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A system enforces exactly the written rule, but the written rule allows dangerous behaviour. What kind of failure is this?",
+      "options": [
+        "Mechanism failure",
+        "Policy failure",
+        "Integrity failure only",
+        "Least privilege failure only"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A measure is highly visible and reassuring but does little to reduce the main risk. Which concept best describes it?",
+      "options": [
+        "Defence in depth",
+        "Security theatre",
+        "Security argument",
+        "Anonymity"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which pairing correctly matches the security engineering framework element to its meaning?",
+      "options": [
+        "Policy: motives of attackers and defenders",
+        "Mechanism: how the policy is implemented",
+        "Assurance: what users are allowed to do",
+        "Incentive: cryptographic strength"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A compromised administrator can break the security policy. In the course terminology, the administrator is best described as:",
+      "options": [
+        "Trustworthy by definition",
+        "Trusted because their failure can break the policy",
+        "Not part of the system",
+        "Only a vulnerability, never a principal"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes secrecy, confidentiality, and privacy?",
+      "options": [
+        "Secrecy is the right, confidentiality is the mechanism, and privacy is the duty",
+        "Secrecy is the mechanism, confidentiality is the duty, and privacy is the individual's interest or right",
+        "All three mean exactly the same thing",
+        "Confidentiality applies only to individuals and privacy only to organisations"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A message has not been modified, but it is an old valid message replayed months later. Which property is missing?",
+      "options": [
+        "Integrity",
+        "Authenticity",
+        "Confidentiality",
         "Economy of mechanism"
       ],
       "answer": 1
@@ -442,398 +536,278 @@
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What does the Trusted Computing Base (TCB) refer to?",
+      "question": "A hospital encrypts message contents, but outsiders can still see that a patient repeatedly contacts a specialist clinic. What security lesson does this illustrate?",
       "options": [
-        "Only the cryptographic components of a system",
-        "All hardware on which the OS runs",
-        "Every component upon which the security policy relies",
-        "The set of users trusted with admin privileges"
+        "Metadata can be privacy-sensitive",
+        "Encryption always removes the need for anonymity",
+        "Integrity is more important than confidentiality",
+        "Privacy applies only to legal persons"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which OWASP principle maps to 'Complete Mediation' from Saltzer & Schroeder?",
+      "question": "A dataset has names removed, but rare combinations of age, diagnosis, and visit date can still identify a patient. What failure mode is illustrated?",
       "options": [
-        "Use encapsulation",
-        "Don't trust services",
-        "Detect intrusions",
-        "Create unpredictable defences"
+        "Re-identification through contextual attributes",
+        "Loss of availability",
+        "Open design",
+        "Defence in depth"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the electronic voting threat model, which threat-capability pairing is identified?",
+      "question": "A company treats a secure product as only the software binary and ignores support staff, customers, and operational procedures. What is the main security engineering problem?",
       "options": [
-        "Voter — hardware defects",
-        "Manufacturer of EVM — weak cryptography/design",
-        "Cleaner — machine access before/after election",
-        "Election official — software defects only"
+        "The system boundary is too narrow",
+        "The design is too open",
+        "The policy is too explicit",
+        "The threat model has too much impact analysis"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which security goal in electronic voting is rated as having 'Huge!' potential impact?",
+      "question": "A bank requires two people to approve a large transfer. What general lesson does this illustrate?",
       "options": [
-        "Vote as somebody else",
-        "Rig the election",
-        "Learn someone's vote",
-        "Prevent others from voting"
+        "Single-person authority can be dangerous for high-impact actions",
+        "All security mechanisms should be secret",
+        "Availability is never relevant to financial systems",
+        "Users should share as many mechanisms as possible"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to the textbook, what are the four elements of the security engineering framework?",
+      "question": "A phishing attack succeeds because criminals target customers rather than the bank's internal systems. What does this show?",
       "options": [
-        "Threats, Vulnerabilities, Likelihood, Impact",
-        "Confidentiality, Integrity, Availability, Authenticity",
-        "Policy, Mechanism, Assurance, Incentive",
-        "Design, Implement, Test, Adapt"
+        "Threat models must include external users when they are part of the security outcome",
+        "Cryptography is never useful in banking",
+        "Customer behaviour is outside security engineering",
+        "Only mechanism failure matters"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "The 9/11 hijackers got knives through airport security. According to the textbook, what kind of failure was this?",
+      "question": "A keyless car can be unlocked when thieves relay radio messages between the car and a key inside the owner's house. Which concept is most central?",
       "options": [
-        "A mechanism failure — screeners failed to detect the knives",
-        "A policy failure — knives under three inches were permitted at the time",
-        "An assurance failure — the screening equipment was unreliable",
-        "An incentive failure — screeners were not motivated to find weapons"
+        "Failure to consider adversarial extension of the communication channel",
+        "A purely accidental safety failure",
+        "A policy that allows all users to start the car",
+        "A lack of data integrity only"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What is 'security theatre' as defined by Bruce Schneier?",
+      "question": "A hospital has backup generators but no practical backup for the network used to move X-ray images. What kind of assumption failed?",
       "options": [
-        "A training exercise simulating a cyber attack",
-        "Security measures designed to produce a feeling of security rather than the reality",
-        "A classified government programme for offensive cyber operations",
-        "The use of visual deterrents such as CCTV cameras"
+        "That only power outages matter operationally",
+        "That availability is unrelated to healthcare",
+        "That encryption can replace networks",
+        "That all malware is harmless if data is backed up"
       ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the textbook's definition, what is the difference between a 'trusted' and a 'trustworthy' component?",
-      "options": [
-        "Trusted components are certified; trustworthy components are not",
-        "A trusted component won't fail; a trustworthy component's failure can break security policy",
-        "A trusted component's failure can break security policy; a trustworthy component won't fail",
-        "They are synonyms — the terms are used interchangeably"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of the following correctly distinguishes confidentiality from privacy?",
-      "options": [
-        "Confidentiality is secrecy for the individual; privacy is secrecy for the organisation",
-        "Privacy is secrecy for the individual; confidentiality is secrecy for the organisation",
-        "They are identical — both refer to limiting data access",
-        "Confidentiality applies to data; privacy applies only to physical spaces"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "How does the textbook define a 'hack'?",
-      "options": [
-        "Any unauthorised access to a computer system",
-        "An attack that exploits a software vulnerability using malware",
-        "Something a system's rules permit but which was unanticipated and unwanted by designers",
-        "Solely the activities of financially-motivated criminal groups"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which definition of 'system' does the textbook say security engineers should generally use?",
-      "options": [
-        "A cryptographic protocol or smartcard",
-        "Hardware plus operating system plus applications",
-        "Hardware, software, IT staff, and internal users",
-        "Hardware, software, IT staff, internal users, and external customers"
-      ],
-      "answer": 3
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "ATMs were historically significant in security engineering because they were:",
-      "options": [
-        "The first system to implement multi-factor authentication",
-        "The first large-scale commercial use of cryptography",
-        "The first application of biometric identification",
-        "The origin of the Trusted Computing Base concept"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What was the main lesson of the 2017 Wannacry attack on NHS hospitals?",
-      "options": [
-        "Ransomware cannot be stopped by conventional antivirus",
-        "A network failure can be more operationally disruptive than a power failure",
-        "Cloud services are always more secure than local servers",
-        "Patient records should be stored offline"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In safety terminology, what is 'danger'?",
-      "options": [
-        "The overall probability of an accident",
-        "A set of internal conditions or external circumstances that could lead to harm",
-        "The probability that a hazard will lead to an accident",
-        "Risk combined with latency and exposure duration"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What does 'authenticity' add to 'integrity' in security protocol terminology?",
-      "options": [
-        "Encryption of the message contents",
-        "Verification that the sender's identity is real",
-        "Freshness — confirmation the message is not a replay of an old one",
-        "Non-repudiation — the sender cannot deny sending the message"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Why did the EU mandate recall of a children's smartwatch in 2019?",
-      "options": [
-        "It used weak encryption that could be broken in hours",
-        "It used unencrypted communications, allowing a wiretapper to access location history",
-        "It enabled children to make unauthorised purchases",
-        "Its battery posed a fire hazard under EU safety law"
-      ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Safety and security are the same concept — both defend against accidental and intentional harm.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the CIA Triangle, availability means keeping data private.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Binary Model of security treats security as a spectrum from fully secure to fully insecure.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "A key advantage of the Risk Management Model is that it is adaptive.",
+      "question": "A system can have a vulnerability even when the current likelihood of exploitation is zero.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "A vulnerability and a threat are the same thing.",
+      "question": "A threat model should describe only software bugs, not adversary capabilities or motivation.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "If a vulnerability exists, the likelihood of it being exploited is always greater than zero.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The 'Economy of Mechanism' principle is essentially the KISS principle applied to security design.",
+      "question": "Least privilege reduces the damage a compromised account or process can cause.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Combining two secure security components always results in a secure composed system.",
+      "question": "Open design means publishing all passwords and keys so that the public can inspect them.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "According to the lecture, a system is considered secure if an adversary constrained by a specific threat model cannot violate the security policy.",
+      "question": "Complete mediation is weakened when there is an unchecked path around the access-control decision.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Defence in Depth means relying on a single, very strong security measure rather than several weaker ones.",
+      "question": "Combining two individually secure components always produces a secure system.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Digital information lacks provenance, meaning it is hard to verify its origin or authenticity.",
+      "question": "A trusted component is one whose failure matters to the security policy, even if it is not actually reliable.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "An open design means the security of a system depends on keeping its algorithm secret.",
+      "question": "Privacy and confidentiality are identical because both involve limiting access to information.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Security engineering requires expertise only in computer science and cryptography.",
+      "question": "A role is the same as a group because both are sets of people.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The textbook's framework element 'assurance' refers to the motives of people guarding a system.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "A 'group' and a 'role' are interchangeable terms in the textbook's security definitions.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "A legal person such as a company has a right to privacy under the textbook's definitions.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Protecting data content is always sufficient for privacy; protecting metadata is optional.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The 2019 EU law requires that goods with digital components be maintained for a minimum of ten years in all cases.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Bank bookkeeping controls dictate that each debit against one account must be matched by a credit against another, so money can never be created or destroyed within the system.",
+      "question": "Digital data can be copied without removing the original, which changes how theft and leakage must be analysed.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "In the textbook's example, the stone facade of a bank branch is an effective physical security control.",
+      "question": "Protecting message content is always sufficient to protect privacy.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Simply encrypting patient names is sufficient to anonymise medical records for research purposes.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Military electronic warfare developed spoofing and denial-of-service concepts long before they appeared in civilian cybersecurity.",
+      "question": "Security theatre can be politically attractive even when it is a poor use of security resources.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Explain the difference between a threat, a vulnerability, and likelihood using the water-tank analogy from the lecture.",
-      "answer": "The threat is the water potentially overflowing. The vulnerability is the crack in the tank wall — the weakness that could be exploited. The likelihood is the probability that the crack will actually cause overflow, which could be zero if water is never added. These are distinct: a vulnerability exists even if the likelihood is currently zero."
+      "question": "Give a concise answer plan for explaining the difference between safety and security.",
+      "answer": "Define safety as protection against accidents, natural events, and random failures. Define security as protection against intentional adversaries. Explain that safety can often use historical probabilities, while security must model strategy, incentives, capabilities, and adaptation. Give one example where an attacker changes behaviour after seeing a defence."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What is the 'security mindset' as described by Bruce Schneier, and how does it differ from ordinary engineering thinking?",
-      "answer": "Ordinary engineering thinks about how things can be made to work. The security mindset thinks about how things can be made to fail — approaching a system as an attacker, adversary, or criminal would. The ant farm example illustrates this: most people see a postal service; the security-minded person sees a system that will deliver live ants to any address you name."
+      "question": "A web application has a SQL injection bug, but it is deployed only on an isolated test machine with no real data or network access. Distinguish threat, vulnerability, likelihood, and impact in this scenario.",
+      "answer": "The vulnerability is the SQL injection bug. A threat would be an adversary capable of reaching and exploiting it. The likelihood may be very low or zero if no attacker can access the machine. The impact is limited if there is no real data or connected system to compromise."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why is it dangerous to combine security components without re-evaluating the overall system?",
-      "answer": "Because 'security + security ≠ security.' When security components are composed, new interactions may introduce fresh vulnerabilities (the weakest-link effect) or may add strength (defence in depth). Design principles need to be re-assessed after composition — a component that satisfies all principles in isolation might violate them when combined with another component."
+      "question": "Explain how a threat model leads to security objectives.",
+      "answer": "A threat model identifies adversaries, capabilities, vulnerabilities, likelihood, impact, and protection costs. These determine which risks matter enough to address. Security objectives then state what the system must prevent, detect, tolerate, or recover from under those assumptions."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Describe the five elements that form a threat model and explain how they lead to security objectives.",
-      "answer": "A threat model analyses: (1) Threats — who the adversaries are and their capabilities/motivation; (2) Vulnerabilities — where the system can break; (3) Likelihood — how probable exploitation is; (4) Impact — how much harm would result; (5) Protection — what it costs to defend. Together these five dimensions allow designers to prioritise which risks to address and define concrete security objectives for the system."
+      "question": "Why is a security argument conditional rather than absolute?",
+      "answer": "It depends on the threat model, assumptions, and system boundary. A mechanism may enforce the policy against one class of attacker but fail if the attacker has stronger capabilities, if a trusted component fails, or if the system boundary omitted people or procedures."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the four special properties of digital information that create unique security challenges?",
-      "answer": "Digital information: (1) can be copied perfectly at no cost, making theft undetectable; (2) can be transmitted anywhere instantly, eliminating geographic barriers; (3) can be remembered indefinitely, so past leaks never fade; and (4) lacks provenance, making it hard to verify where information came from or whether it has been tampered with."
+      "question": "Explain why the Trusted Computing Base should be kept small.",
+      "answer": "Every TCB component must be relied on for the policy to hold. The larger the TCB, the more hardware, software, people, and procedures can break security. A smaller TCB is easier to analyse, test, protect, and reason about."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Give a concrete example of how the 'Separation of Privilege' principle was applied in the electronic voting lecture example.",
-      "answer": "The example policy was: 'a log cannot be changed by a single employee.' The corresponding mechanism was to keep copies of the log on multiple computers such that no single employee has access to all of them. This means any tampering requires collusion between multiple people, making it harder for one malicious insider to compromise log integrity alone."
+      "question": "A company says its payroll system is secure because only payroll staff know the hidden URL. Analyse this using Saltzer and Schroeder principles.",
+      "answer": "This relies on obscurity rather than open design. The policy should not depend on a hidden URL staying secret. Proper mechanisms would include authentication, authorisation, complete mediation on each access, least privilege for payroll roles, and fail-safe defaults."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Compare the pros and cons of the Binary Model and the Risk Management Model of security.",
-      "answer": "Binary Model pros: longevity — when the 'right' answer is found it provides strong guarantees. Cons: brittle (hard to define 'right') and expensive (hard to find 'right'). Risk Management Model pros: adaptive to changing threats. Cons: creates an arms race with attackers, and it is hard to evaluate how much security has been achieved or whether the model is accurate."
+      "question": "Give a concise answer plan for a question asking why usable security matters.",
+      "answer": "State psychological acceptability: mechanisms must be usable enough to be followed. Explain that complex or burdensome rules cause workarounds such as password reuse or written passwords. Connect usability to real security outcomes, not mere convenience. Mention that usable controls can still be strong if designed around user behaviour."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Describe the four elements of the textbook's security engineering framework and explain how the 9/11 airport screening example illustrates all four.",
-      "answer": "The four elements are: Policy (what the system must achieve), Mechanism (technical controls used), Assurance (how reliable those controls are), and Incentive (motives of defenders and attackers). At 9/11 airports: Policy failed because knives under 3 inches were permitted. Mechanism was weak because composite knives evade detection. Assurance was poor — real weapons passed through more than half the time. Incentive was misaligned — decision-makers favoured visible, politically-popular measures (security theatre) over effective ones."
+      "question": "Why does defence in depth not mean adding arbitrary controls?",
+      "answer": "Defence in depth means independent layers that reduce risk if one control fails. Arbitrary controls can add complexity, usability burdens, and new vulnerabilities without addressing the threat model. Layers should be chosen because they cover plausible failure modes."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Explain the distinction between secrecy, confidentiality, and privacy using a hospital example.",
-      "answer": "Secrecy is the technical mechanism — e.g., the hospital's access controls and encryption that limit who can read patient records. Confidentiality is the duty — doctors and nurses are legally and professionally obliged to protect patient information they learn in their role. Privacy is the right — patients have a right to control who sees their personal health data. The hospital implements secrecy mechanisms in order to honour the staff's duty of confidentiality, which in turn upholds patients' right to privacy."
+      "question": "Explain the difference between policy failure and mechanism failure using an access-control example.",
+      "answer": "A policy failure occurs if the rule itself grants access to the wrong people, even if implemented perfectly. A mechanism failure occurs if the rule is correct but the system checks it incorrectly or can be bypassed. For example, allowing all staff to see payroll is a policy failure; failing to enforce a payroll-only rule is a mechanism failure."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why is anonymising medical records for research harder than simply removing or encrypting patient names?",
-      "answer": "Because combinations of other attributes — such as age, gender, rare condition, and date of treatment — can uniquely identify an individual even without their name. As an example, a query for 'all males born in 1953 treated for atrial fibrillation on October 19th 2003' would identify former PM Tony Blair. The problem grows as more social, contextual, and genetic data becomes available, continuously lowering the threshold needed for re-identification."
+      "question": "Give a concise answer plan for comparing the binary and risk management models of security.",
+      "answer": "Define the binary model as a precise guarantee relative to attacker capability and policy. Define risk management as weighing likelihood, impact, and protection cost. Binary reasoning gives strong guarantees when assumptions are right but can be brittle and expensive. Risk management adapts to practical tradeoffs but is hard to evaluate and can become an arms race."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What does the Wannacry attack on NHS hospitals reveal about assumptions made when designing hospital IT infrastructure?",
-      "answer": "It revealed that hospital contingency planning assumed power failures (standby generators existed) but not network failures. Once networks were shut down to stop the malware spreading, X-rays could no longer reach surgeons — because imaging data travels digitally via remote servers, not physically. A network outage therefore caused greater operational disruption than a power outage would have. The incident also highlighted that cloud and networked services can make average reliability better while making failures larger, rarer but more correlated."
+      "question": "A system's design is public, but its keys are secret. Why can this still be secure?",
+      "answer": "Open design says security should not depend on hiding the design. Public scrutiny can even improve confidence. The system can remain secure if its policy depends on well-managed secrets such as keys, and if the mechanisms are sound under the threat model."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why is metadata protection just as important as protecting data content in privacy-sensitive systems?",
-      "answer": "Because metadata — who communicated with whom, when, from where — can reveal sensitive facts even when content is fully encrypted. The UK privacy case of a model photographed leaving a Narcotics Anonymous meeting illustrates this: no conversation content was disclosed, but the context (who she met with) was sufficient to invade her privacy. Similarly, a person exchanging encrypted messages with a sexual health clinic reveals their likely treatment through the communication pattern alone. Anonymity — hiding within a crowd — is often as important as secrecy."
+      "question": "Explain secrecy, confidentiality, and privacy using a medical-record system.",
+      "answer": "Secrecy is implemented by mechanisms such as access controls and encryption. Confidentiality is the professional or organisational duty of clinicians and staff to protect patient information. Privacy is the patient's interest or right in controlling personal health information and personal space."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does authenticity require more than integrity?",
+      "answer": "Integrity only says the data has not been altered. Authenticity also requires confidence that the data is from the genuine principal and is fresh rather than an old valid message replayed in a new context."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can metadata defeat privacy even when message contents are encrypted?",
+      "answer": "Metadata can reveal who communicated, when, how often, and in what context. These facts can expose sensitive relationships, locations, or activities without revealing message content. Privacy-sensitive systems may therefore need anonymity or metadata protection as well as content secrecy."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is anonymising patient records difficult?",
+      "answer": "Removing names is not enough because combinations of attributes such as age, date, location, diagnosis, and social or genetic context can identify individuals. As more external data becomes available, re-identification becomes easier."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What does the security mindset add to ordinary engineering reasoning?",
+      "answer": "Ordinary engineering asks how to make the system work. The security mindset asks how it can be misused, bypassed, or made to fail by a motivated adversary. It searches for unwanted behaviours that are still permitted by the rules."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A bank control requires staff to take vacations without system access. What security reasoning might justify this?",
+      "answer": "It reduces insider risk by preventing continuous unchecked control. Absence can reveal fraudulent patterns, force another person to perform the role, and make long-running manipulation harder. It reflects separation of privilege, auditing, and incentive-aware security engineering."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why phishing forced banks to revise their threat models.",
+      "answer": "Older mechanisms often protected bank infrastructure better than customers. Phishing shifted the attack to customers and their credentials, meaning the system boundary had to include external users, communication channels, and recovery processes. Strong internal controls alone did not stop attacks through customer behaviour."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What general lesson does the keyless car relay attack teach?",
+      "answer": "Authentication protocols must consider the physical and communication assumptions they rely on. If the system assumes proximity but only checks that radio messages are relayed quickly enough, attackers may extend the channel and make a distant key appear nearby."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What general lesson does the Wannacry hospital example teach about availability?",
+      "answer": "Availability depends on operational dependencies, not just obvious utilities such as power. If clinical workflows rely on networks and remote servers, a network shutdown can stop care even when electricity remains available. Threat models and contingency plans must include correlated digital infrastructure failures."
     }
   ]
 }
