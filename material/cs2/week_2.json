@@ -143,7 +143,7 @@
     {
       "type": "flashcard",
       "front": "TCP graceful connection close",
-      "back": "One host sends FIN+ACK. The other continues sending data until done, then replies with FIN+ACK. The first host sends a final ACK, and the connection terminates."
+      "back": "A graceful TCP close usually uses a four-step FIN handshake: one host sends FIN, the other replies ACK, the other may continue sending data in the half-closed state, then sends FIN when done, and the first host replies ACK. In combined form this is often shown as FIN, FIN+ACK, ACK when the peer has no more data to send."
     },
     {
       "type": "flashcard",
