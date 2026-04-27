@@ -771,3 +771,49 @@ document.getElementById('report-form').addEventListener('submit', async e => {
     submitBtn.disabled = false;
   }
 });
+
+/* ── Dev message migration notice ───────────────────────────── */
+
+const DEV_MSG_IDX = 2;
+
+function getDevMessageIdx() {
+  const raw = localStorage.getItem('dev_msg_idx');
+  const parsed = Number(raw);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function setDevMessageIdx(value) {
+  localStorage.setItem('dev_msg_idx', String(value));
+}
+
+function openDevMessageModal() {
+  const modal = document.getElementById('dev-message-modal');
+  if (!modal) return;
+
+  modal.classList.add('visible');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeDevMessageModal() {
+  const modal = document.getElementById('dev-message-modal');
+  if (!modal) return;
+
+  modal.classList.remove('visible');
+  modal.setAttribute('aria-hidden', 'true');
+  setDevMessageIdx(DEV_MSG_IDX);
+}
+
+function maybeShowDevMessage() {
+  if (getDevMessageIdx() >= DEV_MSG_IDX) return;
+
+  window.setTimeout(openDevMessageModal, 350);
+}
+
+document.getElementById('btn-dev-message-close').addEventListener('click', closeDevMessageModal);
+document.getElementById('btn-dev-message-ok').addEventListener('click', closeDevMessageModal);
+
+document.getElementById('dev-message-modal').addEventListener('click', e => {
+  if (e.target.id === 'dev-message-modal') closeDevMessageModal();
+});
+
+maybeShowDevMessage();

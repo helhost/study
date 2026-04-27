@@ -861,3 +861,29 @@ body.reports-body {
     margin-left: 0;
   }
 }
+
+.dev-message-content {
+  color: var(--color-text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+#btn-dev-message-ok {
+  background: var(--color-accent2);
+  color: #fff;
+  border: 1px solid var(--color-accent2);
+}
+
+.dev-message-card {
+  max-width: 620px;
+  padding: 24px;
+}
+
+.dev-message-card .modal-head h2 {
+  font-size: 22px;
+}
+
+.dev-message-content {
+  font-size: 17px;
+  line-height: 1.7;
+}
