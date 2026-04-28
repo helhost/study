@@ -2,1389 +2,903 @@
   "entries": [
     {
       "type": "flashcard",
-      "front": "Double-Entry Bookkeeping",
-      "back": "An accounting method where each transaction has two equally balancing sides, following the equation: Assets = Liabilities + Equity. Each entry has a debit and a credit of equal value."
+      "front": "Double-entry bookkeeping",
+      "back": "An accounting method where each transaction is recorded with equal debit and credit effects, preserving the equation Assets = Liabilities + Equity."
     },
     {
       "type": "flashcard",
       "front": "GAAP",
-      "back": "Generally Accepted Accounting Practice — the standard framework of accounting rules and principles underpinning double-entry bookkeeping."
+      "back": "Generally Accepted Accounting Practice, the accounting rules and principles that support consistent financial recording and reporting."
     },
     {
       "type": "flashcard",
-      "front": "Separation of Duties (in banking)",
-      "back": "A security principle applied in banking where different people are responsible for tallying incoming and outgoing transactions (debits and credits), reducing the risk of fraud or error."
+      "front": "Separation of duties in banking",
+      "back": "Splitting responsibility for related actions across different people so that fraud or error is harder to commit and easier to detect."
     },
     {
       "type": "flashcard",
-      "front": "Defence in Depth (in banking)",
-      "back": "A security strategy used in accounting systems involving multiple layers of protection, such as designing systems around random audits, so no single point of failure compromises the whole system."
+      "front": "Defence in depth in banking",
+      "back": "Using multiple independent layers of control, such as reconciliation, dual control, audit trails, random audits, and recovery processes, so no single failure compromises the whole system."
     },
     {
       "type": "flashcard",
-      "front": "Prevent-Detect-Recover framework",
-      "back": "A security model that separates know-how as well as access across three phases: preventing incidents, detecting them when they occur, and recovering from them. The NIST version expands this to: Identify, Protect, Detect, Respond, Recover."
+      "front": "Prevent, detect, recover",
+      "back": "A security framework that combines controls to stop incidents, identify them when they occur, and recover afterwards. The NIST version expands this to Identify, Protect, Detect, Respond, Recover."
     },
     {
       "type": "flashcard",
-      "front": "Test Keys (telegraph banking)",
-      "back": "A rudimentary hash function used by banks in the 19th and early 20th centuries to ensure integrity of telegraphed payment messages. Each digit of a value was looked up in a table to produce an authentication code sent alongside the message."
+      "front": "Test keys",
+      "back": "Early banking authentication codes for telegraphed payments. They provided rudimentary message integrity but were vulnerable to analysis and did not support modern cryptographic assurance."
     },
     {
       "type": "flashcard",
       "front": "SWIFT",
-      "back": "Society for Worldwide Interbank Financial Telecommunication — a global messaging network that facilitates structured, secure interbank payment communications. Functions essentially as an email system with built-in encryption, authentication, and non-repudiation. Facilitates trillions in worldwide payments daily."
+      "back": "A global interbank messaging network for structured payment communications, providing authentication, encryption, and non-repudiation through its architecture."
     },
     {
       "type": "flashcard",
-      "front": "RGP (in SWIFT architecture)",
-      "back": "Regional Gateway Processor — an intermediate node in the SWIFT network that sits between a bank and the central SWIFT hub. RGPs log messages before forwarding them, providing distributed non-repudiation."
+      "front": "Regional Gateway Processor in SWIFT",
+      "back": "An intermediate SWIFT node between a bank and the central hub. RGPs log messages before forwarding, supporting distributed non-repudiation."
     },
     {
       "type": "flashcard",
       "front": "Non-repudiation in SWIFT",
-      "back": "Achieved through distributed logging: the sender's RGP, SWIFT itself, and the recipient's RGP each log the message independently. To deny a transaction, a bank would need to collude with two RGPs (often in different countries) and SWIFT."
+      "back": "SWIFT achieves practical non-repudiation through independent distributed logs at the sender's RGP, SWIFT, and the recipient's RGP, making denial of a sent message difficult."
     },
     {
       "type": "flashcard",
-      "front": "PAN (in ATM systems)",
-      "back": "Primary Account Number — the card number used to identify a bank account in ATM transactions. In the IBM PIN derivation method, the PIN is derived by encrypting the PAN with a PIN key."
+      "front": "Primary Account Number",
+      "back": "The card account number used to identify an account in payment and ATM systems. In the IBM PIN method, it is an input to PIN derivation."
     },
     {
       "type": "flashcard",
-      "front": "IBM PIN Derivation Method",
-      "back": "A method where the PAN is encrypted with a PIN key (KP) using DES, the result is decimalised to extract a 'Natural PIN', and an offset (stored on the card) is added to produce the customer-chosen PIN."
+      "front": "IBM PIN derivation method",
+      "back": "The PAN is encrypted under a PIN key, the output is decimalised to form a natural PIN, and an offset is added so the customer can choose a different PIN."
     },
     {
       "type": "flashcard",
-      "front": "Offset (ATM PINs)",
-      "back": "A value stored on the card's magnetic stripe (in early ATMs) representing the difference between the natural PIN and the customer's chosen PIN. Allows offline PIN verification."
+      "front": "PIN offset",
+      "back": "A value representing the difference between the natural PIN and the customer-chosen PIN, originally stored on magnetic stripes to support offline PIN verification."
     },
     {
       "type": "flashcard",
-      "front": "HSM (Hardware Security Module)",
-      "back": "A tamper-resistant hardware device used in banking to perform cryptographic operations (such as PIN encryption/decryption and key management) securely. Cleartext PINs and keys are never exposed to a single bank employee."
+      "front": "HSM in banking",
+      "back": "A tamper-resistant device that performs sensitive cryptographic operations such as PIN translation, key management, and transaction processing without exposing cleartext keys or PINs to staff."
     },
     {
       "type": "flashcard",
-      "front": "Dual Control (in ATMs)",
-      "back": "A security principle ensuring no single individual has full access to sensitive operations. Implemented in ATMs by splitting the per-ATM terminal master key between two bank officials, and by performing cryptographic operations inside an HSM."
+      "front": "Dual control in ATM infrastructure",
+      "back": "No single person should control sensitive keys or operations. For example, a terminal master key can be split between two officials and used only inside an HSM."
     },
     {
       "type": "flashcard",
-      "front": "Terminal Master Key",
-      "back": "A cryptographic key specific to each ATM, split between two bank officials to enforce dual control. Used to encrypt the PIN key (KP) for offline PIN verification, or to encrypt the PIN for transmission to the bank for online verification."
+      "front": "Terminal master key",
+      "back": "A key specific to an ATM, used to protect PIN-related keys or PIN transmissions, often loaded under dual control."
     },
     {
       "type": "flashcard",
-      "front": "xnor-to-null key attack",
-      "back": "An HSM attack where an attacker combines a key with itself to produce a key of all zeros, then uses this to 'encrypt' the PIN derivation key. Because XOR with all-zeros is the identity, this effectively reveals the key, allowing the attacker to derive all PINs."
+      "front": "HSM API complexity risk",
+      "back": "HSM APIs support many legacy and payment functions. Unexpected combinations of commands can leak keys or PINs even when each individual command appears safe."
+    },
+    {
+      "type": "flashcard",
+      "front": "XOR-to-null key attack",
+      "back": "An HSM API attack where combining a key with itself creates an all-zero key, allowing a sensitive key to be effectively revealed if the API permits unsafe operations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Decimalisation table attack",
+      "back": "An HSM attack that varies the table used to convert encrypted PIN data into decimal digits and compares outputs to infer PIN digits."
+    },
+    {
+      "type": "flashcard",
+      "front": "Differential protocol analysis",
+      "back": "Actively making slightly different protocol or API calls and comparing responses to leak secret information, analogous to differential cryptanalysis at the protocol level."
+    },
+    {
+      "type": "flashcard",
+      "front": "Backwards compatibility attack on HSMs",
+      "back": "An attack that exploits legacy formats or old cryptographic modes still supported for interoperability, allowing weaker assumptions to undermine newer security."
     },
     {
       "type": "flashcard",
       "front": "UNC2891 ATM attack",
-      "back": "An attack where a physical device (e.g. a Raspberry Pi) is inserted on the same network switch as an ATM. It intercepts card and PIN verification messages, and for fraudulent cards, replays previously captured valid authorisation messages to bypass PIN verification."
+      "back": "An attack where a device placed near an ATM intercepted card and PIN verification messages and replayed valid authorisation messages for fraudulent cards."
     },
     {
       "type": "flashcard",
-      "front": "Moral Hazard (in banking security)",
-      "back": "When a party is protected from the consequences of risk, they take less care to avoid it. In banking, UK banks that could blame customers for ATM fraud invested less in countermeasures and ultimately suffered more fraud than US banks, who were liable."
+      "front": "Moral hazard in banking security",
+      "back": "If banks can shift fraud losses to customers, they have weaker incentives to invest in fraud prevention. Liability rules affect security investment."
     },
     {
       "type": "flashcard",
       "front": "Federal Reserve Regulation E",
-      "back": "A US regulation requiring banks to refund customers for disputed ATM transactions unless the bank can prove the customer committed fraud. This shifted liability to banks, incentivising investment in fraud prevention."
+      "back": "A US rule requiring banks to refund disputed electronic transactions unless they can prove customer fraud, shifting incentives toward bank investment in prevention."
     },
     {
       "type": "flashcard",
-      "front": "PCI Compliance",
-      "back": "Payment Card Industry compliance — a set of security standards that banks and payment processors must follow. Banks are required to use HSMs as part of PCI compliance."
+      "front": "PCI compliance",
+      "back": "Payment Card Industry security standards for organisations handling card payments, including requirements around secure handling of cardholder data and use of HSMs."
     },
     {
       "type": "flashcard",
-      "front": "Clark-Wilson Security Policy Model",
-      "back": "A formal security model introduced in 1987 by Dave Clark (computer scientist) and Dave Wilson (accountant) that captures the integrity requirements of banking and bookkeeping systems. It distinguishes constrained data items (CDIs), unconstrained data items (UDIs), integrity verification procedures (IVPs), and transformation procedures (TPs)."
+      "front": "Clark-Wilson model",
+      "back": "An integrity-focused security model for commercial systems. It uses constrained data items, unconstrained data items, integrity verification procedures, and transformation procedures."
     },
     {
       "type": "flashcard",
-      "front": "CDI (Constrained Data Item)",
-      "back": "In the Clark-Wilson model, a data item that is subject to integrity constraints and can only be modified by authorised transformation procedures (TPs). Analogous to validated ledger entries in a bank."
+      "front": "Constrained Data Item",
+      "back": "In Clark-Wilson, a validated data item subject to integrity controls and modifiable only through authorised transformation procedures."
     },
     {
       "type": "flashcard",
-      "front": "UDI (Unconstrained Data Item)",
-      "back": "In the Clark-Wilson model, a data item that has not yet been validated or constrained. Special procedures convert UDIs into CDIs (e.g. raw input data being validated and entered into a ledger)."
+      "front": "Unconstrained Data Item",
+      "back": "In Clark-Wilson, unvalidated input data that must be checked and transformed before becoming a constrained data item."
     },
     {
       "type": "flashcard",
-      "front": "IVP (Integrity Verification Procedure)",
-      "back": "In the Clark-Wilson model, a procedure that checks the validity of a CDI — for example, verifying that a bank's books balance (debits equal credits)."
+      "front": "Integrity Verification Procedure",
+      "back": "A Clark-Wilson procedure that checks whether constrained data items satisfy required integrity properties, such as whether books balance."
     },
     {
       "type": "flashcard",
-      "front": "TP (Transformation Procedure)",
-      "back": "In the Clark-Wilson model, an authorised operation that modifies a CDI while preserving its integrity — analogous to a banking transaction that keeps the books in balance. TPs also write enough information to an append-only audit trail for reconstruction."
+      "front": "Transformation Procedure",
+      "back": "An authorised operation that transforms constrained data items while preserving integrity and producing enough audit information for later reconstruction."
     },
     {
       "type": "flashcard",
-      "front": "COSO (Committee of Sponsoring Organizations)",
-      "back": "A group of US accounting and auditing bodies that publishes the Risk Management Framework, the most influential internal audit standard for US public companies and public-sector organisations. Its process involves assessing risks, designing controls, monitoring performance, and iterating."
+      "front": "COSO",
+      "back": "A major internal control and risk management framework used in accounting and auditing, focused on assessing risks, designing controls, monitoring performance, and iterating."
     },
     {
       "type": "flashcard",
-      "front": "Sarbanes-Oxley Act (SOX) 2002",
-      "back": "US legislation passed after the collapse of Enron that regulates all US public companies. It makes senior executives personally responsible for the accuracy of financial reports, protects whistleblowers, and requires managers to maintain adequate internal control structures. Compliance costs are dominated by internal controls."
+      "front": "Sarbanes-Oxley Act",
+      "back": "US legislation requiring public-company executives to take responsibility for financial report accuracy and maintain adequate internal controls."
     },
     {
       "type": "flashcard",
-      "front": "Gramm-Leach-Bliley Act (GLBA) 1999",
-      "back": "US legislation that liberalised banking regulation but obliged banks to implement security mechanisms protecting customer information from foreseeable threats to security and integrity."
+      "front": "Gramm-Leach-Bliley Act",
+      "back": "US legislation requiring banks to protect customer information against foreseeable threats to security and integrity."
     },
     {
       "type": "flashcard",
-      "front": "Functional Separation of Duty",
-      "back": "A control mechanism where two or more staff members act on a transaction in complementary ways — e.g. in corporate purchasing: a line manager decides, a clerk raises a purchase order, a store clerk records receipt, accounts correlates documents and raises a cheque, and a manager signs it."
+      "front": "Functional separation of duty",
+      "back": "A business process control where different staff perform complementary stages of a transaction, such as ordering, receiving, paying, and approving."
     },
     {
       "type": "flashcard",
-      "front": "Dual Control / Multi-Party Authorisation (MPA)",
-      "back": "A control requiring two or more principals to act together to authorise a transaction. Classic examples include nuclear command systems requiring two officers to turn keys simultaneously, and bank letters of guarantee requiring two managers' signatures."
+      "front": "Dual control / multi-party authorisation",
+      "back": "A control requiring two or more principals to act together before a sensitive action can proceed."
     },
     {
       "type": "flashcard",
-      "front": "Bulla (ancient bookkeeping)",
-      "back": "A clay envelope used in ancient Mesopotamia (c. 8500 BC) to record stored goods. Each unit of food was represented by a clay token inside a sealed, kiln-baked clay envelope stamped with the warehouse keeper's pattern. Considered one of the oldest known security protocols."
+      "front": "Ecological validity in accounting",
+      "back": "Accounting records must correspond to external reality, not merely be internally consistent. Books can balance while assets do not actually exist."
     },
     {
       "type": "flashcard",
-      "front": "Core Banking System",
-      "back": "The central software infrastructure of a bank containing: an account master file (current balances and recent transactions), ledgers tracking cash and other assets, journals of unposted transactions, and an audit trail. Applies transactions in batch overnight or via real-time online processing."
+      "front": "Core banking system",
+      "back": "A bank's central software infrastructure for account balances, ledgers, journals, audit trails, and transaction processing."
     },
     {
       "type": "flashcard",
-      "front": "Ecological Validity (in accounting)",
-      "back": "The requirement that accounting records correspond to external reality, not just internal consistency. Failures of ecological validity — where recorded assets do not actually exist — have driven major audit scandals, including McKesson and Robbins (1938), the salad oil scandal (1963), and Wirecard (2020)."
-    },
-    {
-      "type": "flashcard",
-      "front": "CoBIT (Control Objectives for Information and related Technology)",
-      "back": "A refinement of COSO maintained by ISACA (Information Systems Audit and Control Association), extending from technical internal audit aspects to personnel management, change control, and project management. More internationally focused than COSO."
-    },
-    {
-      "type": "flashcard",
-      "front": "ISACA",
-      "back": "Information Systems Audit and Control Association — the body that administers the CISA (Certified Information Systems Auditor) exam and maintains the CoBIT framework."
+      "front": "CoBIT",
+      "back": "An ISACA framework extending internal control ideas to information systems, including audit, personnel management, change control, and project governance."
     },
     {
       "type": "flashcard",
       "front": "ISA 315",
-      "back": "International Standard on Auditing 315 — the standard from the International Auditing and Assurance Standard Board that guides auditors' work. It focuses on the risk of material misstatement in accounts (due to error or fraud) and drives how auditors identify significant accounts, assertions, and business processes."
+      "back": "An auditing standard focused on identifying and assessing risks of material misstatement in accounts, whether due to error or fraud."
     },
     {
       "type": "flashcard",
-      "front": "Acquiring Bank (payment cards)",
-      "back": "The bank that processes card payments on behalf of a merchant. The merchant's bank pays the merchant after deducting a merchant discount (typically just under 2% for small merchants for credit cards)."
+      "front": "Acquiring bank",
+      "back": "The merchant's bank in a card transaction. It processes payments for the merchant and passes authorisation and settlement messages through the payment network."
     },
     {
       "type": "flashcard",
-      "front": "Issuing Bank (payment cards)",
-      "back": "The bank that issued the customer's payment card. It receives the transaction via the payment switch (e.g. VISA), checks the customer's available funds, and authorises or declines the transaction."
+      "front": "Issuing bank",
+      "back": "The bank that issued the customer's card. It authorises or declines transactions based on account status, risk checks, and available funds."
     },
     {
       "type": "flashcard",
-      "front": "CVV (Card Verification Value)",
-      "back": "A three-digit MAC computed on a card's magnetic strip contents (account number, version number, expiry date) using triple-DES. Introduced by VISA in the early 1990s to combat card forgery. CVV, iCVV (chip), and signature strip CVV are all different values to prevent cross-channel forgery."
+      "front": "CVV",
+      "back": "A card verification value, computed as a MAC over card data to help detect forged magnetic-stripe or card-not-present data. Different channels use different CVVs."
     },
     {
       "type": "flashcard",
-      "front": "iCVV (Integrated Circuit Card Verification Value)",
-      "back": "A CVV value stored in the chip of an EMV card that differs from the CVV on the magnetic strip and on the signature strip. This channel separation prevents data stolen from a chip skimmer being used to forge a magnetic strip card."
+      "front": "iCVV",
+      "back": "A chip-specific CVV value distinct from magnetic-stripe and signature-strip CVVs, supporting channel separation and limiting cross-channel forgery."
     },
     {
       "type": "flashcard",
-      "front": "Card Not Present (CNP) Transaction",
-      "back": "A payment card transaction where the merchant cannot physically inspect the card — e.g. mail order, telephone, or online payments. Banks manage risk by using CVVs, address verification, and shifting liability to merchants for disputed transactions."
+      "front": "Card-not-present transaction",
+      "back": "A transaction where the merchant cannot inspect the card physically, such as online, phone, or mail-order payments. Risk is handled through CVVs, fraud scoring, address checks, and liability rules."
     },
     {
       "type": "flashcard",
-      "front": "3D Secure (3DS)",
-      "back": "A single sign-on authentication system for online card payments designed by the payment card industry. When a transaction exceeds a threshold, the customer is redirected to a bank server to authenticate via password or second factor (e.g. SMS code). Branded as 'Verified by VISA', 'Mastercard SecureCode', etc."
+      "front": "3D Secure",
+      "back": "An online card authentication system where higher-risk transactions may redirect the user to their bank for password or second-factor authentication."
     },
     {
       "type": "flashcard",
-      "front": "EMV (payment cards)",
-      "back": "A standard for chip-based payment cards developed by Europay, Mastercard, and VISA (now maintained by EMVCo). Specifies chip cards and supporting protocols for ATMs and retail terminals. Rolled out in the UK from 2003–6 and globally thereafter. Much harder to clone than magnetic strip cards."
+      "front": "EMV",
+      "back": "The chip-card payment standard developed by Europay, Mastercard, and VISA, using card chips and protocols that make card cloning harder than magnetic stripes."
     },
     {
       "type": "flashcard",
-      "front": "ARQC (Authentication Request Cryptogram)",
-      "back": "A MAC computed by an EMV card using the key KCB shared between the card and its issuing bank, computed over transaction data including the unpredictable number N, date t, and amount X. The merchant or bank uses this to verify the card is genuine."
+      "front": "ARQC",
+      "back": "An Authentication Request Cryptogram, a MAC produced by an EMV card over transaction data and sent to the issuing bank for verification."
     },
     {
       "type": "flashcard",
-      "front": "ARPC (Authorisation Response Cryptogram)",
-      "back": "The bank's cryptographic response to the ARQC in an EMV transaction, confirming to the card that the bank has authorised the payment."
+      "front": "ARPC",
+      "back": "An Authorisation Response Cryptogram, the issuing bank's cryptographic response confirming authorisation to the EMV card."
     },
     {
       "type": "flashcard",
-      "front": "SDA (Static Data Authentication)",
-      "back": "The default EMV variant used in many countries until ~2011. Uses cheap cards that cannot do public-key cryptography, so the PIN is sent to the card in cleartext and is vulnerable to man-in-the-middle sniffing. The terminal cannot verify the MAC."
+      "front": "SDA, DDA, and CDA",
+      "back": "EMV authentication variants. SDA is static and weaker, DDA lets the card sign a terminal nonce, and CDA additionally binds dynamic authentication to transaction data."
     },
     {
       "type": "flashcard",
-      "front": "DDA (Dynamic Data Authentication)",
-      "back": "The current default EMV variant. Cards can perform public-key cryptography; each card has a private key KC. The card signs a nonce sent by the terminal, assuring the terminal the card is physically present. PINs are encrypted to the card's public key, blocking skimmers from collecting PINs."
+      "front": "No-PIN attack",
+      "back": "An EMV man-in-the-middle attack where the terminal is told the PIN was verified while the card is told a signature transaction is being performed."
     },
     {
       "type": "flashcard",
-      "front": "CDA (Combined Data Authentication)",
-      "back": "The most secure EMV variant ('Rolls-Royce'). Like DDA but the card also computes a signature on the MAC, tying transaction data to the public key and to the PIN verification flag. Enables safer offline operation by allowing the terminal to verify the transaction."
+      "front": "Preplay attack",
+      "back": "An EMV attack exploiting predictable 'unpredictable numbers', allowing valid transaction cryptograms to be computed in advance and replayed later."
     },
     {
       "type": "flashcard",
-      "front": "No-PIN Attack (EMV)",
-      "back": "A man-in-the-middle attack discovered in 2009 where a device tells the terminal that the card accepted the PIN, while telling the card that a chip-and-signature transaction was initiated. The card's PIN-verified flag was proprietary and not checked by default. A French gang stole ~€600,000 using this attack on 40 modified cards."
+      "front": "Liability shift in EMV rollout",
+      "back": "A policy mechanism that made merchants liable if they failed to adopt EMV terminals, incentivising migration but also shaping fraud disputes."
     },
     {
       "type": "flashcard",
-      "front": "Preplay Attack (EMV)",
-      "back": "An attack exploiting non-random 'unpredictable numbers' generated by ATMs or terminals (e.g. counters or weak RNGs). If the attacker knows what N a terminal will generate in the future, they can compute a valid ARQC today using the victim's card, and replay it tomorrow without needing the card."
+      "front": "Contactless payment risk model",
+      "back": "Contactless payments use NFC and dynamic cryptographic values, with fraud risk controlled partly through transaction limits and issuer-side monitoring."
     },
     {
       "type": "flashcard",
-      "front": "Liability Shift (EMV rollout)",
-      "back": "A policy change during EMV rollout where regulators allowed banks to make merchants liable for disputed transactions if the merchant did not use EMV terminals, but banks became liable if EMV was used. Used as a commercial incentive to accelerate merchant adoption of chip-and-PIN terminals."
+      "front": "CAP",
+      "back": "Chip Authentication Program, a two-factor banking system using an EMV card and handheld reader to generate one-time codes, respond to challenges, or authenticate transaction details."
     },
     {
       "type": "flashcard",
-      "front": "Contactless Payment",
-      "back": "A payment method using NFC where the card or phone is tapped near a terminal. The terminal generates an unpredictable number N; the card computes a dynamic CVV as a 3-digit MAC on transaction data. Risk is mitigated by transaction limits (£45 in UK, $100 in US as of 2020)."
+      "front": "Man-in-the-browser attack",
+      "back": "Banking malware changes transaction details inside the user's browser so the user sees one transaction while a different one is submitted."
     },
     {
       "type": "flashcard",
-      "front": "CAP (Chip Authentication Program)",
-      "back": "A two-factor authentication standard announced by banks in 2006, based on EMV. Uses a handheld calculator into which the customer inserts their EMV card and enters their PIN. Can generate a one-time password, answer a challenge, or authenticate transaction details (payee account and amount). Called DPA by VISA."
+      "front": "SIM swap fraud",
+      "back": "An attacker transfers a victim's phone number to an attacker-controlled SIM, intercepting SMS authentication codes and enabling account takeover."
     },
     {
       "type": "flashcard",
-      "front": "Banking Malware",
-      "back": "Malware strains (e.g. Zeus, Torpig, SpyEye, Emotet, Trickbot, Dridex) targeting online banking users from 2007 onwards. By 2011, man-in-the-browser attacks allowed malware to modify transaction data so that what the user sees is not what they authorise."
+      "front": "Authorised Push Payment fraud",
+      "back": "Fraud where victims are tricked into voluntarily sending bank transfers to criminals, often through impersonation or false payment instructions."
     },
     {
       "type": "flashcard",
-      "front": "Man-in-the-Browser Attack",
-      "back": "A variant of phishing using banking malware where browser malware actively modifies transaction data as the user interacts with their bank's website. The user sees one payee and amount but the actual transaction submitted is different. Countered by out-of-band authentication (e.g. CAP)."
+      "front": "Business Email Compromise",
+      "back": "A form of authorised payment fraud where attackers compromise or spoof business email to issue fraudulent payment instructions."
     },
     {
       "type": "flashcard",
-      "front": "SIM Swap Fraud",
-      "back": "An attack where a fraudster persuades a phone company (sometimes with insider help) to transfer a victim's phone number to a SIM the attacker controls. This intercepts SMS-based second-factor authentication codes, enabling account takeover. Spread from South Africa (2007) to Nigeria, then the US (~2014–5)."
+      "front": "Open banking / PSD2",
+      "back": "Regulation requiring banks to let regulated third parties access or operate accounts on customer request, enabling new services but introducing new fraud and control challenges."
     },
     {
       "type": "flashcard",
-      "front": "Authorised Push Payment (APP) Fraud",
-      "back": "Fraud where customers are tricked into voluntarily authorising bank transfers to criminals — e.g. by impersonating a solicitor and providing fake account details during a house purchase, or impersonating a bank to convince a victim to move savings to a 'safe' account. Totalled £354.3m in 2018 in the UK."
+      "front": "Fraud engine",
+      "back": "An automated system that scores transactions for fraud using anomaly detection, abuse detection, device signals, location, history, and other risk indicators."
     },
     {
       "type": "flashcard",
-      "front": "Business Email Compromise (BEC)",
-      "back": "A form of APP fraud targeting companies, where criminals hack or spoof corporate email accounts and send fraudulent payment instructions. Accounts for several billion dollars per year in global losses. Example: a Dutch museum sent £2.4m for a Constable painting to a fraudulent account."
-    },
-    {
-      "type": "flashcard",
-      "front": "M-Pesa",
-      "back": "A mobile phone banking service launched in Kenya in 2007 by Vodafone/Safaricom, originally to help migrant workers send money home. Now Kenya's largest financial institution. Over 200 similar services have been launched in developing countries. Uses encrypted PIN, payee, and value sent over SMS or USSD."
-    },
-    {
-      "type": "flashcard",
-      "front": "Sofort (open banking pioneer)",
-      "back": "A German payment service ('Sofortüberweisung' = immediate payment) that acts as an industrialised man-in-the-middle: it logs into the customer's bank on their behalf, verifies funds, and completes payment. Led to the EU's PSD2 (open banking) directive after banks' legal challenges failed."
-    },
-    {
-      "type": "flashcard",
-      "front": "PSD2 / Open Banking",
-      "back": "The EU's second Payment Services Directive (effective January 2018), requiring banks to open their systems to other regulated financial institutions on customer request, including allowing those institutions to act as the customer. Enables payment aggregation dashboards but also creates new fraud vectors."
-    },
-    {
-      "type": "flashcard",
-      "front": "Fraud Engine",
-      "back": "An automated system used by banks and merchants to assess whether card transactions are fraudulent. Combines anomaly detection (unusual patterns) and abuse detection (known fraud patterns). Uses signals such as bad IP addresses, location mismatches, and card history to score transactions."
-    },
-    {
-      "type": "flashcard",
-      "front": "CVM (Cardholder Verification Method)",
-      "back": "In EMV, a prioritised list of methods the card and terminal use to verify the cardholder — e.g. online PIN, local PIN, signature, or no verification. Both card and terminal have CVM lists; the selected method is the highest-priority method supported by both. In EMV v1, the CVM list is unauthenticated and can be manipulated."
-    },
-    {
-      "type": "flashcard",
-      "front": "Decimalisation Table Attack (HSM)",
-      "back": "An attack on HSM PIN derivation where the attacker manipulates the decimalisation table (used to convert hex DES output to decimal PINs) through repeated API calls with slightly different tables. By observing whether the returned encrypted PIN changes, individual digits of the target PIN can be deduced — a form of differential protocol analysis."
-    },
-    {
-      "type": "flashcard",
-      "front": "Differential Protocol Analysis (HSM)",
-      "back": "A class of attacks on HSM APIs that perform active manipulation of application logic by making repeated, slightly modified calls to leak secret information. Named by analogy with differential cryptanalysis. The decimalisation table attack is a key example."
-    },
-    {
-      "type": "flashcard",
-      "front": "Backwards Compatibility Attack (HSM)",
-      "back": "An attack exploiting HSM support for legacy cryptographic formats for interoperability. In the IBM 4758, the separate storage of left and right halves of triple-DES keys allowed an attacker to mix halves from different keys to create a new key usable for exporting others, reducing the problem to a single-DES keysearch."
-    },
-    {
-      "type": "flashcard",
-      "front": "Time-Memory Tradeoff Attack (HSM)",
-      "back": "An attack against HSMs that use 'check values' (hashes of keys). An attacker precomputes a table of keys and their hashes, then requests the HSM to generate keys of a desired type until a hash matching the precomputed table is found (~2^16 operations). Used against the IBM 4758."
-    },
-    {
-      "type": "flashcard",
-      "front": "Secure Card Reader-PIN (SCRP)",
-      "back": "A hardware component in Software PIN on COTS (SPoC) systems that accepts the customer's card and encrypts the PIN locally, even when the PIN is entered on an untrusted device like a merchant's iPhone. Ensures the compromised phone cannot know which card the PIN corresponds to."
-    },
-    {
-      "type": "flashcard",
-      "front": "Activation During Shopping (ADS)",
-      "back": "An early 3DS customer onboarding flaw where banks let the 3DS server enrol customers and solicit a password the first time their card was used at a participating merchant — making the system easy to attack since fraudsters could trigger enrolment and set a password of their choice."
-    },
-    {
-      "type": "flashcard",
-      "front": "Jackpotting (ATM attack)",
-      "back": "An attack where criminals hack an ATM to keep dispensing banknotes until it is empty, either by infecting the ATM with malware (via network or physical USB access) or by inserting rogue electronics. Seen occasionally since the mid-2010s."
-    },
-    {
-      "type": "flashcard",
-      "front": "Lebanese Loop",
-      "back": "A physical ATM attack where a loop of tape is inserted into the card slot. The victim's card becomes snagged; the victim abandons it thinking it is swallowed; the attacker retrieves it. If the attacker has also observed the PIN, they can then use the card."
-    },
-    {
-      "type": "flashcard",
-      "front": "Skimming (card fraud)",
-      "back": "Collecting the data from a genuine card's magnetic strip (and often its PIN) using an unauthorised reader — e.g. a device attached to an ATM or a rogue terminal at a point of sale. The collected data is re-encoded onto a blank card to create a clone. Widespread from the mid-2000s."
+      "front": "Anomaly vs abuse detection",
+      "back": "Anomaly detection looks for behaviour that deviates from a normal baseline. Abuse detection looks for known fraud patterns."
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In double-entry bookkeeping, what is the fundamental accounting equation?",
+      "question": "Why is double-entry bookkeeping relevant to security?",
       "options": [
-        "Assets = Liabilities + Equity",
-        "Income = Revenue - Expenses",
-        "Assets = Equity - Liabilities",
-        "Debits = Credits + Equity"
+        "It gives an integrity structure where each transaction must balance",
+        "It encrypts all accounting records",
+        "It removes the need for audit trails",
+        "It prevents all fraud automatically"
       ],
       "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which security principle in accounting splits responsibility so different people tally debits and credits?",
+      "question": "Different staff tally incoming and outgoing transactions. Which security principle is this?",
       "options": [
-        "Defence in Depth",
-        "Separation of Duties",
-        "Least Privilege",
-        "Dual Control"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The NIST cybersecurity framework expands the Prevent-Detect-Recover model to five phases: Identify, Protect, Detect, Respond, and Recover.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Why were interbank telegraph messages in the 19th century vulnerable to manipulation?",
-      "options": [
-        "They were sent unencrypted over radio waves",
-        "Messages were relayed by intermediate operators who could modify them",
-        "Banks used weak symmetric keys that could be brute-forced",
-        "There was no logging of sent messages"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the test key system, what cryptographic property does it NOT provide?",
-      "options": [
-        "Integrity — given a key and value you can create the test",
-        "One-wayness — given the test you cannot recreate the value",
-        "Resistance to chosen-plaintext attacks",
-        "A rudimentary hash-like authentication"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Using the test key table provided in the lecture, authenticate a payment of $284,912 and explain the process.",
-      "answer": "Look up each significant digit in its positional table: 2×1,000,000 → 53; 8×100,000 → 09 (wait — the example uses 0×1,000,000 → 53 for digit 0, then 2×100,000 → 09, 8×10,000 → 64, 4×1,000 → 69). The resulting test key sent with the message is 53096469. Each digit of the amount maps to a two-digit code via the table for that denomination, and the codes are concatenated."
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Banking systems using test keys experienced significant widespread fraud throughout the 1980s.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What primarily motivated the transition from test key systems to SWIFT?",
-      "options": [
-        "The need for faster transaction speeds",
-        "Lack of support for dual control and vulnerability to cryptanalysis",
-        "Government regulation requiring digital signatures",
-        "The invention of the internet"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of the following best describes SWIFT?",
-      "options": [
-        "A central bank that holds reserves for member banks",
-        "A structured messaging network with built-in encryption, authentication, and non-repudiation",
-        "A blockchain-based payment settlement system",
-        "A credit card processing network owned by Visa"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the original SWIFT design, banks fully trusted SWIFT employees to handle and verify transactions.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Why were authentication mechanisms in SWIFT required to be independent of encryption mechanisms?",
-      "options": [
-        "Authentication is faster without encryption",
-        "Due to export control rules — some countries (e.g. France) banned civilian use of cryptography for confidentiality",
-        "Encryption was not yet invented at the time",
-        "Banks preferred separate vendors for each function"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain how SWIFT achieves non-repudiation without digital signatures.",
-      "answer": "SWIFT uses distributed logging: the sending bank's message is logged by its RGP, then by SWIFT itself, then by the recipient's RGP before delivery. To repudiate a transaction, a bank would need to collude with two independent RGPs (often in different countries) and SWIFT simultaneously — making repudiation practically infeasible. This shows that distributed logs can achieve non-repudiation similarly to cryptographic signatures, and have the added benefit that judges understand logs more easily."
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In SWIFT 1, encryption for confidentiality is added via bilateral key exchange between banks.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What authentication mechanism does SWIFT 2 use?",
-      "options": [
-        "Test keys only",
-        "Bilateral key exchange with symmetric encryption",
-        "MAC plus signature with public key (proprietary)",
-        "Digital signatures using RSA"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which threat actor group was attributed to the Bank of Bangladesh hack?",
-      "options": [
-        "APT28 (Fancy Bear)",
-        "REvil",
-        "Lazarus Group (North Korea)",
-        "Carbanak"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the Bank of Bangladesh hack, the attackers sent unauthorised SWIFT messages and attempted to hide them.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "According to the lecture, where do failures most commonly occur in banking systems?",
-      "answer": "Failures most commonly occur at the interfaces — the boundaries between different technical systems and between humans and those systems. Banking has many such interfaces, and despite extensive regulation and scrutiny, these interface points are where security breaks down."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "When was the ATM commercially introduced, and by which bank?",
-      "options": [
-        "1938, by Citicorp in New York City",
-        "1967, by Barclays",
-        "1955, by HSBC in London",
-        "1980, by Bank of America"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Why was Citicorp's early ATM deployment withdrawn after 6 months?",
-      "options": [
-        "The technology was too unreliable",
-        "Regulators banned it as insecure",
-        "The main users were 'prostitutes and gamblers who didn't want to deal with tellers face to face'",
-        "The machines were frequently vandalised"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which were the two major security 'firsts' introduced with ATMs?",
-      "options": [
-        "Public-key cryptography and biometrics",
-        "Large-scale use of block ciphers and tamper-resistant hardware",
-        "Digital signatures and certificate authorities",
-        "Symmetric encryption and two-factor authentication"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Describe the IBM method for deriving a customer PIN from a PAN.",
-      "answer": "The PAN (Primary Account Number) is encrypted using a PIN key (KP) with DES, producing a ciphertext. This ciphertext is then decimalised (converted to decimal digits) to produce the 'Natural PIN'. An offset, stored on the card's magnetic stripe and chosen so that it represents the difference between the natural PIN and the customer's desired PIN, is added to the natural PIN to produce the customer PIN. This allows the customer to choose their own PIN while the bank can verify it using the KP."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the IBM PIN example given in the lecture, what is the natural PIN derived from PAN 8807012345691715 with key FEFEFEFEFEFEFEFE?",
-      "options": [
-        "6789",
-        "6565",
-        "0224",
-        "8807"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In early ATMs, where was the offset stored to allow offline PIN verification?",
-      "options": [
-        "In the bank's central database",
-        "In the ATM's local memory",
-        "On the card's magnetic stripe",
-        "Inside the HSM"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In early ATMs, every ATM had a copy of the PIN key KP, allowing any ATM to verify any PIN offline.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "More recent ATMs keep the offset on the card and verify the PIN entirely offline.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "How is dual control implemented in ATM infrastructure, and why is an HSM central to this?",
-      "answer": "Dual control is implemented by ensuring no single bank employee ever has access to cleartext PINs or keys. All cryptographic operations on PINs and keys are performed inside a tamper-resistant HSM. The per-ATM terminal master key is split between two bank officials, both of whom must supply their part. Cards and PINs are manufactured and sent to customers via separate channels using distinct facilities with separate HSMs, so no one person controls both."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "For online PIN verification when accepting another bank's card, what does the HSM do with the PIN?",
-      "options": [
-        "Decrypts it and sends it in plaintext to the network",
-        "Decrypts, then re-encrypts using a key shared with the network switch (e.g. VISA), with all operations inside the HSM",
-        "Stores it locally and compares with the PAN",
-        "Sends it directly to the card issuer using the bilateral SWIFT key"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Some banks turn off authentication and authorisation messages to ATMs for efficiency, which enables replay attacks.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain the xnor-to-null (or XOR-to-null) key attack on HSMs and why it is possible.",
-      "answer": "An attacker exploits the complexity of the HSM API by combining a cryptographic key with itself using XOR, which produces a key of all zeros. They then 'encrypt' the PIN derivation key using this zero key — XOR-ing with all zeros is the identity function, so this effectively reveals the key in plaintext. With the PIN derivation key exposed, the attacker can derive all PINs for cards issued using that key. This attack is possible because HSM APIs support hundreds of complex transaction types, creating combinations that designers did not anticipate as dangerous."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the UNC2891 attack, what physical device was inserted near the ATM?",
-      "options": [
-        "A GSM interceptor",
-        "A Raspberry Pi",
-        "A card skimmer on the ATM slot",
-        "A rogue Wi-Fi access point"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What did the UNC2891 attack intercept and replay?",
-      "options": [
-        "Customer PINs entered at the keypad",
-        "Card and PIN verification messages sent to the ATM's HSM",
-        "SWIFT messages between banks",
-        "Bank employee credentials over HTTPS"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The UNC2891 ATM attack was first observed in 2017 against banks in Indonesia.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Why are cloud HSMs becoming more common?",
-      "options": [
-        "They are more secure than on-premises HSMs",
-        "HSMs are expensive (more than servers) and complex to manage, mirroring the general move to cloud",
-        "Regulations now require cloud-based key storage",
-        "Cloud HSMs eliminate the need for PCI compliance"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What was the outcome of the US case Judd v. Citibank (1980)?",
-      "options": [
-        "The court sided with Citibank because its systems were proven secure",
-        "The court sided with Judd because Citibank's infallibility claim created an unattainable burden of proof for the customer",
-        "The case was dismissed due to lack of evidence",
-        "Judd was convicted of attempted fraud"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Federal Reserve Regulation E requires US banks to refund disputed ATM transactions unless the bank proves customer fraud.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What happened to John Munden after he disputed unauthorised ATM withdrawals totalling £460?",
-      "options": [
-        "He was refunded immediately and the bank apologised",
-        "He was prosecuted for 'attempting to obtain money by deception', convicted, and lost his job",
-        "He was compensated after a short investigation",
-        "He successfully sued the bank in civil court"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "How was John Munden's conviction eventually overturned?",
-      "options": [
-        "New CCTV footage proved his innocence",
-        "The bank refused to grant access to its systems for the defence expert, so the court disallowed all its computer evidence",
-        "A whistleblower from the bank testified on his behalf",
-        "He passed a polygraph test"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "John Munden's bank claimed its ATM network was invulnerable to bugs because the software was written in assembler.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Compare the fraud outcomes for US banks versus UK banks in the context of ATM liability, and explain the underlying economic concept.",
-      "answer": "Because US banks were liable for disputed ATM fraud under Regulation E, they invested heavily in countermeasures and experienced less fraud. UK banks (and those in Germany, Netherlands, Norway, South Africa) were permitted to blame customers for many years, so they invested less in fighting fraud. The result was that UK banks suffered more fraud and ultimately spent more on security than US banks. This is a classic example of moral hazard: when a party is insulated from the consequences of risk, they take insufficient steps to mitigate it."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of the following was NOT cited as a threat that ATM designers originally anticipated?",
-      "options": [
-        "A large number of trusted banks",
-        "Implementation loopholes and optimisations",
-        "Bank managers failing to implement dual control correctly",
-        "Criminals physically inserting devices into network switches near ATMs"
-      ],
-      "answer": 3
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Simple processing errors in ATMs account for a significant number of disputes, with an error rate between 1 in 10,000 and 1 in 100,000 transactions.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of the following represents a real example of ATM fraud by bank staff described in the lecture?",
-      "options": [
-        "Tellers sharing PIN pads with external criminals",
-        "A repairman installing skimmers and maintenance staff selling PINs to criminals using a test/deployment key reuse vulnerability",
-        "IT staff inserting Raspberry Pis near ATMs",
-        "Bank managers disabling HSMs to reduce costs"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "What does Roger Needham's quote about optimisation mean in the context of banking security?",
-      "answer": "Needham's quote — that optimisation takes something which works and replaces it with something that doesn't quite but is cheaper — captures how security is often degraded in practice. Banks and system operators make 'optimisations' like turning off authentication messages for efficiency, reusing test keys in deployment, or simplifying HSM API usage, each of which introduces vulnerabilities. The cost savings come at the expense of security properties that were carefully designed in, often leading to greater losses through fraud than the savings achieved."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which countries were noted as allowing banks to claim infallibility for ATM systems for many years before rules changed?",
-      "options": [
-        "France, Spain, Italy, Portugal",
-        "UK, Germany, Netherlands, Norway, South Africa",
-        "Japan, South Korea, Australia, Canada",
-        "Brazil, Argentina, Mexico, Chile"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "SWIFT has been used as a geopolitical tool — for example, Iran and many Russian banks have been removed from the network.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What is the role of the encryption key used in the IBM PIN method?",
-      "options": [
-        "KP encrypts the customer's chosen PIN to produce the PAN",
-        "KP encrypts the PAN using DES to produce an intermediate value from which the natural PIN is derived",
-        "KP encrypts the offset to protect it on the magnetic stripe",
-        "KP is a public key used to sign ATM transactions"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Why is the complexity of HSM APIs a security risk?",
-      "answer": "HSM APIs support hundreds of different transactions involving complex combinations of cryptographic operations across dozens of payment protocol variants. This complexity means the API surface is very large, and interactions between different API calls can produce unintended and dangerous outcomes — such as the xnor-to-null key attack, where combining API calls in an unexpected way leaks a master key. As the saying goes, people make APIs more complex until they break."
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the SWIFT architecture, a bank sending a message logs it locally before the RGP or SWIFT see it, providing an additional layer of non-repudiation.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What is 'decimalisation' in the context of the IBM PIN method?",
-      "options": [
-        "Dividing the PAN by 10 to reduce its length",
-        "Converting the hexadecimal DES output to decimal digits to extract the natural PIN",
-        "Encoding the offset as a decimal number on the magnetic stripe",
-        "Rounding the customer PIN to the nearest integer"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Why did the lecture state that 'things fail at the interfaces' in banking?",
-      "answer": "Banking systems involve many boundaries — between technical systems (e.g. between the bank's internal network and SWIFT, between an ATM and an HSM) and between humans and systems (e.g. bank employees, customers, maintenance staff). Security controls are often designed for the core of each system, but the points where two systems or a human and a system interact are harder to fully control and audit. Attacks like the Bangladesh Bank hack and UNC2891 both exploited these interfaces rather than breaking the cryptographic core."
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Clark-Wilson model focuses on confidentiality of data items in the same way as the Bell-LaPadula model.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which Clark-Wilson rule states that a CDI can only be changed by a Transformation Procedure?",
-      "options": [
-        "Rule 1",
-        "Rule 2",
-        "Rule 3",
-        "Rule 5"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "What does the Clark-Wilson model NOT prevent, and why is this a limitation?",
-      "answer": "The Clark-Wilson model ensures that state transitions preserve an invariant (such as balance) but does not ensure that state transitions are correct. For example, it cannot stop money being paid into the wrong bank account — the books remain balanced, but the wrong account is credited. It captures that a CDI can only be changed by authorised TPs, but does not specify the semantic correctness of those TPs."
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Clark-Wilson model involves maintaining state, unlike the stateless Bell-LaPadula model.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What does an Integrity Verification Procedure (IVP) do in the Clark-Wilson model?",
-      "options": [
-        "Converts a UDI into a CDI",
-        "Checks the validity of a CDI — e.g. verifying the books balance",
-        "Authorises a subject to initiate a Transformation Procedure",
-        "Logs each transaction to the audit trail"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What was the primary purpose of the Sarbanes-Oxley Act (SOX) of 2002?",
-      "options": [
-        "To liberalise banking regulation and allow banks to merge with insurance companies",
-        "To regulate US public companies by holding executives responsible for financial report accuracy and requiring adequate internal controls",
-        "To introduce PCI-DSS compliance requirements for payment card processors",
-        "To create the SWIFT interbank messaging system"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Gramm-Leach-Bliley Act (GLBA) of 1999 restricted banks from offering investment products alongside banking services.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What collapse directly triggered the passage of the Sarbanes-Oxley Act?",
-      "options": [
-        "Barings Bank",
-        "Wirecard",
-        "Enron",
-        "Lehman Brothers"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "According to a survey of 230 US corporate fraud cases (1996–2004), the majority of frauds before Sarbanes-Oxley were detected by mandated actors such as auditors and the SEC.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "What does the prevent–detect–recover model mean in the context of internal banking controls, and how is the balance between its three phases determined?",
-      "answer": "Prevent means stopping fraud before it occurs (e.g. dual control, functional separation). Detect means identifying it quickly when it does occur (e.g. daily reconciliation, fraud engines). Recover means getting money back and prosecuting offenders. The balance depends on the application: where detection may be delayed and recovery difficult (e.g. forged bank guarantees), extra emphasis goes on prevention. Where prevention is hard but detection can be fast (e.g. cash theft by tellers), the focus shifts to rapid detection and vigorous recovery as deterrents."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the Feezan Hameed ('Fizzy') fraud against Lloyds Bank business customers, what social engineering technique was used to release batch payments?",
-      "options": [
-        "He phished bank employees with fake IT helpdesk emails",
-        "He phoned business owners impersonating the bank, read recent transactions to 'authenticate' himself, then tricked them into computing an authorisation code on their second-factor device",
-        "He installed malware on business owners' computers via USB",
-        "He inserted a rogue device on the bank's internal network"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Feezan Hameed fraud against Lloyds Bank resulted in losses of at least £113m, of which only £47m was recovered.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What caused the collapse of Barings Bank, as described in the chapter?",
-      "options": [
-        "A programming bug in the core banking system caused double payments",
-        "Managers failed to control rogue trader Nick Leeson, blinded by greed for the bonuses his apparent profits earned them",
-        "A SWIFT fraud diverted funds to overseas accounts",
-        "A forged letter of guarantee allowed a large unsecured loan to default"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the Post Office Horizon case, 587 sub-postmasters sued the Post Office and won an apology and £58m in December 2019.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "What was the significance of the Post Office Horizon case for accounting system security?",
-      "answer": "It is the first and only case (as of the book's writing) where an accounting system was subjected to thorough adversarial examination in litigation. Many legal systems presume accounting systems are working correctly unless evidence to the contrary is produced. The case exposed how difficult it is to obtain access to the software and documentation needed to challenge a system, and the judge found the Horizon system 'was not remotely robust'. It illustrates that accounting systems need to be able to withstand scrutiny by hostile experts — not just satisfy internal auditors."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What fundamental audit failure was common to the McKesson and Robbins (1938), salad oil (1963), and Wirecard (2020) scandals?",
-      "options": [
-        "Auditors failed to verify that declared assets actually existed",
-        "Auditors used incorrect accounting standards",
-        "Auditors failed to check internal dual control procedures",
-        "Auditors were bribed by the companies"
-      ],
-      "answer": 0
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the Wirecard scandal, EY had verified Wirecard's overseas bank balances directly with the banks for three years before the fraud was discovered.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What response did German regulator BaFin make when the Financial Times published analysis of Wirecard's dubious accounting in 2019?",
-      "options": [
-        "It launched a formal investigation of Wirecard",
-        "It started a criminal investigation of the journalists and banned short selling of Wirecard shares",
-        "It ordered an emergency audit by an independent firm",
-        "It immediately froze Wirecard's banking licence"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Bookkeeping is believed to have been invented in the Middle East around 8500 BC, shortly after the emergence of agriculture.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What was the bulla used for in ancient Mesopotamia, and why is it considered a security protocol?",
-      "options": [
-        "A clay tablet inscribed with law codes; it authenticated agreements between merchants",
-        "A sealed clay envelope containing tokens representing stored goods; the seal had to be broken in front of a witness to retrieve goods, ensuring witnessed verification",
-        "A metal coin stamped by the king to certify its weight and purity",
-        "A wax seal on a papyrus document proving the identity of the sender"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What innovation in medieval times allowed businesses to grow beyond direct family supervision and control fraud risk?",
-      "options": [
-        "Single-entry bookkeeping",
-        "Double-entry bookkeeping",
-        "The introduction of paper money",
-        "The formation of guilds"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain functional separation of duty using the corporate purchasing example from the chapter.",
-      "answer": "In corporate purchasing, a line manager makes the purchase decision; a clerk raises a purchase order; a store clerk records the goods' arrival; accounts receive the invoice and correlate it with the purchase order and delivery receipt before raising a cheque; and the accounts manager signs the cheque. This involves multiple people with complementary roles, each of whom can catch errors or fraud by the others. Further controls include monthly departmental statements reviewed by the manager's boss, surprise internal audits, and annual external audits. This is functional separation: complementary roles are embedded in the normal business process."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of the following is NOT one of the nine formal rules of the Clark-Wilson model?",
-      "options": [
-        "The system must authenticate subjects attempting to initiate a TP",
-        "TPs must cause enough information to reconstruct them to be written to an append-only CDI",
-        "Subjects may change the type of any CDI with appropriate clearance",
-        "Only special subjects (security officers) may make changes to authorisation-related lists"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Credit cards were first invented by which company in the 1950s?",
-      "options": [
-        "American Express",
-        "VISA",
-        "Diners Club",
-        "Mastercard"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In a credit card transaction, authorisation and settlement flow through the same system at the same time.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What was VISA's primary response to growing magnetic strip card forgery in the early 1990s, and what was the measured effect?",
-      "options": [
-        "Introduced EMV chip cards; fraud fell 50% in the first year",
-        "Introduced CVVs (card verification values); VISA's fraud losses fell 15.5% in the first quarter of 1994",
-        "Introduced 3D Secure; online fraud fell by 30%",
-        "Mandated PINs for all card-present transactions; counterfeit fraud fell 25%"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "How does the chargeback mechanism discipline online merchants, and what are its limitations?",
-      "answer": "When a consumer disputes an online credit card transaction, the full amount is immediately debited back to the merchant along with a significant handling fee. If chargeback rates exceed about 10%, the bank may terminate the merchant's card acceptance. This incentivises merchants to screen orders carefully for fraud signals (e.g. unusual orders, dodgy geographies). However, leaving most liability with merchants is suboptimal because banks know far more about fraud patterns. International transactions, small amounts, and the difficulty of verifying overseas addresses mean the system works less well than it did when transactions were primarily local and large."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What does 'Activation During Shopping' (ADS) refer to in 3DS, and why was it a security problem?",
-      "options": [
-        "Customers could activate their card via an ATM instead of a branch; insecure because PIN was transmitted unencrypted",
-        "Banks let the 3DS server enrol customers and set passwords the first time their card was used, so fraudsters could trigger enrolment and set a password themselves",
-        "Merchants could activate contactless on a customer's card without their consent during checkout",
-        "Banks sent activation codes by post, which were intercepted in mail theft"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "EMV was developed by Europay, Mastercard, and VISA, with the standard maintained by EMVCo.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In which countries is EMV typically used with a signature rather than a PIN?",
-      "options": [
-        "Germany and France",
-        "UK and Netherlands",
-        "USA and Singapore",
-        "Kenya and South Africa"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain the EMV basic protocol for a chip-and-PIN transaction in a shop.",
-      "answer": "The card sends its Primary Account Number (PAN) and a certificate signed by the issuing bank to the terminal. The terminal sends an unpredictable number (nonce N), the date, the payment amount, and the customer's PIN. The card checks the PIN and, if correct, computes an ARQC — a MAC over the transaction data using the key KCB shared between the card and bank. The merchant cannot verify this MAC, so either accepts the risk of an offline transaction or forwards it to the issuing bank via the payment network. The bank checks the ARQC and available funds, then sends an ARPC back to the card, which responds with a transaction certificate."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Why was SDA (Static Data Authentication) EMV particularly vulnerable to man-in-the-middle attacks?",
-      "options": [
-        "SDA cards used weak 512-bit RSA keys easily factored",
-        "SDA cards could not do public-key cryptography, so the PIN was sent to the card in cleartext and the terminal could not verify the MAC",
-        "SDA did not include a nonce, making replay attacks trivial",
-        "SDA stored the PIN in plaintext on the magnetic strip"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In DDA (Dynamic Data Authentication), the card signs a nonce from the terminal using its private key, assuring the terminal the card is physically present.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What key advantage does CDA (Combined Data Authentication) have over DDA?",
-      "options": [
-        "CDA cards are much cheaper to produce",
-        "CDA cards can compute a signature on the MAC, tying transaction data to the public key and PIN verification, enabling safer offline operation",
-        "CDA eliminates the need for an unpredictable number",
-        "CDA supports contactless payments without transaction limits"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Describe the No-PIN attack on EMV and how it was carried out by the French gang.",
-      "answer": "A man-in-the-middle device tells the terminal that the card has accepted the PIN, while simultaneously telling the card that the terminal has initiated a chip-and-signature transaction (which requires no PIN). The card's flag indicating whether PIN verification was performed is proprietary to the issuer and was not checked by default. The French gang implemented this by cutting the chip from a stolen card and bonding it under the chip of a hobbyist smartcard, programmed to perform the man-in-the-middle attack. They stole approximately €600,000 across 7,000 transactions using 40 modified cards."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the preplay attack, what property of ATM terminal implementations was the key vulnerability?",
-      "options": [
-        "ATMs stored PINs in plaintext in local memory",
-        "The 'unpredictable number' generated by many ATMs was predictable — e.g. a counter cycling every 3 minutes",
-        "ATMs used a shared PIN key that could be extracted via the test dispense code",
-        "ATMs fell back to magnetic strip processing when the network was slow"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the preplay attack, the attacker replays a past transaction; the key insight is that future transactions can be pre-computed if the 'unpredictable number' is predictable.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What EMV test requirement allowed ATMs to use counters or weak RNGs as 'unpredictable numbers'?",
-      "options": [
-        "The test only required the tester to draw three 'unpredictable numbers' and check they were different",
-        "The standard did not specify any requirement for randomness",
-        "The test required 100 numbers but allowed up to 10% to repeat",
-        "The standard specified DES-generated values which were later found to be periodic"
+        "Separation of duties",
+        "Card-not-present processing",
+        "Preplay resistance",
+        "Contextual integrity"
       ],
       "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What was the 'liability shift' during EMV rollout, and what perverse outcome did it produce?",
+      "question": "Which best describes the prevent-detect-recover approach?",
       "options": [
-        "Merchants became liable if they did not use EMV; this reduced fraud immediately by 50%",
-        "Banks became liable if EMV was used and then just blamed customers saying their PIN was used, while fraud actually increased",
-        "Customers became liable for all fraud once they received an EMV card",
-        "Governments absorbed fraud losses during the transition period"
+        "A layered control strategy that assumes incidents may still happen",
+        "A cryptographic key generation algorithm",
+        "A method for replacing all audits with encryption",
+        "A rule that all fraud must be prevented upfront"
       ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "UK bank customers were prevented from reporting card fraud to police between April 2007 and 2015 as part of a deal negotiated between banks and police to massage crime statistics downward.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain the contactless payment protocol and identify two security vulnerabilities that researchers found.",
-      "answer": "In the US variant, the terminal generates an unpredictable number N; the card uses its key KC to generate a dynamic CVV as a 3-digit MAC on selected transaction data including N, which is forwarded to the issuing bank. Risk is limited by transaction amount ceilings. Vulnerabilities found include: (1) researchers found they could increase the UK contactless limit from £30 to £5,500 by pretending to be a phone, because phones and terminals send unauthenticated flags to each other; (2) a 'middleperson' attack routes a transaction from a stolen card through two phones to a contactless terminal, which falsely accepts the claim that the cardholder was authenticated by the phone's biometric."
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What was the Tesco Bank fraud of November 2016, and how much did the bank lose?",
+      "question": "Why did test keys become inadequate for modern interbank payments?",
       "options": [
-        "A preplay attack exploiting weak ATM RNGs; £2.2m from 8,261 accounts, ultimately £700,000 lost",
-        "A SWIFT-based wire transfer fraud; £20m transferred to offshore accounts",
-        "A phishing campaign targeting 50,000 customers; £5m in total losses",
-        "A mag-strip skimming operation at petrol stations; £3m stolen"
+        "They lacked strong modern cryptographic assurance and did not scale well to modern banking needs",
+        "They prevented all message authentication",
+        "They required public-key certificates",
+        "They could not be sent over telegraph lines"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How does SWIFT achieve practical non-repudiation?",
+      "options": [
+        "Through independent distributed logs at multiple nodes",
+        "By storing every customer's PIN",
+        "By using double-entry bookkeeping only",
+        "By requiring every message to be handwritten"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the IBM PIN method, why is the offset needed?",
+      "options": [
+        "It lets the customer's chosen PIN differ from the natural PIN",
+        "It proves the merchant is genuine",
+        "It encrypts the PAN with RSA",
+        "It replaces the need for HSMs"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main role of an HSM in ATM PIN processing?",
+      "options": [
+        "Perform sensitive cryptographic operations without exposing cleartext keys or PINs",
+        "Store all customer account balances",
+        "Generate paper receipts",
+        "Replace dual control with single-person control"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is HSM API complexity dangerous?",
+      "options": [
+        "Unexpected combinations of allowed commands can leak secrets",
+        "It prevents any bank from using encryption",
+        "It makes physical tampering impossible",
+        "It removes backwards compatibility"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The decimalisation table attack leaks a PIN by doing what?",
+      "options": [
+        "Changing protocol parameters and comparing resulting outputs",
+        "Watching a user type the PIN at an ATM",
+        "Factoring the card's RSA key",
+        "Breaking the SWIFT network"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "The UNC2891 ATM attack primarily exploited which system boundary?",
+      "options": [
+        "The communication path between ATM infrastructure components",
+        "The mathematical security of DES",
+        "The accounting equation",
+        "The EMV certificate chain"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why did Regulation E improve US banks' incentive to prevent ATM fraud?",
+      "options": [
+        "Banks had to refund disputed transactions unless they could prove customer fraud",
+        "Customers became liable for all disputed withdrawals",
+        "ATMs were banned from using PINs",
+        "Banks were forbidden from using HSMs"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Clark-Wilson item represents validated ledger data subject to integrity constraints?",
+      "options": [
+        "CDI",
+        "UDI",
+        "ARQC",
+        "CVV"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which Clark-Wilson procedure checks whether controlled data remains valid?",
+      "options": [
+        "IVP",
+        "TP",
+        "CVM",
+        "ARPC"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is a key limitation of Clark-Wilson integrity controls?",
+      "options": [
+        "They can preserve balance without proving the transaction is semantically correct",
+        "They cannot model audit trails",
+        "They are only about confidentiality",
+        "They forbid separation of duties"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does ecological validity matter in accounting security?",
+      "options": [
+        "Records must correspond to real assets and events, not only balance internally",
+        "Every asset must be encrypted",
+        "Accounting systems must avoid all external audits",
+        "Fraud engines must use only anomaly detection"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Functional separation of duty is best illustrated by which process?",
+      "options": [
+        "Different staff ordering, receiving, checking, and approving payment for goods",
+        "One manager approving all transactions alone",
+        "A customer entering a PIN twice",
+        "A card computing an ARQC"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a card transaction, what is the issuing bank?",
+      "options": [
+        "The bank that issued the customer's card and authorises or declines the transaction",
+        "The merchant's bank",
+        "The payment terminal manufacturer",
+        "The SWIFT regional gateway"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why are different CVVs used for magnetic stripe, chip, and signature strip contexts?",
+      "options": [
+        "To prevent data captured in one channel being reused to forge another",
+        "To make the card number shorter",
+        "To replace the need for fraud engines",
+        "To allow merchants to choose PINs"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which payment situation is card-not-present?",
+      "options": [
+        "An online purchase using card details",
+        "A chip-and-PIN purchase in a shop",
+        "A cash withdrawal using an ATM card",
+        "A contactless tap at a terminal"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does an EMV ARQC prove to the issuing bank?",
+      "options": [
+        "That the card generated a transaction MAC over supplied data",
+        "That the merchant is honest",
+        "That the customer read all terms",
+        "That no malware is present"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is DDA stronger than SDA?",
+      "options": [
+        "The card can dynamically sign a terminal challenge to prove physical presence",
+        "It removes the need for any cryptography",
+        "It stores the PIN on the magnetic stripe",
+        "It makes the terminal ignore the card"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the core failure in the EMV No-PIN attack?",
+      "options": [
+        "The terminal and card have inconsistent beliefs about whether PIN verification occurred",
+        "The PAN is encrypted with the wrong algorithm",
+        "The customer forgets the PIN",
+        "The card cannot compute a MAC"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What makes a preplay attack possible?",
+      "options": [
+        "The terminal's unpredictable number is predictable",
+        "The cardholder writes down the PIN",
+        "The merchant uses a receipt printer",
+        "The acquiring bank charges a fee"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What risk does man-in-the-browser malware create in online banking?",
+      "options": [
+        "The user sees one transaction while different data is sent to the bank",
+        "The card chip becomes physically cloned",
+        "The acquiring bank disappears",
+        "Double-entry bookkeeping stops balancing"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does SIM swap fraud undermine SMS-based authentication?",
+      "options": [
+        "The attacker receives the victim's SMS codes after taking control of the phone number",
+        "The attacker factors the SIM's RSA key",
+        "SMS always sends PINs in plaintext to merchants",
+        "It disables all fraud engines"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Authorised Push Payment fraud is best described as what?",
+      "options": [
+        "Tricking the victim into voluntarily authorising a transfer to the criminal",
+        "Stealing a card and guessing its PIN",
+        "Breaking an HSM with a laser",
+        "Using SWIFT to settle credit card payments"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Business Email Compromise mainly attacks which process?",
+      "options": [
+        "Payment authorisation through fraudulent business instructions",
+        "EMV offline PIN verification",
+        "Double-entry arithmetic",
+        "ATM cash cassette loading"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which risk is introduced by open banking?",
+      "options": [
+        "New third-party access paths can complicate fraud and money-laundering controls",
+        "Banks no longer use authentication",
+        "Cards cannot use chips",
+        "All payments become reversible"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Anomaly detection in a fraud engine looks for what?",
+      "options": [
+        "Behaviour that deviates from a normal baseline",
+        "Only known fraud signatures",
+        "Only balanced ledgers",
+        "Only SWIFT messages"
       ],
       "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The Tesco Bank 2016 fraud exploited contactless payment interfaces on mobile devices using mag-strip data, originating from crooks in Brazil.",
+      "question": "Double-entry bookkeeping can help detect inconsistencies, but it does not prove that recorded assets really exist.",
       "answer": true
     },
     {
       "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What is the key difference between anomaly detection and abuse detection in a fraud engine?",
-      "options": [
-        "Anomaly detection uses rule-based systems; abuse detection uses machine learning",
-        "Anomaly detection looks for unusual patterns deviating from a baseline; abuse detection looks for known fraud patterns",
-        "Anomaly detection applies to card-present transactions; abuse detection to card-not-present",
-        "Anomaly detection blocks transactions immediately; abuse detection flags them for manual review"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Why are false positives a major problem in fraud engines, and what incentive structure helps address this?",
-      "answer": "Even at a 0.1% false-positive rate, tens of thousands of legitimate transactions per second in modern payment systems produce a flood of wrongly blocked transactions and customer complaints. From a security manager's perspective, false positives are a cost. However, if the fraud engine's owner is the Chief Marketing Officer rather than the CFO, a 25% improvement in the false-positive rate translates to '1% more sales' — providing a strong commercial incentive to invest in better precision. This illustrates that aligning security incentives with business incentives (reducing friction and increasing sales) produces better security outcomes than treating fraud prevention purely as a compliance cost."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "CAP (Chip Authentication Program) readers enable a mugger to do something dangerous — what is it?",
-      "options": [
-        "Generate unlimited one-time passwords without a card",
-        "Check whether a stolen card's PIN is correct without going to an ATM, by verifying the PIN against the card",
-        "Bypass the bank's online authorisation checks by generating offline tokens",
-        "Clone an EMV card's private key"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
       "subtype": "true_false",
-      "question": "Banking malware such as Zeus and Dridex could perform man-in-the-browser attacks, modifying what the user sees while submitting different transaction data to the bank.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Where did SIM swap fraud originate and when did it spread to the United States?",
-      "options": [
-        "Originated in Russia around 2010, spread to the US around 2016",
-        "Originated in South Africa around 2007, spread via Nigeria, then to the US around 2014–15",
-        "Originated in Brazil around 2005, spread to Europe around 2012",
-        "Originated in China around 2015, spread to the US around 2018"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Why is two-channel authentication using SMS considered to be reaching the end of its useful life?",
-      "answer": "SMS-based second factors are vulnerable to SIM swap fraud, where attackers persuade or bribe phone company insiders to transfer a victim's number to an attacker-controlled SIM. Researchers found SIM swap succeeded every time with major US carriers when testing. Additionally, SS7 signalling protocol vulnerabilities allow remote interception of SMS messages. Phone company customer service reps — tens of thousands of them — can be bribed, socially engineered, or have their machines hacked to redirect numbers. The EU's PSD2 mandating two-factor authentication has made SIM swap attacks more lucrative, as attackers get more practice."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What is Authorised Push Payment (APP) fraud, and how much did it total in the UK in 2018?",
-      "options": [
-        "Fraud via stolen card details used for online purchases; £120m in 2018",
-        "Fraud where customers are tricked into authorising bank transfers to criminals; £354.3m in 2018",
-        "ATM fraud where criminals use cloned cards; £200m in 2018",
-        "Corporate account takeover via compromised bank employee credentials; £450m in 2018"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In APP fraud, the UK Parliament's Treasury committee noted that rapid irrevocable payments were simply the wrong default.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "What is Sofort, how does it work technically, and what was its legal and regulatory outcome?",
-      "answer": "Sofort ('Sofortüberweisung' — immediate payment) is a German online payment service. When a customer clicks pay, Sofort logs into their bank on their behalf, presents the bank's authentication challenge to the customer, verifies sufficient funds, and sends itself the payment — essentially an industrialised man-in-the-middle against the customer's bank. Banks sued Sofort for unfair competition and inducing customers to breach terms of service by entering credentials at a third-party site. They lost: the German Federal Antitrust Office ruled the banks' terms of service hindered competition. Sofort obtained a banking licence. This case directly influenced the EU's PSD2 (open banking) directive."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What new fraud risk does open banking (PSD2) introduce?",
-      "options": [
-        "Banks can now access each other's customer PINs",
-        "If a criminal sets up an account at bank A, authorises a fintech at bank B to operate it, and uses B to instruct A to send money to C, bank A cannot refuse — undermining traditional fraud and money-laundering controls",
-        "Customers must share passwords with fintech apps, creating mass credential theft",
-        "Open banking eliminates the use of HSMs, weakening cryptographic protections"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "AliPay and WeChat Pay together held over 90% of the Chinese mobile payment market in 2020.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What root cause does the chapter identify for most HSM vulnerabilities discovered over time?",
-      "options": [
-        "Inadequate physical tamper resistance of HSM enclosures",
-        "Weak random number generators used for key generation",
-        "Featuritis — APIs made progressively more complex to accommodate more customers until they break",
-        "Failure to implement dual-key management for master keys"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Describe the backwards compatibility attack on the IBM 4758 HSM and how a time-memory tradeoff made it easier.",
-      "answer": "The IBM 4758 stored the left and right halves of triple-DES keys separately with different types, but failed to bind them together. An attacker could combine the left half of one single-DES key with the right half of another to form a triple-DES key, and use this to export other keys — reducing the security to a single-DES keysearch. To speed this up using a time-memory tradeoff: the 4758 generated 'check values' (hashes of keys). An attacker precomputes a table of ~2^40 keys and their check values, then requests the HSM to generate keys of the desired type until a hash appears in the table (~2^16 queries, taking about an hour). The matching key is now known and can be used to attack the export mechanism."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What was the EMV attack on HSMs discovered after HSM vendors had patched earlier vulnerabilities?",
-      "options": [
-        "A flaw in the bilateral key exchange protocol allowing man-in-the-middle key substitution",
-        "The 'Secure Messaging For Keys' feature allowed an attacker to determine key bytes one at a time by choosing message lengths so one byte of the target key crosses an encryption block boundary",
-        "A side-channel attack on DDA card personalisation leaking the card private key",
-        "A replay attack on the ARQC allowing re-use of captured cryptograms"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "At one time or another, researchers have found an attack on at least one version of every security module on the market.",
-      "answer": true
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "How did Jolyon Clulow exploit error messages in an HSM attack?",
-      "options": [
-        "By causing the HSM to crash and reading key material from the core dump",
-        "By sending PIN blocks with wrong account numbers: when the decrypted result was not decimal, an error was returned, allowing the attacker to deduce the PIN through a series of probing queries",
-        "By using error messages to enumerate valid account numbers from the HSM",
-        "By triggering error messages that caused the HSM to switch to a weaker key type"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain the decimalisation table attack on HSM PIN derivation, and why it is classified as differential protocol analysis.",
-      "answer": "The IBM PIN derivation method uses a decimalisation table to convert hex DES output to decimal digits. HSM vendors made this table a parameter. The attack sends repeated PIN derivation queries where each query slightly modifies the decimalisation table — for example, setting all entries to zero, then changing one entry to one. If the returned encrypted PIN changes, the attacker knows that the DES output contained the digit corresponding to that table position. By making a few dozen such queries, the attacker can deduce the full PIN. This is differential protocol analysis because it compares slightly modified runs of the same protocol to leak one bit of information at a time from a secret value."
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "According to the chapter, what is the first thing ATM system designers of the 1980s got wrong?",
-      "options": [
-        "They used DES when triple-DES was already available",
-        "They worried about criminals being clever, when they should have worried about banks' own system designers, implementers and testers being unable to use the security systems designed for them",
-        "They did not anticipate the internet and online banking",
-        "They trusted phone companies to provide secure authentication infrastructure"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What is the 'confirmation of payee' control, and which regulator ordered its implementation in the UK?",
-      "options": [
-        "A requirement to verify the CVV on all card-present transactions; ordered by EMVCo",
-        "A check that alerts the sender if the account holder's name does not match when making a first payment to a new account; ordered by the UK Payment Services Regulator",
-        "A requirement for a second manager to approve all payments over £10,000; ordered by the FCA",
-        "An SMS confirmation sent to the payee confirming receipt; ordered by the Bank of England"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "ISO 27001 certification has proven highly effective at preventing major data breaches, as certified organisations rarely appear in breach statistics.",
+      "question": "Separation of duties reduces risk by ensuring one person controls every stage of a transaction.",
       "answer": false
     },
     {
       "type": "quiz",
+      "subtype": "true_false",
+      "question": "SWIFT is primarily a messaging system rather than a central bank holding customer deposits.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Distributed logging can support non-repudiation even without ordinary digital signatures.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An HSM removes all banking security risk once installed.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Dual control aims to prevent any single person from having full control over a sensitive operation.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Complex HSM APIs can create protocol-level vulnerabilities even when the hardware is tamper-resistant.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Moral hazard can make banks under-invest in security if customers bear fraud losses.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Clark-Wilson model is mainly a confidentiality model like Bell-LaPadula.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A transformation procedure should preserve the integrity constraints of constrained data items.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Ecological validity means that records are internally consistent, even if they do not correspond to real assets.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "SOX made internal control over financial reporting a major executive responsibility for US public companies.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The same CVV should safely be reused across magnetic stripe, chip, and online channels.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Card-not-present transactions are riskier partly because the merchant cannot physically inspect the card.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In EMV, DDA provides dynamic evidence that the card is present by having the card sign a challenge.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The No-PIN attack required the attacker to know the customer's PIN.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A predictable EMV unpredictable number undermines freshness.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Fraud engines must balance catching fraud against false positives that block legitimate customers.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Open banking creates no new security risk because all third parties are regulated.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Banking failures often occur at interfaces between systems, people, and organisations rather than in the cryptographic core alone.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
       "subtype": "text_answer",
-      "question": "What lessons does the chapter draw from the history of card fraud for security engineers designing future payment systems?",
-      "answer": "First, designers should worry more about the usability of security systems for the engineers and administrators who implement them than about clever criminals breaking cryptography — most failures are implementation failures. Second, designers should identify which attacks can be industrialised (scaled up) and focus countermeasures on those. Third, the liability structure determines how much each party invests in security: placing liability on those who can best prevent fraud (often banks) produces better outcomes than placing it on those least able to (merchants and customers). Fourth, fraud evolves to the periphery as the core is hardened — when EMV closed down card-present fraud, online and CNP fraud surged. Systems need holistic rather than piecemeal security."
+      "question": "Explain how double-entry bookkeeping supports integrity but does not by itself prevent fraud.",
+      "answer": "Double-entry bookkeeping requires debits and credits to balance, so many errors or unauthorised changes become visible. But balanced records can still describe false transactions or non-existent assets, so audits, separation of duties, and external verification are still needed."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for discussing banking security controls.",
+      "answer": "Start with integrity goals; explain double-entry bookkeeping; add separation of duties and dual control; discuss audit trails and random audits; cover prevent-detect-recover; explain cryptographic controls such as HSMs and SWIFT; finish with liability and incentives."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is separation of duties stronger than relying on one trusted employee?",
+      "answer": "It reduces the chance that one person can commit fraud unnoticed. Different people have different roles and evidence, so fraud requires collusion or leaves inconsistencies for another role to detect."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how SWIFT non-repudiation works and what assumption it relies on.",
+      "answer": "Messages are logged independently by multiple parties, including gateway processors and SWIFT itself. A sender cannot plausibly deny a message unless several independent logging parties collude or their records are compromised."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What does the IBM PIN derivation method illustrate about banking security design?",
+      "answer": "It shows how cryptography, customer usability, and operational constraints interact. The bank can verify customer-chosen PINs using a derived natural PIN and offset, but the design depends heavily on protecting PIN keys and handling offsets safely."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are HSMs central to payment systems but not sufficient on their own?",
+      "answer": "HSMs protect keys and perform sensitive operations inside tamper-resistant hardware. However, insecure APIs, legacy compatibility, poor operational controls, weak network interfaces, or replayable messages can still compromise the system."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between dual control and functional separation of duty.",
+      "answer": "Dual control requires two or more principals to authorise the same sensitive action. Functional separation divides a business process into complementary roles, such as ordering, receiving, checking, and approving payment."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is liability allocation a security mechanism in banking?",
+      "answer": "The party that bears fraud losses has stronger incentives to prevent them. If banks can blame customers, they may under-invest; if banks must refund unless they prove fraud, they are pushed to improve controls."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the Clark-Wilson model in terms of CDIs, UDIs, IVPs, and TPs.",
+      "answer": "UDIs are unvalidated inputs. TPs validate or transform data and may convert UDIs into controlled CDIs. CDIs are integrity-protected data items. IVPs check that CDIs still satisfy required integrity conditions, such as balanced books."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does Clark-Wilson suit commercial banking better than a pure confidentiality model?",
+      "answer": "Banking mainly needs integrity: transactions must be authorised, balanced, auditable, and processed through valid procedures. Clark-Wilson captures controlled transformation and audit rather than focusing only on who may read secrets."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What does ecological validity add beyond ordinary accounting consistency?",
+      "answer": "It asks whether recorded assets, transactions, and balances correspond to reality. A ledger can balance internally while inventory, cash, or bank balances are fabricated or missing."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why payment card systems use different values for different channels.",
+      "answer": "Channel-specific values such as CVV, iCVV, and signature-strip CVV prevent data stolen in one context from being reused in another. This limits the value of skimming or chip data capture."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for comparing SDA, DDA, and CDA in EMV.",
+      "answer": "Define each variant; explain SDA's static data and weaker protection; explain DDA's dynamic signature over a terminal nonce; explain CDA's binding of authentication to transaction data; compare security, cost, and offline transaction safety."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the No-PIN attack as a failure of agreement between protocol participants.",
+      "answer": "The terminal believes the card verified a PIN, while the card believes the transaction used signature verification. The protocol failed to bind the cardholder verification result clearly into authenticated transaction data."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why the EMV preplay attack is a freshness failure.",
+      "answer": "The terminal's supposedly unpredictable number is meant to ensure each transaction is fresh. If it is predictable, attackers can prepare valid cryptograms in advance and replay them later as if they were new."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why do fraud engines have a false-positive problem?",
+      "answer": "Legitimate transactions vastly outnumber fraudulent ones, so even a small false-positive rate can block many real customers. This creates costs in complaints, lost sales, and customer friction."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Distinguish anomaly detection and abuse detection in fraud engines.",
+      "answer": "Anomaly detection flags behaviour that differs from a customer's or system's normal baseline. Abuse detection looks for known patterns associated with fraud, such as suspicious IP addresses, transaction sequences, or merchant behaviours."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is SMS-based authentication vulnerable in banking?",
+      "answer": "SMS depends on phone-number control by mobile operators. SIM swap fraud, insider abuse, social engineering, and signalling weaknesses can redirect codes to attackers."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why APP fraud is difficult to handle with traditional unauthorised-transaction controls.",
+      "answer": "The customer authorises the payment, so the transaction may appear legitimate to the bank's systems. The fraud lies in deception before authorisation, requiring controls such as confirmation of payee, friction, warnings, and liability rules."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the security tension in open banking?",
+      "answer": "Open banking enables competition and user-authorised third-party services, but it also expands the number of actors and paths that can initiate account actions, complicating fraud prevention and accountability."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why do banking systems often fail at interfaces?",
+      "answer": "Interfaces connect different systems, organisations, people, and assumptions. Attacks often exploit mismatches at these boundaries, such as ATM-to-HSM messages, card-to-terminal negotiation, browser-to-bank interaction, or third-party payment access."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for analysing a payment fraud case.",
+      "answer": "Identify the asset and transaction flow; locate the interface or control failure; map prevention, detection, and recovery; assess cryptographic, procedural, and human controls; identify liability incentives; explain whether the attack scales industrially."
     }
   ]
 }
