@@ -1,809 +1,809 @@
 {
-"entries": [
-{
-"type": "flashcard",
-"front": "Group vs role in access control",
-"back": "A group is a set or list of principals. A role is a fixed set of permissions that principals may assume for a period, often with rules about who may hold the role and how it is handed over."
-},
-{
-"type": "flashcard",
-"front": "Protection domain",
-"back": "A protection domain is the set of resources available to a process or thread. Access control can be viewed as depending on subject, program, and object, not just user and file."
-},
-{
-"type": "flashcard",
-"front": "Unix file permissions",
-"back": "Unix file permissions give read, write, and execute rights separately to owner, group, and world. This is a simple two-dimensional access-control model over users and files."
-},
-{
-"type": "flashcard",
-"front": "Set-user-id in Unix",
-"back": "The set-user-id attribute lets an executable run with the privileges of its owner rather than the invoking user. It approximates program-dependent access control but is dangerous when overused, especially with root ownership."
-},
-{
-"type": "flashcard",
-"front": "Confused deputy risk in suid programs",
-"back": "A suid program may act with higher authority while being influenced by an untrusted user's inputs or environment. If it does not carefully control that influence, the user can make the privileged program misuse its authority."
-},
-{
-"type": "flashcard",
-"front": "Same-origin policy",
-"back": "The same-origin policy restricts active web content so that scripts can communicate only with their origin. It is enforced through browser sandboxing to limit what downloaded code can access."
-},
-{
-"type": "flashcard",
-"front": "Software sandbox",
-"back": "A software sandbox is a restricted execution environment for untrusted code. It limits access to local resources and communication channels so downloaded code cannot freely act as the user."
-},
-{
-"type": "flashcard",
-"front": "Virtual machine",
-"back": "A virtual machine emulates a complete machine with its own operating system, isolated from hardware and other VMs by a hypervisor or virtual machine monitor."
-},
-{
-"type": "flashcard",
-"front": "Container vs virtual machine",
-"back": "A container is an isolated process that shares the host kernel, while a VM has a complete guest OS. Containers are lighter but usually provide weaker isolation because the kernel is shared."
-},
-{
-"type": "flashcard",
-"front": "Trusted Platform Module",
-"back": "A TPM is a separate processor chip used for functions such as trusted boot and disk encryption. It can bind later boot stages to hashes of earlier loaded components."
-},
-{
-"type": "flashcard",
-"front": "Rings of protection",
-"back": "Rings of protection are hardware privilege levels. Ring 0 normally has kernel-level privilege, while higher-numbered rings have less privilege."
-},
-{
-"type": "flashcard",
-"front": "Intel SGX",
-"back": "Intel SGX supports encrypted memory enclaves for trusted code, isolating it even from privileged software. Its security can still be undermined by side-channel attacks."
-},
-{
-"type": "flashcard",
-"front": "ARM TrustZone",
-"back": "ARM TrustZone separates execution into an open world for the normal OS and a closed trusted execution environment for sensitive operations such as cryptography and critical I/O."
-},
-{
-"type": "flashcard",
-"front": "CHERI capabilities",
-"back": "CHERI adds fine-grained hardware capabilities, allowing memory access rights to be expressed more precisely and enabling efficient sandboxing inside a process."
-},
-{
-"type": "flashcard",
-"front": "Stack smashing",
-"back": "Stack smashing is a buffer overflow attack in which overlong input overwrites stack control data such as a return address, allowing attacker-controlled execution."
-},
-{
-"type": "flashcard",
-"front": "Use-after-free",
-"back": "Use-after-free is a type-safety failure where memory is freed but still referenced. An attacker may place malicious data at the freed location and later influence execution through the stale pointer."
-},
-{
-"type": "flashcard",
-"front": "SQL injection",
-"back": "SQL injection occurs when untrusted input is incorporated into a database query as code rather than data. It is mitigated by treating input as suspicious and validating or parameterising it."
-},
-{
-"type": "flashcard",
-"front": "TOCTTOU race",
-"back": "A time-of-check-to-time-of-use race occurs when a system checks a condition, then later acts on it after the relevant state has changed."
-},
-{
-"type": "flashcard",
-"front": "Return-oriented programming",
-"back": "Return-oriented programming chains existing code fragments, called gadgets, to compute without injecting new executable code. It can bypass defences that only stop execution of data pages."
-},
-{
-"type": "flashcard",
-"front": "Stack canary",
-"back": "A stack canary is a compiler-inserted value placed near control data on the stack. If an overflow changes it, the program can detect corruption before using the overwritten return address."
-},
-{
-"type": "flashcard",
-"front": "Data Execution Prevention",
-"back": "Data Execution Prevention marks memory as either executable code or non-executable data. It stops classic injected shellcode but not attacks that reuse existing executable code."
-},
-{
-"type": "flashcard",
-"front": "Address Space Layout Randomisation",
-"back": "ASLR randomises where code and data are placed in memory, making it harder for an attacker to predict addresses needed for exploitation. Information leaks can weaken it."
-},
-{
-"type": "flashcard",
-"front": "Least privilege in software",
-"back": "Software should run with only the privileges it needs. This limits the damage if a program is compromised and reduces reliance on powerful trusted components."
-},
-{
-"type": "flashcard",
-"front": "Environmental creep",
-"back": "Environmental creep occurs when a protection model designed for a narrow benign environment is extended into broader or more hostile settings without redesigning its security assumptions."
-},
-{
-"type": "flashcard",
-"front": "Meltdown and Spectre",
-"back": "Meltdown and Spectre are CPU side-channel attacks exploiting performance optimisations such as out-of-order and speculative execution to infer protected memory through timing effects."
-},
-{
-"type": "flashcard",
-"front": "Security policy model",
-"back": "A security policy model is a concise statement of the protection properties a system must satisfy. It is more precise than vague organisational security goals."
-},
-{
-"type": "flashcard",
-"front": "Security target",
-"back": "A security target describes the protection mechanisms a particular product provides and how they meet control objectives. It supports testing and evaluation of that product."
-},
-{
-"type": "flashcard",
-"front": "Protection profile",
-"back": "A protection profile is an implementation-independent specification used to compare and evaluate products with similar security goals."
-},
-{
-"type": "flashcard",
-"front": "Multilevel Security",
-"back": "Multilevel Security manages information at different classification levels. Users may read only data at or below their clearance, and information is intended to flow upward rather than downward."
-},
-{
-"type": "flashcard",
-"front": "Compartment or codeword",
-"back": "A compartment or codeword further restricts access beyond classification level. A principal must have the required clearance and all relevant compartments to read the document."
-},
-{
-"type": "flashcard",
-"front": "Trusted Computing Base",
-"back": "The TCB is the set of hardware, software, and procedures whose correct functioning is sufficient to enforce the security policy, or whose failure could breach it."
-},
-{
-"type": "flashcard",
-"front": "Reference monitor",
-"back": "A reference monitor is the abstract mechanism that mediates access by subjects to objects. It should be always invoked, tamperproof, and small enough to verify."
-},
-{
-"type": "flashcard",
-"front": "Bell-LaPadula simple security property",
-"back": "The simple security property says no read up: a subject may not read data at a higher classification level than its clearance."
-},
-{
-"type": "flashcard",
-"front": "Bell-LaPadula star property",
-"back": "The star property says no write down: a subject may not write information to a lower classification level than its current level, limiting downward leaks."
-},
-{
-"type": "flashcard",
-"front": "Tranquility",
-"back": "Tranquility restricts label changes. Strong tranquility forbids label changes during operation; weak tranquility allows changes only when they do not violate the security policy."
-},
-{
-"type": "flashcard",
-"front": "High water mark",
-"back": "The high water mark principle raises a process or object to reflect the highest classification of data that has influenced it. This prevents later writing influenced data downward."
-},
-{
-"type": "flashcard",
-"front": "Noninterference",
-"back": "Noninterference requires that High-level actions have no observable effect on what Low-level users can see. It is stronger than simple no-read-up and no-write-down rules."
-},
-{
-"type": "flashcard",
-"front": "Nondeducibility",
-"back": "Nondeducibility requires that Low users cannot deduce High inputs from their observations. It is weaker than noninterference and can still permit near-certain inference."
-},
-{
-"type": "flashcard",
-"front": "Type Enforcement",
-"back": "Type Enforcement assigns subjects to domains and objects to types, then controls allowed interactions between them. It can express confidentiality, integrity, and pipeline constraints."
-},
-{
-"type": "flashcard",
-"front": "SELinux",
-"back": "SELinux is a Linux security architecture using a policy engine based on Type Enforcement and related models. It can express MAC, RBAC, and MLS-style constraints."
-},
-{
-"type": "flashcard",
-"front": "Low water mark",
-"back": "The low water mark principle tracks integrity contamination: an object's integrity level becomes no higher than the lowest-integrity input that contributed to it."
-},
-{
-"type": "flashcard",
-"front": "Data diode",
-"back": "A data diode enforces one-way information flow, typically from Low to High, with no ordinary path back. It simplifies separation between security levels."
-},
-{
-"type": "flashcard",
-"front": "Covert channel",
-"back": "A covert channel is a mechanism not intended for communication that can be abused to signal information, such as using timing, resource usage, or shared hardware state."
-},
-{
-"type": "flashcard",
-"front": "Cascade problem",
-"back": "The cascade problem occurs when individually secure MLS systems are connected so that the combined system violates a larger span or flow policy."
-},
-{
-"type": "flashcard",
-"front": "Polyinstantiation",
-"back": "Polyinstantiation is an MLS database problem where different security levels may create records with the same apparent name. Rejecting a Low request may leak that a High record exists, while allowing it creates duplicates."
-},
-{
-"type": "flashcard",
-"front": "TCB bloat",
-"back": "TCB bloat occurs when exceptions, applications, and downgrade mechanisms are added to the trusted base until it becomes too large to verify or reason about confidently."
-},
-{
-"type": "flashcard",
-"front": "MILS",
-"back": "MILS uses separate system-high components for different security levels, connected by guards, pumps, or data diodes, instead of trying to run all levels securely on one complex MLS machine."
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A hospital has an 'on-call doctor' permission set that different doctors assume during different shifts. Which concept best describes this?",
-"options": [
-"Group",
-"Role",
-"World permission",
-"Protection profile"
-],
-"answer": 1
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Why can set-user-id programs be risky?",
-"options": [
-"They always disable file permissions",
-"They can run with more privilege than the invoking user and may be influenced by that user",
-"They prevent programs from opening files",
-"They make all users members of the file owner's group"
-],
-"answer": 1
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A privileged helper first checks whether a user may modify a file, then later opens the file path. The user swaps the file path to a different target between these steps. What vulnerability is this?",
-"options": [
-"SQL injection",
-"Use-after-free",
-"TOCTTOU",
-"Return-oriented programming"
-],
-"answer": 2
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A browser restricts a script so it cannot freely read local files or contact arbitrary remote hosts. Which mechanism is being used?",
-"options": [
-"A sandbox",
-"A data diode",
-"A high water mark",
-"A protection profile"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Which distinction between VMs and containers matters most for isolation?",
-"options": [
-"VMs share the host kernel; containers each boot a separate kernel",
-"Containers share the host kernel; VMs run separate guest operating systems under a hypervisor",
-"Containers cannot use namespaces",
-"VMs cannot be used in cloud computing"
-],
-"answer": 1
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A container escape through a kernel vulnerability is plausible mainly because:",
-"options": [
-"Containers share the host kernel",
-"Containers cannot restrict process IDs",
-"Containers always run as root on the network",
-"Containers use Bell-LaPadula labels"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "What is the main security idea behind Intel SGX?",
-"options": [
-"Make all memory executable",
-"Run trusted code in an enclave protected even from privileged software",
-"Replace operating-system access control with Unix ACLs",
-"Prevent all timing side channels"
-],
-"answer": 1
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Which mechanism is closest to separating a normal OS from a trusted execution environment on ARM systems?",
-"options": [
-"TrustZone",
-"SQL sanitisation",
-"Stack canary",
-"Polyinstantiation"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "An attacker overflows a stack buffer and overwrites the return address. Which attack class is this?",
-"options": [
-"Stack smashing",
-"Nondeducibility",
-"Data diode bypass",
-"Cascade problem"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A program frees an object but later calls a function pointer through the old reference after attacker-controlled data has occupied the freed memory. What is the vulnerability?",
-"options": [
-"Use-after-free",
-"Same-origin violation",
-"No write down",
-"Tranquility"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A login form directly concatenates a username into a database query. What is the most relevant failure?",
-"options": [
-"Failure to treat input as untrusted data",
-"Failure to use a TPM",
-"Failure to apply high water mark",
-"Failure to run a full virtual machine"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "DEP stops classic shellcode injection primarily by:",
-"options": [
-"Randomising all memory addresses",
-"Preventing data pages from being executed as code",
-"Checking every database query",
-"Preventing all write access to files"
-],
-"answer": 1
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Why can ROP bypass DEP?",
-"options": [
-"It disables the processor's privilege rings",
-"It reuses existing executable code instead of injecting new executable code",
-"It requires no control of program execution",
-"It works only on encrypted memory"
-],
-"answer": 1
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Which defence makes it harder for an attacker to know where useful gadgets or buffers are located?",
-"options": [
-"ASLR",
-"Polyinstantiation",
-"Low water mark",
-"Same-origin policy"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A memory disclosure bug reveals code addresses before an exploit. Which defence does this most directly weaken?",
-"options": [
-"ASLR",
-"No read up",
-"Data diode",
-"Protection profile"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Meltdown and Spectre show that isolation can fail because of:",
-"options": [
-"Microarchitectural side channels",
-"Open design",
-"Fixed security labels",
-"Too many codewords"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A system originally designed for trusted local users is later exposed to hostile Internet users without redesign. Which concept best describes the problem?",
-"options": [
-"Environmental creep",
-"Strong tranquility",
-"Polyinstantiation",
-"Low water mark"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Which statement best distinguishes a security policy model from a security target?",
-"options": [
-"A policy model states protection properties; a security target describes mechanisms for a particular product",
-"A security target is always shorter and more abstract than a policy model",
-"A policy model is only for hardware; a security target is only for users",
-"They are identical terms"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "In MLS, a user with Secret clearance but not the Crypto codeword attempts to read a Secret/Crypto document. What should happen?",
-"options": [
-"Access is allowed because the clearance level is sufficient",
-"Access is denied because the user lacks the required compartment",
-"The document is automatically downgraded",
-"The user is automatically given the codeword"
-],
-"answer": 1
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Which property of a reference monitor means every access attempt must pass through it?",
-"options": [
-"Always invoked",
-"Weak tranquility",
-"Nondeducibility",
-"World-readable"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "In Bell-LaPadula, no read up is intended to prevent:",
-"options": [
-"Lower-cleared subjects reading higher-classified data",
-"Higher-cleared subjects writing lower-classified data",
-"Low-integrity data contaminating high-integrity outputs",
-"All covert timing channels"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "In Bell-LaPadula, no write down is especially important because it prevents:",
-"options": [
-"A Trojan running high from leaking information to a lower level",
-"A low user from reading low data",
-"An administrator from creating accounts",
-"A database from containing duplicate records"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A process reads Secret/Crypto and then Secret/Nuclear data. Under the high water mark principle, what label should influence later outputs?",
-"options": [
-"Unclassified",
-"Secret only, without compartments",
-"Secret/Crypto/Nuclear",
-"Whichever file was read first"
-],
-"answer": 2
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Which property is stronger than Bell-LaPadula's basic information-flow rules because it rules out any observable effect of High on Low?",
-"options": [
-"Noninterference",
-"Weak tranquility",
-"Set-user-id",
-"Protection profile"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A High process changes CPU cache state so a Low process can infer a secret by timing memory accesses. What is this?",
-"options": [
-"Covert channel",
-"DAC permission",
-"Data diode",
-"Security target"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "A Low user tries to create a database record called X. Refusing the request would reveal that a High record X already exists. What MLS problem is this?",
-"options": [
-"Polyinstantiation",
-"Use-after-free",
-"ASLR failure",
-"Least privilege"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Two MLS systems each satisfy their own span limits, but their connection permits a combined Unclassified-to-Top-Secret span that policy forbids. What is this?",
-"options": [
-"Cascade problem",
-"Same-origin policy",
-"Stack smashing",
-"Low water mark"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Which model or mechanism is most directly concerned with integrity contamination by lower-integrity inputs?",
-"options": [
-"Biba low water mark",
-"Bell-LaPadula no read up",
-"Same-origin policy",
-"Data Execution Prevention"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Why does TCB bloat undermine high-assurance security?",
-"options": [
-"It makes the set of trusted components too large and complex to verify confidently",
-"It removes all trusted components from the system",
-"It prevents users from having roles",
-"It guarantees all labels remain fixed"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "multiple_choice",
-"question": "Why did MILS become attractive compared with classical MLS on one machine?",
-"options": [
-"Separate system-high components and guards can be simpler than one large, complex MLS TCB",
-"MILS eliminates all covert channels mathematically",
-"MILS requires no access control policy",
-"Classical MLS cannot represent classification levels"
-],
-"answer": 0
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "A role is best understood as a permission set that principals may assume, not merely as a list of principals.",
-"answer": true
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "A suid root program is safe merely because the invoking user is unprivileged.",
-"answer": false
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "A container normally provides the same isolation boundary as a full VM with a separate guest operating system.",
-"answer": false
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "Sandboxing is useful because downloaded code should not automatically inherit all the user's local authority.",
-"answer": true
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "DEP alone is sufficient to stop attacks that reuse existing executable code through ROP.",
-"answer": false
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "An information leak can make ASLR less effective.",
-"answer": true
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "Meltdown and Spectre are relevant to isolation because they exploit shared hardware behaviour rather than only ordinary software permissions.",
-"answer": true
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "A security target is an implementation-independent specification intended mainly for comparing different products.",
-"answer": false
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "In Bell-LaPadula, no write down is intended to stop information leaking from higher to lower classification levels.",
-"answer": true
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "Strong tranquility allows labels to change whenever the change is convenient for least privilege.",
-"answer": false
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "Noninterference is stronger than merely checking explicit reads and writes because it considers what Low can observe.",
-"answer": true
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "A covert channel must use a communication mechanism deliberately designed for messaging.",
-"answer": false
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "A data diode is intended to enforce one-way flow rather than ordinary two-way communication.",
-"answer": true
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "TCB bloat makes formal verification easier because more components are explicitly trusted.",
-"answer": false
-},
-{
-"type": "quiz",
-"subtype": "true_false",
-"question": "Polyinstantiation is a database problem caused by trying to avoid leaking the existence of higher-level records.",
-"answer": true
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Explain the difference between a group and a role using an operating-system access-control example.",
-"answer": "A group is a set of principals, such as all members of Accounts. A role is a set of permissions that someone may assume, such as duty officer or database administrator. The role may have rules about when it is active and who may hold it, while a group is simply membership-based."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Why is set-user-id useful, and why can it be dangerous?",
-"answer": "It is useful because it lets a program perform controlled actions with the file owner's privileges, approximating access control over user, program, and file. It is dangerous because a privileged program may be influenced by untrusted user inputs or environment settings, creating confused deputy failures or excessive root authority."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Give a concise answer plan for comparing VMs and containers.",
-"answer": "Define a VM as a full guest OS isolated by a hypervisor. Define a container as an isolated process sharing the host kernel. Compare cost and performance: containers are lighter and faster to deploy. Compare security: VMs usually offer stronger isolation because containers share kernel attack surface."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "A web service receives user input and builds a database query. What should the designer assume, and what failure occurs if this assumption is ignored?",
-"answer": "The designer should assume user input is untrusted and may contain code-like syntax. If input is concatenated into a query as SQL rather than treated as data, the attacker can alter query meaning, causing SQL injection."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Explain how TOCTTOU attacks violate the intended meaning of an access check.",
-"answer": "The access check is performed on one state of the world, but the privileged operation later acts on a different state. If an attacker can change the object, path, or permissions between check and use, the system enforces a stale decision."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Explain how stack canaries, DEP, and ASLR address different parts of memory exploitation.",
-"answer": "Stack canaries try to detect stack overwrites before corrupted control data is used. DEP prevents injected data from executing as code. ASLR makes useful code and data addresses harder to predict. They address different exploit steps and are stronger together than alone."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Why does ROP show that stopping code injection is not the same as stopping code execution attacks?",
-"answer": "ROP does not inject new executable code. It redirects execution through existing instruction sequences already marked executable. This bypasses defences such as DEP and shows that control-flow integrity and address unpredictability also matter."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "What general security lesson does environmental creep teach?",
-"answer": "A security model is only valid for its assumed environment and threat model. When a system moves from trusted local use to hostile networked or large-scale use, old assumptions can fail. Security should be redesigned, not just patched around."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Why can side-channel attacks undermine isolation boundaries such as VMs, containers, or enclaves?",
-"answer": "Isolation mechanisms often control explicit reads, writes, and privileges, but shared hardware can still reveal information through timing or resource-use patterns. Side channels exploit these indirect observations, so the protected data need not be directly readable."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "State the three reference monitor properties and explain why each matters.",
-"answer": "It must be always invoked, so every access is checked. It must be tamperproof, so attackers cannot bypass or modify it. It must be small enough to verify, so there is a realistic basis for trusting its correctness."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Explain the Bell-LaPadula simple security property and star property as an information-flow policy.",
-"answer": "The simple security property is no read up: a subject cannot read data above its clearance. The star property is no write down: a subject cannot write to a lower level after handling higher-level data. Together they aim to stop confidential information flowing downward."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Why did Bell-LaPadula need a tranquility condition?",
-"answer": "Without constraints on label changes, a system could appear to obey no read up and no write down while changing labels to bypass the intended policy. Tranquility prevents or restricts label changes that would undermine the information-flow rules."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "What is the tradeoff created by the high water mark principle?",
-"answer": "It helps prevent leakage by raising labels to reflect all high-level influences. The cost is overclassification and reduced usability: processes and outputs may accumulate labels until fewer users can access them."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Explain noninterference in terms of what Low can observe.",
-"answer": "Noninterference means High's actions should not change anything observable to Low. Low should not be able to learn whether High acted or what High did through outputs, timing, shared resources, or other visible effects."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Why are covert channels hard for MLS systems?",
-"answer": "MLS rules can control intended reads and writes, but covert channels use unintended signalling through shared resources such as timing, CPU load, caches, or acknowledgements. Eliminating every such channel is extremely difficult without severe performance and functionality costs."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Explain the cascade problem and its broader lesson about composability.",
-"answer": "Two systems can each satisfy their own MLS policy but violate policy when connected, for example by creating a combined span that was forbidden. The broader lesson is that security properties do not automatically compose; the combined system needs its own analysis."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Why is polyinstantiation both a confidentiality and data-management problem?",
-"answer": "Rejecting a Low user's attempt to create a record may reveal that a High record exists, breaching confidentiality. Allowing duplicate records avoids that leak but creates inconsistent data views and application complexity."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Compare Bell-LaPadula and Biba in one concise answer.",
-"answer": "Bell-LaPadula is mainly a confidentiality model: prevent information flowing from High to Low using no read up and no write down. Biba is mainly an integrity model: prevent low-integrity inputs from contaminating high-integrity objects, using ideas such as the low water mark."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Why does TCB bloat create an assurance problem?",
-"answer": "High assurance depends on being able to understand and verify the trusted base. As more applications, exceptions, downgrade tools, and middleware are trusted, the TCB becomes too large and changeable to analyse rigorously."
-},
-{
-"type": "quiz",
-"subtype": "text_answer",
-"question": "Give a concise answer plan for why MILS replaced many classical MLS designs.",
-"answer": "State that classical MLS on one machine creates hard problems: covert channels, label management, polyinstantiation, trusted downgrading, and TCB bloat. Explain that MILS separates levels into system-high components and controls flows with guards, pumps, or data diodes. Note the tradeoff: simpler assurance boundaries but more architecture and operational complexity."
-}
-]
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Group vs role in access control",
+      "back": "A group is a set or list of principals. A role is a fixed set of permissions that principals may assume for a period, often with rules about who may hold the role and how it is handed over."
+    },
+    {
+      "type": "flashcard",
+      "front": "Protection domain",
+      "back": "A protection domain is the set of resources available to a process or thread. Access control can be viewed as depending on subject, program, and object, not just user and file."
+    },
+    {
+      "type": "flashcard",
+      "front": "Unix file permissions",
+      "back": "Unix file permissions give read, write, and execute rights separately to owner, group, and world. This is a simple two-dimensional access-control model over users and files."
+    },
+    {
+      "type": "flashcard",
+      "front": "Set-user-id in Unix",
+      "back": "The set-user-id attribute lets an executable run with the privileges of its owner rather than the invoking user. It approximates program-dependent access control but is dangerous when overused, especially with root ownership."
+    },
+    {
+      "type": "flashcard",
+      "front": "Confused deputy risk in suid programs",
+      "back": "A suid program may act with higher authority while being influenced by an untrusted user's inputs or environment. If it does not carefully control that influence, the user can make the privileged program misuse its authority."
+    },
+    {
+      "type": "flashcard",
+      "front": "Same-origin policy",
+      "back": "The same-origin policy restricts active web content so that scripts can communicate only with their origin. It is enforced through browser sandboxing to limit what downloaded code can access."
+    },
+    {
+      "type": "flashcard",
+      "front": "Software sandbox",
+      "back": "A software sandbox is a restricted execution environment for untrusted code. It limits access to local resources and communication channels so downloaded code cannot freely act as the user."
+    },
+    {
+      "type": "flashcard",
+      "front": "Virtual machine",
+      "back": "A virtual machine emulates a complete machine with its own operating system, isolated from hardware and other VMs by a hypervisor or virtual machine monitor."
+    },
+    {
+      "type": "flashcard",
+      "front": "Container vs virtual machine",
+      "back": "A container is an isolated process that shares the host kernel, while a VM has a complete guest OS. Containers are lighter but usually provide weaker isolation because the kernel is shared."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Platform Module",
+      "back": "A TPM is a separate processor chip used for functions such as trusted boot and disk encryption. It can bind later boot stages to hashes of earlier loaded components."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rings of protection",
+      "back": "Rings of protection are hardware privilege levels. Ring 0 normally has kernel-level privilege, while higher-numbered rings have less privilege."
+    },
+    {
+      "type": "flashcard",
+      "front": "Intel SGX",
+      "back": "Intel SGX supports encrypted memory enclaves for trusted code, isolating it even from privileged software. Its security can still be undermined by side-channel attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "ARM TrustZone",
+      "back": "ARM TrustZone separates execution into an open world for the normal OS and a closed trusted execution environment for sensitive operations such as cryptography and critical I/O."
+    },
+    {
+      "type": "flashcard",
+      "front": "CHERI capabilities",
+      "back": "CHERI adds fine-grained hardware capabilities, allowing memory access rights to be expressed more precisely and enabling efficient sandboxing inside a process."
+    },
+    {
+      "type": "flashcard",
+      "front": "Stack smashing",
+      "back": "Stack smashing is a buffer overflow attack in which overlong input overwrites stack control data such as a return address, allowing attacker-controlled execution."
+    },
+    {
+      "type": "flashcard",
+      "front": "Use-after-free",
+      "back": "Use-after-free is a type-safety failure where memory is freed but still referenced. An attacker may place malicious data at the freed location and later influence execution through the stale pointer."
+    },
+    {
+      "type": "flashcard",
+      "front": "SQL injection",
+      "back": "SQL injection occurs when untrusted input is incorporated into a database query as code rather than data. It is mitigated by treating input as suspicious and validating or parameterising it."
+    },
+    {
+      "type": "flashcard",
+      "front": "TOCTTOU race",
+      "back": "A time-of-check-to-time-of-use race occurs when a system checks a condition, then later acts on it after the relevant state has changed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Return-oriented programming",
+      "back": "Return-oriented programming chains existing code fragments, called gadgets, to compute without injecting new executable code. It can bypass defences that only stop execution of data pages."
+    },
+    {
+      "type": "flashcard",
+      "front": "Stack canary",
+      "back": "A stack canary is a compiler-inserted value placed near control data on the stack. If an overflow changes it, the program can detect corruption before using the overwritten return address."
+    },
+    {
+      "type": "flashcard",
+      "front": "Data Execution Prevention",
+      "back": "Data Execution Prevention marks memory as either executable code or non-executable data. It stops classic injected shellcode but not attacks that reuse existing executable code."
+    },
+    {
+      "type": "flashcard",
+      "front": "Address Space Layout Randomisation",
+      "back": "ASLR randomises where code and data are placed in memory, making it harder for an attacker to predict addresses needed for exploitation. Information leaks can weaken it."
+    },
+    {
+      "type": "flashcard",
+      "front": "Least privilege in software",
+      "back": "Software should run with only the privileges it needs. This limits the damage if a program is compromised and reduces reliance on powerful trusted components."
+    },
+    {
+      "type": "flashcard",
+      "front": "Environmental creep",
+      "back": "Environmental creep occurs when a protection model designed for a narrow benign environment is extended into broader or more hostile settings without redesigning its security assumptions."
+    },
+    {
+      "type": "flashcard",
+      "front": "Meltdown and Spectre",
+      "back": "Meltdown and Spectre are CPU side-channel attacks exploiting performance optimisations such as out-of-order and speculative execution to infer protected memory through timing effects."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security policy model",
+      "back": "A security policy model is a concise statement of the protection properties a system must satisfy. It is more precise than vague organisational security goals."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security target",
+      "back": "A security target describes the protection mechanisms a particular product provides and how they meet control objectives. It supports testing and evaluation of that product."
+    },
+    {
+      "type": "flashcard",
+      "front": "Protection profile",
+      "back": "A protection profile is an implementation-independent specification used to compare and evaluate products with similar security goals."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multilevel Security",
+      "back": "Multilevel Security manages information at different classification levels. Users may read only data at or below their clearance, and information is intended to flow upward rather than downward."
+    },
+    {
+      "type": "flashcard",
+      "front": "Compartment or codeword",
+      "back": "A compartment or codeword further restricts access beyond classification level. A principal must have the required clearance and all relevant compartments to read the document."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Computing Base",
+      "back": "The TCB is the set of hardware, software, and procedures whose correct functioning is sufficient to enforce the security policy, or whose failure could breach it."
+    },
+    {
+      "type": "flashcard",
+      "front": "Reference monitor",
+      "back": "A reference monitor is the abstract mechanism that mediates access by subjects to objects. It should be always invoked, tamperproof, and small enough to verify."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bell-LaPadula simple security property",
+      "back": "The simple security property says no read up: a subject may not read data at a higher classification level than its clearance."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bell-LaPadula star property",
+      "back": "The star property says no write down: a subject may not write information to a lower classification level than its current level, limiting downward leaks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tranquility",
+      "back": "Tranquility restricts label changes. Strong tranquility forbids label changes during operation; weak tranquility allows changes only when they do not violate the security policy."
+    },
+    {
+      "type": "flashcard",
+      "front": "High water mark",
+      "back": "The high water mark principle raises a process or object to reflect the highest classification of data that has influenced it. This prevents later writing influenced data downward."
+    },
+    {
+      "type": "flashcard",
+      "front": "Noninterference",
+      "back": "Noninterference requires that High-level actions have no observable effect on what Low-level users can see. It is stronger than simple no-read-up and no-write-down rules."
+    },
+    {
+      "type": "flashcard",
+      "front": "Nondeducibility",
+      "back": "Nondeducibility requires that Low users cannot deduce High inputs from their observations. It is weaker than noninterference and can still permit near-certain inference."
+    },
+    {
+      "type": "flashcard",
+      "front": "Type Enforcement",
+      "back": "Type Enforcement assigns subjects to domains and objects to types, then controls allowed interactions between them. It can express confidentiality, integrity, and pipeline constraints."
+    },
+    {
+      "type": "flashcard",
+      "front": "SELinux",
+      "back": "SELinux is a Linux security architecture using a policy engine based on Type Enforcement and related models. It can express MAC, RBAC, and MLS-style constraints."
+    },
+    {
+      "type": "flashcard",
+      "front": "Low water mark",
+      "back": "The low water mark principle tracks integrity contamination: an object's integrity level becomes no higher than the lowest-integrity input that contributed to it."
+    },
+    {
+      "type": "flashcard",
+      "front": "Data diode",
+      "back": "A data diode enforces one-way information flow, typically from Low to High, with no ordinary path back. It simplifies separation between security levels."
+    },
+    {
+      "type": "flashcard",
+      "front": "Covert channel",
+      "back": "A covert channel is a mechanism not intended for communication that can be abused to signal information, such as using timing, resource usage, or shared hardware state."
+    },
+    {
+      "type": "flashcard",
+      "front": "Cascade problem",
+      "back": "The cascade problem occurs when individually secure MLS systems are connected so that the combined system violates a larger span or flow policy."
+    },
+    {
+      "type": "flashcard",
+      "front": "Polyinstantiation",
+      "back": "Polyinstantiation is an MLS database problem where different security levels may create records with the same apparent name. Rejecting a Low request may leak that a High record exists, while allowing it creates duplicates."
+    },
+    {
+      "type": "flashcard",
+      "front": "TCB bloat",
+      "back": "TCB bloat occurs when exceptions, applications, and downgrade mechanisms are added to the trusted base until it becomes too large to verify or reason about confidently."
+    },
+    {
+      "type": "flashcard",
+      "front": "MILS",
+      "back": "MILS uses separate system-high components for different security levels, connected by guards, pumps, or data diodes, instead of trying to run all levels securely on one complex MLS machine."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A hospital has an 'on-call doctor' permission set that different doctors assume during different shifts. Which concept best describes this?",
+      "options": [
+        "Group",
+        "Role",
+        "World permission",
+        "Protection profile"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why can set-user-id programs be risky?",
+      "options": [
+        "They always disable file permissions",
+        "They can run with more privilege than the invoking user and may be influenced by that user",
+        "They prevent programs from opening files",
+        "They make all users members of the file owner's group"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A privileged helper first checks whether a user may modify a file, then later opens the file path. The user swaps the file path to a different target between these steps. What vulnerability is this?",
+      "options": [
+        "SQL injection",
+        "Use-after-free",
+        "TOCTTOU",
+        "Return-oriented programming"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A browser restricts a script so it cannot freely read local files or contact arbitrary remote hosts. Which mechanism is being used?",
+      "options": [
+        "A sandbox",
+        "A data diode",
+        "A high water mark",
+        "A protection profile"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which distinction between VMs and containers matters most for isolation?",
+      "options": [
+        "VMs share the host kernel; containers each boot a separate kernel",
+        "Containers share the host kernel; VMs run separate guest operating systems under a hypervisor",
+        "Containers cannot use namespaces",
+        "VMs cannot be used in cloud computing"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A container escape through a kernel vulnerability is plausible mainly because:",
+      "options": [
+        "Containers share the host kernel",
+        "Containers cannot restrict process IDs",
+        "Containers always run as root on the network",
+        "Containers use Bell-LaPadula labels"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main security idea behind Intel SGX?",
+      "options": [
+        "Make all memory executable",
+        "Run trusted code in an enclave protected even from privileged software",
+        "Replace operating-system access control with Unix ACLs",
+        "Prevent all timing side channels"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which mechanism is closest to separating a normal OS from a trusted execution environment on ARM systems?",
+      "options": [
+        "TrustZone",
+        "SQL sanitisation",
+        "Stack canary",
+        "Polyinstantiation"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "An attacker overflows a stack buffer and overwrites the return address. Which attack class is this?",
+      "options": [
+        "Stack smashing",
+        "Nondeducibility",
+        "Data diode bypass",
+        "Cascade problem"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A program frees an object but later calls a function pointer through the old reference after attacker-controlled data has occupied the freed memory. What is the vulnerability?",
+      "options": [
+        "Use-after-free",
+        "Same-origin violation",
+        "No write down",
+        "Tranquility"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A login form directly concatenates a username into a database query. What is the most relevant failure?",
+      "options": [
+        "Failure to treat input as untrusted data",
+        "Failure to use a TPM",
+        "Failure to apply high water mark",
+        "Failure to run a full virtual machine"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "DEP stops classic shellcode injection primarily by:",
+      "options": [
+        "Randomising all memory addresses",
+        "Preventing data pages from being executed as code",
+        "Checking every database query",
+        "Preventing all write access to files"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why can ROP bypass DEP?",
+      "options": [
+        "It disables the processor's privilege rings",
+        "It reuses existing executable code instead of injecting new executable code",
+        "It requires no control of program execution",
+        "It works only on encrypted memory"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which defence makes it harder for an attacker to know where useful gadgets or buffers are located?",
+      "options": [
+        "ASLR",
+        "Polyinstantiation",
+        "Low water mark",
+        "Same-origin policy"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A memory disclosure bug reveals code addresses before an exploit. Which defence does this most directly weaken?",
+      "options": [
+        "ASLR",
+        "No read up",
+        "Data diode",
+        "Protection profile"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Meltdown and Spectre show that isolation can fail because of:",
+      "options": [
+        "Microarchitectural side channels",
+        "Open design",
+        "Fixed security labels",
+        "Too many codewords"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A system originally designed for trusted local users is later exposed to hostile Internet users without redesign. Which concept best describes the problem?",
+      "options": [
+        "Environmental creep",
+        "Strong tranquility",
+        "Polyinstantiation",
+        "Low water mark"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes a security policy model from a security target?",
+      "options": [
+        "A policy model states protection properties; a security target describes mechanisms for a particular product",
+        "A security target is always shorter and more abstract than a policy model",
+        "A policy model is only for hardware; a security target is only for users",
+        "They are identical terms"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In MLS, a user with Secret clearance but not the Crypto codeword attempts to read a Secret/Crypto document. What should happen?",
+      "options": [
+        "Access is allowed because the clearance level is sufficient",
+        "Access is denied because the user lacks the required compartment",
+        "The document is automatically downgraded",
+        "The user is automatically given the codeword"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which property of a reference monitor means every access attempt must pass through it?",
+      "options": [
+        "Always invoked",
+        "Weak tranquility",
+        "Nondeducibility",
+        "World-readable"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Bell-LaPadula, no read up is intended to prevent:",
+      "options": [
+        "Lower-cleared subjects reading higher-classified data",
+        "Higher-cleared subjects writing lower-classified data",
+        "Low-integrity data contaminating high-integrity outputs",
+        "All covert timing channels"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Bell-LaPadula, no write down is especially important because it prevents:",
+      "options": [
+        "A Trojan running high from leaking information to a lower level",
+        "A low user from reading low data",
+        "An administrator from creating accounts",
+        "A database from containing duplicate records"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A process reads Secret/Crypto and then Secret/Nuclear data. Under the high water mark principle, what label should influence later outputs?",
+      "options": [
+        "Unclassified",
+        "Secret only, without compartments",
+        "Secret/Crypto/Nuclear",
+        "Whichever file was read first"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which property is stronger than Bell-LaPadula's basic information-flow rules because it rules out any observable effect of High on Low?",
+      "options": [
+        "Noninterference",
+        "Weak tranquility",
+        "Set-user-id",
+        "Protection profile"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A High process changes CPU cache state so a Low process can infer a secret by timing memory accesses. What is this?",
+      "options": [
+        "Covert channel",
+        "DAC permission",
+        "Data diode",
+        "Security target"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A Low user tries to create a database record called X. Refusing the request would reveal that a High record X already exists. What MLS problem is this?",
+      "options": [
+        "Polyinstantiation",
+        "Use-after-free",
+        "ASLR failure",
+        "Least privilege"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Two MLS systems each satisfy their own span limits, but their connection permits a combined Unclassified-to-Top-Secret span that policy forbids. What is this?",
+      "options": [
+        "Cascade problem",
+        "Same-origin policy",
+        "Stack smashing",
+        "Low water mark"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which model or mechanism is most directly concerned with integrity contamination by lower-integrity inputs?",
+      "options": [
+        "Biba low water mark",
+        "Bell-LaPadula no read up",
+        "Same-origin policy",
+        "Data Execution Prevention"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does TCB bloat undermine high-assurance security?",
+      "options": [
+        "It makes the set of trusted components too large and complex to verify confidently",
+        "It removes all trusted components from the system",
+        "It prevents users from having roles",
+        "It guarantees all labels remain fixed"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why did MILS become attractive compared with classical MLS on one machine?",
+      "options": [
+        "Separate system-high components and guards can be simpler than one large, complex MLS TCB",
+        "MILS eliminates all covert channels mathematically",
+        "MILS requires no access control policy",
+        "Classical MLS cannot represent classification levels"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A role is best understood as a permission set that principals may assume, not merely as a list of principals.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A suid root program is safe merely because the invoking user is unprivileged.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A container normally provides the same isolation boundary as a full VM with a separate guest operating system.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Sandboxing is useful because downloaded code should not automatically inherit all the user's local authority.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "DEP alone is sufficient to stop attacks that reuse existing executable code through ROP.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An information leak can make ASLR less effective.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Meltdown and Spectre are relevant to isolation because they exploit shared hardware behaviour rather than only ordinary software permissions.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A security target is an implementation-independent specification intended mainly for comparing different products.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Bell-LaPadula, no write down is intended to stop information leaking from higher to lower classification levels.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Strong tranquility allows labels to change whenever the change is convenient for least privilege.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Noninterference is stronger than merely checking explicit reads and writes because it considers what Low can observe.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A covert channel must use a communication mechanism deliberately designed for messaging.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A data diode is intended to enforce one-way flow rather than ordinary two-way communication.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "TCB bloat makes formal verification easier because more components are explicitly trusted.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Polyinstantiation is a database problem caused by trying to avoid leaking the existence of higher-level records.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between a group and a role using an operating-system access-control example.",
+      "answer": "A group is a set of principals, such as all members of Accounts. A role is a set of permissions that someone may assume, such as duty officer or database administrator. The role may have rules about when it is active and who may hold it, while a group is simply membership-based."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is set-user-id useful, and why can it be dangerous?",
+      "answer": "It is useful because it lets a program perform controlled actions with the file owner's privileges, approximating access control over user, program, and file. It is dangerous because a privileged program may be influenced by untrusted user inputs or environment settings, creating confused deputy failures or excessive root authority."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for comparing VMs and containers.",
+      "answer": "Define a VM as a full guest OS isolated by a hypervisor. Define a container as an isolated process sharing the host kernel. Compare cost and performance: containers are lighter and faster to deploy. Compare security: VMs usually offer stronger isolation because containers share kernel attack surface."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A web service receives user input and builds a database query. What should the designer assume, and what failure occurs if this assumption is ignored?",
+      "answer": "The designer should assume user input is untrusted and may contain code-like syntax. If input is concatenated into a query as SQL rather than treated as data, the attacker can alter query meaning, causing SQL injection."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how TOCTTOU attacks violate the intended meaning of an access check.",
+      "answer": "The access check is performed on one state of the world, but the privileged operation later acts on a different state. If an attacker can change the object, path, or permissions between check and use, the system enforces a stale decision."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how stack canaries, DEP, and ASLR address different parts of memory exploitation.",
+      "answer": "Stack canaries try to detect stack overwrites before corrupted control data is used. DEP prevents injected data from executing as code. ASLR makes useful code and data addresses harder to predict. They address different exploit steps and are stronger together than alone."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does ROP show that stopping code injection is not the same as stopping code execution attacks?",
+      "answer": "ROP does not inject new executable code. It redirects execution through existing instruction sequences already marked executable. This bypasses defences such as DEP and shows that control-flow integrity and address unpredictability also matter."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What general security lesson does environmental creep teach?",
+      "answer": "A security model is only valid for its assumed environment and threat model. When a system moves from trusted local use to hostile networked or large-scale use, old assumptions can fail. Security should be redesigned, not just patched around."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can side-channel attacks undermine isolation boundaries such as VMs, containers, or enclaves?",
+      "answer": "Isolation mechanisms often control explicit reads, writes, and privileges, but shared hardware can still reveal information through timing or resource-use patterns. Side channels exploit these indirect observations, so the protected data need not be directly readable."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "State the three reference monitor properties and explain why each matters.",
+      "answer": "It must be always invoked, so every access is checked. It must be tamperproof, so attackers cannot bypass or modify it. It must be small enough to verify, so there is a realistic basis for trusting its correctness."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the Bell-LaPadula simple security property and star property as an information-flow policy.",
+      "answer": "The simple security property is no read up: a subject cannot read data above its clearance. The star property is no write down: a subject cannot write to a lower level after handling higher-level data. Together they aim to stop confidential information flowing downward."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why did Bell-LaPadula need a tranquility condition?",
+      "answer": "Without constraints on label changes, a system could appear to obey no read up and no write down while changing labels to bypass the intended policy. Tranquility prevents or restricts label changes that would undermine the information-flow rules."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the tradeoff created by the high water mark principle?",
+      "answer": "It helps prevent leakage by raising labels to reflect all high-level influences. The cost is overclassification and reduced usability: processes and outputs may accumulate labels until fewer users can access them."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain noninterference in terms of what Low can observe.",
+      "answer": "Noninterference means High's actions should not change anything observable to Low. Low should not be able to learn whether High acted or what High did through outputs, timing, shared resources, or other visible effects."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are covert channels hard for MLS systems?",
+      "answer": "MLS rules can control intended reads and writes, but covert channels use unintended signalling through shared resources such as timing, CPU load, caches, or acknowledgements. Eliminating every such channel is extremely difficult without severe performance and functionality costs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the cascade problem and its broader lesson about composability.",
+      "answer": "Two systems can each satisfy their own MLS policy but violate policy when connected, for example by creating a combined span that was forbidden. The broader lesson is that security properties do not automatically compose; the combined system needs its own analysis."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is polyinstantiation both a confidentiality and data-management problem?",
+      "answer": "Rejecting a Low user's attempt to create a record may reveal that a High record exists, breaching confidentiality. Allowing duplicate records avoids that leak but creates inconsistent data views and application complexity."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare Bell-LaPadula and Biba in one concise answer.",
+      "answer": "Bell-LaPadula is mainly a confidentiality model: prevent information flowing from High to Low using no read up and no write down. Biba is mainly an integrity model: prevent low-integrity inputs from contaminating high-integrity objects, using ideas such as the low water mark."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does TCB bloat create an assurance problem?",
+      "answer": "High assurance depends on being able to understand and verify the trusted base. As more applications, exceptions, downgrade tools, and middleware are trusted, the TCB becomes too large and changeable to analyse rigorously."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for why MILS replaced many classical MLS designs.",
+      "answer": "State that classical MLS on one machine creates hard problems: covert channels, label management, polyinstantiation, trusted downgrading, and TCB bloat. Explain that MILS separates levels into system-high components and controls flows with guards, pumps, or data diodes. Note the tradeoff: simpler assurance boundaries but more architecture and operational complexity."
+    }
+  ]
 }
