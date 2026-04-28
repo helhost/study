@@ -2,977 +2,878 @@
   "entries": [
     {
       "type": "flashcard",
-      "front": "What is the dual nature of security?",
-      "back": "Security is both a feeling AND a state of being — people's perception of security can diverge significantly from the actual security reality."
+      "front": "Security as feeling vs state",
+      "back": "Security has both an objective state and a subjective feeling. People may feel safe when risk is high or feel unsafe when risk is low, so security design must consider perception as well as actual protection."
     },
     {
       "type": "flashcard",
-      "front": "Optimism Bias (in security context)",
-      "back": "The tendency to believe that negative events (e.g., car accidents, security breaches) happen to 'other people' or 'other systems', not to oneself."
+      "front": "Optimism bias",
+      "back": "The tendency to believe bad outcomes are more likely to happen to others than to oneself. In security, users or organisations may underestimate their own likelihood of being attacked."
     },
     {
       "type": "flashcard",
-      "front": "Control Bias (in security context)",
-      "back": "People are more willing to accept risks they feel they have control over, even if the actual risk level is unchanged."
+      "front": "Control bias",
+      "back": "People tolerate risks more readily when they feel personally in control, even when their actual control over the risk is limited."
     },
     {
       "type": "flashcard",
-      "front": "Affect Heuristic",
-      "back": "A mental shortcut where emotional state influences risk perception: feeling good leads to perceiving less risk; feeling bad leads to perceiving more risk. Used in campaigns like 'smoking is bad'."
+      "front": "Affect heuristic",
+      "back": "People use emotional reactions as a shortcut for judging risk. Positive feelings lower perceived risk; negative feelings raise perceived risk."
     },
     {
       "type": "flashcard",
-      "front": "Availability Heuristic",
-      "back": "Judging the likelihood of risks based on how easily examples come to mind. Events that are memorable or widely discussed feel more probable than they actually are."
+      "front": "Availability heuristic",
+      "back": "People judge risks as more likely when examples are easy to recall, memorable, vivid, or widely discussed, even if the actual probability is low."
     },
     {
       "type": "flashcard",
-      "front": "Cost Heuristic (mental accounting)",
-      "back": "Humans are not fully rational economic actors, especially for intangible benefits like security. It is hard to justify security spending when the benefit is not strictly tangible."
+      "front": "Base rate fallacy",
+      "back": "Ignoring the background frequency of an event when interpreting a test result. For rare events, even accurate detectors can produce many false positives."
     },
     {
       "type": "flashcard",
-      "front": "Base Rate Fallacy",
-      "back": "When a tested condition is rare, even an accurate test will produce many false positives. This makes it hard to tune malware or facial recognition scanners without high false positive rates."
+      "front": "Framing effects",
+      "back": "People's choices depend on how options are presented, not only on the objective facts. Security messages framed as avoiding loss can produce different behaviour from messages framed as gaining protection."
     },
     {
       "type": "flashcard",
-      "front": "Framing Effects",
-      "back": "What people want or choose is dependent on how options are presented to them, not just the objective content of those options."
+      "front": "Present bias / hyperbolic discounting",
+      "back": "People overweight immediate costs and underweight uncertain future benefits. This helps explain why users avoid updates or security tasks whose benefit is delayed and invisible."
     },
     {
       "type": "flashcard",
-      "front": "Five areas where risk perception diverges from reality",
-      "back": "1. Severity of risk, 2. Probability of risk, 3. Magnitude of costs, 4. Efficacy of countermeasure at mitigation, 5. Trade-off."
+      "front": "Prospect theory",
+      "back": "People dislike losses more than they value equivalent gains. Attackers exploit this by framing messages around threatened loss, such as account closure or frozen funds."
     },
     {
       "type": "flashcard",
-      "front": "Red Queen Hypothesis (security context)",
-      "back": "Just as organisms must continuously evolve to compete with other species, attackers and defenders are locked in an evolutionary arms race — as security improves, attacks become more sophisticated, potentially resulting in stasis."
+      "front": "Anchoring effect",
+      "back": "An initial value or comparison biases later judgments, even when the anchor is arbitrary or only weakly relevant."
     },
     {
       "type": "flashcard",
-      "front": "Entry Control Cycle",
-      "back": "The five-stage cycle of physical security: Deter → Detect → Alarm → Delay → Respond."
+      "front": "Cognitive dissonance",
+      "back": "People feel discomfort when holding conflicting beliefs or admitting a mistake. Scam victims may continue participating because acknowledging deception is psychologically painful."
     },
     {
       "type": "flashcard",
-      "front": "Situational Crime Prevention — Three Degrees of Measures",
-      "back": "1. Degree of surveillance, 2. Target hardening measures, 3. Environmental management. (Source: Clarke)"
+      "front": "Risk perception divergence",
+      "back": "Perceived risk can diverge from real risk in severity, probability, cost magnitude, countermeasure effectiveness, and the tradeoff being made."
     },
     {
       "type": "flashcard",
-      "front": "Situational Crime Prevention — Five Aims",
-      "back": "1. Increase effort, 2. Increase risks, 3. Reduce rewards, 4. Reduce provocations, 5. Remove excuses."
+      "front": "Risk thermostat",
+      "back": "People adjust behaviour to maintain a preferred level of perceived risk. A safety measure can lead to riskier behaviour if users feel more protected."
     },
     {
       "type": "flashcard",
-      "front": "Rational Deterrence Theory — Core Assumptions",
-      "back": "Assumes rational actors who have preferences and act according to them. Key assumptions: (1) variation in outcomes explained by difference in opportunity; (2) the state acts as a unitary, rational actor. (Source: Achen and Snidal)"
+      "front": "Red Queen hypothesis in security",
+      "back": "Attackers and defenders adapt to each other continuously. Defensive improvements may be matched by attacker improvements, creating an arms race rather than permanent victory."
     },
     {
       "type": "flashcard",
-      "front": "Ways locks can be broken",
-      "back": "Chainsaw (brute force), guessing the code/key design, bumping, and master key attacks."
+      "front": "Entry control cycle",
+      "back": "A physical security process: deter, detect, alarm, delay, respond. Failure at any stage can undermine the whole system."
+    },
+    {
+      "type": "flashcard",
+      "front": "Situational crime prevention",
+      "back": "Reducing crime by changing the immediate environment and incentives. Measures aim to increase effort, increase risk, reduce rewards, reduce provocations, and remove excuses."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rational deterrence theory",
+      "back": "A model that assumes rational actors with preferences who respond to opportunities and expected consequences. It is limited when attackers are emotional, misinformed, ideological, impulsive, or socially influenced."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threat model in physical security",
+      "back": "A description of the attacker type, capability, motive, access, and resources. Defences fail when they are designed for the wrong attacker."
     },
     {
       "type": "flashcard",
       "front": "Lock bumping",
-      "back": "A technique where a specially cut 'bump key' is inserted into a pin tumbler lock and struck, causing the pins to momentarily jump and allowing the lock to be turned open."
+      "back": "Opening a pin-tumbler lock using a specially cut key and impact to momentarily align pins. It shows that visible physical barriers may be weaker than users assume."
     },
     {
       "type": "flashcard",
-      "front": "Master Key Attack",
-      "back": "Exploiting a master key system to gain access to many locks with a single key. Master revocation is hard, if not impossible, once a master key is compromised."
+      "front": "Master key attack",
+      "back": "An attack on master-keyed lock systems where compromise or derivation of the master key gives broad access. Recovery is hard because many locks may need replacement."
     },
     {
       "type": "flashcard",
-      "front": "Social Engineering",
-      "back": "Manipulating people rather than systems to gain unauthorized access to assets or information. Many cyberattacks are enabled by social engineering."
+      "front": "False alarms as denial of service",
+      "back": "Repeated false alarms can exhaust responders, reduce trust in the alarm, and cause real alarms to be ignored. Availability is therefore central to alarm security."
     },
     {
       "type": "flashcard",
-      "front": "Pretexting",
-      "back": "Pretending to be somebody you are not (a person) in order to gain access to a system or assets."
+      "front": "Receiver operating characteristic in alarms",
+      "back": "The tradeoff between missed alarms and false alarms. More sensitive detection may catch more attacks but can overwhelm responders with false positives."
     },
     {
       "type": "flashcard",
-      "front": "Phishing",
-      "back": "Pretending to be a corporation you are not in order to gain access to a system or assets. Can be targeted (spear phishing) or untargeted."
+      "front": "Social engineering",
+      "back": "Manipulating people rather than directly attacking technical mechanisms to gain access, information, money, or privileged actions."
     },
     {
       "type": "flashcard",
-      "front": "Stajano-Wilson Seven Scam Lures",
-      "back": "1. Distraction, 2. Social Compliance, 3. Herd, 4. Dishonesty, 5. Kindness, 6. Need and Greed, 7. Time pressure."
+      "front": "Pretexting vs phishing",
+      "back": "Pretexting usually impersonates a person or role to create a false scenario. Phishing usually impersonates an organisation or service to trick users into revealing information or taking action."
     },
     {
       "type": "flashcard",
-      "front": "Distraction lure (Stajano-Wilson)",
-      "back": "Distracting the victim to cause them to lose focus on their assets, making it easier to steal them."
+      "front": "Spear phishing",
+      "back": "Targeted phishing tailored to a specific person or organisation using contextual information, making it more convincing than bulk phishing."
     },
     {
       "type": "flashcard",
-      "front": "Social Compliance lure (Stajano-Wilson)",
-      "back": "Exploiting the victim's tendency to act in their typical/compliant way, and faking your way into that routine."
+      "front": "Stajano-Wilson scam lures",
+      "back": "Common scam lures are distraction, social compliance, herd behaviour, dishonesty, kindness, need and greed, and time pressure."
     },
     {
       "type": "flashcard",
-      "front": "Herd lure (Stajano-Wilson)",
-      "back": "Exploiting the tendency to follow what everyone else is doing — if everybody else seems to be doing it, the victim is more likely to comply."
+      "front": "Social compliance lure",
+      "back": "Exploiting people's tendency to follow expected routines, obey social scripts, or help someone who appears to occupy a legitimate role."
     },
     {
       "type": "flashcard",
-      "front": "Dishonesty lure (Stajano-Wilson)",
-      "back": "Using the victim's own past dishonest behaviour against them to further scam them — they cannot easily complain without exposing themselves."
+      "front": "Herd lure",
+      "back": "Exploiting the tendency to follow what others appear to be doing, especially when the correct action is uncertain."
     },
     {
       "type": "flashcard",
-      "front": "Kindness lure (Stajano-Wilson)",
-      "back": "Letting the victim think they are helping the attacker, exploiting the natural human desire to be helpful."
+      "front": "Dishonesty lure",
+      "back": "Drawing the victim into a morally or legally questionable situation so they are less likely to report the scam or seek help."
     },
     {
       "type": "flashcard",
-      "front": "Need and Greed lure (Stajano-Wilson)",
-      "back": "Exploiting the victim's desire for money, resources, or other things they want or need."
+      "front": "Need and greed lure",
+      "back": "Exploiting desire for money, resources, status, access, or relief from scarcity."
     },
     {
       "type": "flashcard",
-      "front": "Time lure (Stajano-Wilson)",
-      "back": "Creating artificial time pressure to push victims into scams they might otherwise recognise and avoid if given time to think."
+      "front": "Time pressure lure",
+      "back": "Creating urgency so the victim acts before checking, reflecting, or consulting others."
     },
     {
       "type": "flashcard",
-      "front": "419 Scam",
-      "back": "A scam where the victim is told an overseas government official needs their help transferring large sums of money in exchange for a cut. Once the victim agrees, they are asked to pay escalating 'minor expenses' upfront, with the promised money never materialising."
+      "front": "Operational security",
+      "back": "Identifying critical information and controlling how it is shared, verified, and exposed so adversaries cannot easily use it against the organisation."
     },
     {
       "type": "flashcard",
-      "front": "Kevin Mitnick — Key Contributions",
-      "back": "Famous social engineer who at age 13 used pretexting and dumpster diving for free bus access. Later wrote 'The Art of Deception'. Convicted of wire fraud. His method: impersonate a colleague and get an employee to 'help'."
+      "front": "Compliance budget",
+      "back": "The limited amount of attention and effort users or staff are willing to spend on security tasks that do not directly help their primary goals."
     },
     {
       "type": "flashcard",
-      "front": "HP Spying Scandal (2005)",
-      "back": "HP investigators called phone companies pretending to be board members and journalists to obtain call records and identify who was leaking boardroom information. HP Chairman Patricia Dunn and others faced charges (most later dropped); Dunn and the general counsel resigned."
+      "front": "Human error: slips and lapses",
+      "back": "Execution errors in familiar tasks, such as clicking the wrong button or mistyping a domain. Attackers exploit them through typosquatting and habituated clicks."
     },
     {
       "type": "flashcard",
-      "front": "Protecting against Pretexting — Four Measures",
-      "back": "1. Operational security (opsec), 2. Rules limiting access, 3. Staff training and explaining rules, 4. Incorporating risk into your risk budget (some people are hard to change; insuring against risk may be easier)."
+      "front": "Human error: mistakes",
+      "back": "Rule-level errors where someone applies the wrong rule or heuristic, such as assuming a message is safe because it looks official."
     },
     {
       "type": "flashcard",
-      "front": "Operational Security (OPSEC)",
-      "back": "A process of identifying and protecting critical information that could be used by adversaries. In social engineering defence, it involves limiting what information staff share and how they verify identities."
+      "front": "Human error: misconceptions",
+      "back": "Cognitive-level errors caused by misunderstanding the system, such as confusing public and private keys or misunderstanding what a warning means."
     },
     {
       "type": "flashcard",
-      "front": "Cognitive Psychology",
-      "back": "The branch of psychology dealing with how we think, remember, make decisions, and perceive. Key finding: human memory is reconstructive (not like a video recorder) and changes over time."
+      "front": "Capture error",
+      "back": "A habitual action overrides the intended action. In security, attackers can exploit routines such as automatically clicking through prompts."
     },
     {
       "type": "flashcard",
-      "front": "George Miller's 7 +/- 2 Rule",
-      "back": "Human short-term memory can cope with approximately seven (plus or minus two) simultaneous items. Commonly misapplied to menu design — scanning ten items is only twice as hard as scanning five."
+      "front": "Post-completion error",
+      "back": "After achieving the main goal, users forget a final cleanup step, such as taking a card after receiving cash from an ATM."
     },
     {
       "type": "flashcard",
-      "front": "Three Categories of Human Error (Reason)",
-      "back": "1. Slips and lapses (skill level) — e.g., pressing the wrong button or taking the wrong route home. 2. Mistakes (rule level) — following the wrong rule. 3. Misconceptions (cognitive level) — failing to understand the system."
+      "front": "Affordance",
+      "back": "A perceived action possibility offered by an object or interface. Good security design makes safe actions easy and dangerous actions harder or less natural."
     },
     {
       "type": "flashcard",
-      "front": "Capture Error",
-      "back": "A type of slip where a habitual action 'captures' the intended action — e.g., driving home when you intended to go to the supermarket. Exploited by attackers who train users to click 'OK' habitually."
+      "front": "Theory of mind",
+      "back": "The ability to reason about other people's beliefs, intentions, and possible false beliefs. It is central to both deception and deception detection."
     },
     {
       "type": "flashcard",
-      "front": "Post-Completion Error",
-      "back": "After accomplishing their immediate goal, people are easily distracted from tidying-up actions. Example: people leave cards in ATMs that give cash first and the card back second."
+      "front": "Bystander effect",
+      "back": "Individuals are less likely to help when others are present because responsibility is diffused across the group."
     },
     {
       "type": "flashcard",
-      "front": "Affordances (Gibson)",
-      "back": "Action possibilities that the environment offers to an animal or person — e.g., a chair is 'sit-on-able'. Security designers can exploit affordances to make safe actions easy and dangerous actions hard."
+      "front": "Online disinhibition",
+      "back": "People behave more openly or aggressively online because anonymity, invisibility, asynchronicity, and weakened authority cues reduce normal social constraints."
     },
     {
       "type": "flashcard",
-      "front": "Social Psychology",
-      "back": "The study of how the thoughts, feelings, and behaviour of individuals are influenced by the actual, imagined, or implied presence of others."
+      "front": "Fraud triangle",
+      "back": "Fraud is more likely when motive, opportunity, and rationalisation are present. Controls can target any of these conditions."
     },
     {
       "type": "flashcard",
-      "front": "Asch Conformity Experiment (1951)",
-      "back": "Solomon Asch showed that people could be induced to deny the evidence of their own eyes to conform to a group. Only 29% of subjects resisted a bogus majority opinion about the lengths of lines."
+      "front": "Cialdini influence principles",
+      "back": "Common influence mechanisms include reciprocity, commitment and consistency, social proof, liking, authority, and scarcity."
     },
     {
       "type": "flashcard",
-      "front": "Stanford Prison Experiment (1971)",
-      "back": "Philip Zimbardo randomly assigned 24 students to roles of warders or inmates. Warders rapidly became sadistic authoritarians. The experiment was halted after six days on ethical grounds."
+      "front": "Choice architecture",
+      "back": "The structure, order, defaults, and presentation of choices. It can improve security through ethical nudges or undermine users through manipulative sludge."
     },
     {
       "type": "flashcard",
-      "front": "Bystander Effect",
-      "back": "The more bystanders present, the less likely any individual is to help — due to diffusion of responsibility. Darley and Latané (1968): a lone bystander helps 85% of the time vs. 31% when four others are believed to be present."
-    },
-    {
-      "type": "flashcard",
-      "front": "Social Intelligence Hypothesis (Humphrey, 1976)",
-      "back": "The primary function of human intellect is social, not tool-making. Our ancestors evolved larger brains to use other primates better as tools — i.e., to understand and manipulate each other."
-    },
-    {
-      "type": "flashcard",
-      "front": "Machiavellian Brain Hypothesis (Whiten)",
-      "back": "An extension of the social intelligence hypothesis: we became smart in order to deceive others and detect deception. Mercier and Sperber argue the brain is primarily a machine for arguing/persuading."
-    },
-    {
-      "type": "flashcard",
-      "front": "Theory of Mind",
-      "back": "The ability to discern others' beliefs and intentions. Developed by Premack and Woodruff (1978), tested via the Sally-Anne test. Normal children acquire it at around age five; those on the autism spectrum acquire it later."
-    },
-    {
-      "type": "flashcard",
-      "front": "Sally-Anne Test",
-      "back": "A classic test of theory of mind: a child watches Sally hide an object, then Anne moves it while Sally is gone. The child is asked where Anne thinks the object is — tests whether the child understands others can hold false beliefs."
-    },
-    {
-      "type": "flashcard",
-      "front": "Self-Deception (Trivers)",
-      "back": "We've evolved the ability to deceive ourselves in order to better deceive others — making some facts and motives unconscious so as not to betray deception through subtle signs of self-knowledge."
-    },
-    {
-      "type": "flashcard",
-      "front": "Fraud Triangle (Cressey)",
-      "back": "Three factors needed for fraud: (1) Motive, (2) Opportunity, and (3) Rationalisation. People justify fraud by telling themselves the target deserves it or that their employer underpaid them."
-    },
-    {
-      "type": "flashcard",
-      "front": "Online Disinhibition (Suler)",
-      "back": "People speak more frankly online due to anonymity, invisibility, asynchronicity, and loss of symbols of authority. This has both positive effects (shy people connect) and negative effects (flame wars, radicalisation)."
-    },
-    {
-      "type": "flashcard",
-      "front": "Prospect Theory (Kahneman and Tversky)",
-      "back": "People dislike losing $100 they already have more than they value gaining $100. Framing an action as avoiding a loss makes people more likely to take it. Phishers exploit this: 'Your PayPal account has been frozen'."
-    },
-    {
-      "type": "flashcard",
-      "front": "Anchoring Effect",
-      "back": "People base a judgment on an initial guess or comparison and then adjust — often insufficiently. A first number seen biases all subsequent estimates."
-    },
-    {
-      "type": "flashcard",
-      "front": "Present Bias and Hyperbolic Discounting",
-      "back": "People pay more attention to immediate costs than unpredictable future benefits. Example: declining software updates because the bandwidth cost is immediate and the security benefit is uncertain."
-    },
-    {
-      "type": "flashcard",
-      "front": "Defaults and Nudges (Thaler and Sunstein)",
-      "back": "Governments and companies can achieve policy goals by setting the right defaults without restricting liberty. Example: opt-out pension schemes have much higher take-up than opt-in schemes. Published in 'Nudge' (2009)."
-    },
-    {
-      "type": "flashcard",
-      "front": "Sludge (Thaler)",
-      "back": "The selfish use of behavioural economics nudges — using defaults and choice architecture to serve the designer's interests rather than the user's. Contrasted with ethical 'nudge'."
-    },
-    {
-      "type": "flashcard",
-      "front": "Choice Architecture",
-      "back": "The set of choices people face, the order in which they make them, and the defaults if they do nothing. Powerfully shapes behaviour without restricting options."
-    },
-    {
-      "type": "flashcard",
-      "front": "Risk Thermostat (John Adams)",
-      "back": "People manage their exposure to risk to maintain a perceived risk level. Example: mandatory seat belts don't save lives overall — drivers feel safer and drive faster, transferring casualties from occupants to pedestrians."
-    },
-    {
-      "type": "flashcard",
-      "front": "Cognitive Dissonance",
-      "back": "People are uncomfortable holding conflicting views. They seek information confirming existing beliefs and reject contradictory information. Hustlers exploit this: admitting you've been duped is painful, so victims persist in loss."
-    },
-    {
-      "type": "flashcard",
-      "front": "Cialdini's Six Principles of Influence",
-      "back": "1. Reciprocity, 2. Commitment and consistency, 3. Social proof, 4. Liking, 5. Authority, 6. Scarcity."
-    },
-    {
-      "type": "flashcard",
-      "front": "Reciprocity (Cialdini)",
-      "back": "Most people feel the need to return favours. Scammers exploit this by offering something first to create obligation."
-    },
-    {
-      "type": "flashcard",
-      "front": "Scarcity (Cialdini)",
-      "back": "People are afraid of missing out if something they might want could suddenly become unavailable. Marketers and scammers use artificial scarcity ('Only 2 seats left at this price')."
+      "front": "Nudge vs sludge",
+      "back": "A nudge steers people toward beneficial choices without removing options. Sludge uses the same behavioural levers to serve the designer's interests against the user's interests."
     },
     {
       "type": "flashcard",
       "front": "CAPTCHA",
-      "back": "Completely Automated Public Turing Test to Tell Computers and Humans Apart. First used widely in 2003 to stop spammers. Uses problems humans solve easily but computers find hard (e.g., distorted text recognition)."
+      "back": "A test intended to distinguish humans from automated bots. It is not proof of identity and can be attacked through relaying, automation, or paid human solving."
     },
     {
       "type": "flashcard",
-      "front": "ReCAPTCHA",
-      "back": "A successor to CAPTCHA invented by Luis von Ahn (from 2014). Gets users to do useful work (e.g., labelling images) while verifying they are human. Used to train Google's AI systems."
+      "front": "Password recovery via security questions",
+      "back": "Security questions are weak when answers are public, guessable, shared by many people, hard to recall exactly, or not revocable."
     },
     {
       "type": "flashcard",
-      "front": "Password — Post-Completion Error at ATMs",
-      "back": "More people leave cards behind in ATMs that dispense cash first and return the card second — because once the goal (cash) is achieved, the tidying-up action (taking the card) is forgotten."
-    },
-    {
-      "type": "flashcard",
-      "front": "Password Recovery via Security Questions — Key Weakness",
-      "back": "Security questions often ask for near-public information (mother's maiden name, first school, date of birth) that is easy to guess or find. Google research found 19.7% success rate against 'Favourite food?' in English."
-    },
-    {
-      "type": "flashcard",
-      "front": "SIM Swap Attack",
-      "back": "An attacker impersonates a victim to their mobile phone company and obtains a replacement SIM card, then intercepts SMS authentication codes. Originated in South Africa (2007), spread globally."
-    },
-    {
-      "type": "flashcard",
-      "front": "One-Way Encryption of Passwords (Needham and Guy)",
-      "back": "Passwords are passed through a one-way function and only the hash is stored. Correct implementation requires generating a random salt, combining it with the password using a slow cryptographic function, and storing both."
-    },
-    {
-      "type": "flashcard",
-      "front": "Credential Stuffing",
-      "back": "When one system is hacked and passwords are cracked, those credentials are tried on other systems to exploit users who reused their passwords across services."
-    },
-    {
-      "type": "flashcard",
-      "front": "Password Entropy Formula (DoD)",
-      "back": "P = LR/S, where L = maximum password lifetime, R = login attempt rate, S = size of the password space. Gives the probability that a password can be guessed within its lifetime."
-    },
-    {
-      "type": "flashcard",
-      "front": "Passphrase (NIST current recommendation)",
-      "back": "NIST (updated 2017) recommends long passphrases (e.g., three or more random dictionary words) that are only changed when compromised — not on a regular schedule. GCHQ and Microsoft followed."
-    },
-    {
-      "type": "flashcard",
-      "front": "Forced Password Expiration — Why it Fails",
-      "back": "Users respond to forced monthly changes by choosing predictable transformations (e.g., 'julia03' → 'julia04'). Zhang et al. found over 40% of passwords could be guessed from previous ones in such systems."
-    },
-    {
-      "type": "flashcard",
-      "front": "Typosquatting",
-      "back": "Registering domain names similar to popular ones to harvest users who make typing errors — exploiting the slip category of human error."
-    },
-    {
-      "type": "flashcard",
-      "front": "Pin-Tumbler Lock (Yale Lock)",
-      "back": "Invented/patented by Linus Yale in 1860 (though used in ancient Egypt). Uses pin stacks inside a cylindrical plug; the correct key aligns the gaps to create a shear line allowing the plug to rotate."
-    },
-    {
-      "type": "flashcard",
-      "front": "Bump Key (999 Key)",
-      "back": "A specially cut key with all teeth at the lowest position (bitting 9). Inserted under slight torsion and struck with a mallet, causing pins to jump; the torsion holds them at the shear line, opening the lock."
-    },
-    {
-      "type": "flashcard",
-      "front": "Broken Windows Theory (Kelling and Coles)",
-      "back": "If a broken window is not repaired, soon more will be broken and disorder escalates. Problems should be fixed when still small. Inspired zero-tolerance policing under NYPD Chief William Bratton."
-    },
-    {
-      "type": "flashcard",
-      "front": "Physical Security Threat Model — Four Archetypes",
-      "back": "Derek (19-year-old unskilled addict), Charlie (40-year-old experienced burglar), Bruno (professional art thief, highly skilled), Abdurrahman (state-level agent with military training, weapons, and technical support)."
-    },
-    {
-      "type": "flashcard",
-      "front": "Receiver Operating Characteristic (ROC) in Security",
-      "back": "The trade-off between the missed alarm rate and the false alarm rate. Sensors closer to the protected object have lower false alarm rates but provide less early warning; perimeter sensors have higher false alarm rates."
-    },
-    {
-      "type": "flashcard",
-      "front": "False Alarm as Denial-of-Service",
-      "back": "Deliberately induced false alarms can disable an alarm response force. Electronic warfare experience: a false alarm rate above 15% degrades operator performance. Many police forces stop responding after 3–5 false alarms per year from a site."
-    },
-    {
-      "type": "flashcard",
-      "front": "CAPTCHA Breaking Methods",
-      "back": "1. Protocol-level attacks (e.g., forwarding CAPTCHAs to humans via porn sites). 2. Signal-processing attacks (automated solutions). 3. Human cheap labour (by 2011: ~50 cents per 1,000 CAPTCHAs solved by low-income workers)."
-    },
-    {
-      "type": "flashcard",
-      "front": "Spear Phishing",
-      "back": "Targeted phishing attacks crafted using personal information about the victim (e.g., their name, job title, LinkedIn context) to appear legitimate. Far more effective than bulk phishing but more resource-intensive."
-    },
-    {
-      "type": "flashcard",
-      "front": "'Why Johnny Can't Encrypt' (Whitten and Tygar)",
-      "back": "Seminal security usability paper demonstrating that the encryption program PGP was too hard for most college students to use correctly — they didn't understand the distinction between public and private keys."
-    },
-    {
-      "type": "flashcard",
-      "front": "Compliance Budget",
-      "back": "Staff are only prepared to put so many hours per year into tasks not obviously helping them achieve their goals. Security procedures must fit within this budget or will be ignored."
+      "front": "Credential stuffing",
+      "back": "Trying credentials leaked from one service against other services, exploiting password reuse rather than attacking the password mechanism directly."
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to the lecture, what are the five stages of the Entry Control Cycle in order?",
+      "question": "A user ignores software updates because they need their laptop immediately and the security benefit feels distant. Which bias best explains this?",
       "options": [
-        "Detect, Deter, Alarm, Respond, Delay",
-        "Deter, Detect, Alarm, Delay, Respond",
-        "Deter, Alarm, Detect, Respond, Delay",
-        "Detect, Alarm, Deter, Delay, Respond"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which researcher(s) authored the paper 'Hype and Heavy Tails: A closer look at data breaches'?",
-      "options": [
-        "Stajano and Wilson",
-        "Achen and Snidal",
-        "Edwards, Hofmeyr, and Forrest",
-        "Clarke"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "According to Situational Crime Prevention (Clarke), which of the following is NOT one of the five aims of crime prevention measures?",
-      "options": [
-        "Increase effort",
-        "Reduce rewards",
-        "Increase visibility",
-        "Remove excuses"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What was the primary motivation of threat actors in social engineering breaches according to Verizon DBIR 2024?",
-      "options": [
-        "Espionage (95%)",
-        "Financial (95%)",
-        "Ideological (50%)",
-        "Financial (50%)"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which lures does a classic CEO impersonation pretexting attack (transferring money) typically use?",
-      "options": [
-        "Herd and Dishonesty",
-        "Distraction and Kindness",
-        "Time pressure and Social Compliance",
-        "Need/Greed and Herd"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "What is the key difference between pretexting and phishing?",
-      "options": [
-        "Pretexting uses email; phishing uses phone calls",
-        "Pretexting impersonates a person; phishing impersonates a corporation",
-        "Pretexting is targeted; phishing is always untargeted",
-        "Pretexting requires technical skills; phishing is purely social"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which cognitive bias explains why people overestimate the risk of shark attacks compared to sunburn?",
-      "options": [
-        "Optimism Bias",
-        "Control Bias",
-        "Availability Heuristic",
-        "Base Rate Fallacy"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "The Red Queen Hypothesis in security suggests that improvements in defence lead to:",
-      "options": [
-        "A permanent reduction in attack frequency",
-        "More sophisticated attacks and potential stasis between attackers and defenders",
-        "Attackers abandoning technical approaches entirely",
-        "Defenders always gaining the upper hand over time"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "According to Kevin Mitnick's method described in 'The Art of Deception', what is the core social engineering technique?",
-      "options": [
-        "Sending fake invoices to accounting departments",
-        "Impersonating a colleague and getting an employee to 'help'",
-        "Installing keyloggers on target computers",
-        "Sending phishing emails with malicious attachments"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of the following is NOT listed as a reason why studying lock picking is practically important?",
-      "options": [
-        "Master revocation is hard or impossible",
-        "Theoretically many possible keys but practically far fewer",
-        "Skilled attackers can gain entry to arbitrary locked systems",
-        "Modern locks are immune to bumping attacks"
-      ],
-      "answer": 3
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "According to Rational Deterrence Theory (Achen & Snidal), the principal explanatory assumption is that:",
-      "options": [
-        "All criminals are irrational and unpredictable",
-        "Variation in outcomes is explained by difference in opportunity",
-        "States never act as unitary actors",
-        "Deterrence only works with physical barriers"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In which year did Kevin Mitnick first use pretexting and dumpster diving to gain free bus access?",
-      "options": [
-        "Age 10",
-        "Age 13",
-        "Age 16",
-        "Age 18"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of the following is NOT listed as a protection against phishing in the lecture?",
-      "options": [
-        "User training",
-        "IP limiting access to resources",
-        "Mandatory password resets every 30 days",
-        "Requiring multiple employees to sign off on major actions"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "According to the Verizon DBIR 2024, which asset type was MOST commonly compromised in breaches?",
-      "options": [
-        "Person",
-        "User Device",
-        "Server",
-        "Network"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "In the Milgram obedience experiment, approximately what percentage of subjects administered severe electric shocks when ordered to by an authority figure?",
-      "options": [
-        "Over 30%",
-        "Over 60%",
-        "About 20%",
-        "About 80%"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of Cialdini's six principles does the phishing message 'Your PayPal account has been frozen' most directly exploit?",
-      "options": [
-        "Scarcity",
-        "Social proof",
-        "Prospect theory loss framing",
-        "Reciprocity"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "The Sally-Anne test is used to measure which psychological capability?",
-      "options": [
-        "Short-term memory capacity",
+        "Present bias",
+        "Base rate fallacy",
         "Theory of mind",
-        "Affect heuristic",
-        "Cognitive dissonance tolerance"
+        "Master keying"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A malware detector is 99% accurate, but malware is rare in the scanned population, so most alerts are false. Which concept explains this?",
+      "options": [
+        "Control bias",
+        "Base rate fallacy",
+        "Capture error",
+        "Risk thermostat"
       ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to the Risk Thermostat model (John Adams), mandatory seat belt laws:",
+      "question": "A warning says 'Your account will be closed today unless you verify now.' Which mechanism is most directly being exploited?",
       "options": [
-        "Significantly reduce road fatalities overall",
-        "Have no effect at all on driving behaviour",
-        "Transfer casualties from vehicle occupants to pedestrians and cyclists",
-        "Reduce casualties only for passengers, not drivers"
+        "Loss framing and time pressure",
+        "Key diversification",
+        "Post-completion error",
+        "Receiver operating characteristic"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "The pin-tumbler lock was originally patented by whom?",
+      "question": "A person chooses a risky security setting because the interface makes them feel personally in control. Which bias is most relevant?",
       "options": [
-        "Marc Weber Tobias",
-        "Linus Yale",
-        "Barry Wels",
-        "Rop Gonggrijp"
+        "Control bias",
+        "Availability heuristic",
+        "Dishonesty lure",
+        "Base rate fallacy"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A dramatic recent breach makes managers overestimate the likelihood of that exact attack and ignore more common risks. Which heuristic is involved?",
+      "options": [
+        "Availability heuristic",
+        "Fraud triangle",
+        "Post-completion error",
+        "Affordance"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the best interpretation of the Red Queen hypothesis in security?",
+      "options": [
+        "Once a defence is deployed, the attack disappears permanently",
+        "Attackers and defenders adapt to each other, so improvement requires continuous effort",
+        "Human psychology is irrelevant to technical security",
+        "Physical security is always easier than computer security"
       ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What was the key security flaw in the Mifare Classic card system?",
+      "question": "Which sequence best represents the entry control cycle?",
       "options": [
-        "No encryption was used at all",
-        "The proprietary Crypto-1 cipher was limited to 48 bits due to export controls",
-        "The cards stored plaintext PINs",
-        "The system used symmetric keys shared across all cards"
+        "Detect, deter, delay, alarm, respond",
+        "Deter, detect, alarm, delay, respond",
+        "Alarm, deter, respond, detect, delay",
+        "Delay, detect, respond, deter, alarm"
       ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the burglar alarm art gallery scenario, which attack exploits the interaction between fire alarms and burglar alarms?",
+      "question": "An alarm system catches nearly every intrusion but triggers so often that guards stop responding. What security tradeoff is being illustrated?",
       "options": [
-        "Scenario 1 (rope entry from roof)",
-        "Scenario 2 (stay-behind villain)",
-        "Scenario 3 (false alarm cry-wolf)",
-        "Scenario 4 (smoke grenade on timer)"
+        "False alarms versus missed alarms",
+        "Hashing versus encryption",
+        "Authentication versus access control",
+        "Spear phishing versus bulk phishing"
       ],
-      "answer": 3
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What is 'spoofing' in the context of burglar alarm systems?",
+      "question": "A shop makes valuable goods harder to reach and improves lighting near exits. Which framework best describes this?",
       "options": [
-        "Setting off multiple false alarms simultaneously",
-        "Substituting bogus alarm equipment or a computer that mimics genuine equipment",
-        "Cutting power lines to disable alarms",
-        "Jamming wireless alarm signals"
+        "Situational crime prevention",
+        "Public-key cryptography",
+        "Theory of mind",
+        "Password entropy"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A deterrence model assumes offenders will respond rationally to increased risk and reduced opportunity. What is a major limitation?",
+      "options": [
+        "It cannot explain any behaviour involving locks",
+        "Attackers may be impulsive, misinformed, emotional, ideological, or socially influenced",
+        "It only applies to password hashing",
+        "It assumes all alarms are unavailable"
       ],
       "answer": 1
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to the textbook, what happened to physical property crime rates in the USA and UK from the early 1990s?",
+      "question": "A thief defeats a lock using a bump key without visibly damaging the door. What general lesson follows?",
       "options": [
-        "They rose sharply due to digital distraction of police",
-        "They remained roughly constant",
-        "They fell substantially",
-        "They rose then fell after 2010"
+        "Physical barriers should not be assumed secure just because they look strong",
+        "CAPTCHAs prove human identity",
+        "False positives are harmless",
+        "Security questions are revocable"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to NIST's updated (2017) password guidelines, when should passwords be changed?",
+      "question": "Why is compromise of a master key especially serious?",
       "options": [
-        "Every 30 days",
-        "Every 90 days (required by PCI standards)",
-        "Only when compromised",
-        "Every 6 months"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "quiz",
-      "subtype": "multiple_choice",
-      "question": "Which of the following best describes 'credential stuffing'?",
-      "options": [
-        "Brute-forcing a single account with common passwords",
-        "Using credentials stolen from one breached system to attack accounts on other systems",
-        "Installing keyloggers to capture passwords at entry",
-        "Sending phishing emails with credential-harvesting links"
+        "It only opens one lock",
+        "It can require replacing many locks to restore security",
+        "It prevents social engineering",
+        "It eliminates the need for alarms"
       ],
       "answer": 1
     },
     {
       "type": "quiz",
-      "subtype": "true_false",
-      "question": "According to the 'Hype and Heavy Tails' paper, data breaches have been consistently and dramatically getting worse over time.",
-      "answer": false
+      "subtype": "multiple_choice",
+      "question": "An attacker repeatedly triggers harmless alarms until responders stop taking them seriously. What is the best description?",
+      "options": [
+        "A false-alarm denial-of-service attack",
+        "A password stretching attack",
+        "A theory-of-mind failure",
+        "A key diversification failure"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A scammer calls an employee pretending to be a senior colleague and asks for urgent help transferring money. Which lures are most central?",
+      "options": [
+        "Social compliance and time pressure",
+        "Base rates and anchoring",
+        "Affordance and post-completion",
+        "Hashing and salting"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes phishing from pretexting in this material?",
+      "options": [
+        "Phishing usually impersonates an organisation, while pretexting usually impersonates a person or role",
+        "Phishing requires physical access, while pretexting is purely cryptographic",
+        "Phishing is always targeted, while pretexting is never targeted",
+        "Phishing is a detector error, while pretexting is a lock attack"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A victim joins a dubious money-transfer scheme and then keeps paying fees because reporting it would expose their own attempted dishonesty. Which lure is this?",
+      "options": [
+        "Dishonesty",
+        "Affordance",
+        "Availability",
+        "Post-completion"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A message says 'Everyone in your department has already completed this security form.' Which influence mechanism is most direct?",
+      "options": [
+        "Herd behaviour / social proof",
+        "Base rate fallacy",
+        "Master keying",
+        "Bump keying"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which defence best addresses pretexting by reducing useful information available to attackers?",
+      "options": [
+        "Operational security",
+        "Longer hash outputs",
+        "More false alarms",
+        "More master keys"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A user types paypa1.example instead of paypal.example and lands on an attacker-controlled site. Which human error category is being exploited?",
+      "options": [
+        "Slip or lapse",
+        "Fraud rationalisation",
+        "Risk thermostat",
+        "Base rate fallacy"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Users click 'OK' automatically because repeated prompts have trained them to do so. Which error is most relevant?",
+      "options": [
+        "Capture error",
+        "Theory of mind",
+        "Anchoring",
+        "Master key attack"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "An ATM gives cash before returning the card, and users walk away after taking the cash. Which error does this illustrate?",
+      "options": [
+        "Post-completion error",
+        "Control bias",
+        "Spear phishing",
+        "Dishonesty lure"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A door handle visually suggests pulling when it actually needs to be pushed. Which design concept explains the mismatch?",
+      "options": [
+        "Affordance",
+        "Credential stuffing",
+        "Receiver operating characteristic",
+        "Fraud triangle"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A user misunderstands public-key encryption and sends a private key to a colleague. Which error category best fits?",
+      "options": [
+        "Misconception",
+        "Slip",
+        "Post-completion error",
+        "Time lure"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A group of employees all ignore a suspicious visitor because each assumes someone else will challenge them. Which concept best applies?",
+      "options": [
+        "Bystander effect",
+        "Optimism bias",
+        "Need and greed",
+        "Lock bumping"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A fraud control reduces opportunity but does not address motive or rationalisation. Which framework highlights the missing elements?",
+      "options": [
+        "Fraud triangle",
+        "Entry control cycle",
+        "CAPTCHA",
+        "Red Queen hypothesis"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A site makes privacy-protective settings hard to find while defaulting to broad sharing. What is this best described as?",
+      "options": [
+        "Sludge",
+        "A neutral affordance",
+        "A false negative",
+        "A bump key"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A system defaults users into automatic security updates while allowing opt-out. Which concept best describes this?",
+      "options": [
+        "Nudge through choice architecture",
+        "Credential stuffing",
+        "Dishonesty lure",
+        "Master key attack"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A CAPTCHA is outsourced by malware to real humans on another site. What does this show?",
+      "options": [
+        "CAPTCHAs distinguish human labour, not necessarily the intended user's identity or intent",
+        "CAPTCHAs are a form of password hashing",
+        "CAPTCHAs eliminate social engineering",
+        "CAPTCHAs prevent all automated abuse"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which security weakness is most directly exploited by credential stuffing?",
+      "options": [
+        "Password reuse across services",
+        "False alarm rates in sensors",
+        "The bystander effect",
+        "Lock bumping"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A scammer first gives a small gift, then asks the victim for a favour. Which Cialdini principle is being used?",
+      "options": [
+        "Reciprocity",
+        "Availability",
+        "Post-completion",
+        "Base rates"
+      ],
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The Affect Heuristic means that people who feel good about a situation tend to perceive it as lower risk.",
+      "question": "Security perception can differ from objective security reality.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "People tend to overestimate risks they have voluntarily chosen to take.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Base Rate Fallacy implies that accurate tests for rare conditions will produce many false positives.",
+      "question": "Optimism bias can cause users or organisations to underestimate their own exposure to security incidents.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Personified risks (e.g., a named attacker) are perceived as greater than anonymous risks.",
+      "question": "The base rate fallacy matters only when detectors are inaccurate.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A detector for a rare event can generate mostly false alerts even when it is fairly accurate.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Situational Crime Prevention identifies three degrees of measures: surveillance, target hardening, and environmental management.",
+      "question": "Risk compensation can reduce the expected benefit of a safety or security measure.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "In the HP Spying Scandal, investigators posed as journalists and board members to obtain physical documents from HP offices.",
+      "question": "The Red Queen hypothesis implies that security work can stop once a strong defence is deployed.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "A 419 scam typically exploits the Kindness and Need/Greed lures described by Stajano and Wilson.",
+      "question": "The entry control cycle should be evaluated as a whole rather than as isolated components.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "User training has been proven to be the single most effective method for protecting against phishing.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "According to the Verizon DBIR 2024, internal threat actors have been decreasing consistently since 2018.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "A master key attack is difficult to recover from because master revocation is hard or impossible.",
+      "question": "Repeated false alarms can become a denial-of-service problem for the response process.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Phishing always targets specific individuals or organisations (i.e., it is always a spear phishing attack).",
+      "question": "Rational deterrence theory fully explains all attacker behaviour in security.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The annual search of the UK Houses of Parliament by the Yeoman of the Guard is primarily a practical, protective measure against realistic modern threats.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "According to the lecture, it is generally harder for lay people to reason about physical security than about digital security.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Rational Deterrence Theory assumes that all actors behave as rational, preference-driven decision makers.",
+      "question": "Master-keyed lock systems can increase convenience while also increasing the impact of key compromise.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Bumping attacks can be used to open pin-tumbler locks without leaving forensic damage.",
+      "question": "Social engineering succeeds only when technical controls are absent.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Spear phishing is generally more targeted and contextual than bulk phishing.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Shachmurove et al.'s survey found that deadbolts and locks were the most effective deterrent against domestic burglary in Greenwich, Connecticut.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Mifare Classic card was fully reverse-engineered and its attack published despite NXP Semiconductors attempting to suppress the research through the courts.",
+      "question": "Time pressure is a common scam technique because it reduces reflection and verification.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "According to Darley and Latané (1968), the gender and medical qualification of bystanders significantly increased their likelihood of helping.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Forced monthly password changes improve overall password security because users cannot predict future passwords.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the Stanford Prison Experiment, guards were specially selected for authoritarian tendencies.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "According to Anderson's textbook, physical property crime research (e.g., Lojack) shows that the social benefit of security measures can far exceed the private cost.",
+      "question": "Operational security includes limiting the information that attackers can use to build convincing pretexts.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "CAPTCHAs are now considered fully secure against automated attacks since they rely on hard AI problems.",
+      "question": "Slips and lapses are best understood as deep misunderstandings of how a system works.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Cognitive dissonance can cause victims to continue participating in a scam even after suspecting fraud, because admitting deception is painful.",
+      "question": "Post-completion errors are more likely after the user believes their main goal has already been achieved.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "According to the chapter on locks, high-security Medeco locks have been found to be fully resistant to bumping and picking attacks.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The 'Why Johnny Can't Encrypt' paper found that most college students could use PGP effectively once given a short tutorial.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "According to the textbook, alarms provide a key example of security systems whose policy hinges on availability rather than confidentiality or integrity.",
+      "question": "Good affordances can make secure behaviour easier without requiring users to reason abstractly about security.",
       "answer": true
     },
     {
       "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain the Red Queen Hypothesis and how it applies to the field of computer security.",
-      "answer": "The Red Queen Hypothesis originates in evolutionary biology: species must continuously evolve just to maintain their relative fitness against competing species. In security, this means that as defenders improve their security practices, attackers adapt and develop more sophisticated techniques in response. This creates an ongoing arms race with neither side gaining a permanent advantage, potentially resulting in stasis where the overall landscape does not dramatically improve or worsen despite both sides' efforts."
+      "subtype": "true_false",
+      "question": "The bystander effect is caused by every bystander becoming individually more responsible.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Choice architecture can affect security outcomes even when all formal options remain available.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "CAPTCHAs prove the legal identity of the user completing them.",
+      "answer": false
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the five ways in which an individual's perception of risk can diverge from reality, as described in the lecture?",
-      "answer": "1. Severity of risk — people may misjudge how serious the harm would be. 2. Probability of risk — people often misjudge how likely an event is to occur. 3. Magnitude of costs — the true cost of a countermeasure or harm may be misjudged. 4. Efficacy of countermeasure — people may over or underestimate how well a protective measure actually works. 5. Trade-off — people may not correctly evaluate what is being given up in exchange for security."
+      "question": "Explain the difference between objective security and perceived security.",
+      "answer": "Objective security is the actual state of protection against threats. Perceived security is how safe people feel. They can diverge because emotions, vivid examples, control, framing, and misunderstanding distort risk perception."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Describe the five attack scenarios on the art gallery presented in the lecture and what security weakness each exploits.",
-      "answer": "Scenario 1: A thief bypasses pressure mats by entering through the roof (lowering by rope), exploiting a gap in the alarm sensor coverage. Scenario 2: Bruno hides until closing and smashes out through a fire exit, exploiting the fact that response time (~12 mins) is too slow to catch a fast attacker. Scenario 3: Bruno repeatedly triggers false alarms so guards become desensitised and stop responding — a cry-wolf attack against the Alarm/Respond stages. Scenario 4: Bruno uses a smoke grenade on a timer to trigger the fire alarm, which overrides or distracts from the burglar alarm, then breaks in under cover of chaos. Scenario 5: Bruno cuts a window sensor wire during a daytime visit and returns after hours when the alarm is silently disabled."
+      "question": "Give a concise answer plan for discussing how cognitive biases affect security decisions.",
+      "answer": "Define the bias; explain how it changes perceived probability, severity, cost, or effectiveness; give a security example; identify the likely failure mode; propose a design or policy response that reduces reliance on biased judgment."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the seven social engineering lures identified by Stajano and Wilson, and briefly explain each?",
-      "answer": "1. Distraction: distracting the victim so they lose focus on their assets. 2. Social Compliance: exploiting the victim's natural compliance and routine. 3. Herd: using the 'everyone else is doing it' effect to pressure the victim. 4. Dishonesty: using the victim's own past dishonest behaviour to trap them. 5. Kindness: letting the victim believe they are doing the attacker a favour. 6. Need and Greed: exploiting the victim's desire for money or other resources. 7. Time: applying time pressure so the victim acts without proper consideration."
+      "question": "Explain the base rate fallacy using a security detector example.",
+      "answer": "If the event being detected is rare, false positives can outnumber true positives even with a good detector. For malware or face recognition, a small false-positive rate applied to many benign cases can create many incorrect alerts."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why does the lecture argue that security protections are often designed to thwart unrealistic attacks rather than realistic ones? Provide an example.",
-      "answer": "Because of security psychology, people find it easier to reason about visible, dramatic threats than statistically common but mundane ones. As a result, resources are often spent on defences against rare or imagined attacks. A key example is the XKCD 538 comic referenced in the lecture: a security professional might invest in 4096-bit RSA encryption to stop a sophisticated cryptographic attack, but in reality an attacker would simply threaten the user with a $5 wrench to extract the password — a far simpler and more realistic approach. Similarly, the annual search of the UK Parliament cellar is designed to prevent a repetition of the 1605 Gunpowder Plot, which is an extremely improbable modern threat."
+      "question": "Why can a security measure make users behave less safely?",
+      "answer": "Under the risk thermostat idea, users may compensate for feeling safer by taking more risk. The measure lowers perceived risk, so behaviour changes in a way that offsets some of the protection."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What does the Verizon DBIR 2024 reveal about internal versus external threat actors in breaches over time?",
-      "answer": "External actors remain the dominant source of breaches (approximately 65% in 2024, though declining from a peak of around 83%). Internal actors had been declining from about 35% in 2018–2019 down to around 20% by 2022–2023, but the 2024 data shows internal actors becoming more prevalent again, rising back to approximately 35%. Partner-based threats remain consistently very low (near 0%). This trend indicates that insider threats are a growing concern again."
+      "question": "Apply the entry control cycle to a museum protecting a valuable painting.",
+      "answer": "Deter attackers with visible guards and barriers; detect entry or tampering with sensors; alarm staff or police; delay removal through cases, locks, and layout; respond quickly enough to interrupt or catch the attacker."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the strengths and weaknesses of user training as a defence against phishing?",
-      "answer": "Strengths: Training is useful for offloading responsibility and increasing awareness, and a well-trained user may recognise and avoid phishing attempts. Weaknesses: The evidence suggests user training does not reliably work in practice — users remain susceptible. Training is also less effective against targeted (spear) phishing attacks, which are carefully crafted to look legitimate. Additionally, it does not address the underlying technical vulnerabilities and places the security burden on individuals who may lack expertise."
+      "question": "Why is false-alarm management a core security issue rather than just an inconvenience?",
+      "answer": "False alarms consume response resources and reduce trust in alerts. Attackers can exploit this by causing alarm fatigue or response withdrawal, turning the alarm system's availability into the main target."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Explain the Base Rate Fallacy and give a security-relevant example.",
-      "answer": "The Base Rate Fallacy is the cognitive error of ignoring the background (base) rate of a condition when evaluating the result of a test. When a condition is rare, even a highly accurate test will generate many false positives relative to true positives. In security, malware detection scanners illustrate this: if only 0.01% of files are actually malicious, a scanner with 99% accuracy will still flag many legitimate files as threats. Similarly, facial recognition systems used to identify terrorists will produce mostly false alarms because the actual rate of terrorists in any scanned population is extremely low."
+      "question": "Give a concise answer plan for evaluating a physical security system.",
+      "answer": "Identify assets and attackers; map deter, detect, alarm, delay, and respond; check coverage gaps and response time; consider false alarms and denial of service; compare defences with realistic attacker capability; assess usability and operational constraints."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Describe the structure and typical progression of a 419 scam, identifying which Stajano-Wilson lures it uses.",
-      "answer": "A 419 scam involves a fraudster posing as an overseas government official or businessperson who needs the victim's help transferring a large sum of money, offering a cut of the proceeds in return. Once the victim agrees, they are asked to pay escalating 'minor expenses' (fees, taxes, bribes), with the promised payout always 'just around the corner'. The money never materialises and expenses keep growing. Lures used: Need and Greed (promise of easy money), Kindness (victim believes they are helping someone in need), Dishonesty (victim is drawn into what seems like a dubious scheme, making them reluctant to complain), and Time pressure (urgency is often created to prevent the victim from reflecting carefully)."
+      "question": "Explain why threat modelling matters in physical security.",
+      "answer": "Different attackers have different skills, tools, access, patience, and risk tolerance. A defence that stops a casual thief may fail against a professional or state-backed attacker, so the design must match the realistic threat."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the key assumptions of Rational Deterrence Theory and what are its limitations in a security context?",
-      "answer": "Rational Deterrence Theory (Achen & Snidal) assumes: (1) actors are rational, have preferences, and act according to them; (2) variation in outcomes is explained by differences in opportunity; (3) the state (or organisation) acts as a unitary, rational actor. Limitations in security: many real attackers are not fully rational — they may be motivated by emotion, ideology, or may not properly weigh consequences. The assumption that opportunity fully explains outcomes ignores psychological and social factors. Additionally, not all organisations act as unified rational actors; internal politics and human error play major roles."
+      "question": "What general security lesson does lock bumping teach?",
+      "answer": "Security mechanisms that look robust may have practical bypasses. Designers should evaluate real attack techniques, not just theoretical key spaces or user perceptions of strength."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why is physical security considered a hard problem that has not been 'solved', according to the lecture?",
-      "answer": "Physical security is hard because: (1) many attackers do not fit the profile we protect against — we often protect against the wrong people; (2) protection mechanisms are frequently designed to prevent unrealistic rather than realistic attacks; (3) while lay people find it easier to reason about physical security, this intuitive reasoning often leads to poorly calibrated defences; (4) human psychology, including various cognitive biases, makes it difficult to accurately assess and respond to genuine threats; and (5) the attacker/defender arms race (Red Queen effect) means improvements by one side tend to be matched by the other."
+      "question": "Explain the tradeoff created by master-key systems.",
+      "answer": "Master keys improve convenience and administration because one key can open many locks. They also increase systemic risk because compromise of the master key can require large-scale replacement and gives broad access."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the three categories of human error identified in cognitive psychology (Reason), and how can each be exploited by attackers?",
-      "answer": "1. Slips and lapses (skill level): automatic actions that go wrong. Example: typosquatters register domains similar to popular ones to catch people who make typing errors; attackers train users to habitually click 'OK' on pop-ups. 2. Mistakes (rule level): following the wrong rule due to information overload or habit. Example: phishers exploit the rule 'if a URL starts with https it is safe' or 'if the URL contains the bank's name it is genuine'. 3. Misconceptions (cognitive level): not understanding the system at all. Example: users who can't understand the difference between public and private keys (as in the 'Why Johnny Can't Encrypt' study) make fundamental errors in using encryption."
+      "question": "Distinguish social engineering from purely technical attack.",
+      "answer": "A technical attack exploits system mechanisms directly. Social engineering manipulates people, roles, habits, trust, pressure, or helpfulness so that legitimate users perform unsafe actions or reveal information."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Explain prospect theory and how phishers use it to manipulate victims.",
-      "answer": "Prospect theory (Kahneman and Tversky) shows that people dislike losing something they already have more than they value an equivalent gain — losses loom larger than gains. Phishers exploit this by framing messages as threats to existing assets rather than offers of new ones. For example, 'Your PayPal account has been frozen — click here to unlock it' invokes fear of loss rather than a promise of gain, making the victim far more likely to act quickly and bypass rational evaluation."
+      "question": "A finance employee receives an urgent request from the CEO to transfer funds. How should the organisation reduce this risk?",
+      "answer": "Use out-of-band verification, dual approval for high-value actions, clear procedures that override hierarchy under urgency, staff training on pretexts, limited information exposure, and logs or controls that make unusual payment requests visible."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the practical lessons from studying burglar alarm systems for computer security engineers?",
-      "answer": "Key lessons: (1) Most locks can be defeated — alarms are therefore critical backups. (2) Service-denial attacks are the hardest aspect of secure system design and often the most important — false alarm DoS is the primary real-world attack vector. (3) Security must be evaluated as a whole system (deter–detect–alarm–delay–respond), not just individual components. (4) Outermost perimeter defences are hardest to make reliable. (5) The trade-off between false alarm rate and missed alarm rate (ROC) is a pervasive engineering challenge. (6) Guard fatigue and complacency from high false alarm rates are major vulnerabilities. (7) Designing for the wrong threat model (Charlie instead of Bruno) causes real failures."
+      "question": "Explain why training alone is a weak phishing defence.",
+      "answer": "Training can improve awareness but relies on users noticing and resisting attacks under time pressure, workload, and realistic pretexts. Technical controls, process controls, MFA, verification channels, and limits on high-risk actions are also needed."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Describe the master key attack on pin-tumbler locks, including how it works and why it is hard to recover from.",
-      "answer": "A master key system adds extra cuts (middle pins) to some pin stacks so that two different keys can open the same lock. The master key attack exploits this by probing for the extra positions one pin at a time: an attacker starts with their own key bitting and files individual positions down until they discover the master key bitting for each pin, requiring on average four attempts per pin. With three master-keyed pins, the master key can be derived in about twelve tests. Recovery is extremely difficult because revocation means replacing every single lock in the building — if even one key is suspected to be compromised. Additionally, 3D printing has made duplication from photographs of keys trivial."
+      "question": "Map three Stajano-Wilson lures to a 419-style advance-fee scam.",
+      "answer": "Need and greed: the victim is promised a large reward. Kindness: the victim is asked to help someone move funds. Dishonesty: the victim may believe the scheme is dubious, making them less willing to report losses."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What is the social intelligence hypothesis (Humphrey, 1976) and how does it relate to deception in security?",
-      "answer": "The social intelligence hypothesis proposes that the primary function of the human intellect is social — our ancestors evolved larger brains not to make better tools (stone axes barely changed over the paleolithic period) but to use, understand, and manipulate other primates more effectively. The implication for security is that humans are naturally sophisticated at social deception and deception detection in face-to-face contexts, but these evolved skills do not transfer well to online environments, making people vulnerable to phishing and social engineering. The Machiavellian brain extension argues we became smart in order to deceive — meaning attackers are exploiting deep, evolved social behaviours."
+      "question": "Why does time pressure increase the success of scams?",
+      "answer": "It reduces reflection, consultation, and verification. Victims are pushed to rely on habits, social compliance, fear of loss, or authority cues instead of checking whether the request is legitimate."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why do defaults and choice architecture matter for security design? Give both a positive and a negative example.",
-      "answer": "Defaults and choice architecture powerfully shape behaviour because most people take the path of least resistance rather than actively evaluating options. Positive example: browser vendors that default to auto-updating software dramatically increase patching rates. Windows reminders cut the software update ignore rate from 90% to 34%. Negative example: Facebook defaults to open information sharing; whenever users learn to set stricter privacy controls, the interface is redesigned requiring them to opt out all over again. The 'control paradox' also applies — giving users granular privacy controls actually causes them to share more information by giving the illusion of control."
+      "question": "Explain the difference between slips, mistakes, and misconceptions.",
+      "answer": "Slips and lapses are execution failures in familiar tasks. Mistakes involve applying the wrong rule. Misconceptions arise when the user does not understand the system or security model at all."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How can interface design reduce post-completion errors?",
+      "answer": "Put cleanup steps before goal completion where possible, make unfinished actions salient, use clear prompts, avoid hiding critical steps after the user's main reward, and design the workflow so safe completion is the natural path."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a security example of a capture error.",
+      "answer": "A user habitually clicks 'OK' on routine prompts and does the same on a dangerous security warning. The habitual response captures the intended careful decision."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are affordances relevant to secure design?",
+      "answer": "Users often follow what an interface or object appears to invite. Good affordances make secure actions obvious and easy, while poor affordances can lead users toward unsafe actions even without malicious intent."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the bystander effect in an organisational security context.",
+      "answer": "When many people see a possible incident, each may assume someone else will handle it. Clear ownership, reporting channels, and assigned responsibility reduce this diffusion of responsibility."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Apply the fraud triangle to an insider fraud risk.",
+      "answer": "Motive may be debt or resentment; opportunity may be weak controls or privileged access; rationalisation may be believing the organisation owes them. Controls can reduce opportunity, detect abuse, or address incentives and culture."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How can choice architecture improve security without removing user freedom?",
+      "answer": "Set secure defaults, make safe options easier, provide timely prompts, reduce confusing choices, and require extra friction for risky actions while still allowing users to opt out when appropriate."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Distinguish an ethical nudge from sludge in security design.",
+      "answer": "An ethical nudge steers users toward choices that protect their interests while preserving choice. Sludge uses friction, defaults, or confusing presentation to benefit the designer at the user's expense."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does a CAPTCHA not fully solve abuse by bots or attackers?",
+      "answer": "CAPTCHAs test whether a task is completed by a human-like solver, not whether the intended user is legitimate. Attackers can relay challenges, use better automation, or pay humans to solve them."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for a long-answer question on social engineering defences.",
+      "answer": "Define social engineering; identify lures and human biases; discuss process controls such as dual approval and verification; add technical controls such as filtering and MFA; include training but explain its limits; address OPSEC, logging, and organisational incentives."
     }
   ]
 }
