@@ -2,638 +2,777 @@
   "entries": [
     {
       "type": "flashcard",
-      "front": "What is the 'common view' of cybersecurity problems according to the lecture?",
-      "back": "The common view focuses on technical measures: access control policy, formal proofs of cryptographic protocols, better ways of defining intrusions and malicious code, and better tools for system evaluation and assurance."
+      "front": "Technical vs economic view of security failures",
+      "back": "The technical view emphasises better mechanisms, policies, proofs, intrusion detection, and assurance. The economic view argues that many failures persist because incentives, information, liability, and externalities are misaligned."
     },
     {
       "type": "flashcard",
-      "front": "What is Anderson (2001)'s contrary view on information security?",
-      "back": "Anderson argues that many security failures are better explained through microeconomics, including concepts such as network externalities, asymmetric information, moral hazard, adverse selection, liability dumping, and tragedy of the commons."
+      "front": "Anderson's economics view of information security",
+      "back": "Many security failures are better explained by microeconomics than by missing technical solutions. Relevant concepts include network externalities, asymmetric information, moral hazard, adverse selection, liability dumping, and tragedy of the commons."
     },
     {
       "type": "flashcard",
-      "front": "Network externalities (in the context of information security)",
-      "back": "The phenomenon where the value or risk of a system depends on how many others are connected to it. Security of one party can be affected by the security choices of others in the network."
+      "front": "Network externality in security",
+      "back": "A party's security risk or benefit depends on other parties' choices. For example, one insecure organisation or device can increase risk for others connected to the same ecosystem."
     },
     {
       "type": "flashcard",
-      "front": "Asymmetric information (in the context of information security)",
-      "back": "A situation where one party in a transaction has more or better information than the other. In cybersecurity, buyers of security products may not be able to evaluate their true quality, and insurers may not know the true security posture of those they insure."
+      "front": "Asymmetric information in security",
+      "back": "One party knows more than another about security quality or risk. Buyers, customers, insurers, or users may be unable to assess the true security posture of a product or organisation."
     },
     {
       "type": "flashcard",
-      "front": "Moral hazard (in the context of information security)",
-      "back": "The tendency for a party to take more risks because the costs of those risks are borne by another. For example, an organisation with cyber insurance may invest less in security knowing losses are covered."
+      "front": "Moral hazard in cyber insurance",
+      "back": "A party may take fewer precautions when another party bears the loss. Cyber insurance can weaken incentives to invest in prevention if not priced or conditioned on security posture."
     },
     {
       "type": "flashcard",
-      "front": "Adverse selection (in the context of information security)",
-      "back": "The tendency for those with higher risk to be more likely to purchase insurance, meaning insurers attract a disproportionate share of bad risks, making it hard to price policies fairly."
+      "front": "Adverse selection in cyber insurance",
+      "back": "Higher-risk organisations are more likely to buy insurance, while insurers may not be able to identify them accurately. This makes pricing and portfolio management difficult."
     },
     {
       "type": "flashcard",
-      "front": "Liability dumping (in the context of information security)",
-      "back": "When an organisation passes its security liability onto others — for example, by selling insecure software products and placing responsibility on users, or outsourcing security to a third party."
+      "front": "Liability dumping",
+      "back": "Shifting the costs of insecure systems onto others, such as users, customers, insurers, or downstream organisations, instead of bearing the consequences of poor security design."
     },
     {
       "type": "flashcard",
-      "front": "Tragedy of the commons (in the context of information security)",
-      "back": "When individual actors, each acting in their own self-interest, deplete a shared resource. In cybersecurity, this can manifest as organisations under-investing in security because the negative externalities (e.g. botnet participation) are borne by others."
+      "front": "Tragedy of the commons in cybersecurity",
+      "back": "Actors under-invest in security because they capture the savings while others bear part of the harm, such as botnets, spam, shared infrastructure abuse, or ecosystem-wide vulnerability."
     },
     {
       "type": "flashcard",
-      "front": "What are the eight typical corporate information security controls listed in Woods & Seymour (2023)?",
-      "back": "1. Attack surface management, 2. Patch cadence, 3. Multi-factor authentication (MFA), 4. Monitoring, 5. Cloud vs on-premises email servers, 6. Network protocol configuration, 7. Identity and access management, 8. Remote access solutions."
+      "front": "Security control implementation quality",
+      "back": "A control's effectiveness depends heavily on how completely and correctly it is implemented. Having a control on paper is not equivalent to reducing risk in practice."
     },
     {
       "type": "flashcard",
-      "front": "Key finding from Woods & Seymour (2023) on security controls",
-      "back": "\"How a control is implemented seems to matter more than whether it is implemented.\" Simply having a control in place is insufficient; the quality and completeness of deployment matters."
+      "front": "Typical corporate security controls",
+      "back": "Common controls include attack surface management, patch cadence, MFA, monitoring, email hosting choices, network protocol configuration, identity and access management, and remote access controls."
     },
     {
       "type": "flashcard",
-      "front": "What are the four components of most security maturity models?",
-      "back": "1. Practices (p_i): describe single security activities — the 'how' of maturity. 2. Domains (d_i): structured sets of security practices grouped by area. 3. Objectives (o_i): what the organisation must do for a practice to be deemed met. 4. Maturity (m_i): the developmental state of objectives, assigned a level from a predetermined set."
+      "front": "Security maturity model",
+      "back": "A framework for assessing how developed an organisation's security practices are across structured domains, objectives, and maturity levels."
+    },
+    {
+      "type": "flashcard",
+      "front": "Maturity model practices",
+      "back": "Practices are individual security activities that describe how maturity is achieved, such as applying MFA or managing patches."
+    },
+    {
+      "type": "flashcard",
+      "front": "Maturity model domains",
+      "back": "Domains group related security practices into areas such as access control, incident response, identification and authentication, or system integrity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Maturity model objectives",
+      "back": "Objectives define what an organisation must accomplish for a practice to be considered met."
+    },
+    {
+      "type": "flashcard",
+      "front": "Maturity level",
+      "back": "A maturity level describes how embedded, consistent, managed, or advanced an objective or practice is within the organisation."
     },
     {
       "type": "flashcard",
       "front": "CMMC",
-      "back": "Cybersecurity Maturity Model Certification — a US Department of Defense framework for assessing the cybersecurity posture of organisations. It organises security practices into Domains across two levels, totalling 110 practices."
+      "back": "Cybersecurity Maturity Model Certification, a US Department of Defense framework for assessing organisational cybersecurity practices across domains and levels."
     },
     {
       "type": "flashcard",
-      "front": "How many total practices does the CMMC contain, and how are they split across levels?",
-      "back": "110 total practices: 17 at Level 1 and 93 at Level 2."
+      "front": "Criticality",
+      "back": "The degree to which a system or service must remain available and operational for the organisation's core functions."
     },
     {
       "type": "flashcard",
-      "front": "Which CMMC domain has the most practices in total?",
-      "back": "Access Control (AC) with 22 practices (4 at Level 1, 18 at Level 2)."
+      "front": "Sensitivity",
+      "back": "The degree to which a system handles confidential, regulated, or integrity-sensitive data requiring protection from unauthorised access or modification."
     },
     {
       "type": "flashcard",
-      "front": "Criticality (in the context of applying maturity models to organisations)",
-      "back": "The degree to which a system or service must remain available and operational. High criticality means the organisation depends heavily on that component for its core functions (e.g. customer-facing services must have minimal downtime)."
+      "front": "SolarWinds security lesson",
+      "back": "A supply-chain compromise can be enabled by weak implementation of basic controls, such as exposed credentials and inadequate identification and authentication practices."
     },
     {
       "type": "flashcard",
-      "front": "Sensitivity (in the context of applying maturity models to organisations)",
-      "back": "The degree to which a system handles confidential or regulated data requiring protection. High sensitivity means data must be protected from unauthorised access or modification (e.g. databases must be secured against unpermitted modification)."
+      "front": "LastPass breach security lesson",
+      "back": "Corporate security boundaries can fail when personal or unmanaged devices with corporate access are unmonitored and permitted to run risky exposed services."
     },
     {
       "type": "flashcard",
-      "front": "SolarWinds breach — core vulnerability exploited",
-      "back": "A password ('solarwinds123') for SolarWinds' Akamai update distribution server was publicly exposed in a GitHub repository. This non-compliant, trivially simple password could have allowed a threat actor to upload malicious executable code bundled with legitimate software updates."
+      "front": "British Library breach security lesson",
+      "back": "Partial MFA and uneven defensive coverage can leave legacy servers or domains exposed even when some cloud applications are protected."
     },
     {
       "type": "flashcard",
-      "front": "SolarWinds breach — identification and authentication control failures",
-      "back": "An internal FedRAMP security assessment (September 2019) found that for the 'Identification and Authentication' sub-category: zero controls were rated 'in place', seven were rated 'may be in place', and twenty had 'no program/practice in place'."
+      "front": "Cyber insurance",
+      "back": "Insurance that transfers some financial consequences of cyber incidents, subject to limits, retention, definitions, exclusions, and coverage categories."
     },
     {
       "type": "flashcard",
-      "front": "LastPass breach (2022) — attack chain summary",
-      "back": "A LastPass developer maintained a personal Plex media server exposed to the internet with a three-year-old unpatched critical vulnerability. The machine was rooted (compromised). Because the developer also used the machine for work, credentials were exfiltrated, leading to a breach of their employer, LastPass."
+      "front": "Breach response costs",
+      "back": "First-party costs incurred in responding to a security breach, subject to the policy's retention and limit."
     },
     {
       "type": "flashcard",
-      "front": "Two key security failures that enabled the LastPass breach",
-      "back": "1. The personal machine was not monitored by corporate IT. 2. The machine had no restrictions on permitted applications, allowing a personal Plex server to be run on a device with access to corporate resources."
+      "front": "Business interruption loss",
+      "back": "Loss from interruption of the insured's operations caused by a security breach or system failure. It may also include dependent business loss caused by failure at a third party."
     },
     {
       "type": "flashcard",
-      "front": "British Library breach (October 2023) — attack vector",
-      "back": "A threat actor obtained credentials to a terminal services server (which had privileged access), installed in February 2020 for remote access. The British Library had MFA on cloud applications but NOT on the BL domain, allowing the attacker to use the compromised credentials. Ransomware was then deployed."
+      "front": "Cyber extortion loss",
+      "back": "Coverage for losses arising from extortion threats, such as ransomware demands or threats to release or keep data encrypted."
     },
     {
       "type": "flashcard",
-      "front": "British Library breach — why server estate was vulnerable",
-      "back": "Laptop and desktop estates were protected with modern defensive software, but older defensive software on the server estate was unable to resist the ransomware attack. The terminal services server had not been subject to a third-party management security review (planned for 2024)."
+      "front": "Data and network liability",
+      "back": "Third-party liability for harm caused by a data breach or network security failure affecting others, such as customers whose data is exposed."
     },
     {
       "type": "flashcard",
-      "front": "What does a cyber insurance policy's 'Breach Response Costs' cover?",
-      "back": "Costs incurred in responding to a security breach, subject to a per-incident retention (deductible) and a policy limit."
+      "front": "eCrime coverage",
+      "back": "Coverage for cybercrime losses such as fraudulent instruction, funds transfer fraud, and telephone fraud."
     },
     {
       "type": "flashcard",
-      "front": "What is 'Business Interruption Loss' in a cyber insurance policy?",
-      "back": "Losses arising from the interruption of the insured's business operations due to a security breach or system failure. It can also include 'Dependent Business Loss' where the interruption is caused by a breach or failure at a dependent third-party business."
+      "front": "Retention in insurance",
+      "back": "The amount the insured must pay before insurance coverage applies, similar to an excess or deductible."
     },
     {
       "type": "flashcard",
-      "front": "What is 'Cyber Extortion Loss' in a cyber insurance policy?",
-      "back": "Coverage for losses arising from extortion threats, such as ransomware demands where attackers threaten to release or keep encrypted data unless a ransom is paid."
+      "front": "Policy aggregate limit of liability",
+      "back": "The maximum total amount the insurer will pay across all claims during the policy period."
     },
     {
       "type": "flashcard",
-      "front": "What does 'Data & Network Liability' cover in a cyber insurance policy?",
-      "back": "Third-party liability for damages arising from a data breach or network security failure that affects others — for example, if a company's breach results in harm to customers whose data was exposed."
+      "front": "Cyber insurance exclusions",
+      "back": "Typical exclusions include government seizure, restoring systems beyond their pre-incident state, failures of infrastructure outside direct control, and physical perils such as fire or flood."
     },
     {
       "type": "flashcard",
-      "front": "What is 'eCrime' coverage in a cyber insurance policy?",
-      "back": "Coverage for losses from cybercrime including: Fraudulent Instruction (e.g. business email compromise), Funds Transfer Fraud, and Telephone Fraud."
+      "front": "Errors and Omissions insurance",
+      "back": "Insurance for professional mistakes, negligence, or service failures. It is separate from cyber insurance because fixing pre-existing defects or improving systems beyond their prior state is usually excluded from cyber cover."
     },
     {
       "type": "flashcard",
-      "front": "What is the 'Retention' in a cyber insurance policy?",
-      "back": "The amount the insured must bear themselves before the insurance coverage kicks in — equivalent to an excess or deductible. Applied per incident or per claim depending on the coverage type."
+      "front": "Cyber war exclusion",
+      "back": "A policy exclusion addressing cyber operations conducted by or under control of a sovereign state, especially where they are part of war or cause major detrimental impact on another state."
     },
     {
       "type": "flashcard",
-      "front": "What is the 'Policy Aggregate Limit of Liability'?",
-      "back": "The maximum total amount the insurer will pay out under the policy across all claims during the policy period."
+      "front": "Beazley Type 3 war exclusion",
+      "back": "A preferred exclusion that removes coverage for specified state-controlled cyber war events, while carving out some third-country bystanders whose systems are not physically located in the impacted state."
     },
     {
       "type": "flashcard",
-      "front": "What is typically NOT covered under the First Party Loss of a cyber insurance policy (four exclusions)?",
-      "back": "1. Seizure/confiscation/destruction of property/data by government order. 2. Costs to identify/remediate software errors or to restore systems beyond their pre-incident state (Errors & Omissions is a separate product). 3. Failure of satellites, power, utility, mechanical or telecom infrastructure not under the insured's direct operational control. 4. Physical perils (fire, flood, earthquake, volcanic eruption, etc.)."
+      "front": "Type 3 vs Type 4 war exclusion",
+      "back": "Type 3 is more favourable to insurers because it excludes broader state-linked cyber war impacts. Type 4 leaves more coverage for organisations outside warring or impacted states."
     },
     {
       "type": "flashcard",
-      "front": "Why is infrastructure failure (e.g. power outages, DNS failures) typically excluded from cyber insurance?",
-      "back": "Because these events are not under the insured organisation's direct operational control. The policy only covers losses from events within the organisation's operational sphere; infrastructure events like power outages, DNS failures, and certificate authority failures are excluded."
+      "front": "London Market Association",
+      "back": "A trade body for insurers and reinsurers in Lloyd's of London that helps standardise cyber war exclusion language."
     },
     {
       "type": "flashcard",
-      "front": "What is 'Errors & Omissions' insurance and why is it separate from cyber insurance?",
-      "back": "Errors & Omissions (E&O) covers liability for mistakes, negligence, or failures in professional services. Cyber insurance excludes costs to restore systems beyond their prior state or to fix pre-existing software vulnerabilities — these would be covered under E&O. They are separate products with distinct coverage scopes."
+      "front": "Cyber insurance modelling stages",
+      "back": "Cause of loss identifies the event type; impact of loss estimates footprint and severity; likelihood of loss estimates frequency using probability distributions."
     },
     {
       "type": "flashcard",
-      "front": "Beazley's preferred Cyber War exclusion (Type 3) — definition of 'Cyber War'",
-      "back": "Any harmful act conducted using a computer system, directed against one or more computer systems, committed by or at the direction or under the control of a sovereign state, AND which is either: (1) conducted as part of a War, OR (2) causes a major detrimental impact on the functioning or security/defence of another sovereign state through disruption to Essential Services."
+      "front": "Deterministic vs probabilistic cyber modelling",
+      "back": "Deterministic modelling uses defined scenarios and footprints to explore cause and impact. Probabilistic modelling estimates frequency and loss distributions."
     },
     {
       "type": "flashcard",
-      "front": "Key carve-out in Beazley's Type 3 war exclusion",
-      "back": "The exclusion does NOT apply to computer systems operated by and owned by or leased to the insured organisation (or operated by a Dependent Business) that are NOT physically located in the sovereign state suffering the major detrimental impact. This protects innocent third-country bystanders."
+      "front": "Accumulation risk",
+      "back": "The risk that one cyber event causes correlated losses across many insured organisations, such as a cloud outage, widespread ransomware, or software supply-chain compromise."
     },
     {
       "type": "flashcard",
-      "front": "Non-preferred war exclusion (Type 4) — key difference from Type 3",
-      "back": "The Type 4 exclusion only carves out computer systems physically located in a warring state or an 'Impacted State'. Under Type 4, cyber-attacks conducted as part of a war that affect organisations outside the warring states are NOT excluded — meaning the insurer would potentially cover them. This is less favourable for insurers."
+      "front": "Cloud accumulation category",
+      "back": "A group of cyber accumulation risks involving cloud providers, such as misconfiguration, provider ransomware, cloud infrastructure failure, or cloud-related service disruption."
     },
     {
       "type": "flashcard",
-      "front": "London Market Association (LMA)",
-      "back": "The trade body representing insurers and reinsurers in Lloyd's of London (the London Market). It has developed a classification system for cyber war exclusions to help standardise how the market handles state-sponsored cyber attacks."
+      "front": "Malware accumulation category",
+      "back": "A group of cyber accumulation risks involving malware such as wiperware, wormable ransomware, and double-extortion ransomware."
     },
     {
       "type": "flashcard",
-      "front": "The three modelling stages in cyber insurance risk assessment",
-      "back": "1. Cause of Loss — modelled using Scenarios (e.g. RDS, Vendor Model); corresponds to 'Head of Cover'. 2. Impact of Loss — modelled using Footprint and Single Point of Failure analysis; corresponds to 'Severity'. 3. Likelihood of Loss — modelled using Probability Distribution; corresponds to 'Frequency'."
+      "front": "Privacy accumulation category",
+      "back": "A group of cyber accumulation risks involving data breach, trackers, and accidental exposure."
     },
     {
       "type": "flashcard",
-      "front": "Deterministic vs Probabilistic modelling in cyber insurance",
-      "back": "Deterministic modelling (scenarios, footprint, single point of failure) addresses cause and impact of loss with defined scenarios. Probabilistic modelling (probability distributions) addresses the likelihood/frequency of loss. Cyber modelling moves from deterministic to probabilistic."
+      "front": "Autolycus scenario",
+      "back": "A widespread software supply-chain attack where a legitimate software update is compromised and spreads destructive malware. It has high footprint and high per-insured loss."
     },
     {
       "type": "flashcard",
-      "front": "What is 'accumulation' in the context of cyber insurance risk?",
-      "back": "Accumulation refers to the aggregation of losses across many policyholders from a single cyber event (e.g. a widespread ransomware attack). Insurance risk assessments group perils to understand how accumulation might occur and to assess potential correlated losses."
+      "front": "Lernaen Hydra scenario",
+      "back": "A self-propagating malware scenario involving globally spreading wormable ransomware. It has the highest footprint but moderate per-insured loss."
     },
     {
       "type": "flashcard",
-      "front": "Three broad accumulation categories in cyber insurance (Beazley diagram)",
-      "back": "1. Cloud — includes misconfiguration (accidental/malicious), infrastructure failure outside exclusions, wormable ransomware, ransomware of cloud provider. 2. Malware — includes wiperware, wormable ransomware, double-extortion ransomware. 3. Privacy — includes data breach, trackers, accidental exposure."
+      "front": "Demeter's Curse scenario",
+      "back": "A targeted industry loss event exploiting a system common in industrial sectors. It has concentrated footprint but the highest per-insured loss, potentially including operational technology damage."
     },
     {
       "type": "flashcard",
-      "front": "Scenario 1: Autolycus (WSSC)",
-      "back": "Widespread Software Supply Chain Attack. A targeted supply chain attack compromises a legitimate software product update, spreading destructive malware to a subset of companies using that software. Results in HIGH footprint and HIGH per-insured loss, with hardware irrecoverable for many and long outage periods."
+      "front": "Footprint-driven scenario modelling",
+      "back": "A modelling approach that focuses on how many organisations are affected, because aggregate insured loss can be driven more by breadth of impact than by increasing per-company severity."
     },
     {
       "type": "flashcard",
-      "front": "Scenario 2: Lernaen Hydra (SPM)",
-      "back": "Self-Propagating Malware. A vicious, uncontrollable, self-replicating wormable malware (ransomware) spreading globally, originating from leakage/adaptation of a state-sponsored toolkit by organised crime. Results in HIGHEST footprint but only MODERATE per-insured loss."
+      "front": "Counterfactual analysis in cyber scenarios",
+      "back": "Considering what would have happened if conditions or controls had been different, such as MFA being fully deployed or a vulnerable service being patched."
     },
     {
       "type": "flashcard",
-      "front": "Scenario 3: Demeter's Curse (TILE)",
-      "back": "Targeted Industry Loss Event. A targeted malware attack exploiting a vulnerability in a system commonly used by industrial sector companies. High-capability threat actors cause concentrated, significant losses for a small number of firms in specific sectors. Results in CONCENTRATED footprint but HIGHEST per-insured loss. May include damage to operational technology (OT)."
+      "front": "Risk categories RC1 to RC7",
+      "back": "A ranking of organisations by strength of security controls, where RC1 represents strongest controls and RC7 represents weakest controls."
     },
     {
       "type": "flashcard",
-      "front": "Three key principles of the Beazley/Munich Re/Gallagher Re scenario development",
-      "back": "1. Improvement priorities — focus on attack propagation, geographical nuances, embedding actual anonymised claims data. 2. Footprint-driven approach — focus on increasing the footprint rather than severity due to limits/line size management. 3. Plausibility — existing security controls, incident response mechanisms and attack capabilities must be considered."
-    },
-    {
-      "type": "flashcard",
-      "front": "Risk Categories (RC1–RC7) in the Beazley/Munich Re/Gallagher Re model",
-      "back": "RC1 represents organisations with the strongest security controls; RC7 represents those with the weakest. The model assigns different probabilities of being impacted (footprint) and severity of loss based on these risk categories across different industry sectors."
-    },
-    {
-      "type": "flashcard",
-      "front": "Key finding from scenario modelling (Lernaen Hydra / SPM event 2)",
-      "back": "SMEs (small and medium enterprises) are most exposed to the Self-Propagating Malware (SPM) scenario (Event 2). The Lernaen Hydra scenario showed SMEs bearing a disproportionately large share of losses compared to large organisations (above $1bn revenue)."
-    },
-    {
-      "type": "flashcard",
-      "front": "What is the 'Footprint-driven approach' in disaster scenario development?",
-      "back": "Rather than trying to model increasingly severe per-incident losses, the modellers focused on feasibly increasing the number of affected organisations (footprint) because limits and line-size management in insurance portfolios mean a wider spread of affected companies drives aggregate loss more than per-company severity."
-    },
-    {
-      "type": "flashcard",
-      "front": "Counterfactual Analysis (in scenario development)",
-      "back": "Considering what would have happened under alternative conditions — e.g. what if a particular security control had been in place? This helps assess the plausibility of scenarios and the effectiveness of mitigating controls."
-    },
-    {
-      "type": "flashcard",
-      "front": "What paper does the lecture cite on insurers shaping cyber-security norms?",
-      "back": "Wolf, 'The role of insurers in shaping international cyber-security norms about cyber-war,' Contemporary Security Policy 45.1 (2024): 141–170."
+      "front": "SME exposure in self-propagating malware scenarios",
+      "back": "Scenario modelling found SMEs especially exposed to self-propagating malware because weaker controls and broader vulnerability can increase footprint and loss share."
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to Anderson (2001), which of the following is NOT cited as a microeconomic factor explaining information security failures?",
+      "question": "A vendor ships insecure software but contract terms place most breach costs on customers. Which economic concept best fits?",
+      "options": [
+        "Liability dumping",
+        "Complete mediation",
+        "AEAD",
+        "Maturity objective"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "An organisation buys cyber insurance and then delays MFA deployment because losses may be covered. Which concept best explains the incentive problem?",
       "options": [
         "Moral hazard",
         "Adverse selection",
-        "Formal proof of cryptographic protocols",
-        "Tragedy of the commons"
+        "Network externality",
+        "Criticality"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to Woods & Seymour (2023), what is the most important factor regarding security controls?",
+      "question": "High-risk organisations are more likely to seek cyber insurance, but insurers cannot fully observe their risk. Which problem is this?",
       "options": [
-        "Whether the control is implemented at all",
-        "How the control is implemented",
-        "The cost of the control",
-        "Whether the control is audited annually"
+        "Adverse selection",
+        "Tragedy of the commons",
+        "Retention",
+        "Business interruption"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In a maturity model, what does 'Practices (p_i)' describe?",
+      "question": "A company under-invests in botnet prevention because most harm from its compromised machines falls on others. Which concept applies?",
       "options": [
-        "The developmental state of objectives",
-        "A structured set of security practices grouped by area",
-        "Single security activities — the 'how' of achieving maturity",
-        "What the organisation must do for a practice to be deemed met"
+        "Tragedy of the commons",
+        "Breach response costs",
+        "Sensitivity",
+        "Policy aggregate limit"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "How many total practices does the CMMC contain across both levels?",
+      "question": "A buyer cannot tell whether a security product is genuinely strong or merely certified. Which economic issue is most relevant?",
       "options": [
-        "93",
-        "17",
-        "110",
-        "127"
+        "Asymmetric information",
+        "Cyber extortion",
+        "Footprint modelling",
+        "Criticality"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which CMMC domain has the highest total number of practices?",
+      "question": "What is the best interpretation of Woods and Seymour's finding about security controls?",
       "options": [
-        "System and Communications Protection (SC)",
-        "Identification and Authentication (IA)",
-        "System and Information Integrity (SI)",
-        "Access Control (AC)"
+        "Implementation quality matters more than a checkbox saying the control exists",
+        "Controls are ineffective regardless of deployment",
+        "Only MFA matters for cyber risk",
+        "Insurance replaces the need for controls"
       ],
-      "answer": 3
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What was the password publicly exposed in the SolarWinds GitHub repository?",
+      "question": "In a maturity model, what are practices?",
       "options": [
-        "solarwinds2019",
-        "solarwinds123",
-        "admin123",
-        "SolarW1nds!"
+        "Individual security activities used to achieve maturity",
+        "Only the final maturity levels",
+        "Only insurance exclusions",
+        "Only breach case studies"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What was the primary initial attack vector in the LastPass (2022) breach?",
+      "question": "A database stores regulated personal data but can tolerate brief downtime. Which property is most directly high?",
       "options": [
-        "A phishing email sent to a LastPass employee",
-        "Exploitation of an unpatched vulnerability on a developer's personal Plex server",
-        "A supply chain attack on a third-party software provider",
-        "Brute-forcing of LastPass admin credentials"
+        "Sensitivity",
+        "Criticality",
+        "Retention",
+        "Footprint"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Why was the British Library particularly vulnerable to the ransomware attack?",
+      "question": "A customer-facing service must stay online for the organisation to function, even though it stores little confidential data. Which property is most directly high?",
       "options": [
-        "It had no MFA anywhere in the organisation",
-        "It had MFA on cloud applications but not on the BL domain, and the server estate ran older defensive software",
-        "It had no incident response plan in place",
-        "The terminal services server was connected directly to the internet with no firewall"
+        "Criticality",
+        "Sensitivity",
+        "Adverse selection",
+        "War exclusion"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which of the following is typically covered under a cyber insurance policy's 'First Party Loss'?",
+      "question": "A company has MFA for cloud apps but not for a privileged remote-access domain server. What is the main lesson?",
       "options": [
-        "Costs to restore a system beyond its pre-incident state",
-        "Losses from power outages not under the insured's control",
-        "Cyber Extortion Loss (e.g. ransomware demands)",
-        "Seizure of data by government authority"
+        "Partial control deployment can leave the highest-risk path exposed",
+        "MFA is never useful",
+        "Cloud controls always protect on-premises systems",
+        "Insurance exclusions prevent ransomware"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Under a typical cyber insurance policy, what does 'Regulatory Defense & Penalties' cover?",
+      "question": "A developer's personal machine used for work runs an exposed unpatched service outside corporate monitoring. Which control gap is most central?",
       "options": [
-        "First-party costs of notifying regulators",
-        "Third-party liability — the costs of defending regulatory actions and penalties arising from a breach",
-        "Fines imposed by the insured organisation's board",
-        "Criminal proceedings against the insured's employees"
+        "Unmanaged endpoint and application exposure",
+        "Excessive policy aggregate limit",
+        "Too much cyber war coverage",
+        "Overly low retention"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In Beazley's preferred war exclusion (Type 3), what must be true for a harmful act to constitute 'Cyber War'?",
+      "question": "A weak password for a software update server allows attackers to push malicious code through legitimate updates. Which risk is most central?",
       "options": [
-        "It must be carried out by a non-state hacker group",
-        "It must be committed by or under the control of a sovereign state AND be part of a War or cause major detrimental impact on another state",
-        "It must cause financial losses exceeding $1 billion",
-        "It must involve malware that spreads to at least 10 countries"
+        "Software supply-chain compromise",
+        "Dependent business loss only",
+        "Privacy tracker accumulation",
+        "Errors and Omissions exclusion"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What is the key practical difference between the Type 3 (preferred) and Type 4 (non-preferred) war exclusions?",
+      "question": "What is the insurance retention?",
       "options": [
-        "Type 3 excludes all state-sponsored attacks; Type 4 only excludes attacks by named adversary states",
-        "Type 4 does not exclude cyber-attacks as part of war that affect companies outside the warring/impacted states, creating more coverage exposure for the insurer",
-        "Type 4 requires the insurer to prove intent before applying the exclusion",
-        "Type 3 applies to all policies globally; Type 4 only applies in the London Market"
+        "The amount the insured pays before coverage responds",
+        "The maximum the insurer pays across the policy period",
+        "The number of systems affected by a scenario",
+        "The maturity level of the organisation"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which of the three cyber modelling stages corresponds to the insurance concept of 'Severity'?",
+      "question": "What is the policy aggregate limit of liability?",
       "options": [
-        "Cause of Loss",
-        "Likelihood of Loss",
-        "Impact of Loss",
-        "Frequency of Loss"
+        "The maximum total insurer payout during the policy period",
+        "The insured's per-claim deductible",
+        "The number of claims expected by the model",
+        "The cyber war definition"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which Beazley/Munich Re/Gallagher Re scenario has the HIGHEST footprint but only MODERATE per-insured loss?",
+      "question": "A ransomware incident interrupts the insured's own operations. Which coverage category is most directly relevant?",
       "options": [
-        "Autolycus (WSSC)",
-        "Lernaen Hydra (SPM)",
-        "Demeter's Curse (TILE)",
-        "None — all scenarios have equal footprint"
+        "Business interruption loss",
+        "Errors and Omissions",
+        "Government seizure exclusion",
+        "Network externality"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which scenario results in the HIGHEST per-insured loss but a CONCENTRATED footprint?",
+      "question": "A supplier suffers a system failure and the insured cannot operate. Which concept best describes the insured's loss?",
       "options": [
-        "Autolycus (WSSC)",
-        "Lernaen Hydra (SPM)",
-        "Demeter's Curse (TILE)",
-        "Autolycus and Demeter's Curse equally"
+        "Dependent business loss",
+        "Adverse selection",
+        "Cyber war carve-out",
+        "Practice objective"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "What type of malware is at the heart of the 'Lernaen Hydra' scenario?",
+      "question": "A policy covers losses from fraudulent instruction and funds transfer fraud. Which coverage category is this?",
       "options": [
-        "Targeted destructive wiperware",
-        "A self-replicating wormable ransomware strain",
-        "A supply chain backdoor",
-        "A banking trojan"
+        "eCrime",
+        "Cyber war",
+        "Errors and Omissions",
+        "Criticality"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "The Autolycus scenario's attack is described as driven by which combination of threat actors?",
+      "question": "Why are power or DNS failures outside the insured's control often excluded?",
       "options": [
-        "Exclusively a nation-state",
-        "Hacktivist groups acting alone",
-        "A combination of an organised crime group and malicious insiders",
-        "Script kiddies exploiting a known public vulnerability"
+        "They are infrastructure failures outside the insured's operational sphere",
+        "They are always caused by the insured",
+        "They are never cyber-related",
+        "They are always covered under cyber extortion"
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "In the Demeter's Curse (TILE) scenario, what type of systems may be damaged beyond standard IT?",
+      "question": "Which modelling stage corresponds most closely to severity?",
       "options": [
-        "Cloud storage systems",
-        "Operational technology (OT) systems",
-        "Consumer IoT devices",
-        "Mobile device management (MDM) platforms"
+        "Impact of loss",
+        "Cause of loss",
+        "Likelihood of loss",
+        "Retention"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "According to the Beazley/Munich Re/Gallagher Re modelling, which category of companies is MOST exposed to the SPM (Event 2) scenario?",
+      "question": "Which modelling stage corresponds most closely to frequency?",
       "options": [
-        "Large multinationals (above $1bn revenue)",
-        "SMEs (small and medium enterprises)",
-        "Public sector organisations",
-        "Financial institutions exclusively"
+        "Likelihood of loss",
+        "Impact of loss",
+        "Cause of loss",
+        "Single point of failure only"
       ],
-      "answer": 1
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "multiple_choice",
-      "question": "Which of the following infrastructure events is explicitly listed as NOT covered by cyber insurance?",
+      "question": "Why is accumulation risk especially important in cyber insurance?",
       "options": [
-        "Ransomware attack on a cloud provider",
-        "Double-extortion ransomware",
-        "DNS infrastructure failures",
-        "Accidental data exposure"
+        "One event can affect many insureds through shared technology or infrastructure",
+        "Every cyber event affects only one company",
+        "Cyber losses are never correlated",
+        "Insurance policies have no limits"
       ],
-      "answer": 2
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A compromised software update spreads destructive malware to many users of the same product. Which scenario does this most resemble?",
+      "options": [
+        "Autolycus",
+        "Lernaen Hydra",
+        "Demeter's Curse",
+        "Type 4 exclusion"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A wormable ransomware strain spreads globally with very broad footprint but moderate per-insured loss. Which scenario does this most resemble?",
+      "options": [
+        "Lernaen Hydra",
+        "Autolycus",
+        "Demeter's Curse",
+        "CMMC Level 1"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A targeted attack harms a small set of industrial firms using the same vulnerable operational system, with very high loss per firm. Which scenario does this most resemble?",
+      "options": [
+        "Demeter's Curse",
+        "Lernaen Hydra",
+        "Autolycus",
+        "eCrime"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why use a footprint-driven approach in cyber disaster modelling?",
+      "options": [
+        "Aggregate loss may be driven by the number of organisations affected",
+        "Per-insured severity is always irrelevant",
+        "Frequency cannot be modelled at all",
+        "Insurance never has line-size constraints"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In the RC1 to RC7 model, what does RC1 represent?",
+      "options": [
+        "Strongest security controls",
+        "Weakest security controls",
+        "Largest companies only",
+        "War-excluded systems only"
+      ],
+      "answer": 0
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Anderson (2001) argues that most information security failures are caused by a lack of technical solutions.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Woods & Seymour (2023) find that whether a security control is implemented matters more than how it is implemented.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "In the CMMC, the Access Control (AC) domain contains the most practices in Level 2.",
+      "question": "The economic view of security argues that incentives can explain failures even when technical solutions exist.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The SolarWinds breach involved credentials leaked in a public GitHub repository.",
+      "question": "Network externalities mean one actor's security choices can affect others.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The LastPass (2022) breach occurred because the developer's personal machine was monitored by corporate IT but lacked antivirus software.",
+      "question": "Moral hazard and adverse selection are identical concepts.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The British Library had MFA in place for all remote activities, including access to the BL domain.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Cyber insurance policies typically cover costs to restore systems to a state beyond that which existed prior to the security breach.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Errors & Omissions (E&O) insurance is included within standard cyber insurance policies.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "Under Beazley's Type 3 (preferred) war exclusion, a cyber-attack conducted by a sovereign state that causes major disruption to essential services in another state would be excluded from coverage.",
+      "question": "A maturity model can be misleading if organisations treat it as a checklist rather than assessing real implementation quality.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Under the non-preferred Type 4 war exclusion, cyber-attacks as part of a war that affect organisations outside the warring states are not excluded from coverage.",
+      "question": "High sensitivity means a system must remain available at all times, regardless of the data it handles.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "SolarWinds, LastPass, and British Library each illustrate that incomplete or poorly scoped controls can fail despite formal security processes.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "There is currently universal agreement across the cyber insurance market on how to define and exclude cyber war.",
+      "question": "Cyber insurance normally pays unlimited losses once a covered incident occurs.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "Power outages caused by infrastructure outside the insured organisation's direct operational control are typically covered by cyber insurance.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Lernaen Hydra (SPM) scenario results in the highest per-insured loss of all three Beazley/Munich Re/Gallagher Re scenarios.",
-      "answer": false
-    },
-    {
-      "type": "quiz",
-      "subtype": "true_false",
-      "question": "The Autolycus (WSSC) scenario is industry-agnostic in its impact.",
+      "question": "Retention is the insured's share of loss before the policy responds.",
       "answer": true
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "The scenario development process found it was easy to construct cyber scenarios that generate widespread, catastrophic insured losses.",
+      "question": "Errors and Omissions coverage is the same product as ordinary cyber insurance in this material.",
       "answer": false
     },
     {
       "type": "quiz",
       "subtype": "true_false",
-      "question": "In the Beazley risk category model, RC1 represents organisations with the weakest security controls.",
+      "question": "Cyber war exclusions are important because state-linked cyber events can create large correlated losses.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "There is universal agreement in the cyber insurance market on how to define cyber war.",
       "answer": false
     },
     {
       "type": "quiz",
-      "subtype": "text_answer",
-      "question": "Explain the concept of 'moral hazard' in the context of cyber insurance and give an example of how it could manifest.",
-      "answer": "Moral hazard occurs when one party takes on more risk because another party bears the cost of that risk. In cyber insurance, an organisation that knows its losses will be covered by insurance may invest less in preventive security controls than it otherwise would. For example, a company might decide not to implement MFA or patch critical systems promptly because it knows that any breach-related costs will be covered by its policy, shifting the financial burden to the insurer."
+      "subtype": "true_false",
+      "question": "Accumulation risk is low when every insured depends on the same cloud provider or software product.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Deterministic cyber modelling is used for defined scenarios, footprints, and impacts.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Lernaen Hydra scenario has the highest footprint but not the highest per-insured loss.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Demeter's Curse is concentrated but severe for affected insureds.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Counterfactual analysis asks how outcomes might change if different controls or conditions had existed.",
+      "answer": true
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Explain the concept of 'adverse selection' in the context of cyber insurance.",
-      "answer": "Adverse selection arises from asymmetric information: organisations with poor security postures know they are at higher risk and are therefore more motivated to purchase cyber insurance. Insurers, lacking full visibility into each applicant's true security posture, may end up with a pool of policyholders disproportionately made up of high-risk organisations. This makes accurate pricing very difficult and can lead to losses exceeding expectations."
+      "question": "Explain the difference between the common technical view of security failures and Anderson's economic view.",
+      "answer": "The technical view focuses on mechanisms such as access control, protocol proofs, intrusion detection, and assurance. Anderson's economic view argues that many failures persist because incentives are misaligned: those best placed to fix security may not bear the losses from insecurity."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Describe the four components of a typical security maturity model and explain how they relate to each other.",
-      "answer": "1. Practices (p_i) are individual security activities — they describe HOW maturity is achieved. 2. Domains (d_i) group related practices into structured areas (e.g. Access Control, Incident Response). 3. Objectives (o_i) define WHAT the organisation must do for a practice to be considered met. 4. Maturity (m_i) assigns a developmental level (from a predetermined scale) to each objective, indicating how advanced or embedded the practice is within the organisation. Together, they allow an organisation to be assessed systematically: practices are grouped into domains, each practice has objectives that must be met, and the maturity level indicates how well those objectives are achieved."
+      "question": "Distinguish moral hazard from adverse selection in cyber insurance.",
+      "answer": "Moral hazard occurs after coverage exists: the insured may take less care because losses are partly transferred to the insurer. Adverse selection occurs before or during underwriting: high-risk organisations are more likely to seek insurance, while insurers may not be able to identify them accurately."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What lessons can be drawn from the SolarWinds, LastPass, and British Library breaches about the relationship between security controls and how they are implemented?",
-      "answer": "All three cases illustrate Woods & Seymour (2023)'s finding that how a control is implemented matters more than whether it is implemented. SolarWinds had a FedRAMP security assessment process but its Identification and Authentication controls were almost entirely absent in practice, and a trivially weak password was in use contrary to stated policies. LastPass had corporate security policies but failed to extend monitoring and application restrictions to personal devices used for work. The British Library had MFA — but only for cloud applications, not for its domain, leaving the terminal services server unprotected. In each case, the control existed in some form but was not comprehensively or correctly deployed."
+      "question": "Give a scenario showing a network externality in cybersecurity.",
+      "answer": "An organisation with poorly secured machines may become part of a botnet that attacks others. The organisation bears only part of the harm, while other network participants suffer spam, DDoS traffic, or wider compromise risk."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "What are the three scenarios described in the Beazley, Munich Re and Gallagher Re 'Cyber Realistic Disaster Scenario Development and Modelling' paper, and how do they differ in terms of footprint and per-insured loss?",
-      "answer": "1. Autolycus (Widespread Software Supply Chain Attack / WSSC): High footprint, High per-insured loss. A compromised software update spreads destructive malware across many companies; hardware is often irrecoverable. 2. Lernaen Hydra (Self-Propagating Malware / SPM): Highest footprint, Moderate per-insured loss. A wormable ransomware strain spreads globally and uncontrollably affecting the most organisations, but losses per company are lower. 3. Demeter's Curse (Targeted Industry Loss Event / TILE): Concentrated footprint, Highest per-insured loss. A targeted attack on industrial sector companies using a specific vulnerable system; fewer organisations are affected but each faces very high losses, potentially including damage to operational technology."
+      "question": "Why can asymmetric information create a security market problem?",
+      "answer": "If buyers or insurers cannot assess real security quality, weak products or high-risk organisations may be priced too favourably. This weakens incentives to invest in genuinely better security."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Why is developing realistic cyber disaster scenarios particularly challenging, according to the lecture?",
-      "answer": "Three main challenges are identified: 1) Technology has evolved significantly since the mass-worms of the 1990s/2000s, meaning historical events are poor analogues for modern attacks. 2) Without comparable past events, the assumptions needed to parameterise scenarios are hard to justify — there is limited empirical grounding. 3) Technology users are affected in very different ways depending on their industry, size, and security controls, making it difficult to estimate how a single event would propagate across a diverse portfolio of insureds."
+      "question": "Explain why 'having MFA' is not enough as a security claim.",
+      "answer": "MFA reduces risk only where it is actually required for relevant access paths. If privileged servers, legacy domains, remote access paths, or administrators are excluded, attackers can target the uncovered path."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Explain the difference between 'Dependent Business Loss' and standard 'Business Interruption Loss' in a cyber insurance policy.",
-      "answer": "Standard Business Interruption Loss covers losses when the insured organisation's own systems are disrupted by a security breach or system failure directly affecting the insured. Dependent Business Loss covers losses when the insured's operations are interrupted because of a security breach or system failure at a third-party business on which the insured depends (e.g. a key supplier, cloud provider, or managed service provider). Both sub-types can arise from either a security breach or a system failure."
+      "question": "Give a concise answer plan for applying a maturity model to an organisation.",
+      "answer": "Identify relevant domains; list practices in each domain; define objectives for each practice; assess maturity level based on evidence; weight findings by criticality and sensitivity; check whether controls are implemented comprehensively, not just documented."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "How do cyber insurance application questions (as shown in the Beazley examples) reflect the controls identified as important in the academic literature?",
-      "answer": "The application questions closely mirror the controls identified by Woods & Seymour (2023) as important corporate security controls. Questions cover MFA for remote access, cloud vs on-premises email, patch management (critical patches on internet-facing systems), monitoring (SOC, EDR, MDR), end-of-life software, network protocol configuration (firewalls blocking inbound connections by default), identity and access management (domain admin controls, hardened baseline configurations), remote access solutions (RDP/VNC exposure to the internet), and incident response planning. This shows that insurers use underwriting applications to assess security posture in ways grounded in the academic evidence base for what controls actually reduce cyber risk."
+      "question": "Why should criticality and sensitivity be considered separately?",
+      "answer": "A system can be critical because downtime stops operations even if it handles little confidential data. Another system can be sensitive because it stores regulated or high-integrity data even if short outages are tolerable. They drive different controls and priorities."
     },
     {
       "type": "quiz",
       "subtype": "text_answer",
-      "question": "Explain the three stages of cyber modelling from the perspective of an insurance carrier, and describe the tools used at each stage.",
-      "answer": "1. Cause of Loss (deterministic): Identifies what events could trigger a loss — modelled using predefined Scenarios (e.g. Realistic Disaster Scenarios / RDS, or vendor catastrophe models). This corresponds to the 'Head of Cover' concept in insurance. 2. Impact of Loss (deterministic to probabilistic): Assesses how many policyholders would be affected and how severely — modelled using Footprint analysis (how many insureds are exposed) and Single Point of Failure analysis (concentration risk through shared technology). This corresponds to 'Severity'. 3. Likelihood of Loss (probabilistic): Estimates how often such an event might occur — modelled using Probability Distributions fitted to historical data and expert judgment. This corresponds to 'Frequency'. The ultimate goal is a full probability curve of potential losses, though achieving this for cyber risk remains challenging."
+      "question": "What common lesson links the SolarWinds, LastPass, and British Library examples?",
+      "answer": "They show that controls fail when implementation scope is incomplete. Weak credentials, unmanaged personal devices, missing MFA on key domains, and outdated server defences can undermine otherwise plausible security programmes."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is a personal device used for corporate work a governance risk?",
+      "answer": "It may fall outside corporate monitoring, patching, application control, and incident response. If it has corporate credentials or access, compromise of the personal device can become compromise of the organisation."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between first-party and third-party cyber insurance losses using examples from the material.",
+      "answer": "First-party losses are the insured's own costs, such as breach response, business interruption, or cyber extortion. Third-party losses arise from liability to others, such as data and network liability or regulatory defence and penalties."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Distinguish business interruption loss from dependent business loss.",
+      "answer": "Business interruption loss comes from disruption to the insured's own operations. Dependent business loss comes from disruption at a third party on which the insured depends, such as a cloud provider, supplier, or managed service provider."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why do cyber insurance exclusions matter for risk transfer?",
+      "answer": "They define which losses remain with the insured even after buying insurance. Government action, infrastructure failures, physical perils, system improvements, and war-related events may not transfer to the insurer."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why cyber war is difficult for insurers to define and exclude.",
+      "answer": "Cyber operations can be state-directed, proxy-run, criminally reused, geographically diffuse, and hard to attribute. A single event can affect neutral third parties, making coverage boundaries politically and commercially difficult."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for analysing a cyber insurance policy clause.",
+      "answer": "Identify the coverage type; define the insured event; check retention and limits; identify exclusions and carve-outs; consider first-party versus third-party loss; assess dependencies and accumulation; apply the clause to the scenario facts."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the three stages of cyber insurance modelling.",
+      "answer": "Cause of loss asks what event triggers claims. Impact of loss estimates footprint and severity across insureds. Likelihood of loss estimates frequency using probability distributions and evidence."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is cyber accumulation harder to manage than isolated breach risk?",
+      "answer": "Many insureds may share the same software, cloud provider, protocol, vulnerability, or managed service. One event can therefore produce correlated losses across a portfolio rather than independent claims."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare Autolycus, Lernaen Hydra, and Demeter's Curse in terms of footprint and severity.",
+      "answer": "Autolycus is a software supply-chain scenario with high footprint and high per-insured loss. Lernaen Hydra is wormable malware with the highest footprint but moderate per-insured loss. Demeter's Curse is targeted industry loss with concentrated footprint but highest per-insured loss."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why might SMEs be disproportionately affected by a self-propagating malware scenario?",
+      "answer": "SMEs may have weaker controls, slower patching, less monitoring, and fewer incident response resources. This can increase both the probability of impact and the difficulty of recovery during widespread malware events."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What does a counterfactual analysis add to cyber scenario modelling?",
+      "answer": "It tests how outcomes would change if assumptions or controls differed. For example, it can estimate whether full MFA, faster patching, or better segmentation would reduce footprint or severity."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are realistic cyber disaster scenarios difficult to build?",
+      "answer": "Modern technology differs from past mass-worm events, comparable historical data is limited, controls vary widely across organisations, and industry, size, and dependencies change both footprint and loss severity."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for discussing cyber insurance and incentives.",
+      "answer": "Define risk transfer; explain moral hazard and adverse selection; discuss underwriting questions and control requirements; explain exclusions and retention; address accumulation and cyber war; conclude that insurance changes incentives but does not replace security."
     }
   ]
 }
