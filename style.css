@@ -32,6 +32,7 @@ body.dark {
   --color-correct: #4ade80;
   --color-wrong:   #f87171;
   --color-reveal:  #60a5fa;
+  --color-favourite: #facc15;
   --shadow-card:   0 4px 24px rgba(0,0,0,0.45);
   --shadow-flip:   0 12px 40px rgba(0,0,0,0.6);
 }
@@ -60,6 +61,7 @@ body.light {
   --color-correct: #16a34a;
   --color-wrong:   #dc2626;
   --color-reveal:  #2563eb;
+  --color-favourite: #eab308;
   --shadow-card:   0 2px 12px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
   --shadow-flip:   0 8px 32px rgba(0,0,0,0.15);
 }
@@ -290,8 +292,8 @@ input { font: inherit; color: inherit; }
 .toggle-btn.on::after { transform: translateX(16px); }
 
 /* ── Tab sections ───────────────────────────────────────────── */
-#tab-flashcards, #tab-quiz, #tab-results { display: none; flex: 1; overflow-y: auto; }
-#tab-flashcards.active, #tab-quiz.active, #tab-results.active { display: flex; flex-direction: column; }
+#tab-flashcards, #tab-quiz, #tab-favourites, #tab-results { display: none; flex: 1; overflow-y: auto; }
+#tab-flashcards.active, #tab-quiz.active, #tab-favourites.active, #tab-results.active { display: flex; flex-direction: column; }
 
 /* ── Flashcard scene ────────────────────────────────────────── */
 .flashcard-scene {
@@ -360,6 +362,91 @@ input { font: inherit; color: inherit; }
 .nav-btn:hover:not(:disabled) { background: var(--bg-btn-hover); color: var(--color-text); }
 .nav-btn:active:not(:disabled) { transform: scale(0.93); }
 .nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+
+.fav-star {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  z-index: 8;
+  border-radius: 50%;
+  color: var(--color-dim);
+  background: transparent;
+  font-size: 23px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.12s, transform 0.08s, background 0.12s;
+}
+
+.fav-star:hover {
+  color: var(--color-favourite);
+  background: var(--bg-hover);
+}
+
+.fav-star:active {
+  transform: scale(0.92);
+}
+
+.fav-star.active {
+  color: var(--color-favourite);
+}
+
+.quiz-card {
+  position: relative;
+}
+
+.quiz-card .fav-star {
+  top: 12px;
+  right: 12px;
+}
+
+.quiz-question {
+  padding-right: 34px;
+}
+
+/* ── Favourites ─────────────────────────────────────────────── */
+.favourites-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.fav-flashcard-panel,
+.fav-quiz-panel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.fav-flashcard-panel .card-3d-wrap {
+  margin-bottom: 32px;
+}
+
+.fav-quiz-card {
+  margin-bottom: 32px;
+}
+
+.fav-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 620px;
+  position: relative;
+}
+
+.fav-controls .btn-report-inline {
+  position: absolute;
+  right: 0;
+}
 
 /* ── Quiz ───────────────────────────────────────────────────── */
 #tab-quiz { display: none; flex-direction: column; flex: 1; overflow: hidden; }

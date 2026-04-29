@@ -59,6 +59,7 @@
       <div id="tab-bar">
         <button class="tab-btn" id="tab-btn-flashcards" data-tab="flashcards">⬛ Flashcards</button>
         <button class="tab-btn" id="tab-btn-quiz" data-tab="quiz">❓ Quiz</button>
+        <button class="tab-btn" id="tab-btn-favourites" data-tab="favourites" style="display:none">★ Favourites</button>
         <div class="tab-spacer"></div>
         <div class="shuffle-wrap">
           <span class="shuffle-label">Shuffle</span>
@@ -73,11 +74,13 @@
           <div class="card-3d-wrap" id="card-wrap" role="button" tabindex="0" aria-label="Flashcard — click to flip">
             <div class="card-3d" id="card-3d">
               <div class="card-face card-face-front">
+                <button class="fav-star" id="fc-star-front" title="Toggle favourite" aria-label="Toggle favourite">☆</button>
                 <div class="card-face-label">FRONT</div>
                 <div class="card-face-text" id="fc-front"></div>
                 <div class="card-flip-hint">🖱 Click to reveal answer</div>
               </div>
               <div class="card-face card-face-back">
+                <button class="fav-star" id="fc-star-back" title="Toggle favourite" aria-label="Toggle favourite">☆</button>
                 <div class="card-face-label">BACK</div>
                 <div class="card-face-text" id="fc-back"></div>
               </div>
@@ -96,6 +99,7 @@
         <div class="quiz-scene">
           <div class="progress-text-quiz" id="quiz-progress-inline"></div>
           <div class="quiz-card" id="quiz-card">
+            <button class="fav-star" id="quiz-star" title="Toggle favourite" aria-label="Toggle favourite">☆</button>
             <div class="quiz-question" id="quiz-question"></div>
             <div id="quiz-answer-area"></div>
             <div class="feedback-row" id="quiz-feedback" style="display:none"></div>
@@ -105,6 +109,47 @@
             <button class="nav-btn" id="quiz-next" title="Next question (→)">›</button>
             <button class="finish-btn" id="quiz-finish" style="display:none">Finish Quiz</button>
             <button id="btn-report-quiz" class="btn-report-inline" title="Report an issue" aria-label="Report an issue">Report 🚩</button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Favourites tab -->
+      <div id="tab-favourites">
+        <div class="favourites-scene">
+          <div class="progress-text-quiz" id="fav-progress"></div>
+
+          <div class="fav-flashcard-panel" id="fav-flashcard-panel">
+            <div class="card-3d-wrap" id="fav-card-wrap" role="button" tabindex="0" aria-label="Favourite flashcard - click to flip">
+              <div class="card-3d" id="fav-card-3d">
+                <div class="card-face card-face-front">
+                  <button class="fav-star active" id="fav-fc-star-front" title="Remove from favourites" aria-label="Remove from favourites">★</button>
+                  <div class="card-face-label">FRONT</div>
+                  <div class="card-face-text" id="fav-fc-front"></div>
+                  <div class="card-flip-hint">🖱 Click to reveal answer</div>
+                </div>
+                <div class="card-face card-face-back">
+                  <button class="fav-star active" id="fav-fc-star-back" title="Remove from favourites" aria-label="Remove from favourites">★</button>
+                  <div class="card-face-label">BACK</div>
+                  <div class="card-face-text" id="fav-fc-back"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fav-quiz-panel" id="fav-quiz-panel">
+            <div class="quiz-card fav-quiz-card" id="fav-quiz-card">
+              <button class="fav-star active" id="fav-quiz-star" title="Remove from favourites" aria-label="Remove from favourites">★</button>
+              <div class="quiz-question" id="fav-quiz-question"></div>
+              <div id="fav-quiz-answer-area"></div>
+              <div class="feedback-row" id="fav-quiz-feedback" style="display:none"></div>
+            </div>
+          </div>
+
+          <div class="fav-controls">
+            <button class="nav-btn" id="fav-prev" title="Previous favourite">‹</button>
+            <button class="nav-btn" id="fav-next" title="Next favourite">›</button>
+            <button id="btn-report-fav" class="btn-report-inline" title="Report an issue" aria-label="Report an issue">Report 🚩</button>
           </div>
         </div>
       </div>
@@ -148,6 +193,6 @@
 </div>
 
 <script src="migrate.js"></script>
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

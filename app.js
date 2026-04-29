@@ -8,7 +8,7 @@ let appState = loadAppState();
 
 let manifest = null;
 let currentFile = null;        // { theme, filename, data }
-let currentTab = 'flashcards'; // 'flashcards' | 'quiz' | 'results'
+let currentTab = 'flashcards'; // 'flashcards' | 'quiz' | 'favourites' | 'results'
 let shuffleOn = false;
 
 // Per-session derived arrays (after optional shuffle)
@@ -18,6 +18,10 @@ let fcIndex = 0;
 let quizQs = [];
 let quizIndex = 0;
 let quizAnswers = {};  // index → { given, correct }
+
+let favItems = [];
+let favIndex = 0;
+let favAnswers = {};  // favourite key → { given, correct }
 
 let endlessMode = null;
 
@@ -47,6 +51,145 @@ function getFileState(theme, filename) {
   if (!appState.files[k]) appState.files[k] = {};
   return appState.files[k];
 }
+
+function getFavourites(theme, filename, total) {
+  const fs = getFileState(theme, filename);
+  if (!Array.isArray(fs.favourites)) fs.favourites = [];
+
+  const max = Number.isInteger(total) ? total : Infinity;
+  const normalized = [...new Set(fs.favourites)]
+    .filter(idx => Number.isInteger(idx))
+    .filter(idx => idx >= 0 && idx < max);
+
+  if (
+    normalized.length !== fs.favourites.length ||
+    normalized.some((idx, i) => idx !== fs.favourites[i])
+  ) {
+    fs.favourites = normalized;
+    saveAppState();
+  }
+
+  return fs.favourites;
+}
+
+function isFavourite(theme, filename, origIdx, total) {
+  return getFavourites(theme, filename, total).includes(origIdx);
+}
+
+function hasFileFavourites(theme, filename, total) {
+  return getFavourites(theme, filename, total).length > 0;
+}
+
+function hasThemeFavourites(theme) {
+  const prefix = `${theme}::`;
+  return Object.keys(appState.files || {}).some(key => {
+    if (!key.startsWith(prefix)) return false;
+    return Array.isArray(appState.files[key].favourites) && appState.files[key].favourites.length > 0;
+  });
+}
+
+function setFavourite(theme, filename, origIdx, active, total) {
+  const fs = getFileState(theme, filename);
+  const favourites = getFavourites(theme, filename, total);
+  const exists = favourites.includes(origIdx);
+
+  if (active && !exists) favourites.push(origIdx);
+  if (!active && exists) fs.favourites = favourites.filter(idx => idx !== origIdx);
+
+  saveAppState();
+
+  if (currentTab === 'favourites' && !active) {
+    removeCurrentFavouriteFromView(theme, filename, origIdx);
+  }
+
+  syncFavouriteTabVisibility();
+  updateStarButtons();
+}
+
+function toggleFavourite(theme, filename, origIdx, total) {
+  setFavourite(theme, filename, origIdx, !isFavourite(theme, filename, origIdx, total), total);
+}
+
+function favouriteKey(item) {
+  return `${item.theme}::${item.filename}::${item._origIdx}`;
+}
+
+function getFallbackStudyTab() {
+  if (endlessMode) return 'quiz';
+  if (!currentFile) return 'flashcards';
+
+  const entries = Array.isArray(currentFile.data.entries) ? currentFile.data.entries : [];
+  if (entries.some(e => e.type === 'flashcard')) return 'flashcards';
+  if (entries.some(e => e.type === 'quiz')) return 'quiz';
+  return 'flashcards';
+}
+
+function syncFavouriteTabVisibility() {
+  const btn = document.getElementById('tab-btn-favourites');
+  if (!btn) return;
+
+  let show = false;
+
+  if (endlessMode) {
+    show = Array.isArray(endlessMode.allItems)
+      ? endlessMode.allItems.some(item => isFavourite(endlessMode.theme, item._sourceFilename, item._origIdx))
+      : hasThemeFavourites(endlessMode.theme);
+  } else if (currentFile) {
+    const entries = Array.isArray(currentFile.data.entries) ? currentFile.data.entries : [];
+    show = hasFileFavourites(currentFile.theme, currentFile.filename, entries.length);
+  }
+
+  btn.style.display = show ? '' : 'none';
+
+  if (!show && currentTab === 'favourites') {
+    switchTab(getFallbackStudyTab());
+  }
+}
+
+function updateFavouriteButtonVisual(btn, active) {
+  if (!btn) return;
+  btn.classList.toggle('active', active);
+  btn.textContent = active ? '★' : '☆';
+  btn.title = active ? 'Remove from favourites' : 'Add to favourites';
+  btn.setAttribute('aria-label', btn.title);
+}
+
+function updateFlashcardStarButtons() {
+  const card = fcCards[fcIndex];
+  const active = currentFile && card
+    ? isFavourite(currentFile.theme, currentFile.filename, card._origIdx, currentFile.data.entries.length)
+    : false;
+
+  updateFavouriteButtonVisual(document.getElementById('fc-star-front'), active);
+  updateFavouriteButtonVisual(document.getElementById('fc-star-back'), active);
+}
+
+function updateQuizStarButton() {
+  let active = false;
+
+  if (endlessMode && endlessMode.current) {
+    active = isFavourite(
+      endlessMode.theme,
+      endlessMode.current._sourceFilename,
+      endlessMode.current._origIdx
+    );
+  } else if (currentFile && quizQs[quizIndex]) {
+    active = isFavourite(
+      currentFile.theme,
+      currentFile.filename,
+      quizQs[quizIndex]._origIdx,
+      currentFile.data.entries.length
+    );
+  }
+
+  updateFavouriteButtonVisual(document.getElementById('quiz-star'), active);
+}
+
+function updateStarButtons() {
+  updateFlashcardStarButtons();
+  updateQuizStarButton();
+}
+
 
 function endlessKey(theme, field) {
   return `study:endless:${theme}:${field}`;
@@ -371,9 +514,13 @@ function refreshSidebarItem(theme, filename) {
 function resetFileState(theme, filename, itemEl) {
   const k = theme + '::' + filename;
   const total = appState.files[k] ? appState.files[k].total : undefined;
-  appState.files[k] = { total, seen: [] };
+  const favourites = appState.files[k] && Array.isArray(appState.files[k].favourites)
+    ? appState.files[k].favourites
+    : [];
+  appState.files[k] = { total, seen: [], favourites };
   saveAppState();
   refreshSidebarItem(theme, filename);
+  syncFavouriteTabVisibility();
   if (currentFile && currentFile.theme === theme && currentFile.filename === filename) {
     quizAnswers = {};
     if (currentTab === 'quiz') renderQuestion();
@@ -415,6 +562,7 @@ async function openEndlessMode(theme, itemEl) {
 
   try {
     const questions = [];
+    const allItems = [];
 
     for (const filename of theme.files) {
       const r = await fetch(`material/${theme.folder}/${filename}`);
@@ -424,14 +572,20 @@ async function openEndlessMode(theme, itemEl) {
       const entries = Array.isArray(data.entries) ? data.entries : [];
 
       entries.forEach((entry, idx) => {
-        if (entry.type !== 'quiz') return;
-
-        questions.push({
+        const item = {
           ...entry,
           _sourceFilename: filename,
           _sourceLabel: fileToLabel(filename),
           _origIdx: idx
-        });
+        };
+
+        if (entry.type === 'flashcard' || entry.type === 'quiz') {
+          allItems.push(item);
+        }
+
+        if (entry.type !== 'quiz') return;
+
+        questions.push(item);
       });
     }
 
@@ -444,6 +598,7 @@ async function openEndlessMode(theme, itemEl) {
       theme: theme.folder,
       label: theme.label,
       questions,
+      allItems,
       deck: shuffle(questions),
       current: null,
       currentSource: null,
@@ -474,10 +629,13 @@ function showEndlessPanel() {
 
   document.getElementById('tab-flashcards').classList.remove('active');
   document.getElementById('tab-results').classList.remove('active');
+  document.getElementById('tab-favourites').classList.remove('active');
   document.getElementById('tab-quiz').classList.add('active');
 
   document.getElementById('quiz-prev').style.visibility = '';
   document.getElementById('quiz-next').style.visibility = '';
+
+  syncFavouriteTabVisibility();
 }
 
 function exitEndlessPanelDefaults() {
@@ -508,6 +666,7 @@ function initContent(data, theme, filename) {
   document.getElementById('welcome').style.display = 'none';
   document.getElementById('content-panel').classList.add('visible');
 
+  syncFavouriteTabVisibility();
   switchTab(defaultTab);
 }
 
@@ -519,12 +678,15 @@ function switchTab(tab) {
   });
   document.getElementById('tab-flashcards').classList.toggle('active', tab === 'flashcards');
   document.getElementById('tab-quiz').classList.toggle('active', tab === 'quiz');
+  document.getElementById('tab-favourites').classList.toggle('active', tab === 'favourites');
   document.getElementById('tab-results').classList.toggle('active', tab === 'results');
 
   if (tab === 'flashcards') initFlashcards();
   else if (tab === 'quiz') {
     if (endlessMode) renderEndlessQuestion();
     else initQuiz();
+  } else if (tab === 'favourites') {
+    initFavourites();
   }
 }
 
@@ -551,6 +713,8 @@ btnShuffle.addEventListener('click', () => {
     } else {
       initQuiz();
     }
+  } else if (currentTab === 'favourites') {
+    initFavourites();
   }
 });
 
@@ -578,6 +742,8 @@ function renderCard() {
 
   document.getElementById('fc-prev').disabled = fcIndex === 0;
   document.getElementById('fc-next').disabled = fcIndex === fcCards.length - 1;
+
+  updateFlashcardStarButtons();
 }
 
 // Flip
@@ -595,6 +761,31 @@ cardWrap.addEventListener('keydown', e => {
     document.getElementById('card-3d').classList.toggle('flipped');
   }
 });
+
+function toggleCurrentFlashcardFavourite() {
+  if (!currentFile || !fcCards[fcIndex]) return;
+  toggleFavourite(currentFile.theme, currentFile.filename, fcCards[fcIndex]._origIdx, currentFile.data.entries.length);
+}
+
+function toggleCurrentQuizFavourite() {
+  if (endlessMode && endlessMode.current) {
+    toggleFavourite(endlessMode.theme, endlessMode.current._sourceFilename, endlessMode.current._origIdx);
+    return;
+  }
+
+  if (!currentFile || !quizQs[quizIndex]) return;
+  toggleFavourite(currentFile.theme, currentFile.filename, quizQs[quizIndex]._origIdx, currentFile.data.entries.length);
+}
+
+['fc-star-front', 'fc-star-back', 'quiz-star'].forEach(id => {
+  document.getElementById(id).addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (id === 'quiz-star') toggleCurrentQuizFavourite();
+    else toggleCurrentFlashcardFavourite();
+  });
+});
+
 
 document.getElementById('fc-prev').addEventListener('click', () => {
   if (fcIndex > 0) { fcIndex--; renderCard(); }
@@ -650,6 +841,8 @@ function renderEndlessQuestion() {
   document.getElementById('quiz-prev').disabled = true;
   document.getElementById('quiz-next').disabled = false;
   document.getElementById('quiz-finish').style.display = 'none';
+
+  updateQuizStarButton();
 }
 
 function renderEndlessMC(q, area) {
@@ -820,6 +1013,318 @@ function showEndlessFeedback(correct, q) {
   );
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   FAVOURITES
+   ══════════════════════════════════════════════════════════════ */
+function getFileFavouriteItems() {
+  if (!currentFile) return [];
+
+  const entries = Array.isArray(currentFile.data.entries) ? currentFile.data.entries : [];
+  const favourites = getFavourites(currentFile.theme, currentFile.filename, entries.length);
+
+  return favourites
+    .map(idx => {
+      const entry = entries[idx];
+      if (!entry || (entry.type !== 'flashcard' && entry.type !== 'quiz')) return null;
+
+      return {
+        ...entry,
+        theme: currentFile.theme,
+        filename: currentFile.filename,
+        _origIdx: idx,
+        _sourceLabel: fileToLabel(currentFile.filename)
+      };
+    })
+    .filter(Boolean);
+}
+
+function getEndlessFavouriteItems() {
+  if (!endlessMode || !Array.isArray(endlessMode.allItems)) return [];
+
+  return endlessMode.allItems
+    .filter(item => isFavourite(endlessMode.theme, item._sourceFilename, item._origIdx))
+    .map(item => ({
+      ...item,
+      theme: endlessMode.theme,
+      filename: item._sourceFilename
+    }));
+}
+
+function initFavourites() {
+  favItems = endlessMode ? shuffle(getEndlessFavouriteItems()) : getFileFavouriteItems();
+  favIndex = 0;
+  favAnswers = {};
+  renderFavouriteItem();
+}
+
+function getCurrentFavouriteItem() {
+  return favItems[favIndex] || null;
+}
+
+function renderFavouriteItem() {
+  syncFavouriteTabVisibility();
+
+  const item = getCurrentFavouriteItem();
+  if (!item) return;
+
+  const isEndlessFavourite = Boolean(endlessMode);
+  const sourceText = isEndlessFavourite ? ` from ${item._sourceLabel}` : '';
+  document.getElementById('fav-progress').textContent =
+    `Favourite ${favIndex + 1} of ${favItems.length}${sourceText}`;
+
+  document.getElementById('fav-prev').disabled = favIndex === 0;
+  document.getElementById('fav-next').disabled = favIndex === favItems.length - 1;
+
+  if (item.type === 'flashcard') renderFavouriteFlashcard(item);
+  else if (item.type === 'quiz') renderFavouriteQuiz(item);
+}
+
+function renderFavouriteFlashcard(item) {
+  document.getElementById('fav-flashcard-panel').style.display = 'flex';
+  document.getElementById('fav-quiz-panel').style.display = 'none';
+
+  const card3d = document.getElementById('fav-card-3d');
+  card3d.classList.remove('flipped');
+
+  document.getElementById('fav-fc-front').textContent = item.front;
+  document.getElementById('fav-fc-back').textContent = item.back;
+}
+
+function renderFavouriteQuiz(item) {
+  document.getElementById('fav-flashcard-panel').style.display = 'none';
+  document.getElementById('fav-quiz-panel').style.display = 'flex';
+
+  const q = item;
+  const questionEl = document.getElementById('fav-quiz-question');
+
+  if (endlessMode) {
+    questionEl.replaceChildren(
+      domEl('div', { className: 'endless-source', text: `Question from ${item._sourceLabel}` }),
+      domEl('div', { text: q.question })
+    );
+  } else {
+    questionEl.textContent = q.question;
+  }
+
+  const fb = document.getElementById('fav-quiz-feedback');
+  fb.style.display = 'none';
+  fb.className = 'feedback-row';
+  clearNode(fb);
+
+  const area = document.getElementById('fav-quiz-answer-area');
+  clearNode(area);
+
+  if (q.subtype === 'multiple_choice') renderFavouriteMC(q, area);
+  else if (q.subtype === 'true_false') renderFavouriteTF(q, area);
+  else if (q.subtype === 'text_answer') renderFavouriteTA(q, area);
+
+  if (favAnswers[favouriteKey(item)] !== undefined) {
+    restoreFavouriteAnswerUI(item);
+  }
+}
+
+function renderFavouriteMC(q, area) {
+  const list = document.createElement('div');
+  list.className = 'options-list';
+
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = opt;
+    btn.addEventListener('click', () => submitFavouriteMC(q, i));
+    list.appendChild(btn);
+  });
+
+  area.appendChild(list);
+}
+
+function submitFavouriteMC(q, chosen) {
+  const item = getCurrentFavouriteItem();
+  if (!item) return;
+
+  const key = favouriteKey(item);
+  if (favAnswers[key] !== undefined) return;
+
+  favAnswers[key] = { given: chosen, correct: chosen === q.answer };
+  restoreFavouriteAnswerUI(item);
+}
+
+function renderFavouriteTF(q, area) {
+  const row = document.createElement('div');
+  row.className = 'tf-row';
+
+  ['True', 'False'].forEach(label => {
+    const btn = document.createElement('button');
+    btn.className = 'tf-btn';
+    btn.textContent = label;
+    btn.addEventListener('click', () => submitFavouriteTF(q, label === 'True'));
+    row.appendChild(btn);
+  });
+
+  area.appendChild(row);
+}
+
+function submitFavouriteTF(q, chosen) {
+  const item = getCurrentFavouriteItem();
+  if (!item) return;
+
+  const key = favouriteKey(item);
+  if (favAnswers[key] !== undefined) return;
+
+  favAnswers[key] = { given: chosen, correct: chosen === q.answer };
+  restoreFavouriteAnswerUI(item);
+}
+
+function renderFavouriteTA(q, area) {
+  const wrap = document.createElement('div');
+  wrap.className = 'text-answer-wrap';
+
+  const ta = document.createElement('textarea');
+  ta.className = 'text-input text-area';
+  ta.placeholder = 'Type your answer…';
+  ta.id = 'fav-ta-input';
+  ta.rows = 4;
+
+  const btn = document.createElement('button');
+  btn.className = 'submit-btn';
+  btn.textContent = 'Submit';
+  btn.id = 'fav-ta-submit';
+  btn.addEventListener('click', () => submitFavouriteTA(q));
+
+  wrap.appendChild(ta);
+  wrap.appendChild(btn);
+  area.appendChild(wrap);
+}
+
+function submitFavouriteTA(q) {
+  const item = getCurrentFavouriteItem();
+  if (!item) return;
+
+  const key = favouriteKey(item);
+  if (favAnswers[key] !== undefined) return;
+
+  const ta = document.getElementById('fav-ta-input');
+  const given = ta.value.trim();
+  if (!given) return;
+
+  favAnswers[key] = { given, correct: null };
+  restoreFavouriteAnswerUI(item);
+}
+
+function restoreFavouriteAnswerUI(item) {
+  const q = item;
+  const ans = favAnswers[favouriteKey(item)];
+  if (!ans) return;
+
+  const area = document.getElementById('fav-quiz-answer-area');
+
+  if (q.subtype === 'multiple_choice') {
+    const btns = area.querySelectorAll('.option-btn');
+    btns.forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.answer) btn.classList.add('correct');
+      else if (i === ans.given && !ans.correct) btn.classList.add('wrong');
+    });
+  } else if (q.subtype === 'true_false') {
+    const btns = area.querySelectorAll('.tf-btn');
+    btns.forEach(btn => {
+      btn.disabled = true;
+      const val = btn.textContent === 'True';
+      if (val === q.answer) btn.classList.add('correct');
+      else if (val === ans.given && !ans.correct) btn.classList.add('wrong');
+    });
+  } else if (q.subtype === 'text_answer') {
+    const ta = area.querySelector('.text-input');
+    const submitBtn = area.querySelector('.submit-btn');
+    if (ta) { ta.value = ans.given; ta.disabled = true; }
+    if (submitBtn) submitBtn.disabled = true;
+  }
+
+  const fb = document.getElementById('fav-quiz-feedback');
+  fb.style.display = 'flex';
+
+  if (q.subtype === 'text_answer') {
+    fb.className = 'feedback-row neutral';
+    fb.replaceChildren(
+      document.createTextNode('✎ Submitted'),
+      domEl('span', {
+        className: 'feedback-ref-answer',
+        text: `Model answer: ${q.answer}`
+      })
+    );
+  } else if (ans.correct) {
+    fb.className = 'feedback-row correct';
+    fb.textContent = '✓ Correct!';
+  } else {
+    fb.className = 'feedback-row wrong';
+
+    let correctText = '';
+    if (q.subtype === 'multiple_choice') correctText = q.options[q.answer];
+    else if (q.subtype === 'true_false') correctText = q.answer ? 'True' : 'False';
+
+    fb.replaceChildren(
+      document.createTextNode('✗ Wrong '),
+      domEl('span', {
+        className: 'feedback-correct-reveal',
+        text: `Correct answer: ${correctText}`
+      })
+    );
+  }
+}
+
+function removeCurrentFavourite() {
+  const item = getCurrentFavouriteItem();
+  if (!item) return;
+
+  setFavourite(item.theme, item.filename, item._origIdx, false);
+}
+
+function removeCurrentFavouriteFromView(theme, filename, origIdx) {
+  if (currentTab !== 'favourites') return;
+
+  const key = `${theme}::${filename}::${origIdx}`;
+  favItems = favItems.filter(item => favouriteKey(item) !== key);
+  delete favAnswers[key];
+
+  if (favItems.length === 0) {
+    syncFavouriteTabVisibility();
+    return;
+  }
+
+  if (favIndex >= favItems.length) favIndex = favItems.length - 1;
+  renderFavouriteItem();
+}
+
+const favCardWrap = document.getElementById('fav-card-wrap');
+favCardWrap.addEventListener('click', () => {
+  document.getElementById('fav-card-3d').classList.toggle('flipped');
+});
+
+favCardWrap.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    document.getElementById('fav-card-3d').classList.toggle('flipped');
+  }
+});
+
+['fav-fc-star-front', 'fav-fc-star-back', 'fav-quiz-star'].forEach(id => {
+  document.getElementById(id).addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    removeCurrentFavourite();
+  });
+});
+
+document.getElementById('fav-prev').addEventListener('click', () => {
+  if (favIndex > 0) { favIndex--; renderFavouriteItem(); }
+});
+
+document.getElementById('fav-next').addEventListener('click', () => {
+  if (favIndex < favItems.length - 1) { favIndex++; renderFavouriteItem(); }
+});
+
+
 /* ══════════════════════════════════════════════════════════════
    QUIZ
    ══════════════════════════════════════════════════════════════ */
@@ -866,6 +1371,8 @@ function renderQuestion() {
   const allAnswered = quizQs.every((_, i) => quizAnswers[i] !== undefined);
   const finishBtn = document.getElementById('quiz-finish');
   finishBtn.style.display = allAnswered ? '' : 'none';
+
+  updateQuizStarButton();
 }
 
 /* ── Multiple choice ─────────────────────────────────────────── */
@@ -1118,6 +1625,7 @@ function showResults() {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-flashcards').classList.remove('active');
   document.getElementById('tab-quiz').classList.remove('active');
+  document.getElementById('tab-favourites').classList.remove('active');
   document.getElementById('tab-results').classList.add('active');
 }
 
@@ -1153,6 +1661,13 @@ document.addEventListener('keydown', e => {
   } else if (currentTab === 'quiz') {
     if (e.key === 'ArrowLeft') document.getElementById('quiz-prev').click();
     if (e.key === 'ArrowRight') document.getElementById('quiz-next').click();
+  } else if (currentTab === 'favourites') {
+    if (e.key === 'ArrowLeft') document.getElementById('fav-prev').click();
+    if (e.key === 'ArrowRight') document.getElementById('fav-next').click();
+    if ((e.key === ' ' || e.key === 'Enter') && getCurrentFavouriteItem()?.type === 'flashcard') {
+      e.preventDefault();
+      favCardWrap.click();
+    }
   }
 });
 
@@ -1184,6 +1699,25 @@ function getReportContext() {
   if (currentFile && currentTab === 'quiz' && quizQs.length > 0) {
     entry = quizQs[quizIndex];
     entryIndex = entry._origIdx;
+  }
+
+  if (currentTab === 'favourites') {
+    const fav = getCurrentFavouriteItem();
+    if (fav) {
+      const cleanEntry = { ...fav };
+      delete cleanEntry.theme;
+      delete cleanEntry.filename;
+      delete cleanEntry._origIdx;
+      delete cleanEntry._sourceFilename;
+      delete cleanEntry._sourceLabel;
+
+      return {
+        theme: fav.theme,
+        filename: fav.filename,
+        entryIndex: fav._origIdx,
+        entry: cleanEntry
+      };
+    }
   }
 
   if (!entry) {
@@ -1226,6 +1760,7 @@ function closeReportModal() {
 
 document.getElementById('btn-report-fab').addEventListener('click', openReportModal);
 document.getElementById('btn-report-quiz').addEventListener('click', openReportModal);
+document.getElementById('btn-report-fav').addEventListener('click', openReportModal);
 document.getElementById('btn-report-close').addEventListener('click', closeReportModal);
 document.getElementById('btn-report-cancel').addEventListener('click', closeReportModal);
 
