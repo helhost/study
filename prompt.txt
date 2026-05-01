@@ -6,6 +6,7 @@ Rules for coverage:
 - Use a mix of all three quiz subtypes: multiple_choice, true_false, and text_answer
 - Use text_answer for open-ended concepts, definitions, or explanations that cannot be reduced to a single correct option
 - Use multiple_choice for facts with clear wrong alternatives
+- For multiple choice quesitons, each answer should be almost the same length as to not give away the answer that way.
 - Use true_false for common misconceptions or statements that are clearly true or false
 - Aim for at least 10-20 entries per major section or topic
 - Do not skip minor but examinable details

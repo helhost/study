@@ -104,6 +104,7 @@ Multiple-choice rules:
 - Preserve the answer format used in the input.
 - Make exactly one option clearly correct unless the input format supports otherwise.
 - Avoid silly or obviously wrong distractors.
+- All answers should be of approximate length, as to not reveal the answer by that factor, or mix in the shortest answer as the correct one every once in a while. 
 - Distractors should reflect common confusions.
 
 True/false rules:
