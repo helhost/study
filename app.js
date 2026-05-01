@@ -392,8 +392,20 @@ function buildSidebar() {
 
     header.addEventListener('click', () => {
       const icon = header.querySelector('.theme-icon');
-      const isOpen = icon.classList.toggle('open');
-      filesDiv.style.maxHeight = isOpen ? filesDiv.scrollHeight + 'px' : '0';
+      const isOpening = !icon.classList.contains('open');
+
+      document.querySelectorAll('.theme-icon.open').forEach(openIcon => {
+        openIcon.classList.remove('open');
+      });
+
+      document.querySelectorAll('.theme-files').forEach(openFiles => {
+        openFiles.style.maxHeight = '0';
+      });
+
+      if (isOpening) {
+        icon.classList.add('open');
+        filesDiv.style.maxHeight = filesDiv.scrollHeight + 'px';
+      }
     });
 
     group.appendChild(header);
