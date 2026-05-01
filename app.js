@@ -284,13 +284,20 @@ document.getElementById('btn-theme').addEventListener('click', () => {
 
 /* ── Sidebar toggle ───────────────────────────────────────────── */
 let sidebarOpen = true;
+
+function closeSidebar() {
+  sidebarOpen = false;
+  document.getElementById('sidebar').classList.add('hidden');
+  document.getElementById('main').classList.add('full');
+  document.getElementById('btn-sidebar-toggle').textContent = '▶';
+}
+
 document.getElementById('btn-sidebar-toggle').addEventListener('click', () => {
   sidebarOpen = !sidebarOpen;
   document.getElementById('sidebar').classList.toggle('hidden', !sidebarOpen);
   document.getElementById('main').classList.toggle('full', !sidebarOpen);
   document.getElementById('btn-sidebar-toggle').textContent = sidebarOpen ? '☰' : '▶';
 });
-
 /* ── Auto-discovery via nginx autoindex JSON ─────────────────── */
 function folderToLabel(name) {
   return name.replace(/[_-]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -425,7 +432,10 @@ function buildEndlessItem(theme) {
   item.appendChild(top);
   item.appendChild(sub);
 
-  item.addEventListener('click', () => openEndlessMode(theme, item));
+  item.addEventListener('click', () => {
+    openEndlessMode(theme, item);
+    closeSidebar();
+  });
 
   return item;
 }
@@ -489,7 +499,10 @@ function buildFileItem(theme, filename) {
   item.appendChild(top);
   item.appendChild(progressWrap);
 
-  item.addEventListener('click', () => openFile(theme, filename, item));
+  item.addEventListener('click', () => {
+    openFile(theme, filename, item);
+    closeSidebar();
+  });
   return item;
 }
 

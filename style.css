@@ -698,12 +698,42 @@ input { font: inherit; color: inherit; }
 
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  :root { --sidebar-width: 240px; }
-  .card-face { padding: 24px 20px; }
-  .card-face-text { font-size: 15px; }
-  .quiz-card { padding: 20px; }
-  .quiz-controls { gap: 16px; }
-  .quiz-question { font-size: 15px; }
+  :root {
+    --sidebar-width: 100%;
+  }
+
+  #sidebar {
+    width: 100%;
+    z-index: 90;
+    border-right: 0;
+    box-shadow: var(--shadow-card);
+  }
+
+  #sidebar.hidden {
+    transform: translateX(-100%);
+  }
+
+  #main,
+  #main.full {
+    margin-left: 0;
+  }
+
+  .card-face {
+    padding: 24px 20px;
+  }
+
+  .card-face-text,
+  .quiz-question {
+    font-size: 15px;
+  }
+
+  .quiz-card {
+    padding: 20px;
+  }
+
+  .quiz-controls {
+    gap: 16px;
+  }
 }
 
 /* ── Report flag, modal, reports page ───────────────────────── */
