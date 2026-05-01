@@ -356,7 +356,7 @@ function buildSidebar() {
     const header = document.createElement('div');
     header.className = 'theme-header';
     header.append(
-      domEl('span', { className: 'theme-icon open', text: '▶' }),
+      domEl('span', { className: 'theme-icon', text: '▶' }),
       domEl('span', { className: 'theme-label', text: theme.label })
     );
     const filesDiv = document.createElement('div');
@@ -393,8 +393,8 @@ function buildSidebar() {
     group.appendChild(filesDiv);
     tree.appendChild(group);
 
-    // Start open
-    filesDiv.style.maxHeight = filesDiv.scrollHeight + 'px';
+    // Start closed
+    filesDiv.style.maxHeight = '0';
   }
 }
 
