@@ -240,6 +240,13 @@ function shuffle(arr) {
   return a;
 }
 
+function shuffledOptions(q) {
+  return shuffle(q.options.map((opt, i) => ({
+    opt,
+    originalIndex: i
+  })));
+}
+
 function loading(on) {
   document.getElementById('loading-overlay').classList.toggle('visible', on);
 }
@@ -874,11 +881,12 @@ function renderEndlessMC(q, area) {
   const list = document.createElement('div');
   list.className = 'options-list';
 
-  q.options.forEach((opt, i) => {
+  shuffledOptions(q).forEach(({ opt, originalIndex }) => {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
     btn.textContent = opt;
-    btn.addEventListener('click', () => submitEndlessMC(q, i));
+    btn.dataset.originalIndex = originalIndex;
+    btn.addEventListener('click', () => submitEndlessMC(q, originalIndex));
     list.appendChild(btn);
   });
 
@@ -892,8 +900,11 @@ function submitEndlessMC(q, chosen) {
   const correct = chosen === q.answer;
   updateEndlessScore(endlessMode.theme, correct);
 
-  const btns = document.querySelectorAll('.option-btn');
-  btns.forEach((btn, i) => {
+  const btns = document
+    .getElementById('quiz-answer-area')
+    .querySelectorAll('.option-btn');
+  btns.forEach(btn => {
+    const i = Number(btn.dataset.originalIndex);
     btn.disabled = true;
     if (i === q.answer) btn.classList.add('correct');
     else if (i === chosen && !correct) btn.classList.add('wrong');
@@ -1153,11 +1164,12 @@ function renderFavouriteMC(q, area) {
   const list = document.createElement('div');
   list.className = 'options-list';
 
-  q.options.forEach((opt, i) => {
+  shuffledOptions(q).forEach(({ opt, originalIndex }) => {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
     btn.textContent = opt;
-    btn.addEventListener('click', () => submitFavouriteMC(q, i));
+    btn.dataset.originalIndex = originalIndex;
+    btn.addEventListener('click', () => submitFavouriteMC(q, originalIndex));
     list.appendChild(btn);
   });
 
@@ -1246,7 +1258,8 @@ function restoreFavouriteAnswerUI(item) {
 
   if (q.subtype === 'multiple_choice') {
     const btns = area.querySelectorAll('.option-btn');
-    btns.forEach((btn, i) => {
+    btns.forEach(btn => {
+      const i = Number(btn.dataset.originalIndex);
       btn.disabled = true;
       if (i === q.answer) btn.classList.add('correct');
       else if (i === ans.given && !ans.correct) btn.classList.add('wrong');
@@ -1404,13 +1417,16 @@ function renderQuestion() {
 function renderMC(q, area) {
   const list = document.createElement('div');
   list.className = 'options-list';
-  q.options.forEach((opt, i) => {
+
+  shuffledOptions(q).forEach(({ opt, originalIndex }) => {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
     btn.textContent = opt;
-    btn.addEventListener('click', () => submitMC(q, i));
+    btn.dataset.originalIndex = originalIndex;
+    btn.addEventListener('click', () => submitMC(q, originalIndex));
     list.appendChild(btn);
   });
+
   area.appendChild(list);
 }
 
@@ -1484,7 +1500,8 @@ function restoreAnswerUI(q, idx) {
 
   if (q.subtype === 'multiple_choice') {
     const btns = area.querySelectorAll('.option-btn');
-    btns.forEach((btn, i) => {
+    btns.forEach(btn => {
+      const i = Number(btn.dataset.originalIndex);
       btn.disabled = true;
       if (i === q.answer) btn.classList.add('correct');
       else if (i === ans.given && !ans.correct) btn.classList.add('wrong');
