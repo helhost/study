@@ -251,9 +251,9 @@
       "question": "A designer estimates component failure rates from historical accident data. An attacker then changes strategy after seeing the defence. Which distinction is most relevant?",
       "options": [
         "Confidentiality vs integrity",
-        "Safety vs security",
-        "Secrecy vs privacy",
-        "Policy vs mechanism"
+        "Safety versus security",
+        "Secrecy versus privacy",
+        "Policy versus mechanism"
       ],
       "answer": 1
     },
@@ -264,8 +264,8 @@
       "options": [
         "Confidentiality and availability",
         "Integrity and authenticity",
-        "Availability and open design",
-        "Privacy and separation of privilege"
+        "Availability and accountability",
+        "Privacy and authorisation"
       ],
       "answer": 0
     },
@@ -275,7 +275,7 @@
       "question": "A cryptographic proof states that no attacker with capability X can violate policy Y. Which security model is being used?",
       "options": [
         "Risk management model",
-        "Binary model",
+        "Binary security model",
         "Security theatre model",
         "Safety hazard model"
       ],
@@ -286,10 +286,10 @@
       "subtype": "multiple_choice",
       "question": "A company decides not to protect a low-value asset because the protection cost exceeds the expected loss. Which model best fits this reasoning?",
       "options": [
-        "Binary security",
-        "Risk management",
-        "Open design",
-        "Complete mediation"
+        "Binary security reasoning",
+        "Risk management reasoning",
+        "Open design reasoning",
+        "Complete mediation reasoning"
       ],
       "answer": 1
     },
@@ -298,10 +298,10 @@
       "subtype": "multiple_choice",
       "question": "Which item is a vulnerability rather than a threat?",
       "options": [
-        "A criminal group with access to stolen credentials",
-        "A malicious insider with administrator access",
-        "An unchecked input field that can corrupt system state",
-        "A competitor motivated to steal data"
+        "A criminal group using stolen credentials",
+        "A malicious insider with admin access",
+        "An unchecked input field in the system",
+        "A competitor seeking stolen data"
       ],
       "answer": 2
     },
@@ -310,10 +310,10 @@
       "subtype": "multiple_choice",
       "question": "A software flaw exists in an offline system that is never connected to users, networks, or removable media. What does this best illustrate?",
       "options": [
-        "A vulnerability can exist even if exploitation likelihood is zero",
-        "A threat and a vulnerability are the same thing",
-        "Impact is always independent of system context",
-        "A flaw is not a vulnerability unless it is exploited"
+        "A vulnerability can exist with zero likelihood",
+        "Threat and vulnerability are identical ideas",
+        "Impact is always independent of context",
+        "A flaw is only a vulnerability if exploited"
       ],
       "answer": 0
     },
@@ -322,10 +322,10 @@
       "subtype": "multiple_choice",
       "question": "A security objective should primarily be derived from:",
       "options": [
-        "The most fashionable security controls",
-        "The threat model and security policy",
-        "The cheapest available mechanism",
-        "The number of users in the system"
+        "Fashionable control choices",
+        "Threat model and policy",
+        "Cheapest available mechanism",
+        "Number of system users"
       ],
       "answer": 1
     },
@@ -334,10 +334,10 @@
       "subtype": "multiple_choice",
       "question": "Which statement best describes a security mechanism?",
       "options": [
-        "The rule that says what must be protected",
-        "The adversary's motivation and capability",
-        "The means used to enforce the security policy",
-        "The harm caused after a compromise"
+        "The rule saying what to protect",
+        "The attacker's motive and capability",
+        "The means enforcing the policy",
+        "The harm after compromise"
       ],
       "answer": 2
     },
@@ -346,10 +346,10 @@
       "subtype": "multiple_choice",
       "question": "A system relies on a single logging server to prove that audit records cannot be changed. Which concern is most directly about the TCB?",
       "options": [
-        "The logging server is part of the TCB because its failure can break the policy",
-        "The logging server is outside the TCB because it only stores evidence",
-        "Only cryptographic algorithms can be in the TCB",
-        "The TCB includes only users, not hardware or software"
+        "The logging server is trusted because it can break the policy",
+        "The logging server is outside because it stores evidence",
+        "Only cryptographic algorithms can belong inside the TCB",
+        "The TCB includes users but excludes hardware and software"
       ],
       "answer": 0
     },
@@ -360,7 +360,7 @@
       "options": [
         "Least common mechanism",
         "Separation of privilege",
-        "Open design",
+        "Open design principle",
         "Psychological acceptability"
       ],
       "answer": 1
@@ -370,10 +370,10 @@
       "subtype": "multiple_choice",
       "question": "A service account has permission to read every database table, although it only needs one table. Which principle is violated?",
       "options": [
-        "Least privilege",
-        "Defence in depth",
-        "Open design",
-        "Security theatre"
+        "Least privilege principle",
+        "Defence in depth principle",
+        "Open design principle",
+        "Security theatre principle"
       ],
       "answer": 0
     },
@@ -385,7 +385,7 @@
         "Fail-safe defaults",
         "Least common mechanism",
         "Separation of privilege",
-        "Security target"
+        "Security target reasoning"
       ],
       "answer": 1
     },
@@ -395,7 +395,7 @@
       "question": "A program checks access only when a file is opened, then continues to allow use after permissions have been revoked. Which principle is most at risk?",
       "options": [
         "Complete mediation",
-        "Open design",
+        "Open design principle",
         "Economy of mechanism",
         "Psychological acceptability"
       ],
@@ -406,10 +406,10 @@
       "subtype": "multiple_choice",
       "question": "A product ships with all external access disabled until an administrator explicitly enables it. Which principle is illustrated?",
       "options": [
-        "Open design",
+        "Open design principle",
         "Fail-safe defaults",
         "Least common mechanism",
-        "Security theatre"
+        "Security theatre measure"
       ],
       "answer": 1
     },
@@ -418,10 +418,10 @@
       "subtype": "multiple_choice",
       "question": "A vendor claims its system is secure because attackers do not know the proprietary algorithm. Which principle does this most clearly conflict with?",
       "options": [
-        "Open design",
-        "Availability",
+        "Open design principle",
+        "Availability requirement",
         "Separation of privilege",
-        "Risk transfer"
+        "Risk transfer reasoning"
       ],
       "answer": 0
     },
@@ -432,8 +432,8 @@
       "options": [
         "Psychological acceptability",
         "Least common mechanism",
-        "Binary security",
-        "Protection profile"
+        "Binary security reasoning",
+        "Protection profile reasoning"
       ],
       "answer": 0
     },
@@ -444,8 +444,8 @@
       "options": [
         "Defence in depth",
         "Fail-safe defaults",
-        "Open design",
-        "Identity"
+        "Open design principle",
+        "Identity management"
       ],
       "answer": 0
     },
@@ -454,10 +454,10 @@
       "subtype": "multiple_choice",
       "question": "Which option best distinguishes policy from mechanism?",
       "options": [
-        "Policy is the adversary's goal; mechanism is the attack path",
-        "Policy states what must be achieved; mechanism is how it is enforced",
-        "Policy is technical; mechanism is legal",
-        "Policy is always correct; mechanism is always flawed"
+        "Policy is the goal; mechanism is the attack route",
+        "Policy states the goal; mechanism enforces it",
+        "Policy is technical; mechanism is legal wording",
+        "Policy is always correct; mechanism is flawed"
       ],
       "answer": 1
     },
@@ -468,8 +468,8 @@
       "options": [
         "Mechanism failure",
         "Policy failure",
-        "Integrity failure only",
-        "Least privilege failure only"
+        "Integrity-only failure",
+        "Least-privilege failure"
       ],
       "answer": 1
     },
@@ -481,7 +481,7 @@
         "Defence in depth",
         "Security theatre",
         "Security argument",
-        "Anonymity"
+        "Anonymity protection"
       ],
       "answer": 1
     },
@@ -490,9 +490,9 @@
       "subtype": "multiple_choice",
       "question": "Which pairing correctly matches the security engineering framework element to its meaning?",
       "options": [
-        "Policy: motives of attackers and defenders",
-        "Mechanism: how the policy is implemented",
-        "Assurance: what users are allowed to do",
+        "Policy: motives of attackers",
+        "Mechanism: policy implementation",
+        "Assurance: allowed user actions",
         "Incentive: cryptographic strength"
       ],
       "answer": 1
@@ -503,8 +503,8 @@
       "question": "A compromised administrator can break the security policy. In the course terminology, the administrator is best described as:",
       "options": [
         "Trustworthy by definition",
-        "Trusted because their failure can break the policy",
-        "Not part of the system",
+        "Trusted because failure can break policy",
+        "Outside the system boundary",
         "Only a vulnerability, never a principal"
       ],
       "answer": 1
@@ -514,10 +514,10 @@
       "subtype": "multiple_choice",
       "question": "Which statement best distinguishes secrecy, confidentiality, and privacy?",
       "options": [
-        "Secrecy is the right, confidentiality is the mechanism, and privacy is the duty",
-        "Secrecy is the mechanism, confidentiality is the duty, and privacy is the individual's interest or right",
-        "All three mean exactly the same thing",
-        "Confidentiality applies only to individuals and privacy only to organisations"
+        "Secrecy is the right, confidentiality the mechanism, privacy the duty",
+        "Secrecy is the mechanism, confidentiality the duty, privacy the right",
+        "Secrecy, confidentiality, and privacy mean exactly the same thing",
+        "Confidentiality is individual, while privacy is organisational"
       ],
       "answer": 1
     },
@@ -526,9 +526,9 @@
       "subtype": "multiple_choice",
       "question": "A message has not been modified, but it is an old valid message replayed months later. Which property is missing?",
       "options": [
-        "Integrity",
-        "Authenticity",
-        "Confidentiality",
+        "Integrity protection",
+        "Authenticity assurance",
+        "Confidentiality protection",
         "Economy of mechanism"
       ],
       "answer": 1
@@ -539,8 +539,8 @@
       "question": "A hospital encrypts message contents, but outsiders can still see that a patient repeatedly contacts a specialist clinic. What security lesson does this illustrate?",
       "options": [
         "Metadata can be privacy-sensitive",
-        "Encryption always removes the need for anonymity",
-        "Integrity is more important than confidentiality",
+        "Encryption removes anonymity needs",
+        "Integrity matters more than secrecy",
         "Privacy applies only to legal persons"
       ],
       "answer": 0
@@ -550,10 +550,10 @@
       "subtype": "multiple_choice",
       "question": "A dataset has names removed, but rare combinations of age, diagnosis, and visit date can still identify a patient. What failure mode is illustrated?",
       "options": [
-        "Re-identification through contextual attributes",
-        "Loss of availability",
-        "Open design",
-        "Defence in depth"
+        "Re-identification using contextual attributes",
+        "Availability failure through missing access",
+        "Open design revealing the algorithm",
+        "Defence in depth using extra layers"
       ],
       "answer": 0
     },
@@ -562,9 +562,9 @@
       "subtype": "multiple_choice",
       "question": "A company treats a secure product as only the software binary and ignores support staff, customers, and operational procedures. What is the main security engineering problem?",
       "options": [
-        "The system boundary is too narrow",
-        "The design is too open",
-        "The policy is too explicit",
+        "The system boundary is drawn too narrowly",
+        "The design is documented too openly",
+        "The policy is stated too explicitly",
         "The threat model has too much impact analysis"
       ],
       "answer": 0
@@ -574,10 +574,10 @@
       "subtype": "multiple_choice",
       "question": "A bank requires two people to approve a large transfer. What general lesson does this illustrate?",
       "options": [
-        "Single-person authority can be dangerous for high-impact actions",
-        "All security mechanisms should be secret",
-        "Availability is never relevant to financial systems",
-        "Users should share as many mechanisms as possible"
+        "Single-person authority is risky for high-impact actions",
+        "Security mechanisms should normally remain secret",
+        "Availability is irrelevant to financial systems",
+        "Users should share mechanisms whenever possible"
       ],
       "answer": 0
     },
@@ -586,10 +586,10 @@
       "subtype": "multiple_choice",
       "question": "A phishing attack succeeds because criminals target customers rather than the bank's internal systems. What does this show?",
       "options": [
-        "Threat models must include external users when they are part of the security outcome",
-        "Cryptography is never useful in banking",
+        "Threat models must include users affecting outcomes",
+        "Cryptography is never useful in online banking",
         "Customer behaviour is outside security engineering",
-        "Only mechanism failure matters"
+        "Only mechanism failures matter in security analysis"
       ],
       "answer": 0
     },
@@ -598,10 +598,10 @@
       "subtype": "multiple_choice",
       "question": "A keyless car can be unlocked when thieves relay radio messages between the car and a key inside the owner's house. Which concept is most central?",
       "options": [
-        "Failure to consider adversarial extension of the communication channel",
-        "A purely accidental safety failure",
-        "A policy that allows all users to start the car",
-        "A lack of data integrity only"
+        "Adversarial extension of the communication channel",
+        "Purely accidental safety failure without an attacker",
+        "Policy that allows every user to start the car",
+        "Lack of data integrity as the only relevant issue"
       ],
       "answer": 0
     },
@@ -612,8 +612,8 @@
       "options": [
         "That only power outages matter operationally",
         "That availability is unrelated to healthcare",
-        "That encryption can replace networks",
-        "That all malware is harmless if data is backed up"
+        "That encryption can replace network access",
+        "That backups make all malware harmless"
       ],
       "answer": 0
     },

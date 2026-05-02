@@ -250,10 +250,10 @@
       "subtype": "multiple_choice",
       "question": "A system first checks that Alice is a registered user and then checks whether Alice may delete a file. Which statement best classifies these two checks?",
       "options": [
-        "Both checks are authentication",
-        "Both checks are access control",
-        "The first is authentication and the second is access control",
-        "The first is access control and the second is authentication"
+        "Both checks are authentication decisions",
+        "Both checks are access-control decisions",
+        "First authentication, then access control",
+        "First access control, then authentication"
       ],
       "answer": 2
     },
@@ -262,10 +262,10 @@
       "subtype": "multiple_choice",
       "question": "An attacker steals a database containing salted, stretched password hashes. Which defence most directly increases the cost of each offline guess?",
       "options": [
-        "A longer account lockout period",
-        "A slow key derivation function",
-        "A CAPTCHA on the login page",
-        "A trusted path for password entry"
+        "A longer account lockout interval",
+        "A deliberately slow key derivation function",
+        "A CAPTCHA before each login attempt",
+        "A trusted path for entering passwords"
       ],
       "answer": 1
     },
@@ -274,10 +274,10 @@
       "subtype": "multiple_choice",
       "question": "Two users choose the same password, but their stored password records are different. Which mechanism is most likely responsible?",
       "options": [
-        "Password salting",
-        "Account lockout",
-        "Federated login",
-        "CAPTCHA"
+        "Unique password salting",
+        "Delayed account lockout",
+        "Third-party federated login",
+        "Human-verification CAPTCHA"
       ],
       "answer": 0
     },
@@ -286,10 +286,10 @@
       "subtype": "multiple_choice",
       "question": "A site stores passwords using reversible encryption so that users can recover forgotten passwords. What is the main security weakness?",
       "options": [
-        "The encrypted values cannot be compared during login",
-        "Anyone obtaining the decryption key can recover every stored password",
-        "The scheme prevents the use of salts",
-        "It makes online guessing impossible to detect"
+        "Login comparison can no longer be performed",
+        "The decryption key can expose all passwords",
+        "Per-password salts become technically impossible",
+        "Online guessing becomes impossible to detect"
       ],
       "answer": 1
     },
@@ -298,10 +298,10 @@
       "subtype": "multiple_choice",
       "question": "A login page limits each account to one failed attempt every 30 seconds rather than freezing the account. Which tradeoff is it making?",
       "options": [
-        "It reduces offline cracking while increasing hash collisions",
-        "It slows online guessing while reducing denial-of-service risk compared with lockout",
-        "It improves biometric revocation while weakening password entropy",
-        "It replaces authentication with access control"
+        "It slows offline cracking, but increases collision risk",
+        "It slows online guessing, with less lockout DoS risk",
+        "It improves revocation, but lowers password entropy",
+        "It replaces identity checks with permission checks"
       ],
       "answer": 1
     },
@@ -310,10 +310,10 @@
       "subtype": "multiple_choice",
       "question": "Which password storage design is strongest against a stolen password database?",
       "options": [
-        "Plain SHA-256 of each password",
-        "Encrypted passwords using one site-wide key",
-        "A unique salt per password combined with a slow KDF",
-        "Plaintext passwords protected by file permissions only"
+        "Fast SHA-256 hash of every password",
+        "Encrypted passwords under one site-wide key",
+        "Unique salt with a deliberately slow KDF",
+        "Plaintext passwords behind file permissions"
       ],
       "answer": 2
     },
@@ -322,10 +322,10 @@
       "subtype": "multiple_choice",
       "question": "A user reuses the same password on a shopping site and a university account. The shopping site is breached and attackers try the password at the university. What attack is this?",
       "options": [
-        "Reflection",
+        "Cross-session reflection",
         "Credential stuffing",
-        "CAPTCHA solving",
-        "Key diversification"
+        "Automated CAPTCHA solving",
+        "Poor key diversification"
       ],
       "answer": 1
     },
@@ -334,10 +334,10 @@
       "subtype": "multiple_choice",
       "question": "Which statement best distinguishes a salt from a password pepper or encryption key idea?",
       "options": [
-        "A salt is secret and must never be stored with the hash",
-        "A salt is unique public randomness used to separate password hashes",
-        "A salt is a biometric template used as a second factor",
-        "A salt is the user's master password in a password manager"
+        "A salt is secret material kept off the database",
+        "A salt is public randomness per password record",
+        "A salt is a biometric template for login",
+        "A salt is the user's password-manager secret"
       ],
       "answer": 1
     },
@@ -346,9 +346,9 @@
       "subtype": "multiple_choice",
       "question": "An attacker records a valid wireless garage-door opening signal and later transmits the same signal. What is the core protocol failure?",
       "options": [
-        "No freshness check",
-        "Too many authentication factors",
-        "Use of public-key cryptography",
+        "Missing freshness check",
+        "Too many login factors",
+        "Use of public-key encryption",
         "Overly slow password hashing"
       ],
       "answer": 0
@@ -358,10 +358,10 @@
       "subtype": "multiple_choice",
       "question": "In challenge-response authentication, why should the challenge be fresh?",
       "options": [
-        "To make the shared key longer",
-        "To stop an old valid response from being reused",
-        "To allow the verifier to learn the claimant's password",
-        "To remove the need for access control"
+        "To make the shared secret longer",
+        "To stop reuse of a recorded valid response",
+        "To reveal the claimant's password safely",
+        "To remove the need for authorisation"
       ],
       "answer": 1
     },
@@ -370,10 +370,10 @@
       "subtype": "multiple_choice",
       "question": "A protocol response encrypts only a nonce, not the identities or roles of the parties. Which attack does this particularly risk in a two-way setting?",
       "options": [
-        "Rainbow-table attack",
-        "Reflection attack",
-        "Account lockout attack",
-        "CAPTCHA bypass"
+        "Precomputed rainbow-table attack",
+        "Challenge reflection attack",
+        "Account lockout denial attack",
+        "Automated CAPTCHA bypass"
       ],
       "answer": 1
     },
@@ -382,10 +382,10 @@
       "subtype": "multiple_choice",
       "question": "What is the best general countermeasure to a reflection attack in challenge-response authentication?",
       "options": [
-        "Use the same challenge in both directions",
-        "Bind party identities and roles into the authenticated response",
-        "Store the password in encrypted form",
-        "Remove nonces from the protocol"
+        "Reuse the same challenge in both directions",
+        "Bind identities and roles into each response",
+        "Store user passwords using encryption",
+        "Remove all nonces from the protocol"
       ],
       "answer": 1
     },
@@ -394,10 +394,10 @@
       "subtype": "multiple_choice",
       "question": "A malicious website relays a bank's authentication challenge to a victim as if it were an age check, then sends the victim's response to the bank. What lesson does this illustrate?",
       "options": [
-        "Keys and authentication responses should be bound to application context and purpose",
-        "Salts should be longer than passwords",
-        "Biometric templates should be stored in plaintext",
-        "Account lockout is always safer than throttling"
+        "Bind authentication responses to context and purpose",
+        "Make salts longer than the original passwords",
+        "Store biometric templates as plaintext records",
+        "Prefer account lockout over login throttling"
       ],
       "answer": 0
     },
@@ -406,9 +406,9 @@
       "subtype": "multiple_choice",
       "question": "A car unlocks when its key is nearby, but thieves relay messages between the car and the key inside a house. What assumption has failed?",
       "options": [
-        "That hashing is one-way",
-        "That receiving a valid response implies physical proximity",
-        "That passwords must be memorable",
+        "That cryptographic hashing is one-way",
+        "That a valid response proves local proximity",
+        "That passwords must be human-memorable",
         "That salts prevent duplicate usernames"
       ],
       "answer": 1
@@ -418,10 +418,10 @@
       "subtype": "multiple_choice",
       "question": "A manufacturer derives a separate key for each device from a master key. Which security benefit is intended?",
       "options": [
-        "A stolen device key does not automatically compromise every other device",
-        "Users no longer need authentication",
-        "All devices can safely share the same static code",
-        "The system becomes immune to relay attacks"
+        "One leaked device key need not expose all devices",
+        "Users no longer need any authentication",
+        "All devices can share one static entry code",
+        "Relay attacks become impossible in practice"
       ],
       "answer": 0
     },
@@ -430,10 +430,10 @@
       "subtype": "multiple_choice",
       "question": "Which statement best describes Trust on First Use?",
       "options": [
-        "A device trusts every future key after factory reset",
-        "A device binds to the first key or controller it sees after reset",
-        "A server accepts old session keys if they were once valid",
-        "A user authenticates only through a password manager"
+        "A device trusts every key after factory reset",
+        "A device binds to the first controller seen",
+        "A server accepts any once-valid session key",
+        "A user logs in only through a password manager"
       ],
       "answer": 1
     },
@@ -442,10 +442,10 @@
       "subtype": "multiple_choice",
       "question": "Needham-Schroeder-style key distribution relies on a trusted server. What freshness problem must be avoided?",
       "options": [
-        "The server issuing keys that are too short to type",
-        "A participant accepting an old compromised session key as current",
-        "The client using a password manager",
-        "The server storing usernames in /etc/passwd"
+        "The server issuing keys too short to type",
+        "A stale compromised session key being accepted",
+        "The client using a local password manager",
+        "The server storing usernames in a text file"
       ],
       "answer": 1
     },
@@ -454,9 +454,9 @@
       "subtype": "multiple_choice",
       "question": "Kerberos uses timestamps to support freshness. What new operational dependency does this create?",
       "options": [
-        "Clients and servers need sufficiently synchronised clocks",
-        "Every password must be stored reversibly",
-        "Every login must use a CAPTCHA",
+        "Clients and servers need synchronised clocks",
+        "All passwords must be stored reversibly",
+        "Every login must include a CAPTCHA challenge",
         "Biometric templates must be globally unique"
       ],
       "answer": 0
@@ -467,9 +467,9 @@
       "question": "A service lets users sign in with a Google account and receives identity information through a standard authentication layer built on OAuth. Which technology best matches this authentication use case?",
       "options": [
         "OpenID Connect",
-        "LanMan",
-        "Rainbow tables",
-        "CAPTCHA"
+        "LanMan password hashing",
+        "Rainbow-table cracking",
+        "CAPTCHA verification"
       ],
       "answer": 0
     },
@@ -479,9 +479,9 @@
       "question": "Which scenario is best described as federated login?",
       "options": [
         "A site stores its own salted password hashes",
-        "A site delegates user authentication to a third-party identity provider",
-        "A user draws a pattern on a grid",
-        "A server slows password guesses with a KDF"
+        "A site delegates login to an identity provider",
+        "A user draws a pattern on an image grid",
+        "A server slows guesses using a KDF"
       ],
       "answer": 1
     },
@@ -490,10 +490,10 @@
       "subtype": "multiple_choice",
       "question": "A fingerprint scanner is used for entry to a secure room. What is a major weakness compared with passwords?",
       "options": [
-        "A fingerprint cannot be revoked and replaced as easily as a password",
-        "A fingerprint is always easier to remember than a password",
-        "A fingerprint is a form of access control rather than authentication",
-        "A fingerprint prevents enrolment"
+        "Fingerprints cannot be easily revoked and changed",
+        "Fingerprints are always easier to remember",
+        "Fingerprints perform authorisation, not login",
+        "Fingerprints make enrolment impossible"
       ],
       "answer": 0
     },
@@ -502,10 +502,10 @@
       "subtype": "multiple_choice",
       "question": "A leaked biometric database contains stored templates, not raw images. Why may this still matter?",
       "options": [
-        "Templates can never be compared during authentication",
-        "Templates may still enable attacks if the system accepts matching derived representations",
-        "Hashing always makes biometric data safely revocable",
-        "Biometric templates are only useful for access control, not authentication"
+        "Templates can never be used for comparison",
+        "Templates may still support matching attacks",
+        "Hashing makes all biometric data revocable",
+        "Templates are unrelated to authentication"
       ],
       "answer": 1
     },
@@ -514,10 +514,10 @@
       "subtype": "multiple_choice",
       "question": "Which backup authentication question format has the clearest usability advantage but may create predictable answer spaces?",
       "options": [
-        "Fixed questions chosen by the system",
-        "Open questions written by users",
-        "Hash-chain OTPs",
-        "Public-key certificates"
+        "Fixed questions selected by the system",
+        "Open questions written by the users",
+        "Hash-chain one-time password values",
+        "Public-key certificate challenges"
       ],
       "answer": 0
     },
@@ -526,10 +526,10 @@
       "subtype": "multiple_choice",
       "question": "A password comparison returns immediately after the first wrong character. Which kind of attack does this enable?",
       "options": [
-        "Timing attack",
-        "Rainbow-table attack",
-        "SIM swap",
-        "Trust on First Use"
+        "Timing side-channel attack",
+        "Rainbow-table cracking attack",
+        "SIM-swap interception attack",
+        "Trust-on-first-use failure"
       ],
       "answer": 0
     },
@@ -538,10 +538,10 @@
       "subtype": "multiple_choice",
       "question": "A website asks users to prove they are human before submitting a form. Which mechanism is being used?",
       "options": [
-        "CAPTCHA",
-        "Key diversification",
-        "Kerberos",
-        "Password stretching"
+        "CAPTCHA human check",
+        "Key diversification scheme",
+        "Kerberos ticket exchange",
+        "Password stretching method"
       ],
       "answer": 0
     },
@@ -550,10 +550,10 @@
       "subtype": "multiple_choice",
       "question": "Which authentication method is still 'what you know' rather than 'what you are'?",
       "options": [
-        "Fingerprint",
-        "Iris scan",
+        "Fingerprint scan",
+        "Iris-recognition scan",
         "Graphical password pattern",
-        "Voice biometric"
+        "Voice biometric sample"
       ],
       "answer": 2
     },
@@ -562,10 +562,10 @@
       "subtype": "multiple_choice",
       "question": "An attacker convinces a phone company to issue a replacement SIM for the victim's number. Which second factor is most directly undermined?",
       "options": [
-        "SMS one-time codes",
-        "A local password manager",
-        "A salted password hash",
-        "A graphical password"
+        "SMS one-time login codes",
+        "A local password-manager vault",
+        "A salted password hash record",
+        "A graphical password pattern"
       ],
       "answer": 0
     },
@@ -574,10 +574,10 @@
       "subtype": "multiple_choice",
       "question": "Which design best reflects protocol robustness?",
       "options": [
-        "Assume the network context will always identify the parties",
-        "Leave names out of messages to reduce size",
-        "Include identities, roles, timestamps, and purpose where they affect interpretation",
-        "Use the same key for unrelated applications"
+        "Rely on the network context to identify parties",
+        "Omit party names to reduce message length",
+        "Include identities, roles, freshness, and purpose",
+        "Reuse one key across unrelated applications"
       ],
       "answer": 2
     },
@@ -586,10 +586,10 @@
       "subtype": "multiple_choice",
       "question": "A password manager encourages unique random passwords for each site. What major risk remains?",
       "options": [
-        "The master password and manager become high-value targets",
-        "Salting becomes impossible",
+        "The master password and manager are key targets",
+        "Password salting becomes technically impossible",
         "Credential stuffing becomes easier by design",
-        "The user can no longer use multifactor authentication"
+        "Multifactor authentication can no longer work"
       ],
       "answer": 0
     },
@@ -600,8 +600,8 @@
       "options": [
         "Trusted path",
         "Rainbow table",
-        "Hash chain",
-        "Password entropy formula"
+        "Hash-chain OTP",
+        "Password entropy"
       ],
       "answer": 0
     },

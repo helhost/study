@@ -306,9 +306,9 @@
       "question": "Why is double-entry bookkeeping relevant to security?",
       "options": [
         "It gives an integrity structure where each transaction must balance",
-        "It encrypts all accounting records",
-        "It removes the need for audit trails",
-        "It prevents all fraud automatically"
+        "It encrypts accounting records before each transaction is processed",
+        "It removes the need for maintaining audit trails in financial systems",
+        "It prevents all fraud automatically across commercial accounting systems"
       ],
       "answer": 0
     },
@@ -318,7 +318,7 @@
       "question": "Different staff tally incoming and outgoing transactions. Which security principle is this?",
       "options": [
         "Separation of duties",
-        "Card-not-present processing",
+        "Card-not-present flow",
         "Preplay resistance",
         "Contextual integrity"
       ],
@@ -330,9 +330,9 @@
       "question": "Which best describes the prevent-detect-recover approach?",
       "options": [
         "A layered control strategy that assumes incidents may still happen",
-        "A cryptographic key generation algorithm",
-        "A method for replacing all audits with encryption",
-        "A rule that all fraud must be prevented upfront"
+        "A cryptographic key generation strategy for banking systems",
+        "A method for replacing all audit activity with encryption",
+        "A rule requiring that every fraud attempt is prevented upfront"
       ],
       "answer": 0
     },
@@ -341,10 +341,10 @@
       "subtype": "multiple_choice",
       "question": "Why did test keys become inadequate for modern interbank payments?",
       "options": [
-        "They lacked strong modern cryptographic assurance and did not scale well to modern banking needs",
-        "They prevented all message authentication",
-        "They required public-key certificates",
-        "They could not be sent over telegraph lines"
+        "They lacked strong modern cryptographic assurance for banking scale",
+        "They prevented reliable message authentication between banks entirely",
+        "They required public-key certificates for every telegraphed message",
+        "They could not be transmitted over ordinary telegraph payment lines"
       ],
       "answer": 0
     },
@@ -353,10 +353,10 @@
       "subtype": "multiple_choice",
       "question": "How does SWIFT achieve practical non-repudiation?",
       "options": [
-        "Through independent distributed logs at multiple nodes",
-        "By storing every customer's PIN",
-        "By using double-entry bookkeeping only",
-        "By requiring every message to be handwritten"
+        "Through independent distributed logs recorded at multiple nodes",
+        "By storing every customer's PIN at the central messaging hub",
+        "By relying only on double-entry bookkeeping for message evidence",
+        "By requiring every payment message to be handwritten by staff"
       ],
       "answer": 0
     },
@@ -366,9 +366,9 @@
       "question": "In the IBM PIN method, why is the offset needed?",
       "options": [
         "It lets the customer's chosen PIN differ from the natural PIN",
-        "It proves the merchant is genuine",
-        "It encrypts the PAN with RSA",
-        "It replaces the need for HSMs"
+        "It proves that the merchant requesting payment is genuine",
+        "It encrypts the card account number using RSA operations",
+        "It replaces the need for hardware security modules in banking"
       ],
       "answer": 0
     },
@@ -378,9 +378,9 @@
       "question": "What is the main role of an HSM in ATM PIN processing?",
       "options": [
         "Perform sensitive cryptographic operations without exposing cleartext keys or PINs",
-        "Store all customer account balances",
-        "Generate paper receipts",
-        "Replace dual control with single-person control"
+        "Store customer balances and account histories for all issuing banks",
+        "Generate printed receipts and audit reports for ATM customers",
+        "Replace dual control procedures with single-person operational control"
       ],
       "answer": 0
     },
@@ -390,9 +390,9 @@
       "question": "Why is HSM API complexity dangerous?",
       "options": [
         "Unexpected combinations of allowed commands can leak secrets",
-        "It prevents any bank from using encryption",
-        "It makes physical tampering impossible",
-        "It removes backwards compatibility"
+        "It prevents every bank from using cryptographic protection",
+        "It makes physical tampering with the hardware impossible",
+        "It removes all legacy compatibility from payment systems"
       ],
       "answer": 0
     },
@@ -402,9 +402,9 @@
       "question": "The decimalisation table attack leaks a PIN by doing what?",
       "options": [
         "Changing protocol parameters and comparing resulting outputs",
-        "Watching a user type the PIN at an ATM",
-        "Factoring the card's RSA key",
-        "Breaking the SWIFT network"
+        "Watching a customer type the PIN at an ATM keypad",
+        "Factoring the payment card's public RSA certificate key",
+        "Breaking the central SWIFT interbank messaging network"
       ],
       "answer": 0
     },
@@ -414,9 +414,9 @@
       "question": "The UNC2891 ATM attack primarily exploited which system boundary?",
       "options": [
         "The communication path between ATM infrastructure components",
-        "The mathematical security of DES",
-        "The accounting equation",
-        "The EMV certificate chain"
+        "The mathematical security of the DES encryption algorithm",
+        "The arithmetic relationship inside the accounting equation",
+        "The certificate chain used during EMV card authentication"
       ],
       "answer": 0
     },
@@ -426,9 +426,9 @@
       "question": "Why did Regulation E improve US banks' incentive to prevent ATM fraud?",
       "options": [
         "Banks had to refund disputed transactions unless they could prove customer fraud",
-        "Customers became liable for all disputed withdrawals",
-        "ATMs were banned from using PINs",
-        "Banks were forbidden from using HSMs"
+        "Customers became liable for every disputed electronic withdrawal claim",
+        "ATMs were prohibited from using PINs for customer authentication",
+        "Banks were forbidden from using HSMs for PIN processing operations"
       ],
       "answer": 0
     },
@@ -462,9 +462,9 @@
       "question": "What is a key limitation of Clark-Wilson integrity controls?",
       "options": [
         "They can preserve balance without proving the transaction is semantically correct",
-        "They cannot model audit trails",
-        "They are only about confidentiality",
-        "They forbid separation of duties"
+        "They cannot represent audit trails or controlled transformation procedures",
+        "They focus only on confidentiality rather than commercial integrity",
+        "They forbid separation of duties in ordinary business processes"
       ],
       "answer": 0
     },
@@ -474,9 +474,9 @@
       "question": "Why does ecological validity matter in accounting security?",
       "options": [
         "Records must correspond to real assets and events, not only balance internally",
-        "Every asset must be encrypted",
-        "Accounting systems must avoid all external audits",
-        "Fraud engines must use only anomaly detection"
+        "Every recorded asset must be encrypted before appearing in accounts",
+        "Accounting systems must avoid using all forms of external auditing",
+        "Fraud engines must rely only on anomaly detection for decisions"
       ],
       "answer": 0
     },
@@ -486,9 +486,9 @@
       "question": "Functional separation of duty is best illustrated by which process?",
       "options": [
         "Different staff ordering, receiving, checking, and approving payment for goods",
-        "One manager approving all transactions alone",
-        "A customer entering a PIN twice",
-        "A card computing an ARQC"
+        "One manager approving, recording, and paying every transaction alone",
+        "A customer entering the same PIN twice during one card transaction",
+        "A payment card computing an ARQC during online authorisation"
       ],
       "answer": 0
     },
@@ -498,9 +498,9 @@
       "question": "In a card transaction, what is the issuing bank?",
       "options": [
         "The bank that issued the customer's card and authorises or declines the transaction",
-        "The merchant's bank",
-        "The payment terminal manufacturer",
-        "The SWIFT regional gateway"
+        "The merchant's bank that receives settlement and handles merchant acquiring",
+        "The payment terminal manufacturer that supplies shop card readers",
+        "The SWIFT regional gateway that logs interbank payment messages"
       ],
       "answer": 0
     },
@@ -510,9 +510,9 @@
       "question": "Why are different CVVs used for magnetic stripe, chip, and signature strip contexts?",
       "options": [
         "To prevent data captured in one channel being reused to forge another",
-        "To make the card number shorter",
-        "To replace the need for fraud engines",
-        "To allow merchants to choose PINs"
+        "To make the primary account number shorter during processing",
+        "To replace the need for transaction monitoring by fraud engines",
+        "To allow merchants to choose customer PINs during payment"
       ],
       "answer": 0
     },
@@ -534,9 +534,9 @@
       "question": "What does an EMV ARQC prove to the issuing bank?",
       "options": [
         "That the card generated a transaction MAC over supplied data",
-        "That the merchant is honest",
-        "That the customer read all terms",
-        "That no malware is present"
+        "That the merchant accepting the card is definitely honest",
+        "That the customer has read all terms for the transaction",
+        "That no malware is present on the customer's computer"
       ],
       "answer": 0
     },
@@ -546,9 +546,9 @@
       "question": "Why is DDA stronger than SDA?",
       "options": [
         "The card can dynamically sign a terminal challenge to prove physical presence",
-        "It removes the need for any cryptography",
-        "It stores the PIN on the magnetic stripe",
-        "It makes the terminal ignore the card"
+        "It removes the need for cryptographic operations during transactions",
+        "It stores the customer's PIN securely on the magnetic stripe",
+        "It makes the payment terminal ignore card authentication data"
       ],
       "answer": 0
     },
@@ -558,9 +558,9 @@
       "question": "What is the core failure in the EMV No-PIN attack?",
       "options": [
         "The terminal and card have inconsistent beliefs about whether PIN verification occurred",
-        "The PAN is encrypted with the wrong algorithm",
-        "The customer forgets the PIN",
-        "The card cannot compute a MAC"
+        "The primary account number is encrypted with the wrong algorithm",
+        "The customer forgets the correct PIN during a legitimate purchase",
+        "The card is unable to compute any MAC over transaction data"
       ],
       "answer": 0
     },
@@ -570,9 +570,9 @@
       "question": "What makes a preplay attack possible?",
       "options": [
         "The terminal's unpredictable number is predictable",
-        "The cardholder writes down the PIN",
-        "The merchant uses a receipt printer",
-        "The acquiring bank charges a fee"
+        "The cardholder writes down the PIN insecurely",
+        "The merchant uses a receipt printer at checkout",
+        "The acquiring bank charges a processing fee"
       ],
       "answer": 0
     },
@@ -582,9 +582,9 @@
       "question": "What risk does man-in-the-browser malware create in online banking?",
       "options": [
         "The user sees one transaction while different data is sent to the bank",
-        "The card chip becomes physically cloned",
-        "The acquiring bank disappears",
-        "Double-entry bookkeeping stops balancing"
+        "The card chip becomes physically cloned during the online session",
+        "The acquiring bank disappears from the card payment network",
+        "Double-entry bookkeeping stops balancing across account ledgers"
       ],
       "answer": 0
     },
@@ -594,9 +594,9 @@
       "question": "Why does SIM swap fraud undermine SMS-based authentication?",
       "options": [
         "The attacker receives the victim's SMS codes after taking control of the phone number",
-        "The attacker factors the SIM's RSA key",
-        "SMS always sends PINs in plaintext to merchants",
-        "It disables all fraud engines"
+        "The attacker factors the SIM card's RSA key to recover secret values",
+        "SMS always sends customer PINs in plaintext directly to merchants",
+        "It disables every fraud engine used by banks and payment processors"
       ],
       "answer": 0
     },
@@ -606,9 +606,9 @@
       "question": "Authorised Push Payment fraud is best described as what?",
       "options": [
         "Tricking the victim into voluntarily authorising a transfer to the criminal",
-        "Stealing a card and guessing its PIN",
-        "Breaking an HSM with a laser",
-        "Using SWIFT to settle credit card payments"
+        "Stealing a payment card and guessing the customer's PIN at an ATM",
+        "Breaking a hardware security module with a laser fault attack",
+        "Using SWIFT messages to settle ordinary credit card payments"
       ],
       "answer": 0
     },
@@ -618,9 +618,9 @@
       "question": "Business Email Compromise mainly attacks which process?",
       "options": [
         "Payment authorisation through fraudulent business instructions",
-        "EMV offline PIN verification",
-        "Double-entry arithmetic",
-        "ATM cash cassette loading"
+        "EMV offline PIN verification at a payment terminal",
+        "Double-entry arithmetic inside accounting journal entries",
+        "ATM cash cassette loading during branch operations"
       ],
       "answer": 0
     },
@@ -630,9 +630,9 @@
       "question": "Which risk is introduced by open banking?",
       "options": [
         "New third-party access paths can complicate fraud and money-laundering controls",
-        "Banks no longer use authentication",
-        "Cards cannot use chips",
-        "All payments become reversible"
+        "Banks no longer use authentication for customer account access",
+        "Payment cards cannot use chips once open banking is deployed",
+        "All payments become automatically reversible after authorisation"
       ],
       "answer": 0
     },
@@ -642,9 +642,9 @@
       "question": "Anomaly detection in a fraud engine looks for what?",
       "options": [
         "Behaviour that deviates from a normal baseline",
-        "Only known fraud signatures",
-        "Only balanced ledgers",
-        "Only SWIFT messages"
+        "Only known fraud signatures from past attacks",
+        "Only balanced accounting ledger entries",
+        "Only SWIFT messages sent between banks"
       ],
       "answer": 0
     },

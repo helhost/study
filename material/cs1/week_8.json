@@ -247,7 +247,7 @@
       "options": [
         "Side channel",
         "Covert channel",
-        "Red/black separation",
+        "Red black separation",
         "Certificate chain"
       ],
       "answer": 0
@@ -270,9 +270,9 @@
       "question": "What does Tempest exploit?",
       "options": [
         "Radiated electromagnetic emissions from equipment",
-        "Only deliberate DNS queries",
-        "Incorrect certificate validation",
-        "Password reuse"
+        "Deliberate DNS queries for data transfer",
+        "Incorrect certificate validation steps",
+        "User password reuse across systems"
       ],
       "answer": 0
     },
@@ -281,10 +281,10 @@
       "subtype": "multiple_choice",
       "question": "What is the main purpose of red/black separation?",
       "options": [
-        "Prevent sensitive red signals leaking into externally connected black systems",
+        "Prevent sensitive signals leaking into external systems",
         "Separate public keys from private keys in RSA",
         "Separate side channels from covert channels",
-        "Separate user and kernel virtual memory"
+        "Separate user space from kernel memory"
       ],
       "answer": 0
     },
@@ -293,10 +293,10 @@
       "subtype": "multiple_choice",
       "question": "Soft Tempest is best understood as which kind of defence?",
       "options": [
-        "Reducing information-bearing electromagnetic emissions through software-controlled signal shaping",
-        "Encrypting all DNS queries",
-        "Removing all shared caches",
-        "Using stronger RSA keys"
+        "Reducing EM leakage using software signal shaping",
+        "Encrypting all DNS queries in a network",
+        "Removing all shared cache structures",
+        "Using longer RSA keys for encryption"
       ],
       "answer": 0
     },
@@ -305,10 +305,10 @@
       "subtype": "multiple_choice",
       "question": "A mobile phone near sensitive equipment induces RF signals that are modulated and re-radiated. Which attack class is this?",
       "options": [
-        "Nonstop",
-        "RAMBleed",
+        "Nonstop attack",
+        "RAMBleed attack",
         "Prime and Probe",
-        "DPA"
+        "Differential power analysis"
       ],
       "answer": 0
     },
@@ -317,10 +317,10 @@
       "subtype": "multiple_choice",
       "question": "In power analysis, why can Hamming weight matter?",
       "options": [
-        "Power consumption can correlate with the number of 1 bits being processed",
-        "It determines the length of a DNS query",
-        "It prevents speculative execution",
-        "It proves a certificate chain"
+        "Power use correlates with number of 1 bits processed",
+        "It determines the length of DNS queries sent",
+        "It prevents speculative execution in processors",
+        "It proves correctness of certificate chains"
       ],
       "answer": 0
     },
@@ -329,10 +329,10 @@
       "subtype": "multiple_choice",
       "question": "In Differential Power Analysis, what distinguishes the correct key guess from wrong guesses?",
       "options": [
-        "The grouped traces show a meaningful statistical difference or peak",
-        "The device stops drawing power",
-        "The cache is disabled",
-        "The public key changes"
+        "Grouped traces show a clear statistical difference",
+        "The device suddenly stops drawing any power",
+        "The processor cache is completely disabled",
+        "The public key value changes dynamically"
       ],
       "answer": 0
     },
@@ -342,9 +342,9 @@
       "question": "A profiling attacker builds statistical models of device leakage for known inputs and later classifies unknown traces. What attack is this?",
       "options": [
         "Template attack",
-        "Rowhammer",
+        "Rowhammer attack",
         "Shoulder surfing",
-        "Red/black separation"
+        "Red black separation"
       ],
       "answer": 0
     },
@@ -353,10 +353,10 @@
       "subtype": "multiple_choice",
       "question": "What is the core idea of electromagnetic analysis compared with ordinary power analysis?",
       "options": [
-        "Measure local EM leakage from parts of a device rather than only total current draw",
+        "Measure local EM leakage instead of total power draw",
         "Use DNS traffic instead of cryptographic operations",
-        "Exploit only social metadata",
-        "Prevent all speculative execution"
+        "Exploit only social metadata from users",
+        "Prevent speculative execution entirely"
       ],
       "answer": 0
     },
@@ -365,10 +365,10 @@
       "subtype": "multiple_choice",
       "question": "A clock glitch causes a smartcard to skip an access-control branch. Which attack class is this?",
       "options": [
-        "Glitching / fault induction",
-        "Benford analysis",
-        "Soft Tempest",
-        "Contextual integrity"
+        "Glitching fault attack",
+        "Benford statistical analysis",
+        "Soft Tempest defence",
+        "Contextual integrity issue"
       ],
       "answer": 0
     },
@@ -377,10 +377,10 @@
       "subtype": "multiple_choice",
       "question": "Why is RSA-CRT especially vulnerable to a single well-placed fault?",
       "options": [
-        "A fault in one modular sub-computation can reveal a prime factor of the modulus",
-        "RSA-CRT never uses modular arithmetic",
-        "CRT prevents checking signatures",
-        "The public exponent is secret"
+        "Fault in one computation can reveal a prime factor",
+        "RSA CRT does not use modular arithmetic",
+        "CRT prevents checking of signatures",
+        "The public exponent is kept secret"
       ],
       "answer": 0
     },
@@ -389,10 +389,10 @@
       "subtype": "multiple_choice",
       "question": "Which operation is central to exploiting a faulty RSA-CRT signature?",
       "options": [
-        "Greatest common divisor",
-        "Certificate chain validation",
-        "AEAD decryption",
-        "DNS resolution"
+        "Greatest common divisor computation",
+        "Certificate chain verification process",
+        "Authenticated encryption decryption step",
+        "Domain name resolution lookup"
       ],
       "answer": 0
     },
@@ -401,10 +401,10 @@
       "subtype": "multiple_choice",
       "question": "What security assumption does Rowhammer undermine?",
       "options": [
-        "That software memory isolation is safe if memory cells behave independently and reliably",
-        "That DNS is always blocked",
-        "That shoulder surfing requires malware",
-        "That all side channels are deliberate"
+        "Memory cells behave independently and reliably",
+        "DNS traffic is always filtered or blocked",
+        "Shoulder surfing requires installed malware",
+        "All side channels are intentionally created"
       ],
       "answer": 0
     },
@@ -413,10 +413,10 @@
       "subtype": "multiple_choice",
       "question": "RAMBleed extends Rowhammer by showing what?",
       "options": [
-        "Bit flips can be used to infer neighbouring memory contents",
-        "RF emissions can reconstruct a monitor",
-        "RSA blinding is unnecessary",
-        "DNS cannot carry covert data"
+        "Bit flips can reveal neighbouring memory contents",
+        "RF emissions reconstruct a display output",
+        "RSA blinding becomes unnecessary",
+        "DNS cannot carry covert exfiltration data"
       ],
       "answer": 0
     },
@@ -425,10 +425,10 @@
       "subtype": "multiple_choice",
       "question": "CLKscrew and Plundervolt both illustrate which general point?",
       "options": [
-        "Power and frequency management interfaces can become security attack surfaces",
-        "Certificates eliminate hardware faults",
-        "Red/black separation prevents all timing attacks",
-        "Contextual integrity stops Rowhammer"
+        "Power and frequency controls create attack surfaces",
+        "Certificates eliminate all hardware fault risks",
+        "Red black separation prevents timing attacks",
+        "Contextual integrity stops memory attacks"
       ],
       "answer": 0
     },
@@ -437,10 +437,10 @@
       "subtype": "multiple_choice",
       "question": "What distinguishes Meltdown from Spectre in broad terms?",
       "options": [
-        "Meltdown exploits delayed privilege checks, while Spectre exploits mistrained prediction in victim execution",
-        "Meltdown is acoustic, while Spectre is optical",
-        "Meltdown requires DNS, while Spectre requires TLS",
-        "Meltdown is deliberate communication, while Spectre is not a side channel"
+        "Meltdown breaks privilege checks, Spectre mistrains prediction",
+        "Meltdown is acoustic, Spectre is optical",
+        "Meltdown uses DNS, Spectre uses TLS",
+        "Meltdown is covert, Spectre is not"
       ],
       "answer": 0
     },
@@ -449,10 +449,10 @@
       "subtype": "multiple_choice",
       "question": "Why are speculative execution attacks hard to eliminate completely?",
       "options": [
-        "They exploit performance features deeply embedded in modern CPU design",
-        "They depend only on weak passwords",
-        "They are solved by adding longer RSA moduli",
-        "They are caused only by user interface design"
+        "They rely on deep CPU performance features",
+        "They depend only on weak user passwords",
+        "They are fixed by longer RSA keys",
+        "They come only from user interface bugs"
       ],
       "answer": 0
     },
@@ -461,10 +461,10 @@
       "subtype": "multiple_choice",
       "question": "Prime and Probe infers victim behaviour by observing what?",
       "options": [
-        "Which cache sets were evicted after the victim ran",
-        "Which files have SUID set",
-        "Which certificate authority signed a key",
-        "Which DNS server was queried first"
+        "Which cache sets were evicted after execution",
+        "Which files have special SUID permissions",
+        "Which certificate authority issued a key",
+        "Which DNS server answered first"
       ],
       "answer": 0
     },
@@ -473,10 +473,10 @@
       "subtype": "multiple_choice",
       "question": "Flush+Reload is most effective when attacker and victim share what?",
       "options": [
-        "Memory-backed cache lines, such as shared library pages",
-        "A phone number",
-        "The same password",
-        "A red/black cable boundary"
+        "Shared memory backed cache lines",
+        "The same personal phone number",
+        "An identical user password",
+        "A red black cable boundary"
       ],
       "answer": 0
     },
@@ -485,10 +485,10 @@
       "subtype": "multiple_choice",
       "question": "Why are table-based AES implementations vulnerable to cache timing attacks?",
       "options": [
-        "Secret-dependent table lookups affect cache hit and miss patterns",
-        "AES public keys share primes",
-        "AES uses DNS queries",
-        "AES requires red/black separation"
+        "Secret dependent lookups affect cache behaviour",
+        "AES public keys share common prime factors",
+        "AES requires DNS queries to operate",
+        "AES depends on red black separation"
       ],
       "answer": 0
     },
@@ -497,10 +497,10 @@
       "subtype": "multiple_choice",
       "question": "What does RSA blinding defend against?",
       "options": [
-        "Timing attacks that correlate RSA execution with private key bits",
-        "All Rowhammer attacks",
-        "All DNS covert channels",
-        "Laser microphones"
+        "Timing attacks linked to private key operations",
+        "All forms of Rowhammer memory disturbance",
+        "All DNS covert communication channels",
+        "Laser based audio surveillance attacks"
       ],
       "answer": 0
     },
@@ -510,9 +510,9 @@
       "question": "A microphone records keyboard sounds and uses timing and language statistics to infer text. Which channel is being exploited?",
       "options": [
         "Acoustic side channel",
-        "Covert DNS channel",
-        "Red/black leakage",
-        "Cyber insurance accumulation"
+        "DNS covert communication channel",
+        "Red black leakage path",
+        "Insurance accumulation risk"
       ],
       "answer": 0
     },
@@ -522,9 +522,9 @@
       "question": "Oily marks on a touchscreen reveal a phone unlock pattern. Which attack is this?",
       "options": [
         "Smudge attack",
-        "Plundervolt",
-        "BPA",
-        "Tempest zoning"
+        "Plundervolt attack",
+        "Branch prediction analysis",
+        "Tempest zoning method"
       ],
       "answer": 0
     },
@@ -535,8 +535,8 @@
       "options": [
         "Optical side channel",
         "Differential fault analysis",
-        "Software supply-chain attack",
-        "Template attack"
+        "Supply chain compromise attack",
+        "Template profiling attack"
       ],
       "answer": 0
     },
@@ -545,10 +545,10 @@
       "subtype": "multiple_choice",
       "question": "Clock skew reveals a machine's workload and possible location pattern. Which kind of side channel is involved?",
       "options": [
-        "Thermal / timing side channel",
-        "Certificate side channel",
-        "SUID side channel",
-        "Red/black violation only"
+        "Thermal or timing side channel",
+        "Certificate based leakage channel",
+        "SUID permission side channel",
+        "Red black separation failure"
       ],
       "answer": 0
     },
@@ -557,10 +557,10 @@
       "subtype": "multiple_choice",
       "question": "In contextual integrity, when does a privacy harm often arise?",
       "options": [
-        "When information flows outside the norms of its original context",
-        "Only when information is encrypted",
-        "Only when cache lines are shared",
-        "When all data is deleted"
+        "Information flows outside its original context norms",
+        "Only when the information is strongly encrypted",
+        "Only when cache lines are shared in memory",
+        "When all stored data is deleted permanently"
       ],
       "answer": 0
     },
@@ -569,10 +569,10 @@
       "subtype": "multiple_choice",
       "question": "Why is DNS useful for covert exfiltration?",
       "options": [
-        "It is legitimate, widely allowed, and difficult to block completely",
-        "It cannot carry arbitrary data",
+        "It is widely allowed and hard to block fully",
+        "It cannot carry arbitrary encoded data",
         "It is always encrypted and authenticated",
-        "It disables malware monitoring"
+        "It disables monitoring tools automatically"
       ],
       "answer": 0
     },
@@ -581,10 +581,10 @@
       "subtype": "multiple_choice",
       "question": "What does Lampson's covert channel example show?",
       "options": [
-        "Shared resources can be modulated to transmit secrets across security levels",
-        "All electromagnetic leakage is harmless",
-        "RSA is immune to timing attacks",
-        "Side channels are always accidental"
+        "Shared resources can transmit secrets between levels",
+        "All electromagnetic leakage is harmless in practice",
+        "RSA encryption is immune to timing attacks",
+        "Side channels are always accidental leaks"
       ],
       "answer": 0
     },
@@ -593,10 +593,10 @@
       "subtype": "multiple_choice",
       "question": "The Philips Hue lamp attack shows how side-channel compromise of one device can lead to what broader risk?",
       "options": [
-        "Network-propagating malware through shared update keys and wireless links",
-        "Complete elimination of IoT risk",
-        "Protection against DPA",
-        "Improved contextual integrity"
+        "Network spreading malware using shared update keys",
+        "Complete elimination of all IoT security risks",
+        "Protection against differential power analysis",
+        "Improved contextual integrity guarantees"
       ],
       "answer": 0
     },

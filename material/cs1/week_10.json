@@ -351,9 +351,9 @@
       "question": "Why is cyberwar difficult to classify using traditional definitions of war?",
       "options": [
         "Cyber operations can resemble espionage, crime, sabotage, propaganda, or armed conflict depending on context and effect",
-        "Cyber operations always cause physical destruction",
-        "Cyber operations are always conducted only by private criminals",
-        "Cyber operations are already fully defined in international law"
+        "Cyber operations always cause physical destruction and therefore clearly count as ordinary armed war",
+        "Cyber operations are always conducted only by private criminals rather than state military organisations",
+        "Cyber operations are already fully defined in settled international law and need no interpretation"
       ],
       "answer": 0
     },
@@ -375,9 +375,9 @@
       "question": "A state uses censorship, shutdowns, and domestic network controls during unrest. Which lesson does this best illustrate?",
       "options": [
         "Information infrastructure is a political control surface",
-        "Cyberwar is always zero-sum",
-        "Risk transfer eliminates political risk",
-        "Network effects only apply to auctions"
+        "Cyberwar is always a strictly zero-sum strategic contest",
+        "Risk transfer eliminates political risk from state activity",
+        "Network effects only apply to advertising auction systems"
       ],
       "answer": 0
     },
@@ -386,10 +386,10 @@
       "subtype": "multiple_choice",
       "question": "Private sale of zero-day exploits and remote access tools mainly raises which issue?",
       "options": [
-        "Dual-use tools may be used for both legitimate investigation and political repression",
-        "All exploit tools are harmless if sold commercially",
-        "Only public-sector actors can cause cyber harm",
-        "Exploit markets eliminate information asymmetry"
+        "Dual-use tools may be used for legitimate investigation or political repression",
+        "Commercial exploit tools are harmless once sold through private companies",
+        "Only public-sector actors are capable of causing meaningful cyber harm",
+        "Exploit markets remove information asymmetry from security products"
       ],
       "answer": 0
     },
@@ -401,7 +401,7 @@
         "Analytical model",
         "Empirical model",
         "Measurement model",
-        "Auction model only"
+        "Auction model"
       ],
       "answer": 0
     },
@@ -423,9 +423,9 @@
       "question": "Occam's Razor is most useful as a warning against what?",
       "options": [
         "Adding unnecessary model complexity",
-        "Using any empirical data",
-        "Comparing outcomes",
-        "Using simple explanations when they fit"
+        "Using empirical data in analysis",
+        "Comparing outcomes by utility",
+        "Using simple fitting explanations"
       ],
       "answer": 0
     },
@@ -435,9 +435,9 @@
       "question": "In rational choice theory, what does completeness require?",
       "options": [
         "Any pair of outcomes can be compared",
-        "Preferences must never change",
-        "All agents have identical preferences",
-        "Outcomes are known with certainty"
+        "Preferences never change over time",
+        "All agents share identical preferences",
+        "All outcomes are known with certainty"
       ],
       "answer": 0
     },
@@ -449,7 +449,7 @@
         "Transitivity",
         "Completeness",
         "Externality",
-        "Adverse selection"
+        "Selection bias"
       ],
       "answer": 0
     },
@@ -461,7 +461,7 @@
         "U(o1, o2) = u·o1 + v·o2",
         "U(o1, o2) = min{u·o1, v·o2}",
         "U(o1, o2) = 0 for all outcomes",
-        "U(o1, o2) = o1 only"
+        "U(o1, o2) = o1 only always"
       ],
       "answer": 0
     },
@@ -472,8 +472,8 @@
       "options": [
         "U(o1, o2) = min{u·o1, v·o2}",
         "U(o1, o2) = u·o1 + v·o2",
-        "U(o1, o2) = o1 - o2",
-        "U(o1, o2) = max{o1, o2} always"
+        "U(o1, o2) = o1 - o2 only",
+        "U(o1, o2) = max{o1, o2}"
       ],
       "answer": 0
     },
@@ -497,7 +497,7 @@
         "Risk transfer",
         "Risk avoidance",
         "Risk acceptance",
-        "Complete mediation"
+        "Risk mediation"
       ],
       "answer": 0
     },
@@ -509,7 +509,7 @@
         "Risk mitigation",
         "Risk avoidance",
         "Risk transfer",
-        "Externality creation"
+        "Risk creation"
       ],
       "answer": 0
     },
@@ -519,9 +519,9 @@
       "question": "Why can risk acceptance be rational?",
       "options": [
         "Some risks are smaller than the cost or opportunity cost of controlling them",
-        "Accepted risks never happen",
-        "Risk acceptance transfers loss to insurers",
-        "Risk acceptance eliminates residual risk"
+        "Accepted risks can never occur after the decision has been documented",
+        "Risk acceptance transfers the whole financial loss to cyber insurers",
+        "Risk acceptance eliminates all residual risk from the business activity"
       ],
       "answer": 0
     },
@@ -545,7 +545,7 @@
         "Open design",
         "Least privilege",
         "Fail-safe defaults",
-        "Separation of responsibilities"
+        "Separation of duties"
       ],
       "answer": 0
     },
@@ -556,7 +556,7 @@
       "options": [
         "It may overfit and have high variance",
         "It will always have high bias",
-        "It cannot use data",
+        "It cannot use observed data",
         "It becomes a public good"
       ],
       "answer": 0
@@ -581,7 +581,7 @@
         "Market for lemons",
         "Dominant strategy",
         "Risk avoidance",
-        "Hawk-dove equilibrium"
+        "Hawk-dove game"
       ],
       "answer": 0
     },
@@ -604,7 +604,7 @@
       "options": [
         "Moral hazard",
         "Adverse selection",
-        "Completeness",
+        "Completeness axiom",
         "Revenue equivalence"
       ],
       "answer": 0
@@ -615,9 +615,9 @@
       "question": "Why is published scientific research a public good?",
       "options": [
         "It is largely non-rivalrous and difficult to exclude others from using once published",
-        "It is always profitable to the publisher",
-        "It can only be used by one person at a time",
-        "It requires no public funding"
+        "It is always directly profitable to the publisher after journal publication",
+        "It can only be used by one reader or researcher at a time",
+        "It requires no public funding or institutional support to produce"
       ],
       "answer": 0
     },
@@ -639,9 +639,9 @@
       "question": "Technical lock-in mainly works by doing what?",
       "options": [
         "Raising switching costs for users",
-        "Eliminating all network effects",
-        "Making products free to copy",
-        "Preventing complementors from existing"
+        "Removing network effects from markets",
+        "Making products costless to copy",
+        "Preventing complementors existing"
       ],
       "answer": 0
     },
@@ -653,7 +653,7 @@
         "Two-sided market",
         "Zero-sum game",
         "Weakest-link system",
-        "Public good only"
+        "Public-good market"
       ],
       "answer": 0
     },
@@ -663,9 +663,9 @@
       "question": "What is a Nash equilibrium?",
       "options": [
         "A strategy profile where no player can improve by changing strategy alone",
-        "A strategy that is best regardless of what anyone else does",
-        "A game where all payoffs sum to zero",
-        "A market with no externalities"
+        "A strategy that is best regardless of what anyone else chooses",
+        "A game structure where every player's payoff adds up to zero",
+        "A market allocation where externalities have all been eliminated"
       ],
       "answer": 0
     },
@@ -675,9 +675,9 @@
       "question": "Why is the Prisoners' Dilemma important for security cooperation?",
       "options": [
         "Individual incentives can lead to under-provision of collective security",
-        "It proves cooperation is always impossible",
-        "It applies only to auctions",
-        "It eliminates externalities"
+        "It proves that cooperation between security actors is always impossible",
+        "It applies only to auction design rather than security cooperation",
+        "It removes externalities from security investment decisions"
       ],
       "answer": 0
     },
@@ -687,9 +687,9 @@
       "question": "What does tit-for-tat do in repeated interaction?",
       "options": [
         "Cooperates first, then copies the opponent's previous action",
-        "Always defects",
-        "Always cooperates",
-        "Randomises every round"
+        "Defects every round regardless of the opponent's behaviour",
+        "Cooperates every round without reacting to earlier defection",
+        "Randomises every round without using the opponent's history"
       ],
       "answer": 0
     },
@@ -699,9 +699,9 @@
       "question": "In a Vickrey auction, what is the dominant bidding strategy?",
       "options": [
         "Bid truthfully",
-        "Bid zero",
-        "Bid above your valuation",
-        "Always match the previous bid"
+        "Bid zero always",
+        "Bid above valuation",
+        "Match previous bid"
       ],
       "answer": 0
     },
@@ -711,9 +711,9 @@
       "question": "Which auction is strategically equivalent to a Dutch auction?",
       "options": [
         "First-price sealed-bid auction",
-        "Vickrey auction",
-        "English auction",
-        "Second-price sealed-bid auction"
+        "Second-price sealed-bid auction",
+        "English ascending-bid auction",
+        "Vickrey truthful-bid auction"
       ],
       "answer": 0
     },
@@ -723,9 +723,9 @@
       "question": "In Google's ad auction, why can a higher-quality ad pay less?",
       "options": [
         "Ad rank combines bid with ad quality, so quality improves ranking",
-        "Google ignores bids",
-        "The lowest-quality ad always wins",
-        "All advertisers pay the same amount"
+        "Google ignores advertiser bids when ordering advertisements",
+        "The lowest-quality advertisement always wins the placement",
+        "All advertisers pay the same amount regardless of ranking"
       ],
       "answer": 0
     },
@@ -737,7 +737,7 @@
         "Weakest-link",
         "Best-shot",
         "Sum-of-efforts",
-        "Vickrey"
+        "Second-price"
       ],
       "answer": 0
     },
@@ -761,7 +761,7 @@
         "Sum-of-efforts",
         "Weakest-link",
         "Best-shot",
-        "Market for lemons"
+        "Lemons market"
       ],
       "answer": 0
     },
@@ -771,9 +771,9 @@
       "question": "Which situation best illustrates perversely motivated guards?",
       "options": [
         "An ad platform has weak incentives to detect click fraud because detection reduces revenue",
-        "A user installs a patch quickly",
-        "A researcher reports a vulnerability responsibly",
-        "An auction bidder bids truthfully"
+        "A user installs a security patch shortly after the vendor releases it",
+        "A researcher reports a vulnerability privately before public disclosure",
+        "An auction bidder bids truthfully according to their private valuation"
       ],
       "answer": 0
     },

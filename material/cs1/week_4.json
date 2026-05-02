@@ -250,10 +250,10 @@
       "subtype": "multiple_choice",
       "question": "A user ignores software updates because they need their laptop immediately and the security benefit feels distant. Which bias best explains this?",
       "options": [
-        "Present bias",
-        "Base rate fallacy",
-        "Theory of mind",
-        "Master keying"
+        "Present bias toward immediate convenience over delayed protection",
+        "Base-rate neglect when interpreting rare detector alerts",
+        "Theory-of-mind reasoning about another person's beliefs",
+        "Master-key compromise across many related physical locks"
       ],
       "answer": 0
     },
@@ -262,10 +262,10 @@
       "subtype": "multiple_choice",
       "question": "A malware detector is 99% accurate, but malware is rare in the scanned population, so most alerts are false. Which concept explains this?",
       "options": [
-        "Control bias",
-        "Base rate fallacy",
-        "Capture error",
-        "Risk thermostat"
+        "Control bias from feeling personally responsible for the result",
+        "Base rate fallacy when rare events produce many false positives",
+        "Capture error caused by an overlearned routine taking over",
+        "Risk thermostat behaviour after feeling protected by controls"
       ],
       "answer": 1
     },
@@ -274,10 +274,10 @@
       "subtype": "multiple_choice",
       "question": "A warning says 'Your account will be closed today unless you verify now.' Which mechanism is most directly being exploited?",
       "options": [
-        "Loss framing and time pressure",
-        "Key diversification",
-        "Post-completion error",
-        "Receiver operating characteristic"
+        "Loss framing and time pressure to reduce careful checking",
+        "Key diversification to limit compromise across systems",
+        "Post-completion error after the main task is finished",
+        "Receiver operating characteristic tradeoff in alarm tuning"
       ],
       "answer": 0
     },
@@ -286,10 +286,10 @@
       "subtype": "multiple_choice",
       "question": "A person chooses a risky security setting because the interface makes them feel personally in control. Which bias is most relevant?",
       "options": [
-        "Control bias",
-        "Availability heuristic",
-        "Dishonesty lure",
-        "Base rate fallacy"
+        "Control bias from perceived personal influence over risk",
+        "Availability heuristic from memorable recent examples",
+        "Dishonesty lure that discourages reporting the incident",
+        "Base-rate fallacy in interpreting rare-event alerts"
       ],
       "answer": 0
     },
@@ -298,10 +298,10 @@
       "subtype": "multiple_choice",
       "question": "A dramatic recent breach makes managers overestimate the likelihood of that exact attack and ignore more common risks. Which heuristic is involved?",
       "options": [
-        "Availability heuristic",
-        "Fraud triangle",
-        "Post-completion error",
-        "Affordance"
+        "Availability heuristic based on memorable recent examples",
+        "Fraud triangle involving motive, opportunity, and rationalisation",
+        "Post-completion error after the main task is achieved",
+        "Affordance mismatch between perceived and intended actions"
       ],
       "answer": 0
     },
@@ -311,8 +311,8 @@
       "question": "What is the best interpretation of the Red Queen hypothesis in security?",
       "options": [
         "Once a defence is deployed, the attack disappears permanently",
-        "Attackers and defenders adapt to each other, so improvement requires continuous effort",
-        "Human psychology is irrelevant to technical security",
+        "Attackers and defenders adapt, so security needs continuous effort",
+        "Human psychology is irrelevant to technical security design",
         "Physical security is always easier than computer security"
       ],
       "answer": 1
@@ -334,10 +334,10 @@
       "subtype": "multiple_choice",
       "question": "An alarm system catches nearly every intrusion but triggers so often that guards stop responding. What security tradeoff is being illustrated?",
       "options": [
-        "False alarms versus missed alarms",
-        "Hashing versus encryption",
-        "Authentication versus access control",
-        "Spear phishing versus bulk phishing"
+        "False alarms versus missed alarms in detection tuning",
+        "Hashing versus encryption in password storage design",
+        "Authentication versus access control in authorisation design",
+        "Spear phishing versus bulk phishing in message targeting"
       ],
       "answer": 0
     },
@@ -346,10 +346,10 @@
       "subtype": "multiple_choice",
       "question": "A shop makes valuable goods harder to reach and improves lighting near exits. Which framework best describes this?",
       "options": [
-        "Situational crime prevention",
-        "Public-key cryptography",
-        "Theory of mind",
-        "Password entropy"
+        "Situational crime prevention by changing opportunity and risk",
+        "Public-key cryptography using asymmetric mathematical keys",
+        "Theory of mind about beliefs held by another person",
+        "Password entropy based on unpredictability of chosen secrets"
       ],
       "answer": 0
     },
@@ -358,10 +358,10 @@
       "subtype": "multiple_choice",
       "question": "A deterrence model assumes offenders will respond rationally to increased risk and reduced opportunity. What is a major limitation?",
       "options": [
-        "It cannot explain any behaviour involving locks",
-        "Attackers may be impulsive, misinformed, emotional, ideological, or socially influenced",
-        "It only applies to password hashing",
-        "It assumes all alarms are unavailable"
+        "It cannot explain behaviour involving physical locks",
+        "Attackers may be impulsive, misinformed, emotional, or ideological",
+        "It only applies to password hashing mechanisms",
+        "It assumes all alarm systems are unavailable"
       ],
       "answer": 1
     },
@@ -370,10 +370,10 @@
       "subtype": "multiple_choice",
       "question": "A thief defeats a lock using a bump key without visibly damaging the door. What general lesson follows?",
       "options": [
-        "Physical barriers should not be assumed secure just because they look strong",
-        "CAPTCHAs prove human identity",
-        "False positives are harmless",
-        "Security questions are revocable"
+        "Physical barriers may be weaker than their visible strength suggests",
+        "CAPTCHAs provide reliable proof of the user's legal identity",
+        "False positives in detectors are always harmless operational noise",
+        "Security questions are revocable secrets like cryptographic keys"
       ],
       "answer": 0
     },
@@ -382,10 +382,10 @@
       "subtype": "multiple_choice",
       "question": "Why is compromise of a master key especially serious?",
       "options": [
-        "It only opens one lock",
+        "It gives access to only one ordinary lock in the system",
         "It can require replacing many locks to restore security",
-        "It prevents social engineering",
-        "It eliminates the need for alarms"
+        "It prevents social engineering from succeeding later",
+        "It eliminates the need for alarms and detection controls"
       ],
       "answer": 1
     },
@@ -394,10 +394,10 @@
       "subtype": "multiple_choice",
       "question": "An attacker repeatedly triggers harmless alarms until responders stop taking them seriously. What is the best description?",
       "options": [
-        "A false-alarm denial-of-service attack",
-        "A password stretching attack",
-        "A theory-of-mind failure",
-        "A key diversification failure"
+        "A false-alarm denial-of-service attack against response",
+        "A password stretching attack against stored credentials",
+        "A theory-of-mind failure in interpreting another belief",
+        "A key diversification failure across related cryptographic uses"
       ],
       "answer": 0
     },
@@ -406,10 +406,10 @@
       "subtype": "multiple_choice",
       "question": "A scammer calls an employee pretending to be a senior colleague and asks for urgent help transferring money. Which lures are most central?",
       "options": [
-        "Social compliance and time pressure",
-        "Base rates and anchoring",
-        "Affordance and post-completion",
-        "Hashing and salting"
+        "Social compliance and time pressure from apparent authority",
+        "Base rates and anchoring from statistical detector results",
+        "Affordance and post-completion from interface workflow errors",
+        "Hashing and salting from password storage protection"
       ],
       "answer": 0
     },
@@ -418,10 +418,10 @@
       "subtype": "multiple_choice",
       "question": "Which statement best distinguishes phishing from pretexting in this material?",
       "options": [
-        "Phishing usually impersonates an organisation, while pretexting usually impersonates a person or role",
-        "Phishing requires physical access, while pretexting is purely cryptographic",
-        "Phishing is always targeted, while pretexting is never targeted",
-        "Phishing is a detector error, while pretexting is a lock attack"
+        "Phishing often impersonates an organisation, while pretexting often impersonates a person or role",
+        "Phishing requires physical access, while pretexting relies only on cryptographic weakness",
+        "Phishing is always targeted at one person, while pretexting is never targeted",
+        "Phishing is a detector error, while pretexting is a mechanical lock attack"
       ],
       "answer": 0
     },
@@ -430,10 +430,10 @@
       "subtype": "multiple_choice",
       "question": "A victim joins a dubious money-transfer scheme and then keeps paying fees because reporting it would expose their own attempted dishonesty. Which lure is this?",
       "options": [
-        "Dishonesty",
-        "Affordance",
-        "Availability",
-        "Post-completion"
+        "Dishonesty lure",
+        "Affordance cue",
+        "Availability bias",
+        "Completion error"
       ],
       "answer": 0
     },
@@ -442,10 +442,10 @@
       "subtype": "multiple_choice",
       "question": "A message says 'Everyone in your department has already completed this security form.' Which influence mechanism is most direct?",
       "options": [
-        "Herd behaviour / social proof",
-        "Base rate fallacy",
-        "Master keying",
-        "Bump keying"
+        "Herd behaviour or social proof in uncertain situations",
+        "Base-rate fallacy when interpreting rare security events",
+        "Master-keying that provides broad physical lock access",
+        "Bump keying used to open pin-tumbler lock mechanisms"
       ],
       "answer": 0
     },
@@ -454,10 +454,10 @@
       "subtype": "multiple_choice",
       "question": "Which defence best addresses pretexting by reducing useful information available to attackers?",
       "options": [
-        "Operational security",
-        "Longer hash outputs",
-        "More false alarms",
-        "More master keys"
+        "Operational security limiting exposed organisational details",
+        "Longer hash outputs for stored password verification",
+        "More false alarms to increase responder workload",
+        "More master keys to simplify physical access administration"
       ],
       "answer": 0
     },
@@ -466,10 +466,10 @@
       "subtype": "multiple_choice",
       "question": "A user types paypa1.example instead of paypal.example and lands on an attacker-controlled site. Which human error category is being exploited?",
       "options": [
-        "Slip or lapse",
-        "Fraud rationalisation",
-        "Risk thermostat",
-        "Base rate fallacy"
+        "Slip or lapse during a familiar execution task",
+        "Fraud rationalisation after choosing dishonest behaviour",
+        "Risk thermostat adjustment after feeling more protected",
+        "Base-rate fallacy during rare-event detector interpretation"
       ],
       "answer": 0
     },
@@ -478,10 +478,10 @@
       "subtype": "multiple_choice",
       "question": "Users click 'OK' automatically because repeated prompts have trained them to do so. Which error is most relevant?",
       "options": [
-        "Capture error",
-        "Theory of mind",
-        "Anchoring",
-        "Master key attack"
+        "Capture error from a habitual response overriding intention",
+        "Theory of mind about another person's false belief",
+        "Anchoring effect from an arbitrary initial comparison",
+        "Master key attack against a lock hierarchy"
       ],
       "answer": 0
     },
@@ -490,10 +490,10 @@
       "subtype": "multiple_choice",
       "question": "An ATM gives cash before returning the card, and users walk away after taking the cash. Which error does this illustrate?",
       "options": [
-        "Post-completion error",
-        "Control bias",
-        "Spear phishing",
-        "Dishonesty lure"
+        "Post-completion error after the user's main goal is achieved",
+        "Control bias from perceived influence over security risk",
+        "Spear phishing using contextual targeting information",
+        "Dishonesty lure discouraging the victim from reporting"
       ],
       "answer": 0
     },
@@ -504,7 +504,7 @@
       "options": [
         "Affordance",
         "Credential stuffing",
-        "Receiver operating characteristic",
+        "Alarm tradeoff",
         "Fraud triangle"
       ],
       "answer": 0
@@ -514,10 +514,10 @@
       "subtype": "multiple_choice",
       "question": "A user misunderstands public-key encryption and sends a private key to a colleague. Which error category best fits?",
       "options": [
-        "Misconception",
-        "Slip",
-        "Post-completion error",
-        "Time lure"
+        "Misconception about the system's security model",
+        "Slip during execution of a familiar motor task",
+        "Post-completion error after finishing the main goal",
+        "Time-pressure lure causing immediate compliance"
       ],
       "answer": 0
     },
@@ -539,9 +539,9 @@
       "question": "A fraud control reduces opportunity but does not address motive or rationalisation. Which framework highlights the missing elements?",
       "options": [
         "Fraud triangle",
-        "Entry control cycle",
-        "CAPTCHA",
-        "Red Queen hypothesis"
+        "Entry cycle",
+        "CAPTCHA test",
+        "Red Queen"
       ],
       "answer": 0
     },
@@ -551,9 +551,9 @@
       "question": "A site makes privacy-protective settings hard to find while defaulting to broad sharing. What is this best described as?",
       "options": [
         "Sludge",
-        "A neutral affordance",
-        "A false negative",
-        "A bump key"
+        "Affordance",
+        "False negative",
+        "Bump key"
       ],
       "answer": 0
     },
@@ -562,10 +562,10 @@
       "subtype": "multiple_choice",
       "question": "A system defaults users into automatic security updates while allowing opt-out. Which concept best describes this?",
       "options": [
-        "Nudge through choice architecture",
-        "Credential stuffing",
-        "Dishonesty lure",
-        "Master key attack"
+        "Nudge through choice architecture toward safer defaults",
+        "Credential stuffing using reused passwords from breaches",
+        "Dishonesty lure that discourages victims from reporting",
+        "Master key attack against a physical access hierarchy"
       ],
       "answer": 0
     },
@@ -574,10 +574,10 @@
       "subtype": "multiple_choice",
       "question": "A CAPTCHA is outsourced by malware to real humans on another site. What does this show?",
       "options": [
-        "CAPTCHAs distinguish human labour, not necessarily the intended user's identity or intent",
-        "CAPTCHAs are a form of password hashing",
-        "CAPTCHAs eliminate social engineering",
-        "CAPTCHAs prevent all automated abuse"
+        "CAPTCHAs show human solving, not the intended user's identity or intent",
+        "CAPTCHAs are equivalent to password hashing for stored credentials",
+        "CAPTCHAs eliminate social engineering attacks against users",
+        "CAPTCHAs prevent every form of automated abuse on services"
       ],
       "answer": 0
     },
@@ -589,7 +589,7 @@
         "Password reuse across services",
         "False alarm rates in sensors",
         "The bystander effect",
-        "Lock bumping"
+        "Physical lock bumping"
       ],
       "answer": 0
     },
@@ -600,7 +600,7 @@
       "options": [
         "Reciprocity",
         "Availability",
-        "Post-completion",
+        "Completion error",
         "Base rates"
       ],
       "answer": 0

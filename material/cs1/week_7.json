@@ -247,7 +247,7 @@
       "options": [
         "Liability dumping",
         "Complete mediation",
-        "AEAD",
+        "Authenticated encryption",
         "Maturity objective"
       ],
       "answer": 0
@@ -257,10 +257,10 @@
       "subtype": "multiple_choice",
       "question": "An organisation buys cyber insurance and then delays MFA deployment because losses may be covered. Which concept best explains the incentive problem?",
       "options": [
-        "Moral hazard",
-        "Adverse selection",
-        "Network externality",
-        "Criticality"
+        "Moral hazard after coverage",
+        "Adverse selection before underwriting",
+        "Network externality between firms",
+        "Criticality of core operations"
       ],
       "answer": 0
     },
@@ -271,7 +271,7 @@
       "options": [
         "Adverse selection",
         "Tragedy of the commons",
-        "Retention",
+        "Insurance retention",
         "Business interruption"
       ],
       "answer": 0
@@ -282,8 +282,8 @@
       "question": "A company under-invests in botnet prevention because most harm from its compromised machines falls on others. Which concept applies?",
       "options": [
         "Tragedy of the commons",
-        "Breach response costs",
-        "Sensitivity",
+        "Breach response cost sharing",
+        "Data sensitivity problem",
         "Policy aggregate limit"
       ],
       "answer": 0
@@ -294,9 +294,9 @@
       "question": "A buyer cannot tell whether a security product is genuinely strong or merely certified. Which economic issue is most relevant?",
       "options": [
         "Asymmetric information",
-        "Cyber extortion",
-        "Footprint modelling",
-        "Criticality"
+        "Cyber extortion coverage",
+        "Footprint-driven modelling",
+        "Operational criticality"
       ],
       "answer": 0
     },
@@ -305,10 +305,10 @@
       "subtype": "multiple_choice",
       "question": "What is the best interpretation of Woods and Seymour's finding about security controls?",
       "options": [
-        "Implementation quality matters more than a checkbox saying the control exists",
+        "Implementation quality matters more than a checkbox",
         "Controls are ineffective regardless of deployment",
-        "Only MFA matters for cyber risk",
-        "Insurance replaces the need for controls"
+        "Only MFA matters when assessing cyber risk",
+        "Insurance replaces the need for security controls"
       ],
       "answer": 0
     },
@@ -318,9 +318,9 @@
       "question": "In a maturity model, what are practices?",
       "options": [
         "Individual security activities used to achieve maturity",
-        "Only the final maturity levels",
-        "Only insurance exclusions",
-        "Only breach case studies"
+        "The final maturity levels assigned after assessment",
+        "Insurance exclusions listed in a cyber policy",
+        "Breach case studies used as historical evidence"
       ],
       "answer": 0
     },
@@ -329,10 +329,10 @@
       "subtype": "multiple_choice",
       "question": "A database stores regulated personal data but can tolerate brief downtime. Which property is most directly high?",
       "options": [
-        "Sensitivity",
-        "Criticality",
-        "Retention",
-        "Footprint"
+        "Sensitivity of stored data",
+        "Criticality to operation",
+        "Insurance retention level",
+        "Scenario footprint size"
       ],
       "answer": 0
     },
@@ -341,10 +341,10 @@
       "subtype": "multiple_choice",
       "question": "A customer-facing service must stay online for the organisation to function, even though it stores little confidential data. Which property is most directly high?",
       "options": [
-        "Criticality",
-        "Sensitivity",
-        "Adverse selection",
-        "War exclusion"
+        "Criticality to operations",
+        "Sensitivity of stored data",
+        "Adverse selection risk",
+        "Cyber war exclusion"
       ],
       "answer": 0
     },
@@ -353,10 +353,10 @@
       "subtype": "multiple_choice",
       "question": "A company has MFA for cloud apps but not for a privileged remote-access domain server. What is the main lesson?",
       "options": [
-        "Partial control deployment can leave the highest-risk path exposed",
-        "MFA is never useful",
-        "Cloud controls always protect on-premises systems",
-        "Insurance exclusions prevent ransomware"
+        "Partial control deployment can leave risky paths exposed",
+        "MFA is never useful for protecting privileged access",
+        "Cloud controls always protect on-premises servers",
+        "Insurance exclusions directly prevent ransomware"
       ],
       "answer": 0
     },
@@ -366,9 +366,9 @@
       "question": "A developer's personal machine used for work runs an exposed unpatched service outside corporate monitoring. Which control gap is most central?",
       "options": [
         "Unmanaged endpoint and application exposure",
-        "Excessive policy aggregate limit",
-        "Too much cyber war coverage",
-        "Overly low retention"
+        "Excessively high policy aggregate limit",
+        "Excessive cyber war insurance coverage",
+        "Overly low retention under the policy"
       ],
       "answer": 0
     },
@@ -390,9 +390,9 @@
       "question": "What is the insurance retention?",
       "options": [
         "The amount the insured pays before coverage responds",
-        "The maximum the insurer pays across the policy period",
+        "The maximum insurer payout across the policy period",
         "The number of systems affected by a scenario",
-        "The maturity level of the organisation"
+        "The maturity level assigned to the organisation"
       ],
       "answer": 0
     },
@@ -401,10 +401,10 @@
       "subtype": "multiple_choice",
       "question": "What is the policy aggregate limit of liability?",
       "options": [
-        "The maximum total insurer payout during the policy period",
-        "The insured's per-claim deductible",
-        "The number of claims expected by the model",
-        "The cyber war definition"
+        "The maximum total insurer payout in the policy period",
+        "The insured amount paid before each claim responds",
+        "The number of expected claims in a cyber model",
+        "The definition used for cyber war attribution"
       ],
       "answer": 0
     },
@@ -414,9 +414,9 @@
       "question": "A ransomware incident interrupts the insured's own operations. Which coverage category is most directly relevant?",
       "options": [
         "Business interruption loss",
-        "Errors and Omissions",
+        "Errors and Omissions cover",
         "Government seizure exclusion",
-        "Network externality"
+        "Network externality issue"
       ],
       "answer": 0
     },
@@ -426,9 +426,9 @@
       "question": "A supplier suffers a system failure and the insured cannot operate. Which concept best describes the insured's loss?",
       "options": [
         "Dependent business loss",
-        "Adverse selection",
+        "Adverse selection issue",
         "Cyber war carve-out",
-        "Practice objective"
+        "Practice objective gap"
       ],
       "answer": 0
     },
@@ -437,10 +437,10 @@
       "subtype": "multiple_choice",
       "question": "A policy covers losses from fraudulent instruction and funds transfer fraud. Which coverage category is this?",
       "options": [
-        "eCrime",
-        "Cyber war",
+        "eCrime coverage",
+        "Cyber war coverage",
         "Errors and Omissions",
-        "Criticality"
+        "Criticality assessment"
       ],
       "answer": 0
     },
@@ -449,10 +449,10 @@
       "subtype": "multiple_choice",
       "question": "Why are power or DNS failures outside the insured's control often excluded?",
       "options": [
-        "They are infrastructure failures outside the insured's operational sphere",
-        "They are always caused by the insured",
-        "They are never cyber-related",
-        "They are always covered under cyber extortion"
+        "They are infrastructure failures outside the insured's control",
+        "They are always directly caused by the insured organisation",
+        "They are never related to cyber operations or dependencies",
+        "They are always covered under cyber extortion clauses"
       ],
       "answer": 0
     },
@@ -464,7 +464,7 @@
         "Impact of loss",
         "Cause of loss",
         "Likelihood of loss",
-        "Retention"
+        "Policy retention"
       ],
       "answer": 0
     },
@@ -476,7 +476,7 @@
         "Likelihood of loss",
         "Impact of loss",
         "Cause of loss",
-        "Single point of failure only"
+        "Single point of failure"
       ],
       "answer": 0
     },
@@ -485,10 +485,10 @@
       "subtype": "multiple_choice",
       "question": "Why is accumulation risk especially important in cyber insurance?",
       "options": [
-        "One event can affect many insureds through shared technology or infrastructure",
-        "Every cyber event affects only one company",
-        "Cyber losses are never correlated",
-        "Insurance policies have no limits"
+        "One event can affect many insureds through shared technology",
+        "Every cyber event affects only one insured organisation",
+        "Cyber losses are never correlated across companies",
+        "Insurance policies have no limits or exclusions"
       ],
       "answer": 0
     },
@@ -497,10 +497,10 @@
       "subtype": "multiple_choice",
       "question": "A compromised software update spreads destructive malware to many users of the same product. Which scenario does this most resemble?",
       "options": [
-        "Autolycus",
-        "Lernaen Hydra",
-        "Demeter's Curse",
-        "Type 4 exclusion"
+        "Autolycus software update scenario",
+        "Lernaen Hydra wormable ransomware",
+        "Demeter's Curse industrial event",
+        "Type 4 cyber war exclusion"
       ],
       "answer": 0
     },
@@ -509,10 +509,10 @@
       "subtype": "multiple_choice",
       "question": "A wormable ransomware strain spreads globally with very broad footprint but moderate per-insured loss. Which scenario does this most resemble?",
       "options": [
-        "Lernaen Hydra",
-        "Autolycus",
-        "Demeter's Curse",
-        "CMMC Level 1"
+        "Lernaen Hydra wormable ransomware",
+        "Autolycus software supply-chain compromise",
+        "Demeter's Curse targeted industry event",
+        "CMMC Level 1 maturity assessment"
       ],
       "answer": 0
     },
@@ -521,10 +521,10 @@
       "subtype": "multiple_choice",
       "question": "A targeted attack harms a small set of industrial firms using the same vulnerable operational system, with very high loss per firm. Which scenario does this most resemble?",
       "options": [
-        "Demeter's Curse",
-        "Lernaen Hydra",
-        "Autolycus",
-        "eCrime"
+        "Demeter's Curse industrial scenario",
+        "Lernaen Hydra malware scenario",
+        "Autolycus update compromise",
+        "eCrime funds-transfer fraud"
       ],
       "answer": 0
     },
@@ -533,10 +533,10 @@
       "subtype": "multiple_choice",
       "question": "Why use a footprint-driven approach in cyber disaster modelling?",
       "options": [
-        "Aggregate loss may be driven by the number of organisations affected",
-        "Per-insured severity is always irrelevant",
-        "Frequency cannot be modelled at all",
-        "Insurance never has line-size constraints"
+        "Aggregate loss may be driven by affected organisation count",
+        "Per-insured severity is always irrelevant to total loss",
+        "Frequency cannot be modelled in any cyber scenario",
+        "Insurance never has limits or line-size constraints"
       ],
       "answer": 0
     },
@@ -547,7 +547,7 @@
       "options": [
         "Strongest security controls",
         "Weakest security controls",
-        "Largest companies only",
+        "Largest organisations only",
         "War-excluded systems only"
       ],
       "answer": 0

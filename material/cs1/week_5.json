@@ -245,10 +245,10 @@
       "subtype": "multiple_choice",
       "question": "A medicine bottle seal does not stop someone opening the bottle, but it tears visibly if opened. Which concept best describes it?",
       "options": [
-        "Tamper resistant",
-        "Tamper evident",
-        "Complete mediation",
-        "Differential power analysis"
+        "Tamper-resistant protection",
+        "Tamper-evident protection",
+        "Complete-mediation control",
+        "Power-analysis leakage"
       ],
       "answer": 1
     },
@@ -258,9 +258,9 @@
       "question": "A bank vault is designed to physically slow drilling and cutting. Which concept best describes this?",
       "options": [
         "Tamper resistance",
-        "Tamper evidence only",
-        "Trust on First Use",
-        "Reproducible build"
+        "Tamper evidence",
+        "First-use trust",
+        "Build reproducibility"
       ],
       "answer": 0
     },
@@ -269,10 +269,10 @@
       "subtype": "multiple_choice",
       "question": "A company discovers a vulnerable open-source library. Which artefact most directly helps it identify affected products quickly?",
       "options": [
-        "SBOM",
-        "XD flag",
-        "TLB",
-        "Bump key"
+        "Software bill of materials",
+        "Execute-disable permission",
+        "Translation lookaside buffer",
+        "Mechanical lock bypass"
       ],
       "answer": 0
     },
@@ -281,10 +281,10 @@
       "subtype": "multiple_choice",
       "question": "What problem do reproducible builds mainly address?",
       "options": [
-        "They prove a binary corresponds to the stated source and build environment",
-        "They prevent all vulnerabilities in source code",
-        "They replace the need for code signing",
-        "They stop physical probing of chips"
+        "They verify that a binary matches the stated source and build inputs",
+        "They remove every vulnerability that exists in the source code",
+        "They replace code signing with an unrelated trust mechanism",
+        "They prevent attackers from physically probing integrated circuits"
       ],
       "answer": 0
     },
@@ -293,10 +293,10 @@
       "subtype": "multiple_choice",
       "question": "What is the main weakness of Trust on First Use?",
       "options": [
-        "It fails if the first observed key is supplied by an attacker",
-        "It requires every key to be public",
-        "It prevents later key pinning",
-        "It cannot be used with certificates"
+        "It can fail if the first observed key is supplied by an attacker",
+        "It requires every cryptographic key to be made public in advance",
+        "It prevents systems from remembering a later trusted key value",
+        "It cannot be used together with certificate-based systems"
       ],
       "answer": 0
     },
@@ -305,10 +305,10 @@
       "subtype": "multiple_choice",
       "question": "Code signing primarily gives which assurance?",
       "options": [
-        "That software is bug-free",
-        "That software came from the holder of a signing key and has not changed since signing",
-        "That software cannot contain malware",
-        "That software was built on an uncompromised computer"
+        "That signed software is completely free of exploitable bugs",
+        "That software came from the signing-key holder and was unchanged",
+        "That signed software cannot contain malicious functionality",
+        "That the build computer used for signing was uncompromised"
       ],
       "answer": 1
     },
@@ -318,7 +318,7 @@
       "question": "Which property of a reference monitor is violated if DMA lets a device read protected memory without an access check?",
       "options": [
         "Complete mediation",
-        "Reproducibility",
+        "Build reproducibility",
         "Tamper evidence",
         "Prospect theory"
       ],
@@ -330,9 +330,9 @@
       "question": "Why is a purely software reference monitor insufficient on a flat memory machine?",
       "options": [
         "User programs could bypass or overwrite it without hardware protection",
-        "Software cannot perform encryption",
-        "The monitor would necessarily be too small",
-        "It would prevent all page faults"
+        "Software monitors are unable to perform cryptographic operations",
+        "The monitor would necessarily be too small to analyse correctly",
+        "It would prevent page faults from being handled by the system"
       ],
       "answer": 0
     },
@@ -366,9 +366,9 @@
       "question": "What is the main security role of virtual memory in a multi-user operating system?",
       "options": [
         "It isolates processes and mediates access to physical memory",
-        "It encrypts every memory page automatically",
-        "It prevents all timing side channels",
-        "It removes the need for supervisor mode"
+        "It automatically encrypts every memory page before access",
+        "It prevents timing side channels across all processor states",
+        "It removes the need for privileged supervisor execution"
       ],
       "answer": 0
     },
@@ -378,9 +378,9 @@
       "question": "Why is the TLB important for practical memory protection?",
       "options": [
         "It caches address translations and permission information for speed",
-        "It stores user passwords securely",
-        "It prevents all DMA attacks",
-        "It replaces the operating system"
+        "It stores user authentication passwords in protected hardware",
+        "It prevents DMA-capable peripherals from accessing memory",
+        "It replaces operating-system enforcement with application logic"
       ],
       "answer": 0
     },
@@ -389,10 +389,10 @@
       "subtype": "multiple_choice",
       "question": "Which page-table feature helps stop injected code on the stack or heap from executing?",
       "options": [
-        "XD / Execute Disable",
-        "DMA",
-        "SMM",
-        "TOFU"
+        "Execute-disable permission",
+        "Direct memory access",
+        "System management mode",
+        "Trust on first use"
       ],
       "answer": 0
     },
@@ -402,9 +402,9 @@
       "question": "Why is the XD flag not a complete defence against memory attacks?",
       "options": [
         "Attackers may reuse existing executable code or exploit data-only bugs",
-        "It makes all memory writable",
-        "It disables virtual memory",
-        "It allows user programs to enter SMM"
+        "It makes every memory page writable by ordinary application code",
+        "It disables virtual memory and removes address-space separation",
+        "It allows user programs to enter highly privileged firmware modes"
       ],
       "answer": 0
     },
@@ -416,7 +416,7 @@
         "Cold boot attack",
         "Code signing attack",
         "Reproducible build attack",
-        "TOFU attack"
+        "First-use trust attack"
       ],
       "answer": 0
     },
@@ -425,10 +425,10 @@
       "subtype": "multiple_choice",
       "question": "Which hardware feature can let a peripheral read memory without ordinary CPU mediation?",
       "options": [
-        "DMA",
-        "XD",
-        "SBOM",
-        "JavaCard"
+        "Direct memory access",
+        "Execute-disable bit",
+        "Software bill of materials",
+        "JavaCard platform"
       ],
       "answer": 0
     },
@@ -437,10 +437,10 @@
       "subtype": "multiple_choice",
       "question": "Why is System Management Mode security-sensitive?",
       "options": [
-        "It can run below or outside the normal OS view while accessing physical memory",
-        "It only runs ordinary user applications",
-        "It prevents all firmware code from executing",
-        "It is controlled by web browsers"
+        "It can run outside the normal OS view while accessing physical memory",
+        "It only runs ordinary user applications with limited privileges",
+        "It prevents all firmware code from executing on the processor",
+        "It is directly controlled by ordinary web browser processes"
       ],
       "answer": 0
     },
@@ -450,9 +450,9 @@
       "question": "What does Rowhammer show about software isolation?",
       "options": [
         "It depends on physical hardware assumptions as well as software policy",
-        "It is guaranteed by encryption alone",
-        "It is unnecessary when code is signed",
-        "It works only on smartcards"
+        "It is guaranteed by encrypting all pages in physical memory",
+        "It is unnecessary when every executable file is code signed",
+        "It works only on smartcards rather than ordinary memory chips"
       ],
       "answer": 0
     },
@@ -464,7 +464,7 @@
         "Trusted path out",
         "Reproducible build",
         "Memory remanence",
-        "Glue logic"
+        "Glue logic layout"
       ],
       "answer": 0
     },
@@ -486,7 +486,7 @@
       "question": "An attacker with brief hotel-room access modifies a hardware wallet before the owner returns. Which attack is this?",
       "options": [
         "Evil maid attack",
-        "Base rate fallacy",
+        "Base-rate fallacy",
         "Reproducible build",
         "SBOM generation"
       ],
@@ -498,9 +498,9 @@
       "question": "Which attack class learns secrets from power consumption rather than by breaking the cipher mathematically?",
       "options": [
         "Differential power analysis",
-        "Complete mediation",
-        "Trust on First Use",
-        "Code signing"
+        "Complete mediation control",
+        "Trust on first use",
+        "Software code signing"
       ],
       "answer": 0
     },
@@ -509,10 +509,10 @@
       "subtype": "multiple_choice",
       "question": "A laser causes a cryptographic device to skip a security check. What attack class is this?",
       "options": [
-        "Fault induction",
-        "SBOM",
-        "Tamper evidence",
-        "Lemons market"
+        "Fault induction attack",
+        "Software bill of materials",
+        "Tamper-evidence seal",
+        "Security lemons market"
       ],
       "answer": 0
     },
@@ -522,9 +522,9 @@
       "question": "What is the purpose of potting an HSM's sensitive components?",
       "options": [
         "To make probing or physical access harder and more destructive",
-        "To make code signing faster",
-        "To eliminate the need for keys",
-        "To guarantee reproducible builds"
+        "To make software signing operations faster and more reliable",
+        "To eliminate the operational need for cryptographic keys",
+        "To guarantee binary reproducibility across build machines"
       ],
       "answer": 0
     },
@@ -534,9 +534,9 @@
       "question": "A conductive mesh erases keys when cut. What protection is being used?",
       "options": [
         "Tamper-sensing barrier",
-        "TLB",
-        "TOFU",
-        "SBOM"
+        "Translation lookaside buffer",
+        "Trust on first use",
+        "Software bill of materials"
       ],
       "answer": 0
     },
@@ -545,10 +545,10 @@
       "subtype": "multiple_choice",
       "question": "An HSM resists drilling, but researchers extract keys through a flawed banking API. What lesson does this illustrate?",
       "options": [
-        "Physical hardening does not compensate for logical or API vulnerabilities",
-        "Tamper resistance always prevents misuse",
-        "API design is irrelevant to HSM security",
-        "Code signing prevents all key leakage"
+        "Physical hardening does not compensate for logical or API flaws",
+        "Tamper resistance always prevents misuse of cryptographic devices",
+        "API design is irrelevant to practical hardware security modules",
+        "Code signing prevents all forms of cryptographic key leakage"
       ],
       "answer": 0
     },
@@ -558,9 +558,9 @@
       "question": "According to Rice's theorem, why is perfect pre-execution safety checking impossible in general?",
       "options": [
         "Non-trivial semantic properties of arbitrary programs are undecidable",
-        "All hardware is counterfeit",
-        "Hash functions are reversible",
-        "Page tables are too slow"
+        "All deployed hardware components must be treated as counterfeit",
+        "Cryptographic hash functions are reversible in ordinary settings",
+        "Page-table checks are too slow to enforce on real processors"
       ],
       "answer": 0
     },
@@ -572,7 +572,7 @@
         "Advanced chip modification and probing",
         "Password guessing over a website",
         "User phishing through email",
-        "Writing an SBOM"
+        "Software dependency listing"
       ],
       "answer": 0
     },
@@ -581,10 +581,10 @@
       "subtype": "multiple_choice",
       "question": "What is the core idea of a PUF?",
       "options": [
-        "Use manufacturing variation as a device-specific source of identity",
-        "Store a global secret key on every device",
-        "Rely on users remembering random strings",
-        "Prevent all optical attacks"
+        "Use manufacturing variation as a device-specific identity source",
+        "Store a common global secret key inside every shipped device",
+        "Rely on users remembering long randomly generated strings",
+        "Prevent every optical and semi-invasive physical attack"
       ],
       "answer": 0
     },
@@ -594,9 +594,9 @@
       "question": "Why can PUFs be fragile as a security mechanism?",
       "options": [
         "They may be modelled, probed, or affected by fabrication changes",
-        "They require passwords to be stored in plaintext",
-        "They make all binaries non-reproducible",
-        "They disable page faults"
+        "They require all passwords to be stored in plaintext memory",
+        "They make all program binaries impossible to reproduce exactly",
+        "They disable page faults and ordinary memory protection"
       ],
       "answer": 0
     },
@@ -605,10 +605,10 @@
       "subtype": "multiple_choice",
       "question": "What is passive voltage contrast useful for?",
       "options": [
-        "Reading charge states in Flash or EEPROM cells",
-        "Signing software updates",
-        "Slowing password guessing",
-        "Blocking DMA"
+        "Reading charge states in Flash or EEPROM memory cells",
+        "Signing software updates before public distribution",
+        "Slowing online password guessing by remote attackers",
+        "Blocking DMA access from untrusted peripheral devices"
       ],
       "answer": 0
     },
@@ -618,9 +618,9 @@
       "question": "A chip contains hidden circuitry that activates only for a rare input pattern. What is this?",
       "options": [
         "Hardware Trojan",
-        "SBOM",
-        "Page fault",
-        "Trusted path"
+        "Software bill of materials",
+        "Page fault exception",
+        "Trusted path control"
       ],
       "answer": 0
     },
@@ -632,7 +632,7 @@
         "Third shift problem",
         "Cold boot attack",
         "Complete mediation",
-        "XD bypass"
+        "Execute-disable bypass"
       ],
       "answer": 0
     },
@@ -641,10 +641,10 @@
       "subtype": "multiple_choice",
       "question": "In a lemons market for security products, why can weak products dominate?",
       "options": [
-        "Buyers cannot reliably judge security quality, so price and certification labels dominate",
-        "All buyers can perfectly test the products",
-        "Attackers prefer expensive products",
-        "Vendors are required to publish all source code"
+        "Buyers cannot judge security quality, so price and certification labels dominate",
+        "Buyers can perfectly test security quality before purchasing products",
+        "Attackers strongly prefer expensive products over cheaper products",
+        "Vendors are required to publish all source code for inspection"
       ],
       "answer": 0
     },
@@ -665,10 +665,10 @@
       "subtype": "multiple_choice",
       "question": "Why are hardware random number generators hard to trust?",
       "options": [
-        "Their internal design and environmental behaviour can be hard to inspect or verify",
-        "They always output public values",
-        "They cannot be used by cryptographic software",
-        "They remove the need for supply-chain security"
+        "Their internal design and environmental behaviour can be hard to inspect",
+        "They always output public values that are visible to every attacker",
+        "They cannot be used by cryptographic software in real systems",
+        "They remove the need for supply-chain security controls"
       ],
       "answer": 0
     },
@@ -678,9 +678,9 @@
       "question": "A hardware wallet protects its private key internally, but a compromised PC asks it to sign a different transaction than the user sees. What is the main issue?",
       "options": [
         "Trusted interface problem",
-        "Base rate fallacy",
-        "SBOM incompleteness",
-        "Page-table overflow"
+        "Base-rate fallacy problem",
+        "SBOM completeness problem",
+        "Page-table overflow problem"
       ],
       "answer": 0
     },
@@ -690,9 +690,9 @@
       "question": "Which scenario is a supply-chain attack?",
       "options": [
         "A distributor ships devices with modified firmware before customers receive them",
-        "A user mistypes a password",
-        "A detector raises a false alarm",
-        "A process triggers a page fault"
+        "A user mistypes a password during an ordinary authentication attempt",
+        "A detector raises a false alarm during statistical monitoring",
+        "A process triggers a page fault after accessing unmapped memory"
       ],
       "answer": 0
     },
@@ -702,9 +702,9 @@
       "question": "Why is security-by-obscurity weak against capable smartcard attackers?",
       "options": [
         "They can often reverse engineer or probe devices bought at retail",
-        "Obscurity always makes algorithms public",
-        "It prevents any attacker from buying the device",
-        "It eliminates all side channels"
+        "Obscurity always makes algorithms public to every ordinary user",
+        "It prevents attackers from purchasing the device for analysis",
+        "It eliminates timing, power, optical, and fault side channels"
       ],
       "answer": 0
     },

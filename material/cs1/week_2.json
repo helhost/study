@@ -240,10 +240,10 @@
       "subtype": "multiple_choice",
       "question": "A hospital has an 'on-call doctor' permission set that different doctors assume during different shifts. Which concept best describes this?",
       "options": [
-        "Group",
-        "Role",
-        "World permission",
-        "Protection profile"
+        "A principal membership group",
+        "A temporary permission role",
+        "A world-readable file mode",
+        "A product evaluation profile"
       ],
       "answer": 1
     },
@@ -252,10 +252,10 @@
       "subtype": "multiple_choice",
       "question": "Why can set-user-id programs be risky?",
       "options": [
-        "They always disable file permissions",
-        "They can run with more privilege than the invoking user and may be influenced by that user",
-        "They prevent programs from opening files",
-        "They make all users members of the file owner's group"
+        "They always ignore normal file permissions",
+        "They may run with extra owner privileges",
+        "They prevent all programs from opening files",
+        "They add every user to the owner's group"
       ],
       "answer": 1
     },
@@ -264,10 +264,10 @@
       "subtype": "multiple_choice",
       "question": "A privileged helper first checks whether a user may modify a file, then later opens the file path. The user swaps the file path to a different target between these steps. What vulnerability is this?",
       "options": [
-        "SQL injection",
-        "Use-after-free",
-        "TOCTTOU",
-        "Return-oriented programming"
+        "Input is executed as database code",
+        "Freed memory is later reused",
+        "State changes between check and use",
+        "Existing code gadgets are chained"
       ],
       "answer": 2
     },
@@ -276,10 +276,10 @@
       "subtype": "multiple_choice",
       "question": "A browser restricts a script so it cannot freely read local files or contact arbitrary remote hosts. Which mechanism is being used?",
       "options": [
-        "A sandbox",
-        "A data diode",
-        "A high water mark",
-        "A protection profile"
+        "A restricted software sandbox",
+        "A one-way flow data diode",
+        "A label-raising high water mark",
+        "A product protection profile"
       ],
       "answer": 0
     },
@@ -288,10 +288,10 @@
       "subtype": "multiple_choice",
       "question": "Which distinction between VMs and containers matters most for isolation?",
       "options": [
-        "VMs share the host kernel; containers each boot a separate kernel",
-        "Containers share the host kernel; VMs run separate guest operating systems under a hypervisor",
-        "Containers cannot use namespaces",
-        "VMs cannot be used in cloud computing"
+        "VMs share kernels, containers boot guests",
+        "Containers share kernels, VMs run guests",
+        "Containers cannot use process namespaces",
+        "VMs cannot be used for cloud services"
       ],
       "answer": 1
     },
@@ -301,9 +301,9 @@
       "question": "A container escape through a kernel vulnerability is plausible mainly because:",
       "options": [
         "Containers share the host kernel",
-        "Containers cannot restrict process IDs",
-        "Containers always run as root on the network",
-        "Containers use Bell-LaPadula labels"
+        "Containers lack process identifiers",
+        "Containers must run network root",
+        "Containers use MLS security labels"
       ],
       "answer": 0
     },
@@ -312,10 +312,10 @@
       "subtype": "multiple_choice",
       "question": "What is the main security idea behind Intel SGX?",
       "options": [
-        "Make all memory executable",
-        "Run trusted code in an enclave protected even from privileged software",
-        "Replace operating-system access control with Unix ACLs",
-        "Prevent all timing side channels"
+        "Make every memory page executable",
+        "Protect code inside a memory enclave",
+        "Replace OS checks with Unix ACLs",
+        "Eliminate all timing side channels"
       ],
       "answer": 1
     },
@@ -324,10 +324,10 @@
       "subtype": "multiple_choice",
       "question": "Which mechanism is closest to separating a normal OS from a trusted execution environment on ARM systems?",
       "options": [
-        "TrustZone",
-        "SQL sanitisation",
-        "Stack canary",
-        "Polyinstantiation"
+        "ARM TrustZone world separation",
+        "SQL input parameterisation",
+        "Compiler stack canary checks",
+        "MLS database polyinstantiation"
       ],
       "answer": 0
     },
@@ -336,10 +336,10 @@
       "subtype": "multiple_choice",
       "question": "An attacker overflows a stack buffer and overwrites the return address. Which attack class is this?",
       "options": [
-        "Stack smashing",
-        "Nondeducibility",
-        "Data diode bypass",
-        "Cascade problem"
+        "Stack smashing control-data attack",
+        "Nondeducibility policy failure",
+        "Data diode flow-control bypass",
+        "Cascade composition problem"
       ],
       "answer": 0
     },
@@ -348,10 +348,10 @@
       "subtype": "multiple_choice",
       "question": "A program frees an object but later calls a function pointer through the old reference after attacker-controlled data has occupied the freed memory. What is the vulnerability?",
       "options": [
-        "Use-after-free",
-        "Same-origin violation",
-        "No write down",
-        "Tranquility"
+        "Use-after-free stale pointer bug",
+        "Same-origin browser policy breach",
+        "Bell-LaPadula write-down failure",
+        "Strong tranquility label change"
       ],
       "answer": 0
     },
@@ -360,10 +360,10 @@
       "subtype": "multiple_choice",
       "question": "A login form directly concatenates a username into a database query. What is the most relevant failure?",
       "options": [
-        "Failure to treat input as untrusted data",
-        "Failure to use a TPM",
-        "Failure to apply high water mark",
-        "Failure to run a full virtual machine"
+        "Input is not kept as data",
+        "Trusted boot is not being used",
+        "Labels are not raised upward",
+        "A full VM is not deployed"
       ],
       "answer": 0
     },
@@ -372,10 +372,10 @@
       "subtype": "multiple_choice",
       "question": "DEP stops classic shellcode injection primarily by:",
       "options": [
-        "Randomising all memory addresses",
-        "Preventing data pages from being executed as code",
-        "Checking every database query",
-        "Preventing all write access to files"
+        "Randomising process memory addresses",
+        "Blocking execution from data pages",
+        "Checking database queries at runtime",
+        "Disabling all file write access"
       ],
       "answer": 1
     },
@@ -384,10 +384,10 @@
       "subtype": "multiple_choice",
       "question": "Why can ROP bypass DEP?",
       "options": [
-        "It disables the processor's privilege rings",
-        "It reuses existing executable code instead of injecting new executable code",
-        "It requires no control of program execution",
-        "It works only on encrypted memory"
+        "It disables processor privilege rings",
+        "It reuses existing executable code",
+        "It needs no control-flow redirection",
+        "It runs only in encrypted memory"
       ],
       "answer": 1
     },
@@ -396,10 +396,10 @@
       "subtype": "multiple_choice",
       "question": "Which defence makes it harder for an attacker to know where useful gadgets or buffers are located?",
       "options": [
-        "ASLR",
-        "Polyinstantiation",
-        "Low water mark",
-        "Same-origin policy"
+        "Address layout randomisation",
+        "Database polyinstantiation",
+        "Biba low water marking",
+        "Browser same-origin policy"
       ],
       "answer": 0
     },
@@ -408,10 +408,10 @@
       "subtype": "multiple_choice",
       "question": "A memory disclosure bug reveals code addresses before an exploit. Which defence does this most directly weaken?",
       "options": [
-        "ASLR",
-        "No read up",
-        "Data diode",
-        "Protection profile"
+        "Address layout randomisation",
+        "Bell-LaPadula no read up",
+        "One-way flow data diode",
+        "Product protection profile"
       ],
       "answer": 0
     },
@@ -420,10 +420,10 @@
       "subtype": "multiple_choice",
       "question": "Meltdown and Spectre show that isolation can fail because of:",
       "options": [
-        "Microarchitectural side channels",
-        "Open design",
-        "Fixed security labels",
-        "Too many codewords"
+        "Microarchitectural timing side channels",
+        "Public review of system designs",
+        "Fixed labels during operation",
+        "Excessive use of codewords"
       ],
       "answer": 0
     },
@@ -432,10 +432,10 @@
       "subtype": "multiple_choice",
       "question": "A system originally designed for trusted local users is later exposed to hostile Internet users without redesign. Which concept best describes the problem?",
       "options": [
-        "Environmental creep",
-        "Strong tranquility",
-        "Polyinstantiation",
-        "Low water mark"
+        "Environmental creep of assumptions",
+        "Strong tranquility of labels",
+        "Database polyinstantiation issue",
+        "Integrity low water marking"
       ],
       "answer": 0
     },
@@ -444,10 +444,10 @@
       "subtype": "multiple_choice",
       "question": "Which statement best distinguishes a security policy model from a security target?",
       "options": [
-        "A policy model states protection properties; a security target describes mechanisms for a particular product",
-        "A security target is always shorter and more abstract than a policy model",
-        "A policy model is only for hardware; a security target is only for users",
-        "They are identical terms"
+        "Models state properties, targets state mechanisms",
+        "Targets are always shorter and more abstract",
+        "Models cover hardware, targets cover users",
+        "They are two names for one concept"
       ],
       "answer": 0
     },
@@ -456,10 +456,10 @@
       "subtype": "multiple_choice",
       "question": "In MLS, a user with Secret clearance but not the Crypto codeword attempts to read a Secret/Crypto document. What should happen?",
       "options": [
-        "Access is allowed because the clearance level is sufficient",
-        "Access is denied because the user lacks the required compartment",
-        "The document is automatically downgraded",
-        "The user is automatically given the codeword"
+        "Allow access based on Secret clearance",
+        "Deny access due to missing compartment",
+        "Automatically downgrade the document",
+        "Automatically grant the codeword"
       ],
       "answer": 1
     },
@@ -468,10 +468,10 @@
       "subtype": "multiple_choice",
       "question": "Which property of a reference monitor means every access attempt must pass through it?",
       "options": [
-        "Always invoked",
-        "Weak tranquility",
-        "Nondeducibility",
-        "World-readable"
+        "It is always invoked for accesses",
+        "It permits weak label tranquility",
+        "It provides Low nondeducibility",
+        "It makes all objects world-readable"
       ],
       "answer": 0
     },
@@ -480,10 +480,10 @@
       "subtype": "multiple_choice",
       "question": "In Bell-LaPadula, no read up is intended to prevent:",
       "options": [
-        "Lower-cleared subjects reading higher-classified data",
-        "Higher-cleared subjects writing lower-classified data",
-        "Low-integrity data contaminating high-integrity outputs",
-        "All covert timing channels"
+        "Low-cleared subjects reading high data",
+        "High-cleared subjects writing low data",
+        "Low-integrity data tainting outputs",
+        "All covert timing communication"
       ],
       "answer": 0
     },
@@ -492,10 +492,10 @@
       "subtype": "multiple_choice",
       "question": "In Bell-LaPadula, no write down is especially important because it prevents:",
       "options": [
-        "A Trojan running high from leaking information to a lower level",
-        "A low user from reading low data",
-        "An administrator from creating accounts",
-        "A database from containing duplicate records"
+        "High-level Trojans leaking downward",
+        "Low users reading their own data",
+        "Admins creating new user accounts",
+        "Databases storing duplicate records"
       ],
       "answer": 0
     },
@@ -504,10 +504,10 @@
       "subtype": "multiple_choice",
       "question": "A process reads Secret/Crypto and then Secret/Nuclear data. Under the high water mark principle, what label should influence later outputs?",
       "options": [
-        "Unclassified",
-        "Secret only, without compartments",
-        "Secret/Crypto/Nuclear",
-        "Whichever file was read first"
+        "Unclassified with no compartments",
+        "Secret with no compartment tags",
+        "Secret with Crypto and Nuclear",
+        "Only the first file's label"
       ],
       "answer": 2
     },
@@ -516,10 +516,10 @@
       "subtype": "multiple_choice",
       "question": "Which property is stronger than Bell-LaPadula's basic information-flow rules because it rules out any observable effect of High on Low?",
       "options": [
-        "Noninterference",
-        "Weak tranquility",
-        "Set-user-id",
-        "Protection profile"
+        "Noninterference between High and Low",
+        "Weak tranquility for label changes",
+        "Set-user-id program execution",
+        "Common Criteria protection profile"
       ],
       "answer": 0
     },
@@ -528,10 +528,10 @@
       "subtype": "multiple_choice",
       "question": "A High process changes CPU cache state so a Low process can infer a secret by timing memory accesses. What is this?",
       "options": [
-        "Covert channel",
-        "DAC permission",
-        "Data diode",
-        "Security target"
+        "Covert timing communication channel",
+        "Discretionary access permission",
+        "One-way hardware data diode",
+        "Product-specific security target"
       ],
       "answer": 0
     },
@@ -540,10 +540,10 @@
       "subtype": "multiple_choice",
       "question": "A Low user tries to create a database record called X. Refusing the request would reveal that a High record X already exists. What MLS problem is this?",
       "options": [
-        "Polyinstantiation",
-        "Use-after-free",
-        "ASLR failure",
-        "Least privilege"
+        "Polyinstantiation of records",
+        "Use-after-free memory error",
+        "ASLR address disclosure failure",
+        "Least-privilege design rule"
       ],
       "answer": 0
     },
@@ -552,10 +552,10 @@
       "subtype": "multiple_choice",
       "question": "Two MLS systems each satisfy their own span limits, but their connection permits a combined Unclassified-to-Top-Secret span that policy forbids. What is this?",
       "options": [
-        "Cascade problem",
-        "Same-origin policy",
-        "Stack smashing",
-        "Low water mark"
+        "Cascade composition problem",
+        "Browser same-origin policy",
+        "Stack smashing attack class",
+        "Integrity low water mark"
       ],
       "answer": 0
     },
@@ -564,9 +564,9 @@
       "subtype": "multiple_choice",
       "question": "Which model or mechanism is most directly concerned with integrity contamination by lower-integrity inputs?",
       "options": [
-        "Biba low water mark",
+        "Biba low water mark model",
         "Bell-LaPadula no read up",
-        "Same-origin policy",
+        "Browser same-origin policy",
         "Data Execution Prevention"
       ],
       "answer": 0
@@ -576,10 +576,10 @@
       "subtype": "multiple_choice",
       "question": "Why does TCB bloat undermine high-assurance security?",
       "options": [
-        "It makes the set of trusted components too large and complex to verify confidently",
-        "It removes all trusted components from the system",
-        "It prevents users from having roles",
-        "It guarantees all labels remain fixed"
+        "Trusted code grows too complex to verify",
+        "Trusted components are all removed",
+        "Users can no longer assume roles",
+        "All labels become permanently fixed"
       ],
       "answer": 0
     },
@@ -588,10 +588,10 @@
       "subtype": "multiple_choice",
       "question": "Why did MILS become attractive compared with classical MLS on one machine?",
       "options": [
-        "Separate system-high components and guards can be simpler than one large, complex MLS TCB",
-        "MILS eliminates all covert channels mathematically",
-        "MILS requires no access control policy",
-        "Classical MLS cannot represent classification levels"
+        "Separated components give smaller TCBs",
+        "It removes all covert channels fully",
+        "It needs no access control policy",
+        "MLS cannot represent classifications"
       ],
       "answer": 0
     },

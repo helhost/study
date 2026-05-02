@@ -255,10 +255,10 @@
       "subtype": "multiple_choice",
       "question": "A browser padlock is visible for a site. What should the user conclude?",
       "options": [
-        "The site is guaranteed trustworthy",
-        "The connection is using HTTPS/TLS",
-        "The site contains no malware",
-        "The user is authenticated to the site"
+        "The site is guaranteed to be fully trustworthy",
+        "The connection is protected using HTTPS/TLS",
+        "The site has been scanned and contains no malware",
+        "The user has been authenticated to the website"
       ],
       "answer": 1
     },
@@ -269,8 +269,8 @@
       "options": [
         "HTTPS is HTTP carried over TLS",
         "TLS is HTTP carried over HTTPS",
-        "HTTPS is the predecessor to SSL",
-        "TLS is only used for email"
+        "HTTPS is the predecessor of SSL",
+        "TLS is used only for email traffic"
       ],
       "answer": 0
     },
@@ -280,8 +280,8 @@
       "question": "What does a digital certificate mainly bind?",
       "options": [
         "A service identity to a public key",
-        "A password to a salt",
-        "A user ID to a Unix group",
+        "A password value to a stored salt",
+        "A Unix user ID to a group name",
         "A random seed to a process ID"
       ],
       "answer": 0
@@ -291,10 +291,10 @@
       "subtype": "multiple_choice",
       "question": "Why does a certificate chain matter?",
       "options": [
-        "It lets a client trace trust from a service certificate back to a trusted CA",
-        "It encrypts all application data directly",
-        "It removes the need for a session key",
-        "It prevents all server bugs"
+        "It traces trust from a service certificate to a trusted CA",
+        "It directly encrypts all later application data",
+        "It removes any need to create a session key",
+        "It prevents all implementation bugs on servers"
       ],
       "answer": 0
     },
@@ -303,10 +303,10 @@
       "subtype": "multiple_choice",
       "question": "Which property is provided by AEAD in TLS bulk encryption?",
       "options": [
-        "Confidentiality plus integrity and authenticity",
-        "Only compression",
-        "Only certificate validation",
-        "Only key generation"
+        "Confidentiality with integrity and authenticity",
+        "Compression with smaller application messages",
+        "Certificate validation without encryption keys",
+        "Key generation without later verification"
       ],
       "answer": 0
     },
@@ -315,10 +315,10 @@
       "subtype": "multiple_choice",
       "question": "A server still supports old export-grade cipher suites. What risk does this create?",
       "options": [
-        "Downgrade attacks may force use of weaker cryptography",
-        "The server can no longer use certificates",
+        "Downgrade attacks may force weaker cryptography",
+        "The server can no longer present certificates",
         "The server cannot generate random numbers",
-        "The browser cannot display HTTP pages"
+        "The browser cannot display ordinary HTTP pages"
       ],
       "answer": 0
     },
@@ -327,10 +327,10 @@
       "subtype": "multiple_choice",
       "question": "Heartbleed is best understood as which kind of failure?",
       "options": [
-        "An implementation bug that leaked memory from affected OpenSSL servers",
-        "A mathematical break of RSA",
-        "A CA policy error",
-        "An Android permission bug"
+        "An implementation bug that leaked OpenSSL server memory",
+        "A mathematical attack against the RSA problem itself",
+        "A certificate-authority policy mistake in issuance",
+        "An Android runtime-permission design weakness"
       ],
       "answer": 0
     },
@@ -339,10 +339,10 @@
       "subtype": "multiple_choice",
       "question": "In simplified pre-TLS 1.3 RSA-style key establishment, why is the session key encrypted with the server's public key?",
       "options": [
-        "So only the holder of the server private key can recover it",
-        "So every CA can read it",
-        "So the client does not need randomness",
-        "So the server certificate can be skipped"
+        "So only the server private-key holder can recover it",
+        "So every certificate authority can decrypt the key",
+        "So the client does not need any randomness at all",
+        "So the server certificate can be skipped entirely"
       ],
       "answer": 0
     },
@@ -351,10 +351,10 @@
       "subtype": "multiple_choice",
       "question": "Which statement about a cryptographic PRNG is correct?",
       "options": [
-        "It is deterministic given its seed",
-        "It cannot repeat under any circumstances",
-        "It is secure even with a predictable seed",
-        "It is the same as a certificate chain"
+        "It is deterministic once its seed is fixed",
+        "It can never repeat in any possible case",
+        "It stays secure with a predictable seed",
+        "It works like a certificate chain system"
       ],
       "answer": 0
     },
@@ -363,10 +363,10 @@
       "subtype": "multiple_choice",
       "question": "What is the main danger of generating cryptographic keys immediately after boot on embedded devices?",
       "options": [
-        "The entropy pool may not yet contain enough unpredictability",
-        "The CPU cannot multiply large numbers after boot",
-        "TLS does not support embedded devices",
-        "The keys will be too long"
+        "The entropy pool may lack enough unpredictability",
+        "The CPU may be unable to multiply large numbers",
+        "TLS may not support embedded devices at all",
+        "The generated keys will always be too long"
       ],
       "answer": 0
     },
@@ -376,9 +376,9 @@
       "question": "The Netscape PRNG failure mainly illustrates which principle?",
       "options": [
         "Predictable seeds undermine cryptographic randomness",
-        "Certificates are unnecessary",
-        "Unix permissions always fail",
-        "Benford's Law breaks RSA"
+        "Certificates are unnecessary for secure connections",
+        "Unix permissions always fail in real deployments",
+        "Benford's Law can directly break RSA encryption"
       ],
       "answer": 0
     },
@@ -387,10 +387,10 @@
       "subtype": "multiple_choice",
       "question": "If two RSA public moduli share a prime factor, what operation can reveal the shared prime?",
       "options": [
-        "Greatest common divisor",
-        "Digital signature verification",
-        "AEAD encryption",
-        "Android Binder call"
+        "Computing their greatest common divisor",
+        "Verifying a standard digital signature",
+        "Encrypting both values with an AEAD mode",
+        "Sending an Android Binder RPC request"
       ],
       "answer": 0
     },
@@ -400,9 +400,9 @@
       "question": "In RSA, why must e be coprime to φ(n)?",
       "options": [
         "So a modular inverse d exists",
-        "So the modulus n is even",
-        "So p equals q",
-        "So the key can be stored in /dev/urandom"
+        "So the modulus n becomes even",
+        "So the primes p and q are equal",
+        "So the key fits in /dev/urandom"
       ],
       "answer": 0
     },
@@ -412,9 +412,9 @@
       "question": "Weak repeated RSA keys in the Internet-wide study were mainly associated with which problem?",
       "options": [
         "Insufficient entropy during key generation",
-        "Too many certificate authorities",
-        "Overuse of Android Binder",
-        "Excessive Unix file permissions"
+        "Excessive numbers of certificate authorities",
+        "Overuse of Android Binder IPC mechanisms",
+        "Excessively broad Unix file permissions"
       ],
       "answer": 0
     },
@@ -424,9 +424,9 @@
       "question": "Which Unix access control model lets file owners decide who else may access their files?",
       "options": [
         "Discretionary Access Control",
-        "Mandatory Access Control",
-        "AEAD",
-        "Trust on First Use"
+        "Mandatory Access Control model",
+        "Authenticated Encryption model",
+        "Trust On First Use model"
       ],
       "answer": 0
     },
@@ -435,10 +435,10 @@
       "subtype": "multiple_choice",
       "question": "Which Unix permission allows entering or traversing a directory?",
       "options": [
-        "Execute",
-        "Read",
-        "Write",
-        "SUID"
+        "Execute permission on the directory",
+        "Read permission on the directory",
+        "Write permission on the directory",
+        "SUID permission on the directory"
       ],
       "answer": 0
     },
@@ -460,9 +460,9 @@
       "question": "What does the SUID bit do on an executable?",
       "options": [
         "Runs it with the file owner's privileges",
-        "Runs it with no privileges",
-        "Makes it readable by everyone",
-        "Encrypts it before execution"
+        "Runs it with no special owner privileges",
+        "Makes the file readable by every user",
+        "Encrypts the file before execution starts"
       ],
       "answer": 0
     },
@@ -471,9 +471,9 @@
       "subtype": "multiple_choice",
       "question": "A SUID-root helper accepts a filename from a user and writes to it as root without checking intent. Which problem is this?",
       "options": [
-        "Confused deputy",
+        "Confused deputy problem",
         "Certificate chain failure",
-        "Benford anomaly",
+        "Benford law anomaly",
         "Runtime permission prompt"
       ],
       "answer": 0
@@ -483,10 +483,10 @@
       "subtype": "multiple_choice",
       "question": "Why is making a general-purpose Python interpreter SUID root dangerous?",
       "options": [
-        "It lets users run arbitrary Python code with root privileges",
-        "It prevents root from running Python",
-        "It disables Unix groups",
-        "It turns Python into a PRNG"
+        "It lets users run arbitrary Python with root privileges",
+        "It prevents root from running ordinary Python code",
+        "It disables Unix groups for the whole system",
+        "It turns Python into a cryptographic PRNG"
       ],
       "answer": 0
     },
@@ -495,9 +495,9 @@
       "subtype": "multiple_choice",
       "question": "Which statement best describes ambient authority in classic Unix?",
       "options": [
-        "Processes automatically inherit broad authority from the user running them",
+        "Processes inherit broad authority from the running user",
         "Apps have no permissions unless granted at runtime",
-        "Certificates are trusted only on first use",
+        "Certificates are trusted only on their first use",
         "Keys are generated only from true randomness"
       ],
       "answer": 0
@@ -507,10 +507,10 @@
       "subtype": "multiple_choice",
       "question": "What is the key security difference between Android apps and classic Unix user processes?",
       "options": [
-        "Android assigns apps separate identities and limits permissions by default",
-        "Android does not use any Linux mechanisms",
-        "Unix has no file permissions",
-        "Android apps always run as root"
+        "Android gives apps separate identities and limited default permissions",
+        "Android avoids using any Linux mechanisms for app isolation",
+        "Unix systems do not have file permissions for processes",
+        "Android applications always execute with root authority"
       ],
       "answer": 0
     },
@@ -519,10 +519,10 @@
       "subtype": "multiple_choice",
       "question": "Which Android component is a custom Linux-driver-based RPC mechanism?",
       "options": [
-        "Binder",
-        "SBOM",
-        "SUID",
-        "TLS"
+        "Binder IPC mechanism",
+        "Software bill of materials",
+        "SUID permission bit",
+        "TLS record protocol"
       ],
       "answer": 0
     },
@@ -532,9 +532,9 @@
       "question": "What is an Android Intent?",
       "options": [
         "A message expressing an action to be performed",
-        "A Unix permission bit",
-        "A public-key certificate",
-        "A random beacon"
+        "A Unix permission bit used for executables",
+        "A public-key certificate for a website",
+        "A random beacon for cryptographic seeding"
       ],
       "answer": 0
     },
@@ -543,10 +543,10 @@
       "subtype": "multiple_choice",
       "question": "Why are Android apps signed even without a CA?",
       "options": [
-        "To maintain publisher identity across updates and signature-level permissions",
-        "To prove the app is morally trustworthy",
-        "To encrypt all user data",
-        "To make Internet permission dangerous"
+        "To preserve publisher identity for updates and permissions",
+        "To prove the application is morally trustworthy",
+        "To encrypt every item of user data by default",
+        "To make Internet permission especially dangerous"
       ],
       "answer": 0
     },
@@ -555,10 +555,10 @@
       "subtype": "multiple_choice",
       "question": "Two Android apps can share a UID under which condition?",
       "options": [
-        "They are signed with the same certificate and use the shared UID mechanism",
-        "They both request Internet access",
-        "They have similar names",
-        "They are installed on the same day"
+        "They use shared UID and are signed with the same certificate",
+        "They both request Internet access in the manifest",
+        "They have similar names in the application store",
+        "They are installed on exactly the same calendar day"
       ],
       "answer": 0
     },
@@ -567,10 +567,10 @@
       "subtype": "multiple_choice",
       "question": "What security improvement came with Android runtime permissions compared with all-or-nothing install-time consent?",
       "options": [
-        "Users can approve or deny particular permissions when needed",
-        "All permissions are always granted silently",
-        "Apps no longer need signatures",
-        "Every app runs as root"
+        "Users can approve or deny specific permissions when needed",
+        "All permissions are always granted silently at install time",
+        "Apps no longer need signatures for update continuity",
+        "Every installed application now runs with root privileges"
       ],
       "answer": 0
     },
@@ -579,10 +579,10 @@
       "subtype": "multiple_choice",
       "question": "What is Android app repackaging malware?",
       "options": [
-        "Injecting malicious code into a legitimate app and redistributing it",
-        "Changing a Unix file owner",
-        "Downgrading TLS cipher suites",
-        "Factoring RSA moduli"
+        "Adding malicious code to a legitimate app and redistributing it",
+        "Changing the owner of a Unix file to another user account",
+        "Forcing TLS negotiation onto weaker cipher suites",
+        "Factoring RSA moduli by using a shared prime factor"
       ],
       "answer": 0
     },
@@ -591,10 +591,10 @@
       "subtype": "multiple_choice",
       "question": "A banking Trojan abuses Accessibility Services to draw over a real banking app and capture input. What attack is this?",
       "options": [
-        "Overlay attack",
-        "Pairwise GCD attack",
-        "Heartbleed",
-        "Benford attack"
+        "Mobile application overlay attack",
+        "Pairwise greatest common divisor attack",
+        "OpenSSL Heartbleed memory leak",
+        "Benford-law statistical anomaly"
       ],
       "answer": 0
     },
