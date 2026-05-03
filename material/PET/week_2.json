@@ -1,0 +1,662 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Sender anonymity",
+      "back": "The receiver can receive a message but cannot determine which principal sent it."
+    },
+    {
+      "type": "flashcard",
+      "front": "Receiver anonymity",
+      "back": "The sender can send a message to a receiver without learning the receiver's identity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bi-directional anonymity",
+      "back": "Two parties can communicate while neither party learns the real identity of the other."
+    },
+    {
+      "type": "flashcard",
+      "front": "Third-party anonymity",
+      "back": "The communicating parties may know each other, but an outside observer cannot discover that relationship."
+    },
+    {
+      "type": "flashcard",
+      "front": "Unobservability",
+      "back": "An observer cannot tell whether a party is sending or receiving messages at all."
+    },
+    {
+      "type": "flashcard",
+      "front": "Unlinkability",
+      "back": "An adversary cannot determine whether two observed actions, messages, senders, or receivers are connected to the same party."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pseudonymity",
+      "back": "Actions are linkable to a pseudonym, but the pseudonym is not directly linkable to the real principal."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mix network",
+      "back": "A network of cryptographic relays that aims to break the link between input senders and output receivers."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitwise unlinkability",
+      "back": "A mix property where input and output messages cannot be matched by their bit patterns because cryptography makes them look unrelated."
+    },
+    {
+      "type": "flashcard",
+      "front": "Traffic analysis resistance",
+      "back": "A mix property where timing, volume, and ordering metadata do not easily reveal which input corresponds to which output."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why bitwise unlinkability is not enough",
+      "back": "Even if message contents cannot be linked, an adversary may still link messages using timing, ordering, or traffic-volume patterns."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tagging attack",
+      "back": "An active attack where an adversary modifies a ciphertext in a recognisable way and looks for the corresponding corrupted output."
+    },
+    {
+      "type": "flashcard",
+      "front": "Defence against tagging attacks",
+      "back": "Use encryption that detects modification, such as CCA2-secure encryption, or destroy useful information when tampering is detected."
+    },
+    {
+      "type": "flashcard",
+      "front": "FIFO mix vulnerability",
+      "back": "A FIFO mix preserves input order, so a passive observer can match the first input to the first output, and so on."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threshold mix",
+      "back": "A mix that waits until N messages have arrived, then outputs the batch in random order."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pool mix",
+      "back": "A mix that keeps some messages in a pool, adds new arrivals, outputs a random subset, and retains the rest for later rounds."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mix cascade",
+      "back": "A topology where all messages pass through the same fixed sequence of mixes, improving shared anonymity but reducing load balancing."
+    },
+    {
+      "type": "flashcard",
+      "front": "Free-route mix network",
+      "back": "A topology where the sender chooses a route through mixes, with route length acting as a security parameter."
+    },
+    {
+      "type": "flashcard",
+      "front": "Nested encryption",
+      "back": "Layered encryption lets each mix decrypt only one layer and learn only the next hop, not the whole route."
+    },
+    {
+      "type": "flashcard",
+      "front": "(n-1) attack",
+      "back": "An active attack where the adversary blocks honest messages and fills the batch with its own messages, isolating the target's message."
+    },
+    {
+      "type": "flashcard",
+      "front": "Heartbeat traffic",
+      "back": "Looped test traffic used by mixes to detect whether an adversary is blocking or suppressing messages."
+    },
+    {
+      "type": "flashcard",
+      "front": "Message expiry",
+      "back": "A defence where messages are discarded after a deadline, limiting an adversary's ability to delay and flush batches strategically."
+    },
+    {
+      "type": "flashcard",
+      "front": "Sybil attack",
+      "back": "An attack where one adversary creates many identities to gain disproportionate influence or fill an anonymity set."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anonymous reply block",
+      "back": "A cryptographic reply address that lets someone reply to an anonymous sender without learning the sender's real address."
+    },
+    {
+      "type": "flashcard",
+      "front": "Onion routing",
+      "back": "A low-latency anonymity technique that sends a bidirectional stream through relays using layered encryption."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tor circuit",
+      "back": "A regular Tor connection normally uses an entry node, middle node, and exit node."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tor onion service circuit",
+      "back": "An onion service uses paths from both client and service to a rendezvous point, protecting both sides' network locations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tor directory authorities",
+      "back": "Authorities collect relay descriptors and help produce a signed consensus that clients use to choose relays."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tor bridges",
+      "back": "Unlisted relays used to make blocking Tor harder, mainly for censorship resistance."
+    },
+    {
+      "type": "flashcard",
+      "front": "Correlation attack",
+      "back": "A passive attack that links streams by comparing timing or packet-count patterns observed at different points."
+    },
+    {
+      "type": "flashcard",
+      "front": "Template matching attack",
+      "back": "A traffic-analysis attack that predicts likely output timing from an input stream and delay distribution, then scores candidate outputs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Global passive adversary",
+      "back": "An adversary that can observe traffic everywhere; low-latency systems such as Tor are not designed to resist this threat model."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anonymity set",
+      "back": "The set of possible senders or receivers among whom the target is hidden."
+    },
+    {
+      "type": "flashcard",
+      "front": "Entropy metric for anonymity",
+      "back": "EA = log K, where K is the size of the anonymity set; larger sets give greater uncertainty."
+    },
+    {
+      "type": "flashcard",
+      "front": "Intersection attack over many rounds",
+      "back": "Repeated observations can reveal likely communication partners by intersecting the receiver sets present when the target is active."
+    },
+    {
+      "type": "flashcard",
+      "front": "Perfect forward secrecy in Tor",
+      "back": "Ephemeral key exchanges mean later compromise of long-term relay keys does not reveal past circuit traffic."
+    },
+    {
+      "type": "flashcard",
+      "front": "One-sided authentication in Tor",
+      "back": "The relay is authenticated to the client, but the client does not authenticate its real identity to the relay."
+    },
+    {
+      "type": "flashcard",
+      "front": "High-latency vs low-latency anonymity",
+      "back": "High-latency systems add batching and delay for stronger traffic-analysis resistance; low-latency systems improve usability but expose timing patterns."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A whistleblower sends a report to a journalist, but the journalist cannot tell which employee sent it. Which property is being targeted?",
+      "options": [
+        "Sender anonymity",
+        "Receiver anonymity",
+        "Pseudonymity",
+        "Unobservability"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A user posts repeatedly under the same handle. Readers can tell the posts came from the same handle, but not from the user's real identity. Which concept best fits?",
+      "options": [
+        "Unobservability",
+        "Pseudonymity",
+        "Third-party anonymity",
+        "Receiver anonymity"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A system hides message contents with layered encryption but forwards each message immediately after receipt. What remains most exposed?",
+      "options": [
+        "Bit-pattern matching attacks only",
+        "Timing and ordering traffic analysis",
+        "Receiver public-key compromise only",
+        "All attacks requiring passive observation"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which design choice most directly improves traffic analysis resistance in a mix?",
+      "options": [
+        "Batching messages before output",
+        "Using a public directory authority",
+        "Authenticating the sender to every relay",
+        "Publishing all relay descriptors"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "An attacker changes a ciphertext so that the plaintext output will carry a recognisable corruption. Which failure does this exploit?",
+      "options": [
+        "Poor load balancing",
+        "Broken bitwise unlinkability",
+        "Insufficient route length",
+        "Small anonymity set entropy"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does a threshold mix output messages in random order rather than arrival order?",
+      "options": [
+        "To prevent route disclosure by the recipient",
+        "To stop passive observers linking inputs and outputs by order",
+        "To ensure every sender uses the same public key",
+        "To make ciphertexts shorter before forwarding"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main anonymity advantage of a pool mix over a simple threshold mix?",
+      "options": [
+        "It permanently removes the need for encryption",
+        "It can mix messages across rounds, increasing uncertainty",
+        "It makes all users strongly identifiable",
+        "It guarantees zero latency for honest users"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A network requires every message to pass through the same sequence of mixes. What is the likely tradeoff?",
+      "options": [
+        "Better shared anonymity but poorer load balancing",
+        "Better load balancing but no common anonymity set",
+        "No need for layered encryption but higher latency",
+        "Resistance to global passive adversaries without delay"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In free routing, why is the path length a security parameter?",
+      "options": [
+        "Longer paths can reduce the chance that all relevant relays are compromised",
+        "Longer paths make the destination server authenticate the user",
+        "Longer paths remove the need for dummy traffic",
+        "Longer paths force all mixes to use FIFO scheduling"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best explains layered encryption in a mix route?",
+      "options": [
+        "Every mix learns the whole route but not the message body",
+        "Each mix learns only enough to forward to the next hop",
+        "Only the final recipient performs any decryption",
+        "Each mix signs the message to prove who sent it"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "An adversary blocks most honest inputs to a batch and fills the rest with its own messages. What attack is this?",
+      "options": [
+        "Template matching",
+        "(n-1) attack",
+        "Entropy attack",
+        "Directory consensus attack"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is strong identification an awkward defence against Sybil-style attacks in anonymous systems?",
+      "options": [
+        "It usually conflicts with the goal of hiding real identities",
+        "It prevents relays from using public keys",
+        "It makes layered encryption mathematically impossible",
+        "It turns every mix into a low-latency onion router"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does an anonymous reply block primarily allow?",
+      "options": [
+        "The recipient can reply without learning the sender's real address",
+        "The sender can prove their legal identity to the recipient",
+        "The mix can permanently store all reply state",
+        "The exit node can authenticate the destination server"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is Tor better suited than high-latency mix networks for web browsing?",
+      "options": [
+        "It avoids cryptography to minimise computation",
+        "It keeps latency low enough for interactive use",
+        "It resists a global passive adversary by default",
+        "It batches all traffic before every page load"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which relay in a normal Tor circuit can see the destination server?",
+      "options": [
+        "Entry node",
+        "Middle node",
+        "Exit node",
+        "Directory authority"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main privacy reason onion services use paths from both the client and service to a rendezvous point?",
+      "options": [
+        "To hide both the client's and the service's network locations",
+        "To let the exit node decrypt the onion address",
+        "To publish the service in the main directory consensus",
+        "To guarantee that all traffic is unobservable"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the role of Tor bridges?",
+      "options": [
+        "They are unlisted relays used to resist censorship and blocking",
+        "They are exit nodes that store plaintext traffic for auditing",
+        "They are directory authorities that sign the network consensus",
+        "They are relays used only inside onion service rendezvous points"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A passive adversary observes packet counts entering and leaving a relay and computes whether the patterns match. Which attack is this?",
+      "options": [
+        "Correlation attack",
+        "Tagging attack",
+        "Sybil attack",
+        "Message expiry attack"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why are low-latency anonymity systems vulnerable to correlation attacks?",
+      "options": [
+        "They preserve enough timing structure for flows to be matched",
+        "They reveal all routing keys to the exit node",
+        "They require users to publish real identities",
+        "They always use FIFO mixes with no encryption"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the entropy expression EA = log K capture?",
+      "options": [
+        "The uncertainty provided by an anonymity set of size K",
+        "The number of relays needed for onion routing",
+        "The probability that encryption will fail",
+        "The average delay added by a pool mix"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why can repeated observations weaken anonymity even if each individual round looks anonymous?",
+      "options": [
+        "Repeated rounds can reveal stable communication patterns by intersection",
+        "Every round leaks one bit of the encryption key",
+        "Mixes must publish all previous routes after enough traffic",
+        "Directory authorities eventually reveal bridge addresses"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What property does ephemeral Diffie-Hellman provide in Tor circuits?",
+      "options": [
+        "Perfect forward secrecy",
+        "Non-repudiation",
+        "Public verifiability",
+        "Receiver pseudonymity"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Tor's authenticated key exchange, why is only the relay authenticated?",
+      "options": [
+        "The client must verify the relay while avoiding disclosure of the client's identity",
+        "The relay must learn the client's legal identity before forwarding",
+        "The exit node must sign messages on behalf of the sender",
+        "The directory authority must decrypt the circuit traffic"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Unobservability is stronger than merely hiding who sent a visible message, because it also hides whether communication occurred.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Pseudonymity means actions cannot be linked to each other.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A mix can provide bitwise unlinkability while still being vulnerable to timing analysis.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A FIFO mix is secure against a passive observer as long as the message contents are encrypted.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A tagging attack is active because the adversary modifies traffic rather than only observing it.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A pool mix may leave some messages inside the mix after a round has completed.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Free routing generally gives better load distribution than forcing all messages through one fixed cascade.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In nested encryption, each mix should learn the full route so that it can check whether the path is safe.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The (n-1) attack shows that active manipulation of the batch can defeat anonymity even when cryptography is sound.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Heartbeat traffic is intended to help detect message blocking.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Tor is designed to withstand an adversary that can observe all traffic entering and leaving every relay.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Tor exit node may see plaintext application data if the destination connection itself is not encrypted.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Tor bridges are deliberately omitted from the main public relay list to make blocking harder.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Template matching uses assumptions about delay distributions to improve traffic correlation.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A larger anonymity set always makes intersection attacks impossible across repeated rounds.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "High-latency systems usually trade usability for stronger resistance to traffic analysis.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Distinguish sender anonymity, receiver anonymity, and third-party anonymity using one communication example.",
+      "answer": "Sender anonymity hides who sent a message from the receiver or observer. Receiver anonymity hides who the sender is contacting. Third-party anonymity allows Alice and Bob to know each other while preventing an outside observer from discovering that Alice and Bob are communicating."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why a mix needs both bitwise unlinkability and traffic analysis resistance.",
+      "answer": "Bitwise unlinkability prevents matching inputs and outputs by message contents or ciphertext structure. Traffic analysis resistance prevents matching them by metadata such as timing, order, and volume. A mix with only one of these properties can still leak the sender-receiver link through the other channel."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A proposed mix uses strong layered encryption but forwards every packet immediately. What attacks are prevented and what attacks remain?",
+      "answer": "Layered encryption helps prevent content-based tracing and bitwise linking across hops. However, immediate forwarding leaves timing and ordering patterns intact, so passive timing correlation and simple traffic analysis can still link inputs to outputs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare threshold mixes and pool mixes in terms of anonymity and latency.",
+      "answer": "A threshold mix waits for a fixed number of messages and outputs them in random order, giving anonymity within one batch. A pool mix retains some messages across rounds, which can increase uncertainty by mixing across time, but may add more delay and operational complexity."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the tagging attack and why modification-detecting encryption mitigates it.",
+      "answer": "In a tagging attack, an adversary alters a ciphertext in a recognisable way and watches for a corresponding corrupted output. If encryption allows predictable modification, the adversary can link input to output. Modification-detecting encryption prevents the mix from forwarding tampered ciphertexts usefully."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the (n-1) attack as a failure of the anonymity set.",
+      "answer": "The adversary blocks honest messages and injects enough of its own messages to fill almost the whole batch. The target's message becomes the only non-adversarial message, so the effective anonymity set collapses and the output can be identified."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give an answer plan for evaluating whether high-latency mix networks should be used as the default Internet transport.",
+      "answer": "Define the privacy benefit: stronger resistance to timing analysis through batching and delay. Explain the usability cost: poor fit for interactive traffic such as web browsing. Discuss assumptions about application type, acceptable latency, user adoption, and adversary model. Conclude that high-latency mixes suit delay-tolerant communication better than default interactive transport."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does Tor prioritise low latency, and what security tradeoff follows from that choice?",
+      "answer": "Tor supports interactive applications such as web browsing, so it cannot add large batching delays. The tradeoff is that packet timing and volume remain visible enough for correlation attacks by adversaries who can observe suitable points in the network."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why Tor's threat model excludes a global passive adversary.",
+      "answer": "A global passive adversary can observe both ends of many or all circuits and correlate timing patterns. Tor's low-latency design does not add enough delay or cover traffic to hide those patterns, so it assumes the adversary controls or observes only part of the network."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What information can the entry, middle, and exit nodes learn in a standard Tor circuit?",
+      "answer": "The entry node knows the client and the next relay, but not the final destination. The middle node sees only adjacent relays. The exit node knows the destination and may see plaintext application data if end-to-end encryption is not used, but does not know the client's network address directly."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how onion services differ from ordinary Tor connections in their anonymity goal.",
+      "answer": "Ordinary Tor mainly hides the client from the destination and local observers. Onion services also hide the service's network location by having both client and service build paths to a rendezvous point."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How can repeated observations reveal Alice's likely contacts even if each individual mix round has a large anonymity set?",
+      "answer": "If Alice repeatedly communicates with a small set of recipients, then rounds where Alice is active will repeatedly include those recipients. Intersecting or statistically comparing the receiver sets across many rounds can reveal her likely communication partners."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain what assumptions are needed for the anonymity set size K to be a meaningful privacy metric.",
+      "answer": "The metric assumes the adversary cannot distinguish among the K candidates, or treats them as equally likely. If background knowledge, traffic patterns, or repeated observations make some candidates more likely than others, the raw set size overstates anonymity."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise comparison of mix cascades and free-route mix networks.",
+      "answer": "A cascade sends all messages through the same fixed route, producing a shared anonymity set but concentrating load and trust assumptions. Free routing lets senders choose paths, improving flexibility and load balancing, but anonymity depends on route choice, path length, and compromised relays."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is perfect forward secrecy useful in an anonymous communication system such as Tor?",
+      "answer": "It limits damage from later key compromise. If long-term relay keys are stolen later, past circuit keys cannot be reconstructed, so recorded old traffic remains protected."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why anonymous communication depends on having a crowd.",
+      "answer": "Anonymity hides a target among other plausible participants. If few honest users are active, the anonymity set is small and the target becomes easy to distinguish even if the cryptographic mechanisms work correctly."
+    }
+  ]
+}

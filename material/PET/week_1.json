@@ -1,0 +1,610 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Privacy as confidentiality",
+      "back": "Privacy can mean keeping personal secrets secret, especially by preventing unauthorised access to sensitive information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy as control",
+      "back": "Privacy can mean giving individuals meaningful control over how their personal information is collected, used, shared, and retained."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy as self-actualisation",
+      "back": "Privacy can support a person's ability to shape their identity, relationships, choices, and information environment."
+    },
+    {
+      "type": "flashcard",
+      "front": "Solove's taxonomy",
+      "back": "A framework for classifying privacy harms into information collection, information processing, information dissemination, and invasion."
+    },
+    {
+      "type": "flashcard",
+      "front": "Information collection",
+      "back": "Privacy harms caused by gathering data about people, including surveillance and interrogation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Information processing",
+      "back": "Privacy harms caused by using or analysing collected data, including aggregation, identification, insecurity, secondary use, and exclusion."
+    },
+    {
+      "type": "flashcard",
+      "front": "Information dissemination",
+      "back": "Privacy harms caused by spreading or exposing information, including breach of confidentiality, disclosure, exposure, increased accessibility, blackmail, appropriation, and distortion."
+    },
+    {
+      "type": "flashcard",
+      "front": "Invasion",
+      "back": "Privacy harms caused by directly interfering with a person's activities or decisions, including intrusion and decisional interference."
+    },
+    {
+      "type": "flashcard",
+      "front": "Aggregation",
+      "back": "Combining separate pieces of information so that the combined profile reveals something more sensitive or harmful."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secondary use",
+      "back": "Using personal data for a purpose different from the one for which it was originally collected."
+    },
+    {
+      "type": "flashcard",
+      "front": "Exclusion",
+      "back": "A harm where people are denied knowledge of, or participation in, decisions made using their personal information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Soft PETs",
+      "back": "Privacy-enhancing technologies that rely on trusted parties, policies, access controls, and secure channels to protect data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hard PETs",
+      "back": "Privacy-enhancing technologies that minimise trust by using technical mechanisms so that no single party needs to see the user's data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Soft PET threat model",
+      "back": "The service provider is trusted with plaintext data, while threats include outsiders, compromised systems, employees, and policy violations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hard PET threat model",
+      "back": "The service provider or infrastructure may be malicious, compromised, coerced, or curious, so the design avoids revealing unnecessary data."
+    },
+    {
+      "type": "flashcard",
+      "front": "K-out-of-N trust model",
+      "back": "A model where data remains protected unless at least K of N parties collude or are compromised."
+    },
+    {
+      "type": "flashcard",
+      "front": "TLS as a soft PET",
+      "back": "TLS protects data in transit from network attackers, but the server still receives plaintext and must be trusted."
+    },
+    {
+      "type": "flashcard",
+      "front": "End-to-end encryption as a hard PET",
+      "back": "Only endpoints can read message contents, so an intermediary server can transmit messages without learning their plaintext."
+    },
+    {
+      "type": "flashcard",
+      "front": "Symmetric cryptography",
+      "back": "A shared secret key is used for efficient encryption, decryption, and integrity protection."
+    },
+    {
+      "type": "flashcard",
+      "front": "Public-key cryptography",
+      "back": "Each party has a public key and private key, enabling encryption to a recipient, digital signatures, and key exchange."
+    },
+    {
+      "type": "flashcard",
+      "front": "AEAD",
+      "back": "Authenticated Encryption with Associated Data provides confidentiality for plaintext and integrity for both ciphertext and associated data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Associated data",
+      "back": "Data that is not encrypted but is integrity-protected by an AEAD scheme, such as headers or context values."
+    },
+    {
+      "type": "flashcard",
+      "front": "AES-GCM",
+      "back": "An AEAD mode using counter-mode encryption and an authentication tag; it requires a unique IV for each encryption under a key."
+    },
+    {
+      "type": "flashcard",
+      "front": "IV reuse in AES-GCM",
+      "back": "Reusing an IV with the same key can reveal relationships between plaintexts and can undermine authentication."
+    },
+    {
+      "type": "flashcard",
+      "front": "Discrete logarithm problem",
+      "back": "Given g and g^x in a suitable group, it should be computationally infeasible to recover x."
+    },
+    {
+      "type": "flashcard",
+      "front": "Diffie-Hellman key exchange",
+      "back": "A protocol that lets two parties derive a shared secret over a public channel using private exponents and public group elements."
+    },
+    {
+      "type": "flashcard",
+      "front": "Elliptic Curve Cryptography",
+      "back": "Public-key cryptography based on elliptic curve groups, giving comparable security to traditional groups with smaller keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "Elliptic curve point at infinity",
+      "back": "The identity element of the elliptic curve group; adding it to any point leaves that point unchanged."
+    },
+    {
+      "type": "flashcard",
+      "front": "EC scalar multiplication",
+      "back": "The operation k·G, meaning repeated addition of an elliptic curve point G according to scalar k."
+    },
+    {
+      "type": "flashcard",
+      "front": "Double-and-add side channel",
+      "back": "Naive double-and-add may leak information because its operation pattern or timing can depend on secret scalar bits."
+    },
+    {
+      "type": "flashcard",
+      "front": "Montgomery ladder",
+      "back": "A scalar-multiplication method designed to perform a regular operation pattern, reducing timing leakage from secret scalars."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multiplicative vs additive notation",
+      "back": "Integer groups often write g^k, while elliptic curve groups write k·G; exponentiation maps to scalar multiplication."
+    },
+    {
+      "type": "flashcard",
+      "front": "Digital signature",
+      "back": "A signature proves that a message was signed using the corresponding private key and can be verified with the public key."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hybrid encryption",
+      "back": "Public-key cryptography establishes or transports a symmetric key, and symmetric AEAD encrypts the actual data efficiently."
+    },
+    {
+      "type": "flashcard",
+      "front": "Perfect forward secrecy",
+      "back": "Past session traffic remains protected even if long-term keys are later compromised, usually through fresh ephemeral keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "Man-in-the-middle attack",
+      "back": "An attacker intercepts key exchange messages and impersonates each party to the other unless authentication prevents substitution."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A messaging provider can no longer read stored message contents because only users hold decryption keys. Which privacy approach best describes this?",
+      "options": [
+        "Soft PET based on access control",
+        "Hard PET based on data minimisation",
+        "Information dissemination by disclosure",
+        "Privacy by secondary use"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A website uses TLS between browser and server, but the server stores all submitted forms in plaintext. What is the main privacy limitation?",
+      "options": [
+        "Network attackers can still read all traffic in transit",
+        "The server remains trusted with the plaintext data",
+        "The browser cannot authenticate the server",
+        "TLS prevents integrity protection for headers"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A company combines shopping history, location data, and social media activity to infer sensitive interests. Which Solove harm best fits?",
+      "options": [
+        "Aggregation",
+        "Interrogation",
+        "Exposure",
+        "Decisional interference"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A service uses personal data collected for account security to target advertising without asking users. Which harm best fits?",
+      "options": [
+        "Secondary use",
+        "Surveillance",
+        "Blackmail",
+        "Intrusion"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A user cannot inspect or challenge an automated decision made from their personal data. Which Solove harm is most relevant?",
+      "options": [
+        "Exclusion",
+        "Appropriation",
+        "Exposure",
+        "Interrogation"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes confidentiality from control as privacy goals?",
+      "options": [
+        "Confidentiality concerns secrecy, while control concerns authorised use and decision-making power over data",
+        "Confidentiality applies only to metadata, while control applies only to plaintext",
+        "Confidentiality is legal, while control is purely mathematical",
+        "Confidentiality prevents collection, while control requires public disclosure"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does AEAD protect that ordinary encryption alone may not protect?",
+      "options": [
+        "The integrity of ciphertext and associated data",
+        "The secrecy of public keys",
+        "The identity of the network route",
+        "The length of every message"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why must AES-GCM IVs be unique under the same key?",
+      "options": [
+        "Reuse can expose relationships between plaintexts and undermine authentication",
+        "Reuse makes the public key recoverable from the ciphertext",
+        "Reuse prevents the receiver from checking message length",
+        "Reuse turns the scheme into asymmetric encryption"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Two AES-GCM messages are encrypted with the same key and IV. What is the safest conclusion?",
+      "options": [
+        "Only the shorter message is at risk",
+        "The design has a serious confidentiality and integrity failure",
+        "The IV becomes secret after first use",
+        "The authentication tag automatically repairs the problem"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What problem does Diffie-Hellman solve?",
+      "options": [
+        "It lets two parties derive a shared secret over an observed channel",
+        "It lets anyone verify a message was signed by a private key",
+        "It encrypts bulk data faster than symmetric cryptography",
+        "It prevents all traffic analysis by hiding packet timing"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What attack remains possible against unauthenticated Diffie-Hellman?",
+      "options": [
+        "Man-in-the-middle key substitution",
+        "Direct recovery of every private exponent from public values",
+        "Immediate AES-GCM IV reuse",
+        "Exposure through Solove's taxonomy"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why are digital signatures not always desirable in private messaging?",
+      "options": [
+        "They can reduce deniability by creating transferable proof of authorship",
+        "They prevent the recipient from checking integrity",
+        "They require the sender and receiver to share one secret key",
+        "They make forward secrecy impossible in all protocols"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is hybrid encryption normally preferred for messages?",
+      "options": [
+        "It combines public-key key management with efficient symmetric encryption",
+        "It avoids the need for authentication or integrity checks",
+        "It encrypts every byte with a digital signature",
+        "It allows IV reuse without compromising security"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A protocol uses fresh ephemeral key exchange for each session and deletes ephemeral secrets. What property is it aiming for?",
+      "options": [
+        "Perfect forward secrecy",
+        "Public verifiability",
+        "Secondary use",
+        "Breach of confidentiality"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In elliptic curve notation, what corresponds to g^k in multiplicative notation?",
+      "options": [
+        "k·G",
+        "G/k",
+        "hash(k, G)",
+        "G mod k"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is a naive double-and-add implementation risky for secret scalars?",
+      "options": [
+        "Its timing or operation pattern may reveal bits of the scalar",
+        "It cannot compute public keys correctly",
+        "It always outputs the point at infinity",
+        "It removes the need for random IVs"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the purpose of the Montgomery ladder in elliptic curve implementations?",
+      "options": [
+        "To reduce scalar-dependent timing leakage",
+        "To make public keys confidential",
+        "To replace authentication tags",
+        "To classify privacy harms"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which example best illustrates information dissemination rather than information collection?",
+      "options": [
+        "Publishing a private medical table on the Internet",
+        "Monitoring employee keyboard activity",
+        "Asking users intrusive survey questions",
+        "Installing a camera in a public room"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A health app sends identified, unencrypted health images to a central authority for statistics. Which risk is most direct?",
+      "options": [
+        "Breach of confidentiality and disclosure of sensitive data",
+        "Improved perfect forward secrecy",
+        "Reduction in associated data integrity",
+        "Elimination of secondary use"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A K-out-of-N design protects data unless enough parties collude. What kind of trust assumption is this?",
+      "options": [
+        "Distributed trust",
+        "Single trusted server",
+        "No cryptographic trust",
+        "Public disclosure"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Privacy can involve confidentiality, control, and the ability to shape one's information environment.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Solove's taxonomy treats data collection itself as a possible privacy harm.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Aggregation can be harmful even if each individual data item seems harmless on its own.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Soft PETs are designed around the assumption that no service provider can ever see user data.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Hard PETs often try to reduce or remove the need to trust a single third party.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "TLS protects data from the server that terminates the TLS connection.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "AEAD can protect integrity for associated data without encrypting that associated data.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "AES-GCM remains safe if an IV is reused, provided the key is long enough.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The IV in AES-GCM must be unique, but it does not need to be secret.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Unauthenticated Diffie-Hellman is vulnerable to a man-in-the-middle attack.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Elliptic curve public-key systems rely on the difficulty of the elliptic curve discrete logarithm problem.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The point at infinity is the identity element of an elliptic curve group.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In elliptic curve groups, scalar multiplication is the analogue of exponentiation in multiplicative groups.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Digital signatures provide deniability because anyone could have produced the signature.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Perfect forward secrecy limits the damage caused by later compromise of long-term keys.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Hybrid encryption usually encrypts bulk data with symmetric cryptography rather than public-key cryptography.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Distinguish soft PETs and hard PETs in terms of trust and threat model.",
+      "answer": "Soft PETs assume a trusted party can hold and process user data, so protection relies on access control, policy, auditing, and secure channels. Hard PETs assume no single party should be fully trusted, so the system is designed to minimise data disclosure even if infrastructure is compromised, coerced, or curious."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is end-to-end encryption an example of hard privacy?",
+      "answer": "End-to-end encryption prevents intermediaries from reading message contents. Privacy is enforced technically rather than only by policy or trust in the server. The server may still handle delivery, but it does not need plaintext access for the main functionality."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give an answer plan for classifying a privacy-invasive system using Solove's taxonomy.",
+      "answer": "Identify the participants and data flows. List harms from collection, processing, dissemination, and invasion. For each harm, choose the closest Solove subtype, such as surveillance, aggregation, insecurity, secondary use, breach of confidentiality, disclosure, intrusion, or decisional interference. Note where a harm crosses categories."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how confidentiality, control, and self-actualisation are different privacy goals.",
+      "answer": "Confidentiality focuses on keeping information secret. Control focuses on whether the individual can decide how their information is used. Self-actualisation focuses on whether the person's information environment supports autonomy, identity formation, and personal aims."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain what AEAD provides and why associated data is useful.",
+      "answer": "AEAD encrypts plaintext and authenticates the ciphertext. It also authenticates associated data that must remain visible, such as headers or protocol context. This lets the receiver detect tampering with both encrypted and unencrypted parts of a message."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why IV reuse in AES-GCM is a serious design failure.",
+      "answer": "AES-GCM uses counter-mode encryption, so reusing the same key and IV reuses the keystream and can reveal relationships between plaintexts. It can also undermine the authentication mechanism, enabling integrity attacks. A fresh unique IV is therefore essential."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how Diffie-Hellman establishes a shared secret without sending the secret itself.",
+      "answer": "Each party chooses a private exponent and sends the corresponding public group element. Each combines their private exponent with the other party's public value, producing the same shared group element. An observer sees the public values but should not be able to recover the private exponents or shared secret because of the discrete logarithm assumption."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why must Diffie-Hellman be authenticated in many real protocols?",
+      "answer": "Unauthenticated Diffie-Hellman does not prove who contributed each public value. A man-in-the-middle can substitute their own public keys and establish separate shared secrets with both parties. Authentication, such as signatures over fresh keys, binds the exchange to the intended identities."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare per-message public-key encryption with an authenticated session-key design for secure messaging.",
+      "answer": "Per-message public-key encryption can be simple but is slower and may lack forward secrecy if messages are encrypted directly to long-term keys. Signing each message gives strong integrity but weakens deniability. An authenticated session-key design is more efficient for conversations and can provide forward secrecy with ephemeral keys, but it requires careful key exchange and state management."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the privacy tradeoff created by digital signatures in messaging.",
+      "answer": "Digital signatures provide strong, publicly verifiable evidence that a private-key holder signed a message. This supports integrity and accountability, but it can harm deniability because the recipient may be able to prove authorship to others."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does perfect forward secrecy matter if an attacker records encrypted traffic today and compromises keys later?",
+      "answer": "Without forward secrecy, later key compromise may allow old recorded sessions to be decrypted. With forward secrecy, each session uses ephemeral secrets that are deleted, so long-term key compromise does not reveal past session keys."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the mapping from multiplicative group notation to elliptic curve notation.",
+      "answer": "In multiplicative notation, a public value may be written as g^k. In elliptic curve notation, the corresponding operation is scalar multiplication, written k·G. Multiplication of group elements maps to point addition, and exponentiation maps to repeated point addition."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can scalar multiplication leak secrets, and how does the Montgomery ladder reduce that risk?",
+      "answer": "If the sequence or timing of operations depends on secret scalar bits, an observer may infer information through a timing side channel. The Montgomery ladder uses a regular operation pattern independent of the bit values, reducing leakage from timing differences."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give an answer plan for discussing how cryptographic properties relate to Solove privacy harms.",
+      "answer": "Map confidentiality to reducing disclosure, breach of confidentiality, exposure, and insecurity. Map integrity to reducing distortion and some forms of misuse. Map forward secrecy to limiting future disclosure after compromise or coercion. Map deniability to reducing transferable evidence of speech or association, while noting tradeoffs with accountability."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A central service wants to compute useful statistics but should not learn raw user data. What design direction does hard PET thinking suggest?",
+      "answer": "Avoid sending raw data to one trusted service where possible. Consider data minimisation mechanisms such as secure multi-party computation, distributed trust with a K-out-of-N assumption, anonymous communication, or end-to-end encryption depending on the required function."
+    }
+  ]
+}
