@@ -1,0 +1,534 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Zero-knowledge proof",
+      "back": "A protocol where a prover convinces a verifier that a statement about a secret is true without revealing the secret itself."
+    },
+    {
+      "type": "flashcard",
+      "front": "Completeness",
+      "back": "If the statement is true and both parties follow the protocol honestly, the verifier accepts."
+    },
+    {
+      "type": "flashcard",
+      "front": "Soundness",
+      "back": "If the statement is false, a cheating prover should not be able to convince the verifier except with negligible probability."
+    },
+    {
+      "type": "flashcard",
+      "front": "Zero-knowledge property",
+      "back": "The verifier learns nothing from the proof beyond the truth of the statement being proved."
+    },
+    {
+      "type": "flashcard",
+      "front": "Sigma protocol structure",
+      "back": "A three-move proof: the prover sends a commitment W, the verifier sends a random challenge c, and the prover sends a response r."
+    },
+    {
+      "type": "flashcard",
+      "front": "Schnorr identification protocol",
+      "back": "A sigma protocol proving knowledge of x where pub = g^x. The prover sends W = g^w, receives challenge c, responds r = w - cx mod q, and the verifier checks g^r * pub^c = W."
+    },
+    {
+      "type": "flashcard",
+      "front": "Schnorr verification equation",
+      "back": "The check works because g^r * pub^c = g^(w-cx) * (g^x)^c = g^w = W."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why W must come before c",
+      "back": "If the prover could choose W after knowing c, it could fabricate a valid-looking transcript without knowing the secret. The order enforces commitment before challenge."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rewinding argument",
+      "back": "If a prover can answer two different challenges for the same W, the two responses give equations that allow extraction of the secret x. This supports soundness."
+    },
+    {
+      "type": "flashcard",
+      "front": "Simulation argument",
+      "back": "A simulator can create accepting transcripts without knowing x by choosing c and r first and setting W = g^r * pub^c. This supports zero-knowledge."
+    },
+    {
+      "type": "flashcard",
+      "front": "Soundness vs zero-knowledge in Schnorr",
+      "back": "Soundness asks why a cheating prover cannot fake knowledge when W must be fixed before c. Zero-knowledge asks why a verifier learns nothing, shown by simulated transcripts."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fiat-Shamir heuristic",
+      "back": "A method for making an interactive proof non-interactive by replacing the verifier's random challenge with c = H(pub, W, m)."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why Fiat-Shamir preserves challenge causality",
+      "back": "Because c depends on W through a hash, the prover must effectively fix W before knowing c. Security relies on the hash behaving like a random oracle."
+    },
+    {
+      "type": "flashcard",
+      "front": "Non-interactive zero-knowledge proof",
+      "back": "A proof sent as a single message, with no verifier challenge during the proof run. Fiat-Shamir is the standard way to make Schnorr-style proofs non-interactive."
+    },
+    {
+      "type": "flashcard",
+      "front": "Schnorr signature",
+      "back": "A Fiat-Shamir version of Schnorr identification bound to a message m. The signer computes c = H(pub, W, m), r = w - cx, and the verifier recomputes W as g^r * pub^c."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why Schnorr signatures do not send W directly",
+      "back": "The verifier reconstructs W as g^r * pub^c and checks whether hashing that reconstructed value gives c."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pedersen commitment",
+      "back": "A commitment to value v using randomness o: C = g^v * h^o, where the discrete log relation between g and h is unknown."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pedersen hiding",
+      "back": "The random blinding value o hides v perfectly. The commitment alone reveals nothing about the committed value."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pedersen binding",
+      "back": "The committer cannot open the same commitment to a different value unless it can solve the discrete logarithm relation between g and h."
+    },
+    {
+      "type": "flashcard",
+      "front": "Commitment vs encryption",
+      "back": "Encryption hides a value for someone with a decryption key. A commitment hides and fixes a value without giving any recipient a decryption capability."
+    },
+    {
+      "type": "flashcard",
+      "front": "ZK proof of knowledge of a Pedersen opening",
+      "back": "The prover shows knowledge of v and o such that C = g^v * h^o without revealing either value."
+    },
+    {
+      "type": "flashcard",
+      "front": "Discrete log representation proof",
+      "back": "A proof that a public group element C can be represented as a product of bases raised to secret exponents: C = product_i g_i^x_i."
+    },
+    {
+      "type": "flashcard",
+      "front": "Proving equality of discrete logarithms",
+      "back": "To prove the same secret x appears in P1 = g^x and P2 = h^x, use the same witness and response in both equations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Encoding equality in representation proofs",
+      "back": "Equality is represented by reusing the same secret variable, witness, and response across the equations that must share a value."
+    },
+    {
+      "type": "flashcard",
+      "front": "ZK proof of a linear relation",
+      "back": "A relation such as z = ax + by + d can be rearranged into a discrete log representation proof over commitments, linking shared variables across equations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why ZK can prove circuit correctness",
+      "back": "ZK proofs can prove linear and multiplicative relations. Since NAND = 1 - AB and NAND is functionally complete, arbitrary boolean circuit correctness can be proved in principle."
+    },
+    {
+      "type": "flashcard",
+      "front": "ZK in threshold decryption",
+      "back": "Each authority proves knowledge of the private key corresponding to its public key, preventing malicious public-key choices that could give one authority decryption power."
+    },
+    {
+      "type": "flashcard",
+      "front": "ZK in homomorphic voting",
+      "back": "A voter can prove that an encrypted vote is valid, such as 0 or 1, without revealing which value was chosen."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A prover convinces a verifier that it knows a password-derived secret without revealing the secret. Which property prevents the verifier from learning the secret?",
+      "options": [
+        "Zero-knowledge",
+        "Completeness",
+        "Binding",
+        "Availability"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes completeness from soundness?",
+      "options": [
+        "Completeness protects honest provers from rejection; soundness protects verifiers from false claims",
+        "Completeness hides the witness; soundness makes transcripts simulatable",
+        "Completeness binds commitments; soundness hides committed values",
+        "Completeness removes interaction; soundness replaces randomness with hashing"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a sigma protocol, why is the verifier's challenge sent after the prover's first message?",
+      "options": [
+        "So the prover cannot choose the first message after seeing the challenge",
+        "So the verifier can learn the witness before accepting",
+        "So the proof becomes non-interactive automatically",
+        "So the prover can choose any challenge it prefers"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Schnorr identification, what does the prover demonstrate knowledge of?",
+      "options": [
+        "The exponent x such that pub = g^x",
+        "The verifier's random challenge c",
+        "The discrete log of h base g",
+        "The committed value v in every Pedersen commitment"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which equation verifies a Schnorr identification response?",
+      "options": [
+        "g^r * pub^c = W",
+        "g^c * pub^r = W",
+        "g^W * pub^x = r",
+        "g^x * W^c = pub"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does the Schnorr verification equation hold for an honest prover?",
+      "options": [
+        "Because r = w - cx cancels the pub^c term, leaving g^w",
+        "Because the verifier already knows x and checks it directly",
+        "Because W is chosen after c to satisfy the equation",
+        "Because the hash function reveals the witness"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the rewinding argument show in Schnorr?",
+      "options": [
+        "A prover that answers two challenges for the same W can be used to extract x",
+        "A verifier can simulate transcripts only by learning x",
+        "A commitment can be opened to multiple values",
+        "A hash challenge is always predictable"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the simulation argument show in Schnorr?",
+      "options": [
+        "Accepting transcripts can be generated without knowing x, so transcripts alone do not reveal x",
+        "Any false statement can be proved if the verifier is honest",
+        "The prover must reveal x to generate a valid W",
+        "The verifier can compute x by replaying the transcript"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A prover chooses c and r first, then sets W = g^r * pub^c. Why does this not break the interactive Schnorr protocol?",
+      "options": [
+        "Because in the real protocol W must be sent before c is known",
+        "Because the verifier ignores W during verification",
+        "Because the prover must publish the private key afterward",
+        "Because Pedersen commitments make W binding"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What change does Fiat-Shamir make to a sigma protocol?",
+      "options": [
+        "It replaces the verifier's random challenge with a hash of the public context and commitment",
+        "It replaces the prover's witness with a Pedersen commitment",
+        "It removes the need for soundness",
+        "It requires the verifier to know the secret exponent"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is the message m included in c = H(pub, W, m) for a Schnorr signature?",
+      "options": [
+        "To bind the proof to that specific message",
+        "To reveal the signer's private key only for that message",
+        "To make W unnecessary in the verification equation",
+        "To turn the commitment into an encryption"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes Pedersen commitments from encryption?",
+      "options": [
+        "A commitment hides and fixes a value without a decryption key holder",
+        "A commitment lets the verifier decrypt the value later",
+        "Encryption is always binding, while commitments are only hiding",
+        "Encryption proves knowledge of a witness without interaction"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What provides hiding in a Pedersen commitment C = g^v * h^o?",
+      "options": [
+        "The random blinding exponent o",
+        "The verifier's challenge c",
+        "The public value v",
+        "The signature message m"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What would be required to open a Pedersen commitment to two different values?",
+      "options": [
+        "Knowledge of the discrete log relationship between g and h",
+        "Knowledge of the verifier's future challenge",
+        "Only a new random oracle query",
+        "Only the public commitment C"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "How do ZK proofs show that two public values hide the same exponent?",
+      "options": [
+        "They reuse the same witness and response across both discrete-log equations",
+        "They reveal the exponent and ask the verifier to compare it",
+        "They encrypt both values under a shared public key",
+        "They use two unrelated proofs with independent randomness"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A prover wants to show z = ax + by + d over committed values. What is the key proof strategy?",
+      "options": [
+        "Rearrange the commitment equation into a discrete log representation with linked secret variables",
+        "Reveal x and y but keep z committed",
+        "Run independent proofs for x, y, and z with no shared variables",
+        "Use threshold decryption to recover the committed values"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why can ZK proofs be used to prove correctness of arbitrary boolean circuits in principle?",
+      "options": [
+        "They can prove relations sufficient to express NAND, and NAND is functionally complete",
+        "They make all boolean circuits linear without multiplication",
+        "They allow the verifier to decrypt every intermediate wire",
+        "They avoid the need to prove multiplication gates"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In threshold decryption setup, why require each authority to prove knowledge of its private key?",
+      "options": [
+        "To prevent malicious public keys that could concentrate decryption power",
+        "To allow every authority to decrypt alone",
+        "To hide the public key from voters",
+        "To prove every encrypted vote is 0 or 1"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In homomorphic voting, what does a ZK proof of vote validity prevent?",
+      "options": [
+        "A voter submitting an encrypted value outside the allowed set",
+        "The tally from being computed homomorphically",
+        "The voter from hiding their selected option",
+        "The decryption authorities from combining shares"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A zero-knowledge proof can convince a verifier of a statement without revealing the witness.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Completeness means a cheating prover cannot convince the verifier of a false statement.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Soundness is the property that protects the verifier against false claims.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Schnorr identification, the prover should learn the challenge before choosing W.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The Schnorr simulation argument shows that valid-looking transcripts can be generated without knowing x.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The rewinding argument supports zero-knowledge because it shows the verifier learns x.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Fiat-Shamir replaces interaction with a hash-derived challenge.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A Schnorr signature binds the proof to a specific message by hashing the message into the challenge.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Pedersen commitments are hiding because the opening randomness blinds the committed value.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Pedersen commitments are binding even if the committer knows the discrete log relationship between g and h.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A proof of equality of discrete logarithms should use independent witnesses for the two equations.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "ZK proofs can prove relations between committed values, not only possession of a single secret.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A voter can use a ZK proof to prove that an encrypted vote is valid without revealing the vote.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for defining a zero-knowledge proof.",
+      "answer": "State that it is a prover-verifier protocol. Identify the statement and the secret witness. Explain that the verifier is convinced the statement is true while learning nothing about the witness beyond the statement's truth."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the three properties of zero-knowledge proofs using one sentence each.",
+      "answer": "Completeness: honest proofs of true statements are accepted. Soundness: false statements cannot be proved by cheating provers except with negligible probability. Zero-knowledge: the verifier learns nothing about the secret witness beyond the statement's truth."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Walk through Schnorr identification and explain why the verifier accepts an honest prover.",
+      "answer": "The prover chooses random w and sends W = g^w. The verifier sends challenge c. The prover replies r = w - cx mod q. The verifier checks g^r * pub^c = W, which holds because g^(w-cx) * (g^x)^c = g^w."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is the order commit, challenge, response essential in Schnorr?",
+      "answer": "The prover must commit to W before knowing c. Otherwise it could choose c and r first and construct a matching W without knowing x. The order prevents this backwards construction from being a real cheating strategy."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the rewinding argument for Schnorr soundness.",
+      "answer": "If a prover can answer two different challenges c and c' for the same W, it produces r = w - cx and r' = w - c'x. Subtracting gives r - r' = (c' - c)x, so x can be extracted. Thus repeated success implies knowledge of x."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the simulation argument for Schnorr zero-knowledge.",
+      "answer": "A simulator picks random r and c, then sets W = g^r * pub^c. The transcript satisfies the verification equation without using x. Since simulated and real transcripts look the same, the transcript does not reveal x."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does Fiat-Shamir turn Schnorr identification into a signature scheme?",
+      "answer": "It replaces the verifier's challenge with c = H(pub, W, m), binding the proof to message m. The signer sends c and r. The verifier reconstructs W as g^r * pub^c and checks that hashing it with pub and m gives c."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the hiding and binding properties of Pedersen commitments.",
+      "answer": "Hiding comes from the random value o in C = g^v * h^o, which blinds v. Binding comes from the assumption that the committer does not know the discrete log relationship between g and h, so it cannot open C to a different value."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is a Pedersen commitment not the same as encryption?",
+      "answer": "Encryption is designed so a key holder can decrypt and recover the value. A Pedersen commitment has no intended decryptor; it hides the value while fixing it so the committer can later open it."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How does a ZK proof show knowledge of a Pedersen commitment opening?",
+      "answer": "The prover proves knowledge of v and o satisfying C = g^v * h^o. It uses random witnesses for both exponents and responds to a challenge so the verifier can check the representation without learning v or o."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How is equality of two hidden exponents proved without revealing the exponent?",
+      "answer": "The prover constructs two linked Schnorr-style equations using the same witness and response for the shared exponent. Verification of both equations with the same response shows the underlying exponent is the same."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give an answer plan for proving a linear relation over committed values.",
+      "answer": "State the commitments. Rearrange the target relation, such as z = ax + by + d, into a discrete log representation. Use linked representation proofs so the same hidden x and y are used across the commitments and the relation proof."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why do ZK proofs help secure threshold decryption setup?",
+      "answer": "They force each authority to prove knowledge of the private key matching its public key. This prevents an authority from choosing a manipulated public key that makes the combined public key effectively controlled by that authority alone."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the role of ZK proofs in homomorphic voting.",
+      "answer": "Homomorphic tallying can add encrypted votes, but it does not by itself ensure each encrypted input is valid. A ZK proof lets each voter prove the ciphertext encrypts an allowed value, such as 0 or 1, without revealing the vote."
+    }
+  ]
+}

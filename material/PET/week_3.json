@@ -1,0 +1,606 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Privacy-friendly computation",
+      "back": "A way for multiple parties to compute a function over their private inputs while revealing no more about those inputs than what follows from the output, and while still obtaining the correct result."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why the Millionaire's Problem matters",
+      "back": "It illustrates the core MPC problem: parties want to learn the result of a joint computation, such as who is richer, without revealing their private inputs, such as their actual wealth."
+    },
+    {
+      "type": "flashcard",
+      "front": "MPC privacy condition",
+      "back": "Protocol observations should not change what a party can infer about another party's input beyond what is already implied by the output and its own input: Pr[xi | observations, y, xj] = Pr[xi | y, xj]."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Third Party as ideal functionality",
+      "back": "A TTP receives all inputs, computes the function, and returns the result. It is useful as a specification of what the protocol should emulate, but is weak as a real implementation because it becomes a trust and attack concentration point."
+    },
+    {
+      "type": "flashcard",
+      "front": "The 4 Cs against relying on a TTP",
+      "back": "Cost, Corruption, Compulsion, and Compromise. These capture why a trusted party may be expensive, biased, legally pressured, or hacked."
+    },
+    {
+      "type": "flashcard",
+      "front": "Honest-but-curious adversary",
+      "back": "An adversary that follows the protocol correctly but tries to learn extra information from the messages and values it observes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Byzantine adversary",
+      "back": "An adversary that may deviate arbitrarily from the protocol, including sending false messages, dropping messages, or corrupting computation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Honest-but-curious vs Byzantine",
+      "back": "Honest-but-curious models privacy against passive observation by correct participants. Byzantine models active misbehaviour, so it also requires integrity protections and usually costs more."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why NAND matters in MPC",
+      "back": "NAND is functionally complete, so if a system can privately compute addition and multiplication sufficient to express NAND, it can in principle compute any finite boolean circuit privately."
+    },
+    {
+      "type": "flashcard",
+      "front": "Two main approaches to privacy-friendly computation",
+      "back": "Homomorphic encryption computes on ciphertexts. Secret sharing splits values into shares and computes by protocols over those shares."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homomorphic encryption",
+      "back": "An encryption scheme where operations on ciphertexts correspond to operations on plaintexts after decryption. The computation produces an encrypted result, not the plaintext result directly."
+    },
+    {
+      "type": "flashcard",
+      "front": "Additively homomorphic encryption",
+      "back": "A scheme where combining encryptions of m0 and m1 gives an encryption of m0 + m1. Multiplication by a public constant is possible, but multiplication of two hidden values is not."
+    },
+    {
+      "type": "flashcard",
+      "front": "Discrete logarithm assumption",
+      "back": "Given g and g^x in a suitable cyclic group, it is computationally hard to recover x, even though computing g^x from g and x is easy."
+    },
+    {
+      "type": "flashcard",
+      "front": "ElGamal key generation",
+      "back": "Choose private key x and publish pk = g^x, where g is a generator of a cyclic group in which discrete logarithms are hard."
+    },
+    {
+      "type": "flashcard",
+      "front": "ElGamal encryption form",
+      "back": "A message m is encrypted using randomness k as E(m; k) = (g^k, g^(xk) * h^m), where x is the private key and g, h are public generators."
+    },
+    {
+      "type": "flashcard",
+      "front": "ElGamal decryption limitation",
+      "back": "Decryption yields h^m, so recovering m requires solving a discrete logarithm. This is feasible only for small plaintext domains, such as limited vote counts using table lookup."
+    },
+    {
+      "type": "flashcard",
+      "front": "ElGamal additive homomorphism",
+      "back": "Multiplying ciphertext components gives E(m0 + m1; k0 + k1). Exponents add in the group, so ciphertext multiplication corresponds to plaintext addition."
+    },
+    {
+      "type": "flashcard",
+      "front": "ElGamal multiplication by public constant",
+      "back": "Raising both ciphertext components to c gives an encryption of c*m. This works only when c is public."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threshold decryption",
+      "back": "The secret key is split among multiple parties, so no single party can decrypt alone. Decryption requires partial contributions from all key holders."
+    },
+    {
+      "type": "flashcard",
+      "front": "Decryption oracle attack lesson",
+      "back": "If a malicious computing party can choose what gets decrypted, it may ask for a private input ciphertext to be decrypted instead of the intended output. This shows that confidentiality depends on integrity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Raw RSA homomorphism",
+      "back": "Raw RSA is multiplicatively homomorphic: multiplying ciphertexts corresponds to multiplying plaintexts. It does not provide additive homomorphism."
+    },
+    {
+      "type": "flashcard",
+      "front": "Paillier encryption",
+      "back": "An additively homomorphic encryption scheme that supports addition of encrypted secrets but not multiplication of two encrypted secrets. It is slow and produces large ciphertexts."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fully homomorphic encryption",
+      "back": "Encryption that can evaluate arbitrary functions on ciphertexts. It is theoretically powerful but very inefficient compared with ordinary computation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Somewhat homomorphic encryption",
+      "back": "Encryption that supports addition and multiplication only up to limited circuit depth. In SPDZ it can be used offline to help generate multiplication triples."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secret sharing",
+      "back": "A secret is split into shares over integers modulo a prime p. All shares together reconstruct the secret, while an individual share alone reveals nothing."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secret sharing notation",
+      "back": "<x> denotes a shared secret x. Reconstructing x means summing its shares modulo p."
+    },
+    {
+      "type": "flashcard",
+      "front": "Adding shared secrets",
+      "back": "Authorities locally add their own shares: <a + b> = <a> + <b> mod p. No interaction is needed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multiplying a shared secret by a public constant",
+      "back": "Each authority locally multiplies its share by the public constant: <ka> = k<a>. No interaction is needed because the multiplier is not secret."
+    },
+    {
+      "type": "flashcard",
+      "front": "Beaver triples",
+      "back": "Precomputed shared values <a>, <b>, <c> with c = ab mod p. They allow multiplication of two shared secrets while revealing only masked values."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why Beaver triples are consumed",
+      "back": "Each multiplication gate needs a fresh random triple. Reusing triples would undermine the masking that protects the private inputs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multiplication of shared secrets using a Beaver triple",
+      "back": "Given <a>, <b>, <c> where c = ab, publish e = x + a and d = y + b, then compute <xy> = <c> - e<b> - d<a> + ed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why publishing e and d is safe in Beaver multiplication",
+      "back": "The values a and b are random masks, so e = x + a and d = y + b do not reveal x or y."
+    },
+    {
+      "type": "flashcard",
+      "front": "SPDZ",
+      "back": "A secure MPC protocol that combines secret sharing with MAC-based integrity checks, using offline precomputation to support security against actively malicious parties."
+    },
+    {
+      "type": "flashcard",
+      "front": "SPDZ MAC mechanism",
+      "back": "Each value share has a MAC share under a global secret MAC key v. Authorities can check consistency without learning v."
+    },
+    {
+      "type": "flashcard",
+      "front": "SPDZ MAC check",
+      "back": "SPDZ verifies batched random linear combinations of terms of the form k_i<v> - <k_i v>. Revealing that the combination is zero gives integrity evidence without revealing the MAC key."
+    },
+    {
+      "type": "flashcard",
+      "front": "Boolean gates over shared values",
+      "back": "NOT, AND, NAND, NOR, and XOR can be expressed using addition and multiplication over shares, such as NAND(a,b) = 1 - ab."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homomorphic encryption strengths",
+      "back": "It has a simple architecture, allows computation by a single party on ciphertexts, supports secret functions, and handles linear operations efficiently."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homomorphic encryption weaknesses",
+      "back": "It has large ciphertext expansion, poor efficiency for complex circuits, and integrity problems unless extra protections prevent malicious decryption requests."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secret sharing strengths",
+      "back": "Operations on shares are cheap, addition is local, and protocols such as SPDZ provide integrity protection against active adversaries."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secret sharing weaknesses",
+      "back": "It requires network interaction, many Beaver triples, complex offline precomputation, and the computation itself is not secret."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A hospital and a research lab want to compute a statistic over their combined private datasets without either side revealing its raw records. Which concept best matches this goal?",
+      "options": [
+        "Secure multi-party computation",
+        "Ordinary public-key encryption",
+        "Threshold decryption alone",
+        "Digital signatures alone"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best captures the MPC privacy requirement?",
+      "options": [
+        "The protocol transcript should reveal no more about private inputs than what follows from the output and a party's own input",
+        "No participant should ever learn the output of the computation",
+        "All intermediate values must be decrypted by a trusted party",
+        "The protocol must hide which function is being computed in all MPC systems"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is a Trusted Third Party useful in the design of MPC even if it is not a robust implementation?",
+      "options": [
+        "It specifies the ideal behaviour that a real protocol should emulate",
+        "It eliminates all cost, compulsion, corruption, and compromise risks",
+        "It removes the need for confidentiality once parties submit inputs",
+        "It guarantees availability even if participants go offline"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A participant follows every protocol step but records all messages to infer another input. Which adversary model is this?",
+      "options": [
+        "Honest-but-curious",
+        "Byzantine",
+        "Compelled TTP",
+        "Decryption oracle"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A participant sends malformed values during a computation to bias the result. Which adversary model is most appropriate?",
+      "options": [
+        "Byzantine",
+        "Honest-but-curious",
+        "Passive observer",
+        "Small-domain decryptor"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does supporting both addition and multiplication matter for private computation?",
+      "options": [
+        "Together they can express boolean gates such as NAND, enabling arbitrary finite boolean circuits",
+        "They remove the need for random masks in all protocols",
+        "They guarantee that the function being computed remains secret",
+        "They make discrete logarithms easy to solve for small domains"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which operation is supported by an additively homomorphic encryption scheme?",
+      "options": [
+        "Combining E(m0) and E(m1) to obtain E(m0 + m1)",
+        "Combining E(m0) and E(m1) to obtain E(m0 * m1) directly",
+        "Decrypting without any private key material",
+        "Hiding the function from every computing party in secret sharing"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the role of randomness k in ElGamal encryption?",
+      "options": [
+        "It randomises the ciphertext so encryptions of the same message need not look the same",
+        "It replaces the private key during decryption",
+        "It makes the plaintext domain unlimited during discrete-log recovery",
+        "It allows direct multiplication of two hidden plaintexts"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is ElGamal decryption practical for vote counting but not for arbitrary large plaintexts?",
+      "options": [
+        "The result h^m can be matched by enumeration only when m lies in a small domain",
+        "The private key is public in vote counting",
+        "The nonce k is reused for all ballots",
+        "The ciphertext directly contains m in the clear"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What happens when two additive ElGamal ciphertexts are combined component-wise by multiplication?",
+      "options": [
+        "The result encrypts the sum of the two plaintexts",
+        "The result encrypts the product of the two plaintexts",
+        "The result reveals both plaintexts to the computing party",
+        "The result invalidates the public key"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A computing party submits E(x) for threshold decryption instead of the agreed output E(y). What failure is this?",
+      "options": [
+        "A decryption oracle attack caused by lack of integrity control",
+        "A discrete logarithm break caused by a weak group",
+        "A normal step in additive homomorphic evaluation",
+        "A harmless optimisation of threshold decryption"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does threshold decryption primarily reduce?",
+      "options": [
+        "The risk that one key holder alone can decrypt private values",
+        "The number of ciphertexts needed for homomorphic addition",
+        "The need to verify what value is being decrypted",
+        "The cost of solving large discrete logarithms"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which comparison between raw RSA and Paillier is correct?",
+      "options": [
+        "Raw RSA is multiplicatively homomorphic, while Paillier is additively homomorphic",
+        "Raw RSA is additively homomorphic, while Paillier is multiplicatively homomorphic",
+        "Both directly support arbitrary-depth encrypted multiplication and addition",
+        "Neither has any homomorphic property"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In secret sharing, why does one share alone reveal nothing about the secret?",
+      "options": [
+        "The missing shares can vary so that the same observed share is compatible with many possible secrets",
+        "Each share is encrypted under ElGamal before being distributed",
+        "The public key hides the modulus p from the authorities",
+        "The secret is reconstructed by solving a discrete logarithm"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which secret-sharing operation can be performed without communication?",
+      "options": [
+        "Adding two shared secrets",
+        "Multiplying two shared secrets without precomputation",
+        "Generating a fresh Beaver triple",
+        "Checking all Byzantine faults automatically"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why are Beaver triples needed?",
+      "options": [
+        "They turn multiplication of shared secrets into operations involving public masked values and local linear computation",
+        "They allow a single authority to reconstruct every secret safely",
+        "They remove the need for a prime field",
+        "They make all computed functions secret from the authorities"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In Beaver multiplication, why can e = x + a and d = y + b be published?",
+      "options": [
+        "The random masks a and b hide x and y",
+        "The values x and y have already been decrypted",
+        "The masks a and b are public constants",
+        "The MAC key v is revealed first"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main reason SPDZ adds MACs to secret shares?",
+      "options": [
+        "To detect active manipulation of shared values",
+        "To compress ciphertexts to smaller sizes",
+        "To make discrete logarithms easy for decryption",
+        "To hide the function being computed"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why must the SPDZ global MAC key remain hidden?",
+      "options": [
+        "If authorities learned it, they could forge valid MACs on incorrect shares",
+        "If authorities learned it, they could no longer add shares locally",
+        "If authorities learned it, Beaver triples would become unnecessary",
+        "If authorities learned it, the public modulus would change"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which is the best tradeoff summary for homomorphic encryption compared with secret sharing?",
+      "options": [
+        "HE can allow non-interactive computation on ciphertexts, but complex computations and integrity are costly",
+        "HE always has lower overhead and stronger integrity than secret sharing",
+        "HE requires all parties to interact at every addition gate",
+        "HE cannot support any operation on encrypted values"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which is the best tradeoff summary for secret sharing compared with homomorphic encryption?",
+      "options": [
+        "Secret sharing has cheap local operations but often needs interaction, triples, and a public computation",
+        "Secret sharing keeps the computation secret by default and requires no network",
+        "Secret sharing makes every multiplication local without precomputation",
+        "Secret sharing avoids all integrity mechanisms under Byzantine adversaries"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A TTP can be a useful specification of ideal behaviour even when it is a poor real-world implementation strategy.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Honest-but-curious security is enough to handle parties that send arbitrary malformed messages.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "If a protocol reveals no more than what the output already implies, it can still reveal information through the output itself.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Additive homomorphism alone allows direct multiplication of two encrypted secret values.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Threshold decryption removes the need to control which ciphertext is submitted for decryption.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In ElGamal-style poll counting, small plaintext domains can make decryption by lookup feasible.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In secret sharing, addition of shared values can be done locally by each authority.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Multiplication of two shared secrets is as simple as each authority multiplying its own two shares, with no extra protocol.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A fresh Beaver triple is needed for each multiplication gate.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "SPDZ is designed to provide integrity against actively malicious participants.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "SPDZ verifies MACs by revealing the global MAC key to all authorities.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Secret sharing normally hides the private inputs but not the computation being performed.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Distinguish hiding from third parties and hiding from communication partners.",
+      "answer": "Hiding from third parties assumes the communicating parties trust each other, so encryption and anonymous communication may be enough. Hiding from communication partners is harder because the parties do not trust each other with their inputs but still need a correct joint computation."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why the TTP model is both useful and dangerous.",
+      "answer": "It is useful because it defines the ideal functionality: inputs go in, the correct output comes out, and nothing extra is leaked. It is dangerous as an implementation because trust is concentrated in one entity vulnerable to cost, corruption, compulsion, and compromise."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give an answer plan for explaining honest-but-curious vs Byzantine adversaries.",
+      "answer": "Define honest-but-curious as correct execution plus passive inference. Define Byzantine as arbitrary deviation, including false or missing messages. Explain that Byzantine security requires integrity mechanisms and usually has higher efficiency costs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A protocol uses threshold decryption after homomorphic computation. What extra check is needed to avoid a decryption oracle attack?",
+      "answer": "The parties must verify that the ciphertext submitted for decryption is the intended computation output, not an input or maliciously chosen intermediate value. This links confidentiality to integrity of the computation and decryption request."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the additive homomorphism of ElGamal without relying only on formulas.",
+      "answer": "Combining ciphertexts combines their group exponents. Because plaintexts are represented in exponents, multiplying the ciphertext components adds the hidden plaintext values. Raising a ciphertext to a public constant scales the hidden plaintext by that constant."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does ElGamal decryption recover h^m rather than directly recovering m, and why does that matter?",
+      "answer": "The message is encoded as h^m, so decryption removes the key-dependent masking but leaves the encoded group element. Recovering m requires a discrete-log lookup, which is feasible only when the message space is small."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why addition of shared secrets is easy but multiplication of shared secrets needs a protocol.",
+      "answer": "Addition is linear, so each authority can add its own shares and the sums reconstruct correctly. Multiplication is not linear in the shares, so multiplying local shares would not reconstruct the product. Beaver triples provide random masks that make multiplication possible safely."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give the Beaver triple multiplication steps and the privacy intuition.",
+      "answer": "Use a fresh triple <a>, <b>, <c> with c = ab. Open e = x + a and d = y + b, then compute <xy> = <c> - e<b> - d<a> + ed. Privacy comes from random masks a and b hiding x and y when e and d are opened."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What failure would occur if Beaver triples were reused?",
+      "answer": "Reusing triples would reuse the random masks. Opened masked values from different multiplications could then be compared, leaking relationships between private inputs and undermining the privacy argument."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the security role of MACs in SPDZ.",
+      "answer": "MACs bind shares to a global secret MAC key so parties cannot freely alter values without detection. Batched checks verify consistency of many opened or computed values while keeping the MAC key hidden."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise comparison of homomorphic encryption and secret sharing for an exam answer.",
+      "answer": "Homomorphic encryption allows computation on ciphertexts, can have simple non-interactive architecture, and may support secret functions, but complex circuits and integrity are costly. Secret sharing has cheap local arithmetic and good integrity mechanisms such as SPDZ, but needs interaction, triples, and usually exposes the computation being run."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does 'no confidentiality without integrity' apply to privacy-friendly computation?",
+      "answer": "Even if cryptography hides inputs, a malicious party may manipulate the computation or decryption request to reveal a secret, such as by submitting an input ciphertext for decryption. Integrity checks are needed to ensure only the intended computation result is revealed."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are privacy-friendly computation systems often suitable for high-value special computations rather than bulk computation?",
+      "answer": "They introduce large overheads: homomorphic encryption has expensive ciphertext operations and expansion, while secret sharing requires interaction and many precomputed triples. These costs are acceptable mainly when the protected computation is valuable enough."
+    }
+  ]
+}
