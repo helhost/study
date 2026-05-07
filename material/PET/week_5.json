@@ -1,0 +1,570 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "What problem is Secure Multi-party Computation (MPC) designed to solve?",
+      "back": "MPC allows multiple parties to jointly compute a function over their private inputs while revealing no more information than the agreed output."
+    },
+    {
+      "type": "flashcard",
+      "front": "Passive (semi-honest) adversary in MPC",
+      "back": "An adversary that follows the protocol correctly but tries to infer additional information from observed messages and intermediate data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Active (malicious) adversary in MPC",
+      "back": "An adversary that may arbitrarily deviate from the protocol, provide false inputs, abort execution, or manipulate messages to learn extra information or alter results."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why are protocols secure against active adversaries harder to design?",
+      "back": "They must preserve both privacy and correctness even when parties deviate from the protocol, which often requires additional checks, proofs, or verification mechanisms."
+    },
+    {
+      "type": "flashcard",
+      "front": "Oblivious Transfer (OT)",
+      "back": "A protocol where a receiver obtains one selected item from a sender without the sender learning which item was chosen, while the receiver learns nothing about the unchosen items."
+    },
+    {
+      "type": "flashcard",
+      "front": "Heuristic approach to cryptographic security",
+      "back": "An approach where protocols are designed, tested against known attacks, and revised iteratively. It lacks guarantees against unknown or future attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Rigorous approach to cryptographic security",
+      "back": "An approach that formally specifies adversary capabilities, the network model, and security goals, then proves the protocol satisfies the security definition."
+    },
+    {
+      "type": "flashcard",
+      "front": "Game-based security definition",
+      "back": "A formal security framework using a challenger-adversary game to define whether a cryptographic scheme resists a specified attack."
+    },
+    {
+      "type": "flashcard",
+      "front": "Simulation-based security definition",
+      "back": "A security framework where a real protocol execution is compared with an ideal execution involving a trusted party. Security means attacks possible in the real world can also be simulated in the ideal world."
+    },
+    {
+      "type": "flashcard",
+      "front": "Advantage in game-based security",
+      "back": "A measure of how much better an adversary performs than random guessing in a security experiment."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why does simulation-based security fit MPC well?",
+      "back": "Because MPC aims to emulate a trusted-party computation while proving that no additional information is leaked during the real execution."
+    },
+    {
+      "type": "flashcard",
+      "front": "EAV-secure encryption",
+      "back": "A private-key encryption scheme where ciphertexts remain indistinguishable to an eavesdropper observing encrypted communications."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homomorphic Encryption (HE)",
+      "back": "An encryption scheme that allows computations on ciphertexts such that decrypting the result yields the same output as computing directly on plaintexts."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fully Homomorphic Encryption (FHE)",
+      "back": "A homomorphic encryption scheme supporting arbitrary computations on encrypted data, typically with high computational overhead."
+    },
+    {
+      "type": "flashcard",
+      "front": "Partially Homomorphic Encryption",
+      "back": "A homomorphic encryption scheme supporting only limited operations such as addition or multiplication on ciphertexts."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tradeoff between FHE and partially homomorphic encryption",
+      "back": "FHE provides greater computational flexibility but is significantly less efficient than partially homomorphic approaches."
+    },
+    {
+      "type": "flashcard",
+      "front": "Commitment scheme",
+      "back": "A cryptographic primitive allowing a party to commit to a value now and reveal it later while preventing premature disclosure or later modification."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hiding property of a commitment scheme",
+      "back": "The receiver cannot learn the committed value before the commitment is opened."
+    },
+    {
+      "type": "flashcard",
+      "front": "Binding property of a commitment scheme",
+      "back": "The sender cannot later open the commitment as a different value."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why are hiding and binding in tension?",
+      "back": "Making commitments easier to conceal information may weaken guarantees against changing the committed value, while strong binding can reduce hiding flexibility."
+    },
+    {
+      "type": "flashcard",
+      "front": "Simple hash-based commitment protocol",
+      "back": "A sender computes h = H(m || d) using a message m and randomness d, sends h during commit, and later reveals (m, d) during open."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secret sharing scheme (t, n)",
+      "back": "A method of splitting a secret into n shares such that up to t shares reveal nothing, while t+1 or more shares reconstruct the secret."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threshold in secret sharing",
+      "back": "The minimum number of shares required to reconstruct the secret."
+    },
+    {
+      "type": "flashcard",
+      "front": "Shamir Secret Sharing (SSS)",
+      "back": "A threshold secret sharing scheme based on polynomial interpolation where t+1 shares reconstruct the secret."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homomorphic property of Shamir Secret Sharing",
+      "back": "Operations performed on shares correspond to operations on the underlying secrets, enabling distributed computation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Execution Environment (TEE)",
+      "back": "A hardware-isolated execution environment designed to protect the confidentiality and integrity of code and data from the operating system and other software."
+    },
+    {
+      "type": "flashcard",
+      "front": "Remote attestation in TEEs",
+      "back": "A mechanism allowing a remote party to verify that trusted code is running inside a genuine TEE."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why are TEEs attractive for MPC?",
+      "back": "They can simplify secure computation by relying on hardware isolation instead of purely cryptographic protocols."
+    },
+    {
+      "type": "flashcard",
+      "front": "Security limitation of TEEs",
+      "back": "They may still leak information through side channels or hardware vulnerabilities despite enclave isolation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Blockchain deposit paradigm in MPC",
+      "back": "A mechanism where parties place deposits before protocol execution, with penalties for detected misbehaviour to incentivise honest participation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Private Set Intersection (PSI)",
+      "back": "A protocol allowing parties to compute the intersection of private sets without revealing non-intersecting elements."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why is PSI challenging without a trusted party?",
+      "back": "Directly sharing sets would expose all private elements, so cryptographic methods are needed to reveal only the intersection."
+    },
+    {
+      "type": "flashcard",
+      "front": "Polynomial representation of a set",
+      "back": "A set can be represented as a polynomial whose roots correspond exactly to the set elements."
+    },
+    {
+      "type": "flashcard",
+      "front": "GCD interpretation in PSI",
+      "back": "The greatest common divisor of two set polynomials has roots corresponding to the intersection of the sets."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hash table in PSI",
+      "back": "A structure that distributes set elements into bins using hash functions to improve scalability and computational efficiency."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bloom filter",
+      "back": "A compact probabilistic structure for membership testing that may produce false positives but not false negatives."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why are Bloom filters useful in PSI?",
+      "back": "They reduce storage and communication costs when representing large sets."
+    },
+    {
+      "type": "flashcard",
+      "front": "Pseudorandom Function (PRF)",
+      "back": "A keyed deterministic function whose outputs are computationally indistinguishable from random to efficient adversaries without the key."
+    },
+    {
+      "type": "flashcard",
+      "front": "Cryptographic hash function",
+      "back": "A function mapping arbitrary-length inputs to fixed-length outputs while being computationally infeasible to invert."
+    },
+    {
+      "type": "flashcard",
+      "front": "Traditional PSI vs delegated PSI",
+      "back": "Traditional PSI is computed directly by set owners, while delegated PSI outsources storage or computation to a remote server."
+    },
+    {
+      "type": "flashcard",
+      "front": "Repeated delegation in PSI",
+      "back": "A delegated PSI model where parties upload encoded sets once and later perform multiple PSI computations without re-uploading."
+    },
+    {
+      "type": "flashcard",
+      "front": "Apple PSI goal",
+      "back": "To detect known CSAM images in iCloud Photos while limiting what Apple learns about non-matching photos."
+    },
+    {
+      "type": "flashcard",
+      "front": "Voucher in Apple PSI",
+      "back": "A client-generated structure encoding encrypted information about a photo so the server can test for matches without learning unrelated photo contents."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threshold t in Apple PSI",
+      "back": "The minimum number of matching images required before associated information can be reconstructed."
+    },
+    {
+      "type": "flashcard",
+      "front": "K&S PSI protocol",
+      "back": "A PSI protocol using polynomial representations and threshold additive homomorphic encryption to compute intersections privately."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threshold additive homomorphic encryption",
+      "back": "An encryption scheme supporting homomorphic operations while requiring multiple parties to cooperate for decryption."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes MPC from ordinary encrypted communication?",
+      "options": [
+        "MPC protects communication channels but not computation",
+        "MPC allows joint computation without revealing private inputs",
+        "MPC replaces encryption with trusted hardware",
+        "MPC ensures all parties learn every intermediate value"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A protocol is secure against passive adversaries but not active adversaries. What risk remains?",
+      "options": [
+        "Parties may observe encrypted traffic",
+        "Parties may refuse to generate keys",
+        "Parties may manipulate protocol execution or outputs",
+        "Parties may fail to authenticate users"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A passive adversary attempts to gain additional information while still following the protocol specification.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What privacy property does Oblivious Transfer primarily provide to the receiver?",
+      "options": [
+        "The sender cannot determine which item was selected",
+        "The sender cannot encrypt the transmitted data",
+        "The receiver learns all available messages",
+        "The receiver can modify the sender's inputs"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is the heuristic approach to security considered fundamentally weaker than the rigorous approach?",
+      "answer": "The heuristic approach only evaluates known attacks and cannot guarantee resistance against future or previously unknown attacks. The rigorous approach formally defines adversaries and security goals, then proves security under those assumptions."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main purpose of the ideal model in simulation-based security?",
+      "options": [
+        "To improve implementation efficiency",
+        "To provide a benchmark representing perfectly secure computation",
+        "To remove the need for encryption",
+        "To simulate network latency during execution"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the difference between the real model and ideal model in MPC security proofs.",
+      "answer": "In the ideal model, a trusted party receives inputs, computes the function, and returns outputs securely. In the real model, parties execute the protocol directly without a trusted party. Security means the real execution leaks no more information than the ideal execution."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A cryptographic scheme with negligible adversarial advantage is considered secure under the specified game definition.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is Fully Homomorphic Encryption often impractical despite its flexibility?",
+      "options": [
+        "It only supports addition operations",
+        "It requires a trusted third party",
+        "It imposes substantial computational and communication costs",
+        "It cannot operate on encrypted data"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which scenario best matches a partially homomorphic encryption scheme?",
+      "options": [
+        "Evaluating arbitrary programs on ciphertexts",
+        "Performing only supported operations such as addition on ciphertexts",
+        "Decrypting without secret keys",
+        "Sharing plaintexts among all protocol participants"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is homomorphic encryption valuable in privacy-preserving computation?",
+      "answer": "It allows computations to be performed directly on encrypted data so parties can obtain useful results without exposing underlying plaintext inputs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which property prevents a sender from changing a committed value after committing?",
+      "options": [
+        "Hiding",
+        "Binding",
+        "Unlinkability",
+        "Forward secrecy"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which property prevents a receiver from learning the committed value before opening?",
+      "options": [
+        "Integrity",
+        "Binding",
+        "Availability",
+        "Hiding"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A commitment scheme that is perfectly hiding but weakly binding may allow a sender to later reveal different values successfully.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A commitment scheme reveals the committed value before the open phase. Which security property has failed and why does that matter?",
+      "answer": "The hiding property has failed because the receiver can learn information about the committed value prematurely, undermining confidentiality and fairness."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In a (t, n) secret sharing scheme, what should an attacker learn from at most t shares?",
+      "options": [
+        "The complete secret",
+        "A partially reconstructed secret",
+        "Only the polynomial coefficients",
+        "No information about the secret"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Shamir Secret Sharing enables distributed computation because operations on shares correspond to operations on secrets.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is threshold reconstruction useful in distributed trust settings?",
+      "answer": "It avoids concentrating trust in a single party because no individual participant can recover the secret alone."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main security assumption behind TEEs?",
+      "options": [
+        "The operating system is fully trusted",
+        "Hardware isolation protects enclave execution",
+        "All users behave honestly",
+        "Network attackers cannot observe traffic"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which threat most directly challenges the security guarantees of TEEs?",
+      "options": [
+        "Hash collisions in Bloom filters",
+        "Side-channel leakage from enclave execution",
+        "Packet routing failures",
+        "Weak password selection"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain how the blockchain deposit paradigm changes participant incentives in MPC.",
+      "answer": "Participants risk losing deposits if misbehaviour is detected, making dishonest actions financially costly and encouraging protocol compliance."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which information should PSI reveal in a correctly designed protocol?",
+      "options": [
+        "The full contents of both sets",
+        "Only the agreed intersection result",
+        "The insertion order of set elements",
+        "The private keys used during computation"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A PSI protocol that leaks non-intersecting elements violates its intended privacy goal.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why are polynomial representations useful in some PSI protocols?",
+      "options": [
+        "Because roots can encode set membership",
+        "Because they remove the need for encryption",
+        "Because they guarantee constant-time execution",
+        "Because they eliminate communication costs"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What does the GCD of two set polynomials reveal in PSI?",
+      "answer": "Its roots correspond to elements common to both sets, allowing the intersection to be identified."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What tradeoff is introduced by Bloom filters?",
+      "options": [
+        "Reduced storage at the cost of possible false positives",
+        "Perfect accuracy at higher computation cost",
+        "Guaranteed false negatives for large datasets",
+        "Removal of all hashing operations"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Bloom filters may incorrectly indicate that an element belongs to a set even when it does not.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What property distinguishes a pseudorandom function from a truly random function to an efficient adversary without the key?",
+      "options": [
+        "The outputs are always predictable",
+        "The outputs are computationally indistinguishable from random",
+        "The outputs reveal the encryption key",
+        "The outputs depend only on message length"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why might repeated delegation be attractive in delegated PSI systems?",
+      "answer": "Because parties can upload encoded data once and later support multiple PSI computations without repeating expensive encoding and upload steps."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What privacy principle motivates the threshold design in Apple PSI?",
+      "options": [
+        "Single matches should immediately reveal user data",
+        "The server should learn information only after enough matches occur",
+        "All uploaded photos should be inspected directly",
+        "The client should learn the server's full database"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In Apple PSI, the threshold mechanism is intended to reduce information leakage from isolated matches.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does Apple PSI use threshold secret sharing before revealing associated data?",
+      "answer": "Threshold secret sharing ensures that the server cannot reconstruct sensitive information unless enough valid matches are collected, limiting disclosure from small numbers of matches."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What role do random polynomials play in the K&S PSI protocol?",
+      "options": [
+        "They replace encryption entirely",
+        "They mask underlying set information during computation",
+        "They reveal all non-common elements",
+        "They generate network authentication tokens"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why must multi-party PSI protocols avoid leaking intermediate pairwise intersections?",
+      "answer": "Intermediate intersections may reveal additional private information beyond the final agreed result, violating the intended privacy guarantees."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which concern is most important when defending against active adversaries in PSI?",
+      "options": [
+        "Ensuring protocol outputs cannot be manipulated undetected",
+        "Reducing ciphertext size below plaintext size",
+        "Removing all randomness from the protocol",
+        "Allowing unrestricted decryption by participants"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare simulation-based security and game-based security in terms of what they attempt to model.",
+      "answer": "Game-based security models whether an adversary can win a specific security experiment, while simulation-based security models whether a real protocol leaks more information than an ideal trusted-party execution."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A system uses TEEs to simplify MPC deployment. Give a concise answer plan discussing both benefits and limitations.",
+      "answer": "Benefits include hardware isolation, simpler protocol design, and remote attestation. Limitations include reliance on hardware trust assumptions, exposure to side-channel attacks, and dependence on vendor security."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan explaining why privacy-preserving set intersection is useful in practice.",
+      "answer": "PSI enables organisations to identify shared records without revealing unrelated data. Applications include contact tracing, fraud detection, and abuse detection while reducing unnecessary disclosure of private datasets."
+    }
+  ]
+}
