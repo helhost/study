@@ -1,0 +1,500 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Local storage privacy threats",
+      "back": "Local storage can be threatened by physical theft of devices, malware that reads stored data, and coercion or legal compulsion to reveal decryption keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "Remote storage privacy threats",
+      "back": "Remote storage adds risks from untrusted providers, unauthorized disclosure, traffic analysis of access patterns, denial of access, suppression, or failure to recover data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Content confidentiality vs access-pattern privacy",
+      "back": "Encryption protects stored content, but it may still reveal which blocks, files, or records are accessed. Access patterns can leak sensitive information even when the data itself is encrypted."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bulk storage encryption constraints",
+      "back": "Disk encryption must support random access, fixed-size sectors, overwrites, and minimal storage overhead, often leaving no room for per-block random IVs or MAC tags."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why message encryption modes do not directly solve disk encryption",
+      "back": "Message encryption can usually attach nonces, IVs, and authentication tags. Disk encryption must encrypt fixed blocks in place while allowing random reads and writes."
+    },
+    {
+      "type": "flashcard",
+      "front": "XTS mode",
+      "back": "A disk encryption mode that uses a tweak derived from the block position so that identical plaintext blocks encrypt differently at different disk locations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tweak in disk encryption",
+      "back": "A tweak is non-secret contextual input, such as a sector or block index, used to make encryption depend on storage location without needing a fresh random IV per block."
+    },
+    {
+      "type": "flashcard",
+      "front": "BitLocker key management",
+      "back": "BitLocker ties disk encryption keys to platform state using the TPM, while allowing recovery mechanisms such as organizational key escrow for operational resilience."
+    },
+    {
+      "type": "flashcard",
+      "front": "All-or-nothing transform",
+      "back": "A tamper-resistance technique where modifying part of a ciphertext block causes the whole decrypted block to become meaningless, reducing the chance of controlled modification."
+    },
+    {
+      "type": "flashcard",
+      "front": "Confidentiality vs integrity in encrypted storage",
+      "back": "Confidentiality prevents reading stored data. Integrity prevents undetected modification. Disk encryption often provides confidentiality more naturally than strong per-block integrity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Deniability in encrypted storage",
+      "back": "Deniability is the ability to plausibly deny the existence of hidden encrypted content, especially when an adversary can inspect storage or coerce the user."
+    },
+    {
+      "type": "flashcard",
+      "front": "Limits of deniability at rest",
+      "back": "Stored encrypted data must remain recoverable by the user, which creates tension with claims that no key or hidden data exists under coercion."
+    },
+    {
+      "type": "flashcard",
+      "front": "Perfect forward secrecy",
+      "back": "A property where compromise of a current or long-term key does not reveal past session keys or previously protected data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Forward secrecy for append-only storage",
+      "back": "Each entry is encrypted under a key that is deleted and replaced by a one-way update. Compromising the current key should not recover earlier keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "Safe direction of hash-chain key updates",
+      "back": "To protect old entries after current compromise, key updates must be one-way in the forward direction, so the current key cannot be used to compute previous keys."
+    },
+    {
+      "type": "flashcard",
+      "front": "Steganography",
+      "back": "Steganography hides the existence of a message by embedding it in an innocent-looking cover medium, rather than merely encrypting the message content."
+    },
+    {
+      "type": "flashcard",
+      "front": "Steganography vs encryption",
+      "back": "Encryption hides meaning but reveals that protected data exists. Steganography tries to hide the existence of the protected message itself."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tahoe-LAFS trust model",
+      "back": "Tahoe-LAFS treats storage servers as untrusted for confidentiality and relies on client-side cryptography, with multiple servers used for availability."
+    },
+    {
+      "type": "flashcard",
+      "front": "Provider-controlled cloud storage trust model",
+      "back": "In ordinary provider-controlled storage, users often rely on the provider to protect keys, enforce access control, preserve availability, and resist disclosure requests."
+    },
+    {
+      "type": "flashcard",
+      "front": "Traffic analysis in remote storage",
+      "back": "An adversary observes timing, frequency, or location of accesses to infer information about the user's data or activity."
+    },
+    {
+      "type": "flashcard",
+      "front": "ORAM",
+      "back": "Oblivious RAM hides which logical data blocks are accessed by making observed server accesses independent of the client's real access pattern."
+    },
+    {
+      "type": "flashcard",
+      "front": "ORAM shelter",
+      "back": "A small local cache that temporarily stores accessed blocks. It helps hide repeated logical accesses by avoiding direct repeated access to the same remote location."
+    },
+    {
+      "type": "flashcard",
+      "front": "Oblivious shuffle",
+      "back": "A reshuffling process that re-randomizes remote block positions without revealing how new positions correspond to old ones."
+    },
+    {
+      "type": "flashcard",
+      "front": "ORAM privacy goal",
+      "back": "The server should not learn whether two observed accesses refer to the same logical item or different logical items."
+    },
+    {
+      "type": "flashcard",
+      "front": "ORAM tradeoff",
+      "back": "ORAM improves access-pattern privacy but adds substantial computation, bandwidth, storage, and latency overhead."
+    },
+    {
+      "type": "flashcard",
+      "front": "Private Information Retrieval (PIR)",
+      "back": "A protocol that lets a client retrieve a database item without revealing to the server which item was requested."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trivial PIR",
+      "back": "Downloading the whole database hides which item is wanted, but has impractical communication cost for large databases."
+    },
+    {
+      "type": "flashcard",
+      "front": "Single-server PIR",
+      "back": "A PIR setting where one server holds the database. Privacy is typically achieved using cryptographic computation such as homomorphic encryption."
+    },
+    {
+      "type": "flashcard",
+      "front": "Additively homomorphic encryption",
+      "back": "An encryption scheme that allows additions on plaintext values to be performed by operating on ciphertexts, enabling computation without revealing encrypted inputs."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homomorphic PIR tradeoff",
+      "back": "Single-server PIR can reduce communication compared with downloading the full database, but usually requires heavy server-side computation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multi-server PIR",
+      "back": "A PIR setting where the query is split across multiple servers so no individual non-colluding server learns the requested item."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multi-server PIR trust assumption",
+      "back": "Query privacy depends on at least one server not colluding with the others, or more generally on the assumed non-collusion threshold."
+    },
+    {
+      "type": "flashcard",
+      "front": "Deterministic encryption",
+      "back": "Encryption where the same plaintext always produces the same ciphertext under the same key. It supports equality search but leaks equality patterns."
+    },
+    {
+      "type": "flashcard",
+      "front": "Order-preserving encryption",
+      "back": "Encryption that preserves plaintext ordering in ciphertext ordering, enabling range queries but leaking order information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Randomized encryption vs searchable encryption",
+      "back": "Randomized encryption hides repeated plaintexts better, while deterministic or order-preserving schemes enable efficient search by intentionally leaking some structure."
+    },
+    {
+      "type": "flashcard",
+      "front": "Private keyword search leakage",
+      "back": "Search systems may leak query repetition, match volume, result identifiers, access patterns, or ordering, even when document contents are encrypted."
+    },
+    {
+      "type": "flashcard",
+      "front": "Streaming private search",
+      "back": "A mechanism for filtering a high-volume stream while hiding the user's search terms from the filtering party, usually by computing over encrypted indicators."
+    },
+    {
+      "type": "flashcard",
+      "front": "Public data can still create private queries",
+      "back": "Even if records are public, the fact that a particular user requested a particular record can reveal sensitive interests, relationships, health concerns, or intentions."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A stolen laptop contains a fully encrypted disk. Which threat is most directly mitigated by full-disk encryption?",
+      "options": [
+        "The attacker reading data from the physical drive",
+        "The user being legally compelled to reveal the password",
+        "The cloud provider observing which files are synchronized",
+        "The operating system leaking data while the laptop is unlocked"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which remote storage risk remains even if every stored file is strongly encrypted client-side?",
+      "options": [
+        "The server may infer information from which encrypted blocks are accessed",
+        "The encryption key must be sent to every storage server",
+        "The ciphertext necessarily reveals the plaintext file names",
+        "The provider can always decrypt the data without the client"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why disk encryption needs different design choices from ordinary message encryption.",
+      "answer": "Disk encryption must support fixed-size blocks, random reads and writes, and in-place overwriting. Unlike message encryption, it often cannot append a fresh IV, nonce, or MAC tag to every block, so it needs modes designed for storage constraints."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the purpose of a tweak in XTS-style disk encryption?",
+      "options": [
+        "To bind encryption to the storage location without storing a fresh random IV",
+        "To replace the encryption key with a public value",
+        "To compress multiple disk sectors into one ciphertext block",
+        "To allow the server to search encrypted files"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Using the same encryption mode designed for network messages is always sufficient for full-disk encryption.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A disk encryption scheme provides confidentiality but no strong integrity. What attack class remains most relevant?",
+      "options": [
+        "An attacker may modify ciphertext and cause controlled or destructive changes",
+        "An attacker can immediately read all plaintext blocks",
+        "An attacker can derive the user's password from the sector number",
+        "An attacker can avoid all access-control checks on the cloud server"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why might an organization want key escrow for encrypted laptops, and what security tradeoff does it create?",
+      "answer": "Key escrow supports recovery when users forget credentials, devices fail, or TPM-protected keys become unavailable. The tradeoff is that escrow introduces an additional target and trust point that may be abused, compromised, or compelled."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes confidentiality from deniability in storage systems?",
+      "options": [
+        "Confidentiality hides content; deniability tries to hide or plausibly deny the existence of protected content",
+        "Confidentiality only applies to local disks; deniability only applies to networks",
+        "Confidentiality requires no keys; deniability requires public keys",
+        "Confidentiality prevents deletion; deniability prevents compression"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Steganography aims to hide the existence of a secret message, not only its meaning.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why deniability is difficult for encrypted data at rest under coercion.",
+      "answer": "The user must retain some ability to recover the data, which means keys, access procedures, or storage patterns may exist. Under coercion, an adversary may demand those secrets or inspect storage for evidence of hidden encrypted content."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What must be true of key evolution in append-only storage to protect old records after current compromise?",
+      "options": [
+        "The current key must not allow efficient recovery of previous keys",
+        "Every old key must be stored beside its ciphertext",
+        "The same key must be reused for all records",
+        "The storage provider must know the full key chain"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Perfect forward secrecy means compromise of a current key should not reveal past protected data.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A cloud storage system encrypts all files on the client, and servers only store ciphertext shares. What trust shift does this represent?",
+      "options": [
+        "From trusting the provider with confidentiality to relying mainly on client-side cryptography",
+        "From cryptographic protection to legal protection only",
+        "From availability guarantees to no availability concern at all",
+        "From client responsibility to provider-only key management"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare the trust model of provider-managed cloud storage with client-side encrypted remote storage.",
+      "answer": "Provider-managed storage often requires trusting the provider to protect keys, enforce access control, and resist disclosure. Client-side encrypted storage reduces confidentiality trust in the provider because servers store ciphertext, but still leaves concerns such as availability, metadata, and access patterns."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What privacy problem is ORAM designed to solve?",
+      "options": [
+        "The server learning which logical blocks are accessed",
+        "The client forgetting the encryption password",
+        "The ciphertext being too large to store",
+        "The database containing public records"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Encrypting stored data automatically hides the pattern of reads and writes from the storage server.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise explanation of why access patterns can be sensitive.",
+      "answer": "Access patterns reveal what a user is interested in, when activity occurs, and which records may be related. This can disclose health, financial, social, or behavioral information even when content is encrypted."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does ORAM usually have significant overhead?",
+      "options": [
+        "It must add dummy or randomized accesses and periodically reshuffle storage to hide logical access patterns",
+        "It requires every plaintext block to be published",
+        "It replaces symmetric encryption with manual inspection",
+        "It prevents all caching on the client"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What role does the ORAM shelter play in hiding repeated access to the same logical block?",
+      "answer": "The shelter stores recently accessed blocks locally, so repeated logical accesses need not correspond to repeated accesses to the same remote location. When the shelter is flushed, blocks are re-randomized through an oblivious shuffle."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which scenario best motivates PIR?",
+      "options": [
+        "A user wants to read one public database record without revealing to the server which record was requested",
+        "A user wants to compress a database before uploading it",
+        "A provider wants to decrypt all user files for indexing",
+        "A disk controller wants to encrypt sectors in place"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Downloading the entire database is private with respect to which record was wanted, but usually impractical because of communication cost.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the main security goal of PIR in one or two sentences.",
+      "answer": "PIR should let the client retrieve a chosen database item while preventing the server from learning which item was chosen. The server may know that a query occurred, but not the target record."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main cost tradeoff of single-server PIR based on homomorphic encryption?",
+      "options": [
+        "Lower communication than full download, but high server-side computation",
+        "No computation, but the query is public",
+        "No bandwidth use, but the database must be deleted",
+        "Perfect efficiency, but no privacy"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What assumption is central to multi-server PIR?",
+      "options": [
+        "The relevant servers do not all collude to reconstruct the query",
+        "The client has no secret information",
+        "Every server stores only encrypted data it cannot process",
+        "The database changes after every query"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Multi-server PIR can protect query privacy even if some servers are curious, provided the non-collusion assumption holds.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare ORAM and PIR in terms of the privacy problem they address.",
+      "answer": "PIR hides which database item is retrieved in a query, often for read-only access. ORAM hides broader access patterns over repeated reads and writes to remote storage, including whether two accesses refer to the same logical block."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does deterministic encryption support equality search over encrypted data?",
+      "options": [
+        "The same plaintext produces the same ciphertext, so matching ciphertexts indicate matching plaintexts",
+        "It preserves numerical order exactly",
+        "It hides all repeated plaintexts using fresh randomness",
+        "It lets the server decrypt only query terms"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the principal leakage of order-preserving encryption?",
+      "options": [
+        "It reveals ordering relationships between plaintexts",
+        "It reveals the encryption key after one query",
+        "It prevents all range queries",
+        "It makes every ciphertext identical"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Order-preserving encryption is generally weaker than randomized encryption because it intentionally leaks structure to support queries.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain the tradeoff made by deterministic and order-preserving encryption in searchable storage.",
+      "answer": "They enable efficient queries over encrypted data by preserving equality or order relationships, but this deliberately leaks structure. Randomized encryption hides more but makes direct searching harder."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A search system hides document contents but reveals how many documents match each keyword. What kind of leakage is this?",
+      "options": [
+        "Volume leakage",
+        "Key escrow",
+        "Forward secrecy",
+        "All-or-nothing integrity"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can repeated private searches leak information even if the searched keywords are encrypted?",
+      "answer": "Repeated queries may produce the same access patterns, result sizes, or document identifiers. An observer can link searches over time and infer relationships between users, keywords, and retrieved records."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does streaming private search primarily try to hide from the filtering party?",
+      "options": [
+        "The user's search terms while filtering incoming data",
+        "The existence of the network connection",
+        "The physical location of the storage disk",
+        "The public database schema"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Outline a concise answer plan for evaluating a remote encrypted storage design.",
+      "answer": "Identify the adversary and trust assumptions; separate content confidentiality, integrity, availability, and access-pattern privacy; discuss key management and recovery; evaluate whether client-side cryptography reduces provider trust; note overheads and remaining metadata leakage."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Outline a concise answer plan for comparing PIR and ORAM in an exam answer.",
+      "answer": "Define each primitive; state that PIR hides which item is retrieved while ORAM hides repeated storage access patterns; compare read-only versus read-write settings; discuss trust assumptions such as non-collusion for multi-server PIR; finish with communication, computation, and latency tradeoffs."
+    }
+  ]
+}

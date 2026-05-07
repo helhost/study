@@ -1,0 +1,430 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Pseudonymization vs anonymization",
+      "back": "Pseudonymization replaces direct identifiers with pseudonyms, but individuals may still be re-identified using auxiliary information. True anonymization aims to make identification not reasonably likely, even when external data is available."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why pseudonymization alone is weak protection",
+      "back": "Removing names or replacing IDs does not remove behavioral patterns, preferences, or linkage possibilities. Auxiliary datasets can often reconnect pseudonymized records to real individuals."
+    },
+    {
+      "type": "flashcard",
+      "front": "k-anonymity",
+      "back": "A privacy property where every combination of quasi-identifiers appears in at least k records, making each individual indistinguishable from at least k−1 others with respect to those attributes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Quasi-identifier",
+      "back": "An attribute or combination of attributes that may identify individuals when linked with auxiliary information, even if the attributes are not unique identifiers by themselves."
+    },
+    {
+      "type": "flashcard",
+      "front": "Suppression",
+      "back": "A k-anonymity technique that hides specific attribute values entirely, often replacing them with placeholders, to reduce distinguishability between records."
+    },
+    {
+      "type": "flashcard",
+      "front": "Generalization",
+      "back": "A k-anonymity technique that replaces precise values with broader categories, such as replacing exact ages with age ranges."
+    },
+    {
+      "type": "flashcard",
+      "front": "q-block (equivalence class)",
+      "back": "A set of records sharing identical quasi-identifier values after anonymization transformations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homogeneity attack",
+      "back": "An attack on k-anonymity where all records in a q-block share the same sensitive value, allowing inference of that value even without identifying the exact record."
+    },
+    {
+      "type": "flashcard",
+      "front": "Background knowledge attack",
+      "back": "An attack where auxiliary information allows an adversary to narrow down or infer sensitive values despite the dataset satisfying k-anonymity."
+    },
+    {
+      "type": "flashcard",
+      "front": "l-diversity",
+      "back": "An extension of k-anonymity requiring each q-block to contain at least l sufficiently represented sensitive values to reduce inference attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Semantic similarity weakness in l-diversity",
+      "back": "Even if a q-block contains multiple distinct sensitive values, privacy may still fail if those values are semantically similar, such as different but related illnesses."
+    },
+    {
+      "type": "flashcard",
+      "front": "t-closeness",
+      "back": "A privacy model requiring the distribution of sensitive attributes in each q-block to remain close to the distribution in the full dataset."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tradeoff in t-closeness",
+      "back": "Increasing privacy by forcing local distributions to resemble global distributions often destroys useful statistical structure and reduces analytical utility."
+    },
+    {
+      "type": "flashcard",
+      "front": "Personally Identifiable Information (PII)",
+      "back": "Information that can identify an individual directly or indirectly. In practice, many seemingly harmless attributes can become identifying when combined with auxiliary data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Relative nature of anonymization",
+      "back": "Whether data is personal depends on who holds it and what auxiliary information or capabilities they possess."
+    },
+    {
+      "type": "flashcard",
+      "front": "Differential privacy",
+      "back": "A formal privacy guarantee ensuring that the inclusion or exclusion of a single individual's record changes output probabilities only by a bounded factor controlled by ε."
+    },
+    {
+      "type": "flashcard",
+      "front": "Meaning of ε in differential privacy",
+      "back": "ε controls the privacy-utility tradeoff. Smaller ε provides stronger privacy because outputs become less sensitive to any one individual's participation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Sensitivity in differential privacy",
+      "back": "The maximum change that a single individual's data can cause in the output of a query function."
+    },
+    {
+      "type": "flashcard",
+      "front": "Laplace mechanism",
+      "back": "A differential privacy mechanism that adds Laplace-distributed noise scaled according to sensitivity divided by ε."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy budget",
+      "back": "A limit on cumulative privacy loss in a differentially private system. Repeated releases consume the budget because privacy losses compose."
+    },
+    {
+      "type": "flashcard",
+      "front": "Composition property of differential privacy",
+      "back": "Multiple differentially private releases accumulate privacy loss. If several mechanisms are used, the overall ε is approximately the sum of the individual ε values."
+    },
+    {
+      "type": "flashcard",
+      "front": "Input perturbation",
+      "back": "A privacy approach where noise is added locally to each user's data before transmission to the server."
+    },
+    {
+      "type": "flashcard",
+      "front": "Output perturbation",
+      "back": "A privacy approach where noise is added centrally to query results after computation on the original dataset."
+    },
+    {
+      "type": "flashcard",
+      "front": "RAPPOR",
+      "back": "A locally differentially private telemetry system that uses randomized response techniques to collect aggregate statistics while reducing disclosure risk for individuals."
+    },
+    {
+      "type": "flashcard",
+      "front": "Tracker attack",
+      "back": "An attack on statistical databases where carefully constructed auxiliary queries are combined to infer suppressed information about individuals."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why graph data is difficult to anonymize",
+      "back": "Structural properties such as connectivity patterns, node degree, and relationships can uniquely identify individuals even after direct identifiers are removed."
+    },
+    {
+      "type": "flashcard",
+      "front": "AOL search dataset lesson",
+      "back": "Behavioral data such as search queries may contain enough contextual detail to identify individuals even when direct identifiers are removed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Netflix Prize dataset lesson",
+      "back": "Combining pseudonymized datasets with public auxiliary information can enable large-scale re-identification attacks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Static release of statistics",
+      "back": "A fixed set of statistics is published once, limiting interaction but still potentially leaking information through inference."
+    },
+    {
+      "type": "flashcard",
+      "front": "Dynamic release of statistics",
+      "back": "Users interactively issue queries to a database, creating additional inference risks because repeated queries may reveal sensitive information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Local differential privacy",
+      "back": "A form of differential privacy where privacy protection is applied before data leaves the user's device, reducing the need to trust the data collector."
+    },
+    {
+      "type": "flashcard",
+      "front": "Utility vs privacy tradeoff",
+      "back": "Stronger privacy protections usually require removing precision, structure, or accuracy from data, reducing analytical usefulness."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why auxiliary information matters",
+      "back": "Privacy protections often fail when attackers can combine released data with external datasets or contextual knowledge."
+    },
+    {
+      "type": "flashcard",
+      "front": "Inference attack",
+      "back": "An attack where sensitive information is deduced indirectly from released statistics or anonymized records rather than directly revealed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why suppression alone is insufficient",
+      "back": "Suppressing direct identifiers may still leave enough structure or correlations for individuals to be identified indirectly."
+    },
+    {
+      "type": "flashcard",
+      "front": "Core advantage of differential privacy",
+      "back": "Differential privacy provides guarantees that do not depend on assumptions about what auxiliary information attackers possess."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A company releases a dataset after replacing names with random identifiers. Which remaining risk best explains why this may still fail to protect privacy?",
+      "options": [
+        "Attackers may use auxiliary information to reconnect records to individuals",
+        "Random identifiers automatically reveal cryptographic keys",
+        "Removing names prevents statistical analysis from working correctly",
+        "Pseudonyms eliminate all legal obligations regarding personal data"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which situation best illustrates the role of a quasi-identifier?",
+      "options": [
+        "A password hash used only for authentication",
+        "An exact cryptographic secret key",
+        "A combination of age and postcode that narrows identity when linked with external data",
+        "A random number generated independently for every record"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why k-anonymity focuses on quasi-identifiers rather than only explicit identifiers.",
+      "answer": "Removing explicit identifiers such as names is often insufficient because combinations of seemingly ordinary attributes can still identify individuals when linked with external information. k-anonymity therefore aims to make records indistinguishable with respect to quasi-identifiers."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "If a dataset satisfies k-anonymity, then no sensitive information can be inferred about individuals.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What problem is l-diversity primarily intended to address?",
+      "options": [
+        "The computational cost of encryption",
+        "Inference caused by homogeneous sensitive values inside a q-block",
+        "The inability of differential privacy to add noise",
+        "The risk that databases contain duplicate rows"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A q-block contains several different diseases, but all are closely related stomach conditions. What weakness does this illustrate?",
+      "options": [
+        "Tracker attacks",
+        "Composition failure",
+        "Semantic similarity weakness in l-diversity",
+        "Input perturbation leakage"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can stronger anonymization techniques reduce the usefulness of data for analysis?",
+      "answer": "Privacy protections often remove detail, correlations, or structure that analysts rely on. Generalization, suppression, and noise reduce the ability to detect meaningful patterns or make accurate inferences."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best captures the key distinction between pseudonymization and differential privacy?",
+      "options": [
+        "Differential privacy provides formal guarantees against inference, while pseudonymization mainly removes direct identifiers",
+        "Pseudonymization prevents all use of auxiliary information",
+        "Differential privacy only applies to encrypted databases",
+        "Pseudonymization guarantees that records cannot be linked together"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Differential privacy assumes attackers have limited auxiliary information about individuals.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A hospital wants to publish useful statistics while minimizing privacy risks. Why might differential privacy be preferable to releasing anonymized raw records?",
+      "answer": "Publishing anonymized raw records can still allow re-identification or inference attacks using auxiliary data. Differential privacy instead releases noisy aggregate statistics with formal guarantees limiting how much any one individual's data affects the output."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main purpose of the privacy budget in a differentially private system?",
+      "options": [
+        "To estimate database storage requirements",
+        "To control cumulative privacy loss across multiple releases",
+        "To prevent encryption keys from expiring",
+        "To ensure every query returns the same amount of noise"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which factor directly determines how much noise the Laplace mechanism must add?",
+      "options": [
+        "The number of database administrators",
+        "The sensitivity of the query and the chosen ε value",
+        "The number of columns in the dataset only",
+        "Whether the database is encrypted at rest"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Lower ε values generally correspond to stronger privacy guarantees.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why differential privacy composes across multiple query releases.",
+      "answer": "Each release leaks a bounded amount of information about the dataset. When multiple releases are combined, an attacker gains additional evidence, so the overall privacy loss accumulates approximately as the sum of the individual ε values."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which scenario best matches input perturbation?",
+      "options": [
+        "A server adds noise after computing a global statistic",
+        "Users randomize their answers before sending them to a central collector",
+        "A database administrator suppresses entire columns",
+        "An analyst encrypts a completed report before publication"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is local differential privacy useful when users do not fully trust the data collector?",
+      "options": [
+        "It guarantees that the collector never receives any data",
+        "It protects privacy before data leaves the user's device",
+        "It eliminates all need for statistical analysis",
+        "It ensures that no false data is ever reported"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A dataset is considered anonymous by one organization but personal data by another. Explain how this can happen.",
+      "answer": "Whether data is personal depends on the means reasonably available to identify individuals. One organization may lack the auxiliary information or capabilities needed for re-identification, while another organization may possess them."
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "If direct identifiers are removed from graph data, graph structure no longer creates privacy risks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What broader lesson is demonstrated by the AOL and Netflix re-identification cases?",
+      "options": [
+        "Encryption algorithms were incorrectly implemented",
+        "Behavioral and preference data can act as identifying information",
+        "Only government datasets are vulnerable to privacy attacks",
+        "Anonymization fails only when attackers have insider access"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why are tracker attacks particularly problematic for systems that allow many aggregate queries?",
+      "answer": "Attackers can combine carefully chosen overlapping queries to isolate the contribution of particular individuals or small groups, even when direct disclosure protections are applied to single queries."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best describes the tradeoff involved in choosing ε for differential privacy?",
+      "options": [
+        "Smaller ε improves utility without affecting privacy",
+        "Larger ε usually increases accuracy but weakens privacy",
+        "ε only affects computational performance",
+        "ε determines the number of users in the database"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A dataset can satisfy l-diversity and still leak meaningful sensitive information.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare the assumptions made by k-anonymity and differential privacy about attackers.",
+      "answer": "k-anonymity depends on assumptions about which attributes are identifying and what auxiliary information attackers possess. Differential privacy instead aims to provide guarantees regardless of the attacker's side information."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is graph anonymization generally harder than anonymizing simple tables?",
+      "options": [
+        "Graphs cannot contain sensitive attributes",
+        "Graph structures often contain unique relational patterns",
+        "Graphs do not support suppression or generalization",
+        "Graphs are always encrypted before release"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A released dataset satisfies k-anonymity but still enables harmful inference about individuals. Give a concise explanation of how this can happen.",
+      "answer": "An attacker may know that a target belongs to a particular q-block and infer sensitive information because the block contains limited or highly related sensitive values. Auxiliary information can further narrow the possibilities."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main reason differential privacy adds random noise to outputs?",
+      "options": [
+        "To reduce storage costs",
+        "To hide the precise contribution of any single individual",
+        "To eliminate the need for authentication",
+        "To prevent databases from being queried interactively"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Publishing more differentially private statistics from the same dataset can weaken overall privacy protection.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Outline a concise answer plan for discussing why releasing anonymized raw datasets is risky.",
+      "answer": "Define anonymization and auxiliary information; explain re-identification risks through linkage attacks; discuss weaknesses of k-anonymity and related models; explain the utility-privacy tradeoff; conclude that formal approaches such as differential privacy or controlled access are often safer."
+    }
+  ]
+}
