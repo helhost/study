@@ -1,0 +1,507 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Selective disclosure credential",
+      "back": "A credential that lets a prover demonstrate that certified attributes satisfy a required claim or boolean formula without revealing unnecessary attributes or allowing false claims."
+    },
+    {
+      "type": "flashcard",
+      "front": "Issuer, prover, and verifier in selective disclosure",
+      "back": "The issuer certifies attributes, the prover holds the credential, and the verifier checks selected claims about those attributes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Issuing protocol",
+      "back": "The interaction where the prover obtains a certified credential from the issuer for a set of attributes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Showing protocol",
+      "back": "The interaction where the prover convinces a verifier of selected claims about a credential while revealing no more than those claims."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy problem with traditional identity credentials",
+      "back": "They often reveal a full identity and many attributes even when the verifier only needs one limited claim, such as age eligibility."
+    },
+    {
+      "type": "flashcard",
+      "front": "Single-show credential",
+      "back": "A credential design where repeated uses of the same credential are linkable, so privacy requires using a freshly issued credential for each show."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multi-show credential",
+      "back": "A credential design where the same credential can be shown multiple times without the showings being linkable."
+    },
+    {
+      "type": "flashcard",
+      "front": "Brands & Chaum credentials",
+      "back": "Single-show credentials with blinded issuing but clear showing. Reuse makes showings linkable."
+    },
+    {
+      "type": "flashcard",
+      "front": "Camenisch-Lysyanskaya credentials",
+      "back": "Multi-show credentials with blinded showing, allowing unlinkable repeated use at the cost of greater implementation complexity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Algebraic MAC credential scheme",
+      "back": "A selective disclosure credential scheme using algebraic MACs and zero-knowledge proofs to prove correct credential possession efficiently."
+    },
+    {
+      "type": "flashcard",
+      "front": "Main limitation of aMAC credentials",
+      "back": "MAC verification requires the issuer's secret key, so the issuer must also verify or the verifier must perform an online check with the issuer."
+    },
+    {
+      "type": "flashcard",
+      "front": "Discrete logarithm problem",
+      "back": "Given g and g^x in a large group, exponentiation is easy but recovering x is computationally hard."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why discrete logarithms are useful in zero-knowledge proofs",
+      "back": "They allow a prover to demonstrate knowledge of a secret exponent without revealing the exponent itself."
+    },
+    {
+      "type": "flashcard",
+      "front": "Schnorr identification protocol",
+      "back": "A zero-knowledge protocol where a prover demonstrates knowledge of a secret x corresponding to public y = g^x."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fiat-Shamir heuristic",
+      "back": "A method for turning an interactive challenge-response proof into a non-interactive proof by deriving the challenge from a hash."
+    },
+    {
+      "type": "flashcard",
+      "front": "Generalised proof of discrete-log representation",
+      "back": "A zero-knowledge proof that a prover knows secret values x_i satisfying a public relation such as y = product g_i^x_i."
+    },
+    {
+      "type": "flashcard",
+      "front": "NIZK notation",
+      "back": "NIZK{(secrets): statements} separates private witness values from the public relations proven about them."
+    },
+    {
+      "type": "flashcard",
+      "front": "Message Authentication Code (MAC)",
+      "back": "A symmetric primitive that uses a secret key to produce a tag over a message, providing integrity when the key is unknown to adversaries."
+    },
+    {
+      "type": "flashcard",
+      "front": "Why a basic MAC credential is not privacy-preserving",
+      "back": "Direct verification requires revealing the tag and attributes, making presentations linkable and exposing more information than necessary."
+    },
+    {
+      "type": "flashcard",
+      "front": "aMAC key generation",
+      "back": "The issuer creates secret MAC key components x0, ..., xk and public parameters such as X_i = h^x_i to support later zero-knowledge proofs."
+    },
+    {
+      "type": "flashcard",
+      "front": "aMAC tag generation",
+      "back": "The issuer chooses random u and computes u' = u^Hsk(m), where Hsk(m) = x0 + sum m_i x_i."
+    },
+    {
+      "type": "flashcard",
+      "front": "aMAC verification",
+      "back": "Verification checks that u' matches u raised to the keyed function of the message attributes. Basic verification requires the secret key."
+    },
+    {
+      "type": "flashcard",
+      "front": "Cxo commitment in aMAC",
+      "back": "A public commitment to the secret key component x0, computed with randomness, used to support proofs of correct issuance."
+    },
+    {
+      "type": "flashcard",
+      "front": "Credential issuance in aMAC",
+      "back": "The issuer gives the prover a MAC on their attributes together with a zero-knowledge proof that the MAC was correctly formed."
+    },
+    {
+      "type": "flashcard",
+      "front": "Credential showing in aMAC",
+      "back": "The prover blinds the MAC tag, commits to attributes, and proves in zero knowledge that they hold a valid credential satisfying the required claims."
+    },
+    {
+      "type": "flashcard",
+      "front": "Unlinkability in aMAC showing",
+      "back": "Fresh randomisation of tags and commitments makes different presentations of the same credential appear unrelated."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anonymity set concern",
+      "back": "Credential design must avoid parameters or keys that identify a small group or individual issuer-use context, otherwise the prover may be linkable despite selective disclosure."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anonymous channel requirement",
+      "back": "Network identifiers such as IP addresses or session tokens can link issuing and showing transcripts, so cryptographic unlinkability may require anonymous communication channels."
+    },
+    {
+      "type": "flashcard",
+      "front": "Attribute-based access control with anonymous credentials",
+      "back": "A user proves possession of a required capability or role without revealing their full identity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy-preserving federated identity",
+      "back": "A user receives certified attributes from one provider and proves selected claims to other services without exposing their full identity or all attributes."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy-friendly e-identity",
+      "back": "A government-issued credential can let a user prove claims such as age, address, or nationality without revealing unrelated identity details."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A website only needs to know whether a user is over 18, but asks for a passport scan. What privacy problem does selective disclosure address here?",
+      "options": [
+        "The verifier learns more identity attributes than necessary",
+        "The issuer cannot certify age attributes",
+        "The user cannot prove any boolean claim",
+        "The credential cannot contain multiple attributes"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which role certifies the attributes contained in a selective disclosure credential?",
+      "options": [
+        "Verifier",
+        "Issuer",
+        "Prover",
+        "Anonymous channel"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best distinguishes issuing from showing?",
+      "options": [
+        "Issuing proves claims to a verifier; showing creates the credential",
+        "Issuing obtains a certified credential; showing proves selected claims from it",
+        "Issuing is anonymous; showing always reveals full identity",
+        "Issuing uses no cryptography; showing uses only signatures"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Selective disclosure allows the prover to reveal only the attributes or claims needed by the verifier.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A selective disclosure system is secure if the verifier can infer extra attributes as long as the prover's name remains hidden.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why are repeated uses of a single-show credential problematic?",
+      "options": [
+        "They require the verifier to know the issuer's public key",
+        "They become linkable across presentations",
+        "They reveal the issuer's secret MAC key",
+        "They prevent the credential from containing attributes"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main benefit of multi-show credentials over single-show credentials?",
+      "options": [
+        "They allow unlinkable repeated presentation of the same credential",
+        "They remove the need for an issuer",
+        "They reveal all attributes more efficiently",
+        "They work only with clear showing transcripts"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Explain why traditional identity credentials are often privacy-invasive.",
+      "answer": "They bind attributes to a full identity and tend to reveal more information than the verifier actually needs, such as name and address when only age eligibility is required."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which scheme is described as fast and elegant but constrained because the issuer must also verify or be contacted online?",
+      "options": [
+        "Brands & Chaum credentials",
+        "Camenisch-Lysyanskaya credentials",
+        "Algebraic MAC credentials",
+        "E-passport credentials"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why must the prover not learn the issuer's secret MAC key in a MAC-based credential system?",
+      "options": [
+        "It would allow the prover to forge credentials for arbitrary attributes",
+        "It would prevent the prover from using zero-knowledge proofs",
+        "It would reveal the verifier's network address",
+        "It would make all credentials single-show"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A plain MAC over attributes is enough to provide selective disclosure privacy without additional zero-knowledge techniques.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does basic MAC verification undermine credential privacy?",
+      "answer": "It requires showing the tag and attributes directly, so the verifier learns the credential contents and can potentially link repeated uses."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What makes the discrete logarithm problem cryptographically useful?",
+      "options": [
+        "Exponentiation is easy while recovering the exponent is hard",
+        "Both exponentiation and logarithms are easy",
+        "The secret exponent is published by the issuer",
+        "It removes the need for group parameters"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Schnorr's protocol proves knowledge of a secret exponent without revealing the exponent itself.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the Fiat-Shamir heuristic achieve in Schnorr-style proofs?",
+      "options": [
+        "It replaces the prover's secret with a public key",
+        "It converts an interactive challenge into a hash-derived non-interactive challenge",
+        "It allows the verifier to recover the witness",
+        "It removes the need for commitments"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In NIZK{(secrets): statements}, what are the secrets?",
+      "options": [
+        "Values revealed to the verifier as outputs",
+        "Private witness values known to the prover",
+        "Public parameters chosen by the verifier",
+        "The verifier's boolean access policy"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the purpose of a zero-knowledge proof in selective disclosure credentials?",
+      "answer": "It lets the prover demonstrate possession of a valid credential and satisfaction of selected claims without revealing the hidden attributes, original credential, or secret witness values."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "In aMAC tag generation, what does Hsk(m) combine?",
+      "options": [
+        "The verifier's challenge and the prover's IP address",
+        "The issuer key components and message attributes",
+        "The issuer's public key and a timestamp",
+        "Only a hash of the credential identifier"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the role of public issuer parameters such as X_i = h^x_i in aMAC?",
+      "options": [
+        "They expose the issuer's secret key for verification",
+        "They support zero-knowledge proofs about the issuer's secret key components",
+        "They replace all attribute commitments",
+        "They allow the verifier to decrypt credentials"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "In basic aMAC verification, the secret key is required to check the MAC relation.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What does the Cxo commitment enable in the aMAC construction?",
+      "options": [
+        "A public commitment to x0 that can be used in issuance proofs",
+        "A public encryption of every user attribute",
+        "A way for the prover to learn the issuer's secret key",
+        "A replacement for the anonymous channel"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What must the issuer prove during aMAC credential issuance?",
+      "answer": "The issuer must prove in zero knowledge that the issued MAC was correctly computed over the attributes and is consistent with the issuer's public parameters and commitment to x0."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does the prover blind the aMAC tag during showing?",
+      "options": [
+        "To randomise linkable values so repeated showings cannot be connected",
+        "To reveal the issuer's secret key safely",
+        "To remove the need for attribute commitments",
+        "To make the verifier the new issuer"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Fresh randomisation during aMAC showing is central to unlinkability.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A verifier sees two credential showings with different randomised tags and commitments. What security goal does this support?",
+      "answer": "It supports unlinkability because the verifier should not be able to tell whether the two showings came from the same underlying credential."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "If the issuer and verifier are different in a basic aMAC deployment, what is required?",
+      "options": [
+        "The verifier must contact the issuer for an online check",
+        "The prover must publish all hidden attributes",
+        "The issuer must give every verifier the prover's credential",
+        "The system must disable zero-knowledge proofs"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "The issuer-verifier limitation of aMAC is a deployment tradeoff rather than a failure of the MAC's integrity goal.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for comparing single-show and multi-show credentials.",
+      "answer": "Define both schemes, explain linkability under repeated use, note that single-show credentials require re-issuance for privacy, and discuss the tradeoff that multi-show schemes offer stronger unlinkability with greater complexity."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which risk remains if the cryptographic showing protocol is unlinkable but users connect from the same identifiable IP address each time?",
+      "options": [
+        "Network metadata can link the sessions",
+        "The MAC becomes forgeable",
+        "The issuer's key is automatically disclosed",
+        "The verifier cannot check any proof"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An anonymous communication channel can help prevent non-cryptographic identifiers from linking issuing and showing sessions.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "An anonymous channel alone guarantees selective disclosure even if the credential protocol reveals all attributes.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can implementation details outside the credential proof still compromise anonymity?",
+      "answer": "Identifiers such as IP addresses, session cookies, timing, or reused parameters can link sessions even when the cryptographic proof itself is zero knowledge and unlinkable."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which example best fits attribute-based access control using anonymous credentials?",
+      "options": [
+        "A user proves membership in an authorised group without revealing their name",
+        "A user uploads a passport scan to every website",
+        "A verifier asks the issuer to disclose all attributes",
+        "A service stores a plaintext password for each user"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which example best illustrates privacy-friendly e-identity?",
+      "options": [
+        "Proving over-18 status without revealing name or address",
+        "Revealing a full passport for every purchase",
+        "Letting the verifier edit government records",
+        "Using one public username for all services"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for explaining anonymous credentials in federated identity.",
+      "answer": "Describe issuer-certified attributes, explain that the user proves selected claims to third-party services, contrast with ordinary identity federation that may reveal full identity, and mention unlinkability and minimal disclosure."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the anonymity set concern in selective disclosure systems?",
+      "options": [
+        "System parameters may identify a small group or issuer-use context and reduce anonymity",
+        "The prover may forget their credential password",
+        "The verifier may use too many boolean formulas",
+        "The issuer may certify too many attributes"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Using different credential keys or parameters for narrowly identifiable groups can weaken anonymity even when each proof is zero knowledge.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What is the core failure mode if a verifier can link multiple credential showings?",
+      "answer": "The verifier can build a profile of the prover's activity across sessions, undermining the anonymity and minimal-disclosure goals of the credential system."
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for discussing the security goals of selective disclosure credentials.",
+      "answer": "Cover correctness of certified claims, unforgeability against provers, privacy against verifiers, unlinkability across showings, and practical assumptions such as anonymous channels and careful parameter design."
+    }
+  ]
+}
