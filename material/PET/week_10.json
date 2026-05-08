@@ -1,0 +1,553 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Four Stages of Privacy in Machine Learning",
+      "back": "Training Data Privacy, Input Privacy, Output Privacy, and Model Privacy."
+    },
+    {
+      "type": "flashcard",
+      "front": "Training Data Privacy",
+      "back": "Protection against attackers inferring, reconstructing, or extracting information about the data used to train a machine learning model."
+    },
+    {
+      "type": "flashcard",
+      "front": "Input Privacy",
+      "back": "Protection ensuring that a user's input data is not exposed to other parties, including the model provider."
+    },
+    {
+      "type": "flashcard",
+      "front": "Output Privacy",
+      "back": "Protection ensuring that inference results are visible only to authorised users and do not leak sensitive information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Model Privacy",
+      "back": "Protection against theft, extraction, or unauthorised replication of a machine learning model."
+    },
+    {
+      "type": "flashcard",
+      "front": "Data Silo Problem",
+      "back": "The challenge that valuable training data is distributed across organisations that cannot freely share it because of legal restrictions, privacy concerns, commercial value, or technical constraints."
+    },
+    {
+      "type": "flashcard",
+      "front": "Differential Privacy (DP)",
+      "back": "A mathematical privacy framework designed so that the inclusion or removal of a single individual's data has only a limited effect on the output of a computation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Local Differential Privacy",
+      "back": "A form of differential privacy where users randomise or perturb their own data before sending it to a data collector."
+    },
+    {
+      "type": "flashcard",
+      "front": "Global Differential Privacy",
+      "back": "A form of differential privacy where noise is added to aggregate query outputs by a trusted curator rather than to individual records."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy Budget (ε)",
+      "back": "A parameter controlling the strength of differential privacy guarantees. Smaller ε provides stronger privacy but generally reduces utility or accuracy."
+    },
+    {
+      "type": "flashcard",
+      "front": "DP-SGD",
+      "back": "A differentially private training algorithm that clips per-example gradients and adds noise during optimisation to limit information leakage from training data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Input Perturbation",
+      "back": "A differential privacy approach where noise is added directly to training data before computation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Algorithm Perturbation",
+      "back": "A differential privacy approach where noise is injected into intermediate computations during model training."
+    },
+    {
+      "type": "flashcard",
+      "front": "Output Perturbation",
+      "back": "A differential privacy approach where a model is trained normally and noise is added afterward to the resulting parameters."
+    },
+    {
+      "type": "flashcard",
+      "front": "Objective Perturbation",
+      "back": "A differential privacy approach where noise is added directly to the optimisation objective or loss function."
+    },
+    {
+      "type": "flashcard",
+      "front": "Federated Learning (FL)",
+      "back": "A machine learning approach where models are trained across decentralised devices or organisations without sharing raw data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Horizontal Federated Learning",
+      "back": "A federated learning setup where participants hold different records but share the same feature structure."
+    },
+    {
+      "type": "flashcard",
+      "front": "Vertical Federated Learning",
+      "back": "A federated learning setup where participants hold different features about the same entities or records."
+    },
+    {
+      "type": "flashcard",
+      "front": "Centralized Federated Learning",
+      "back": "A federated learning architecture where a central server coordinates model distribution and aggregation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Decentralized Federated Learning",
+      "back": "A federated learning architecture where participants exchange and aggregate model updates directly without a central coordinator."
+    },
+    {
+      "type": "flashcard",
+      "front": "Non-IID Data",
+      "back": "Data distributions that differ significantly across federated learning participants, making global model training more difficult."
+    },
+    {
+      "type": "flashcard",
+      "front": "Data Poisoning",
+      "back": "An attack where malicious participants introduce manipulated or misleading training data to corrupt model behaviour."
+    },
+    {
+      "type": "flashcard",
+      "front": "Model Poisoning",
+      "back": "An attack where malicious participants tamper with gradients or parameter updates during collaborative training."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secure Multiparty Computation (SMPC)",
+      "back": "Cryptographic techniques allowing multiple parties to jointly compute a function while keeping their individual inputs private."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secret Sharing",
+      "back": "A method where a secret is divided into multiple shares so that no individual share reveals the secret on its own."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secure Aggregation",
+      "back": "A protocol allowing a server to learn only the aggregate of client updates rather than individual contributions."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homomorphic Encryption (HE)",
+      "back": "Encryption that allows computations to be performed directly on ciphertexts, producing encrypted results corresponding to computations on plaintext data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Partial Homomorphic Encryption",
+      "back": "Homomorphic encryption supporting only one operation type, such as addition or multiplication."
+    },
+    {
+      "type": "flashcard",
+      "front": "Somewhat Homomorphic Encryption",
+      "back": "Homomorphic encryption supporting both addition and multiplication but only for a limited number of operations."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fully Homomorphic Encryption",
+      "back": "Homomorphic encryption supporting arbitrary computations on encrypted data without practical limits on operation complexity."
+    },
+    {
+      "type": "flashcard",
+      "front": "Synthetic Data",
+      "back": "Artificially generated data designed to preserve useful statistical properties of real data while reducing privacy risks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fully Synthetic Data",
+      "back": "Synthetic data where all records are artificially generated and no original values remain."
+    },
+    {
+      "type": "flashcard",
+      "front": "Partially Synthetic Data",
+      "back": "Synthetic data where only selected sensitive fields are replaced while some original values remain."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hybrid Dataset",
+      "back": "A dataset containing a mixture of real and synthetic data elements or records."
+    },
+    {
+      "type": "flashcard",
+      "front": "Fidelity (Synthetic Data)",
+      "back": "The degree to which synthetic data preserves the statistical properties and relationships of the original dataset."
+    },
+    {
+      "type": "flashcard",
+      "front": "Utility (Synthetic Data)",
+      "back": "The usefulness of synthetic data for intended tasks such as analytics or machine learning."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy (Synthetic Data Evaluation)",
+      "back": "The extent to which synthetic data protects against re-identification or leakage of sensitive information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Agent-Based Modelling",
+      "back": "A synthetic data generation approach where simulated agents and interactions are used to reproduce observed system behaviour."
+    },
+    {
+      "type": "flashcard",
+      "front": "Generative AI",
+      "back": "AI systems capable of producing new content such as text, images, audio, video, or code from learned patterns."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which privacy problem is most directly caused by organisations being unable to share useful datasets across institutional boundaries?",
+      "options": [
+        "Model inversion attacks",
+        "The data silo problem",
+        "Gradient clipping instability",
+        "Output perturbation failure"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is simply removing names from high-dimensional datasets often insufficient for privacy protection?",
+      "options": [
+        "Most machine learning algorithms require explicit identifiers to function",
+        "Combinations of seemingly non-sensitive attributes can uniquely identify individuals",
+        "Encrypted databases automatically restore removed identifiers during training",
+        "Differential privacy requires names to remain in the dataset"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A dataset may still create privacy risks even if all direct identifiers have been removed.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main goal of differential privacy?",
+      "options": [
+        "To ensure that no information whatsoever can be learned from data analysis",
+        "To make the effect of any single individual's data on outputs difficult to detect",
+        "To guarantee that all datasets remain encrypted permanently",
+        "To eliminate all statistical uncertainty from machine learning"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why does differential privacy remain useful even when attackers possess auxiliary information?",
+      "answer": "Differential privacy limits how much any individual's data can influence outputs, making it difficult for attackers to confidently link external knowledge to a specific record in the dataset."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which distinction best captures the difference between local and global differential privacy?",
+      "options": [
+        "Local DP protects databases while global DP protects neural networks",
+        "Local DP adds noise before data collection while global DP relies on a trusted curator adding noise afterward",
+        "Local DP only works for text while global DP only works for images",
+        "Local DP prevents all accuracy loss while global DP does not"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Local differential privacy reduces the need to trust the data collector.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What tradeoff is central to differential privacy systems?",
+      "options": [
+        "Stronger privacy usually reduces utility or model accuracy",
+        "Stronger privacy always increases computational efficiency",
+        "Stronger privacy removes the need for security engineering",
+        "Stronger privacy guarantees eliminate statistical uncertainty"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why does DP-SGD clip gradients before adding noise?",
+      "options": [
+        "To reduce the influence of any individual training example on parameter updates",
+        "To compress model size for deployment on mobile devices",
+        "To guarantee that all gradients become identical",
+        "To eliminate the need for optimisation entirely"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What are the main practical costs introduced by DP-SGD?",
+      "answer": "DP-SGD often reduces model utility, increases training time because of gradient clipping and noise, and increases memory requirements due to larger batch sizes and per-example computations."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which perturbation strategy modifies the optimisation objective itself?",
+      "options": [
+        "Input perturbation",
+        "Output perturbation",
+        "Objective perturbation",
+        "Global perturbation"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the key idea behind federated learning?",
+      "options": [
+        "All data must first be centralised before secure computation begins",
+        "Model training occurs locally while only updates are shared",
+        "The server directly accesses all participant devices during training",
+        "Each participant trains a completely unrelated model"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Federated learning removes all possible information leakage risks because raw data never leaves devices.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which scenario is an example of horizontal federated learning?",
+      "options": [
+        "Several hospitals each store different medical tests for the same patients",
+        "Several banks each store records about different customers using the same schema",
+        "Two companies exchange encrypted model parameters instead of data",
+        "A single organisation distributes training across multiple GPUs"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What challenge does non-IID data create in federated learning?",
+      "options": [
+        "All devices become cryptographically incompatible",
+        "Different local data distributions make it difficult to learn a single accurate global model",
+        "Aggregators cannot communicate with clients securely",
+        "Model updates become impossible to encrypt"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can federated learning still create privacy concerns despite keeping raw data local?",
+      "answer": "Model updates such as gradients or weights may still leak information about local training data through inference or reconstruction attacks."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What distinguishes data poisoning from model poisoning?",
+      "options": [
+        "Data poisoning manipulates training inputs while model poisoning manipulates updates or gradients",
+        "Data poisoning only affects decentralised systems while model poisoning only affects centralised systems",
+        "Data poisoning targets hardware while model poisoning targets software",
+        "Data poisoning prevents convergence while model poisoning prevents communication"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A central aggregator in federated learning can become both a bottleneck and a single point of failure.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What security property does secure aggregation provide in federated learning?",
+      "options": [
+        "The server learns only the aggregate update rather than each participant's contribution",
+        "Every client can inspect all other clients' local data",
+        "Model updates are permanently stored in plaintext for auditing",
+        "The global model becomes immune to poisoning attacks"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is user dropout a difficult problem in secure aggregation protocols?",
+      "answer": "If users leave before protocol completion, masking values may not cancel correctly, preventing recovery of the aggregate result and potentially breaking the computation."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main motivation for using homomorphic encryption in machine learning?",
+      "options": [
+        "To eliminate the need for model training",
+        "To allow computation on encrypted data without exposing plaintext",
+        "To improve model interpretability automatically",
+        "To compress datasets before storage"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which distinction best captures the relationship among PHE, SHE, and FHE?",
+      "options": [
+        "They differ mainly in how many operation types and operations they support",
+        "They differ only in key size but provide identical capabilities",
+        "Only PHE can operate on encrypted data",
+        "Only FHE supports addition"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Fully homomorphic encryption is currently associated with substantial computational overhead.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why do many activation functions require approximation under homomorphic encryption?",
+      "options": [
+        "Homomorphic encryption cannot represent any numeric values",
+        "Many activation functions depend on operations such as comparison or division that HE does not natively support",
+        "Activation functions require direct access to plaintext data",
+        "Encrypted models cannot contain non-linear operations"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What tradeoff does homomorphic encryption illustrate between privacy and practicality?",
+      "answer": "Homomorphic encryption provides strong confidentiality by keeping data encrypted during computation, but this comes with high computational and memory costs as well as limitations on supported operations."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main purpose of synthetic data?",
+      "options": [
+        "To exactly reproduce all original records",
+        "To preserve useful statistical properties while reducing exposure of real individuals",
+        "To encrypt datasets before publication",
+        "To replace machine learning with simulation entirely"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Synthetic data can still create privacy risks if it preserves too much information from the original dataset.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the key difference between fully synthetic and partially synthetic data?",
+      "options": [
+        "Fully synthetic data removes all original values while partially synthetic data retains some real values",
+        "Partially synthetic data cannot be used for machine learning",
+        "Fully synthetic data always guarantees perfect fidelity",
+        "Partially synthetic data cannot contain structured attributes"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which evaluation dimension asks whether synthetic data preserves statistical relationships from the original dataset?",
+      "options": [
+        "Privacy",
+        "Utility",
+        "Fidelity",
+        "Robustness"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is there often tension between privacy, utility, and fidelity in synthetic data systems?",
+      "answer": "Increasing fidelity and utility may preserve more information from the original dataset, which can increase privacy risks, while stronger privacy protections may reduce realism or usefulness."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which limitation is commonly associated with synthetic datasets?",
+      "options": [
+        "They may fail to preserve important rare or outlier cases",
+        "They cannot be generated for structured data",
+        "They require all original data to remain publicly available",
+        "They completely eliminate bias automatically"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Synthetic data may sometimes improve fairness by balancing underrepresented groups.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What broader lesson is illustrated by combining federated learning, differential privacy, SMPC, and homomorphic encryption?",
+      "options": [
+        "A single privacy technology is sufficient for all threat models",
+        "Different techniques address different privacy and trust assumptions",
+        "Privacy protections are mainly organisational rather than technical",
+        "Machine learning privacy can be solved entirely through anonymisation"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for evaluating a privacy-preserving machine learning system.",
+      "answer": "Identify the threat model and stakeholders; determine which privacy properties are required; analyse what information is exposed during training, inference, aggregation, and deployment; evaluate tradeoffs between privacy, utility, trust, and efficiency; consider how multiple PETs may be combined."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why is model privacy economically important in machine learning systems?",
+      "options": [
+        "Models often represent significant intellectual property and training investment",
+        "Model privacy eliminates the need for access control",
+        "Private models cannot leak training information",
+        "Model privacy automatically guarantees fairness"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What kinds of harms can generative AI create even when no raw training records are directly exposed?",
+      "answer": "Generative AI can enable impersonation, misinformation, fraud, manipulation, synthetic identity attacks, and deceptive content generation that undermines trust and authenticity."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which response most directly reduces the effectiveness of AI voice-cloning attacks against banking systems?",
+      "options": [
+        "Increasing password complexity requirements",
+        "Replacing voice-only authentication with stronger multi-factor approaches",
+        "Blocking all AI-generated audio files from the internet",
+        "Publishing customer voiceprints publicly for verification"
+      ],
+      "answer": 1
+    }
+  ]
+}

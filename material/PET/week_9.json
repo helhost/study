@@ -1,0 +1,568 @@
+{
+  "entries": [
+    {
+      "type": "flashcard",
+      "front": "Privacy by Design (PbD)",
+      "back": "An approach to system development that treats privacy as a core requirement from the beginning of the software lifecycle, integrating privacy considerations into requirements analysis, architecture, implementation, deployment, and maintenance."
+    },
+    {
+      "type": "flashcard",
+      "front": "Economics of Privacy Engineering",
+      "back": "The principle that integrating privacy protections during system design is generally cheaper and more effective than retrofitting them after deployment."
+    },
+    {
+      "type": "flashcard",
+      "front": "The 7 Principles of Privacy by Design",
+      "back": "(1) Proactive not Reactive; Preventative not Remedial, (2) Privacy as the Default Setting, (3) Privacy Embedded into Design, (4) Full Functionality – Positive-Sum not Zero-Sum, (5) End-to-End Security – Full Lifecycle Protection, (6) Visibility and Transparency – Keep it Open, (7) Respect for User Privacy – Keep it User-Centric."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy as the Default Setting",
+      "back": "Systems should automatically provide strong privacy protections without requiring users to configure settings or opt out of data collection."
+    },
+    {
+      "type": "flashcard",
+      "front": "Full Functionality – Positive-Sum not Zero-Sum",
+      "back": "Privacy should be integrated alongside functionality rather than treated as something that necessarily reduces utility or system capabilities."
+    },
+    {
+      "type": "flashcard",
+      "front": "End-to-End Security – Full Lifecycle Protection",
+      "back": "Privacy and security protections should apply throughout the entire lifecycle of data, including collection, storage, processing, sharing, and destruction."
+    },
+    {
+      "type": "flashcard",
+      "front": "Data Minimization",
+      "back": "The principle that systems should collect, process, and retain only the minimum personal data necessary to achieve legitimate functional requirements."
+    },
+    {
+      "type": "flashcard",
+      "front": "Software Architecture",
+      "back": "The significant structural decisions of a software system, including components, interfaces, interactions, and architectural styles that shape how requirements are realised."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy Engineering Process",
+      "back": "An iterative process involving functional requirements analysis, data minimization, attacker and threat modelling, multilateral security requirements analysis, and implementation/testing."
+    },
+    {
+      "type": "flashcard",
+      "front": "Multilateral Security Requirements Analysis",
+      "back": "A process for identifying and balancing conflicting privacy, security, and functional requirements across different stakeholders."
+    },
+    {
+      "type": "flashcard",
+      "front": "Selective Disclosure Credentials",
+      "back": "Credentials that allow a user to prove selected attributes or properties without revealing unnecessary personal information."
+    },
+    {
+      "type": "flashcard",
+      "front": "Zero-Knowledge Proof (ZKP)",
+      "back": "A cryptographic protocol that allows one party to prove a statement is true without revealing any information beyond the validity of the statement."
+    },
+    {
+      "type": "flashcard",
+      "front": "Homomorphic Encryption",
+      "back": "An encryption technique that allows computations to be performed directly on encrypted data while preserving confidentiality."
+    },
+    {
+      "type": "flashcard",
+      "front": "Commitment Scheme",
+      "back": "A cryptographic mechanism allowing a party to commit to a value while keeping it hidden, but preventing later changes to that value."
+    },
+    {
+      "type": "flashcard",
+      "front": "Secure Multiparty Computation (SMPC)",
+      "back": "A set of techniques allowing multiple mutually distrustful parties to jointly compute a result without revealing their private inputs to one another."
+    },
+    {
+      "type": "flashcard",
+      "front": "Hard Privacy",
+      "back": "Privacy protections enforced primarily through technical mechanisms rather than relying on trust, contracts, or policy compliance."
+    },
+    {
+      "type": "flashcard",
+      "front": "Soft Privacy",
+      "back": "Privacy protections that rely on trusted organisations, policies, regulations, or contractual commitments rather than strong technical guarantees."
+    },
+    {
+      "type": "flashcard",
+      "front": "Local Differential Privacy",
+      "back": "A privacy model where users randomise their data before sharing it, ensuring privacy even if the data collector is malicious."
+    },
+    {
+      "type": "flashcard",
+      "front": "Bitwise Unlinkability",
+      "back": "A property where encrypted or transformed messages cannot be directly linked by comparing their binary representation."
+    },
+    {
+      "type": "flashcard",
+      "front": "Mix Network",
+      "back": "A communication system that obscures relationships between senders and recipients by batching, delaying, reordering, and transforming messages."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threshold Mix",
+      "back": "A mix network design that waits until a threshold number of messages has been collected before forwarding them in a shuffled order."
+    },
+    {
+      "type": "flashcard",
+      "front": "Trusted Third Party",
+      "back": "An entity relied upon to correctly enforce privacy or security guarantees on behalf of users or systems."
+    },
+    {
+      "type": "flashcard",
+      "front": "Forward Secrecy",
+      "back": "A security property ensuring that compromise of long-term keys does not reveal previously encrypted communications."
+    },
+    {
+      "type": "flashcard",
+      "front": "Deniability",
+      "back": "A property where recipients can verify a message during communication, but cannot later prove to third parties who created it."
+    },
+    {
+      "type": "flashcard",
+      "front": "k-Anonymity",
+      "back": "An anonymisation property where each record is indistinguishable from at least k−1 other records with respect to quasi-identifiers."
+    },
+    {
+      "type": "flashcard",
+      "front": "l-Diversity",
+      "back": "An enhancement to k-anonymity requiring sensitive attributes within an anonymity group to contain sufficiently diverse values."
+    },
+    {
+      "type": "flashcard",
+      "front": "Solove’s Taxonomy",
+      "back": "A framework classifying privacy harms into categories related to information collection, processing, dissemination, and invasion."
+    },
+    {
+      "type": "flashcard",
+      "front": "Private Set Intersection",
+      "back": "A cryptographic technique allowing parties to learn the intersection of their datasets without revealing non-intersecting elements."
+    },
+    {
+      "type": "flashcard",
+      "front": "Anonymous Communication",
+      "back": "Communication designed to hide or weaken the link between sender and recipient identities."
+    },
+    {
+      "type": "flashcard",
+      "front": "SecureDrop",
+      "back": "A whistleblowing platform using anonymous communication, encryption, compartmentalisation, and air-gapped systems to protect source identities."
+    },
+    {
+      "type": "flashcard",
+      "front": "Air-Gap Architecture",
+      "back": "A security design where a sensitive system is physically isolated from external networks to reduce the risk of remote compromise."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy-Aware Architecture",
+      "back": "A software architecture that incorporates privacy and security requirements alongside functional requirements while minimising unnecessary exposure of sensitive data."
+    },
+    {
+      "type": "flashcard",
+      "front": "Selective Disclosure in Privacy Engineering",
+      "back": "The practice of revealing only the information necessary for a transaction or proof, rather than disclosing complete identities or datasets."
+    },
+    {
+      "type": "flashcard",
+      "front": "Threat Modelling",
+      "back": "The process of identifying attackers, incentives, capabilities, assets, and possible attack paths in order to analyse system risks."
+    },
+    {
+      "type": "flashcard",
+      "front": "Privacy Risk",
+      "back": "The possibility that personal information may be exposed, inferred, misused, or linked in ways that create harms for individuals."
+    },
+    {
+      "type": "flashcard",
+      "front": "Functional Requirements Analysis",
+      "back": "The process of determining what a system actually needs to achieve, helping distinguish essential functionality from unnecessary data collection."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which scenario best reflects the principle of data minimization?",
+      "options": [
+        "A transport system stores all raw GPS traces indefinitely in case they become useful later",
+        "An online service requests government ID for every user regardless of functionality",
+        "A billing system computes charges locally and transmits only the final amount owed",
+        "A platform centralises all user data to simplify future analytics"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What distinguishes Privacy by Design from approaches that treat privacy mainly as compliance?",
+      "options": [
+        "Privacy protections are implemented only after legal review",
+        "Privacy is embedded into technical and architectural decisions throughout development",
+        "Privacy is delegated primarily to user configuration choices",
+        "Privacy concerns are postponed until deployment and auditing"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A system collects exact user locations even though it only needs to compute toll charges. Which privacy engineering principle is being violated?",
+      "options": [
+        "End-to-End Security",
+        "Visibility and Transparency",
+        "Data Minimization",
+        "Respect for User Privacy"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can vague functional requirements lead to weaker privacy protections?",
+      "answer": "If requirements are poorly defined, designers often collect additional data as a precaution. This can encourage centralised architectures and broader data retention than is actually necessary for system functionality."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which option best illustrates a positive-sum approach to privacy?",
+      "options": [
+        "Removing useful system features whenever privacy concerns arise",
+        "Assuming privacy and functionality are inherently incompatible",
+        "Redesigning a system so functional goals are met without unnecessary disclosure",
+        "Reducing system performance to maximise secrecy regardless of usability"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Privacy by Design assumes that transparency mechanisms alone are sufficient to mitigate all privacy risks.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main purpose of modelling attackers, threats, and risks during privacy engineering?",
+      "options": [
+        "To estimate future market demand for the system",
+        "To identify which parties may have incentives or capabilities to violate privacy requirements",
+        "To replace implementation testing with theoretical analysis",
+        "To eliminate the need for architectural design decisions"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "A privacy-preserving petition system allows eligibility verification without revealing identity. What broader privacy engineering lesson does this illustrate?",
+      "answer": "Systems should distinguish between information that is convenient to collect and information that is actually necessary. Eligibility and uniqueness can often be verified without revealing full identities."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which property is provided by a zero-knowledge proof?",
+      "options": [
+        "It hides all communication metadata from observers",
+        "It allows verification of a statement without revealing the underlying secret",
+        "It guarantees permanent anonymity under all threat models",
+        "It distributes trust across multiple independent authorities"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why are selective disclosure credentials useful in privacy-preserving identity systems?",
+      "options": [
+        "They require users to reveal their complete identity to every verifier",
+        "They eliminate the need for authentication entirely",
+        "They allow users to prove properties about themselves while limiting disclosure",
+        "They guarantee that credentials cannot be revoked"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A system that technically prevents unnecessary data disclosure is an example of hard privacy.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the key limitation of relying only on contracts or policy agreements to protect privacy?",
+      "options": [
+        "They remove the need for trust entirely",
+        "They depend on organisations behaving correctly and being enforceable in practice",
+        "They automatically minimise data collection",
+        "They provide cryptographic confidentiality guarantees"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why do mix networks batch and delay messages?",
+      "options": [
+        "To reduce the computational cost of encryption",
+        "To prevent all forms of traffic analysis automatically",
+        "To weaken timing and ordering relationships between senders and recipients",
+        "To ensure that every user communicates at identical rates"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is bitwise unlinkability alone insufficient to provide strong anonymity in a communication system?",
+      "answer": "Even if ciphertexts cannot be directly linked, attackers may still infer communication relationships using timing, ordering, volume, or network metadata analysis."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What privacy risk remains if a mix network forwards packets immediately after receipt?",
+      "options": [
+        "Attackers may correlate send and receive times to infer communication links",
+        "Messages can no longer be encrypted",
+        "Recipients cannot authenticate senders",
+        "The system loses the ability to transmit packets"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which tradeoff is commonly associated with high-latency anonymity systems?",
+      "options": [
+        "Improved anonymity at the cost of responsiveness and usability",
+        "Improved usability at the cost of stronger authentication",
+        "Lower computational cost with no effect on user experience",
+        "Greater transparency with reduced confidentiality"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why might a system architect prefer local computation over centralised collection of raw data?",
+      "answer": "Local computation can reduce exposure of sensitive information by ensuring that only necessary outputs are shared while raw data remains under user control."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "A smart meter computes billing information inside the home and sends only proofs of correctness. Which principle does this most directly demonstrate?",
+      "options": [
+        "Collect all potentially useful information centrally",
+        "Separate functionality from unnecessary data disclosure",
+        "Use transparency instead of technical controls",
+        "Store all raw measurements for regulatory convenience"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Fine-grained energy consumption data can reveal sensitive behavioural information even if names are removed.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why can anonymisation alone fail to protect privacy in high-dimensional datasets?",
+      "options": [
+        "Attackers may combine auxiliary information with the released data to re-identify individuals",
+        "Anonymised datasets cannot be processed computationally",
+        "Removing identifiers automatically guarantees confidentiality",
+        "Statistical databases cannot contain sensitive information"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What weakness of k-anonymity does l-diversity aim to address?",
+      "options": [
+        "The inability to encrypt records efficiently",
+        "The possibility that all sensitive values in a group are identical or highly similar",
+        "The absence of network-level anonymity",
+        "The computational overhead of database indexing"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "How can background knowledge undermine anonymised datasets?",
+      "answer": "Attackers can combine external information with quasi-identifiers in the dataset to narrow down possible records and infer sensitive attributes about individuals."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which scenario best represents a multilateral security requirements conflict?",
+      "options": [
+        "Users want minimal data collection while regulators demand auditability",
+        "A server requires additional storage capacity",
+        "A network cable has insufficient bandwidth",
+        "A cryptographic library lacks documentation"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is a key advantage of Secure Multiparty Computation compared with relying on a trusted third party?",
+      "options": [
+        "It eliminates all computational overhead",
+        "It removes the need to trust a single central entity with all private inputs",
+        "It guarantees anonymity against all global adversaries",
+        "It prevents any participant from learning the final result"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why can architecture itself act as a privacy mechanism?",
+      "answer": "Architectural choices such as compartmentalisation, isolation, local processing, and separation of duties can limit data exposure and reduce the impact of compromise independently of cryptographic protections."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best describes forward secrecy?",
+      "options": [
+        "Future messages remain secure if current session keys leak",
+        "Past communications remain protected even if long-term keys are later compromised",
+        "Messages can only be decrypted by trusted third parties",
+        "All encrypted communications become publicly verifiable"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Why might deniability be desirable in a messaging system?",
+      "options": [
+        "It allows recipients to prove message origin to third parties permanently",
+        "It prevents all forms of impersonation automatically",
+        "It reduces the risk that authenticated communications can later be used as evidence",
+        "It eliminates the need for encryption"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "End-to-end encryption alone necessarily hides all metadata about who communicated with whom.",
+      "answer": false
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the primary security purpose of a commitment scheme?",
+      "options": [
+        "To allow later modification of a chosen value",
+        "To hide a value initially while binding the committer to it",
+        "To distribute trust among multiple parties automatically",
+        "To reveal encrypted data gradually over time"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Compare hard privacy and soft privacy approaches in terms of trust assumptions.",
+      "answer": "Hard privacy relies mainly on technical enforcement mechanisms that reduce the need to trust organisations. Soft privacy relies more heavily on policies, contracts, regulation, or trusted entities behaving correctly."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which scenario best demonstrates local differential privacy?",
+      "options": [
+        "A server encrypts all collected user data before storage",
+        "Users randomise their responses before sending them to the data collector",
+        "A regulator audits a company’s privacy policy annually",
+        "Sensitive records are deleted after five years"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "Local differential privacy can protect users even when the data collector is malicious.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is a common weakness of trusted third parties in privacy systems?",
+      "options": [
+        "They eliminate all legal and organisational risks",
+        "They can become central points of compromise, coercion, or misuse",
+        "They guarantee perfect accountability",
+        "They make cryptographic protections unnecessary"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Why is data minimization especially important in mandatory systems?",
+      "answer": "Users cannot realistically opt out of mandatory systems, so limiting unnecessary collection becomes critical to reducing the risk of surveillance, misuse, or future repurposing of data."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which privacy engineering insight is shared across the petition, road pricing, smart metering, and auction case studies?",
+      "options": [
+        "Sensitive raw data is usually essential for system functionality",
+        "Centralised storage is always the safest architecture",
+        "Careful redesign can often avoid collecting the most privacy-sensitive data entirely",
+        "Anonymisation alone solves all privacy risks"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "What is the main advantage of selective disclosure credentials over conventional identity disclosure?",
+      "options": [
+        "They require disclosure of full personal records for verification",
+        "They support proving specific properties without unnecessary identity revelation",
+        "They eliminate the need for cryptography",
+        "They make credentials impossible to revoke or expire"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "Give a concise answer plan for evaluating whether a proposed privacy-preserving system actually needs to collect personal data.",
+      "answer": "Identify the true functional requirements; determine what outputs are actually necessary; separate verification from identification; analyse whether local computation or cryptographic proofs can replace raw data disclosure; evaluate remaining risks and tradeoffs."
+    },
+    {
+      "type": "quiz",
+      "subtype": "multiple_choice",
+      "question": "Which statement best captures the relationship between privacy and security in privacy engineering?",
+      "options": [
+        "Privacy completely replaces the need for security",
+        "Security mechanisms can support privacy goals, but privacy also depends on limiting unnecessary collection and disclosure",
+        "Privacy concerns are unrelated to system architecture",
+        "Security only matters after data has already been collected"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "quiz",
+      "subtype": "true_false",
+      "question": "A privacy-aware system architecture should consider both functional requirements and quality requirements such as security and privacy.",
+      "answer": true
+    },
+    {
+      "type": "quiz",
+      "subtype": "text_answer",
+      "question": "What kinds of privacy harms can still occur even when communication content is encrypted?",
+      "answer": "Metadata such as communication timing, frequency, social relationships, location, and participation patterns may still enable surveillance, profiling, inference, or identification."
+    }
+  ]
+}
